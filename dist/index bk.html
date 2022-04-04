@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>AIO Indicator - All In One Price Action Indicator</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <script>
+            window.addEventListener("load", function() {
+                const form = document.getElementById('contactForm');
+                form.addEventListener("submit", function(e) {
+                  e.preventDefault();
+                  const data = new FormData(form);
+                  const action = e.target.action;
+                  fetch(action, {
+                    method: 'POST',
+                    body: data,
+                  })
+                  .then(() => {
+                    alert("Form submission successful!");
+                  })
+                });
+              });
+        </script>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container px-5">
+                <a class="navbar-brand" href="#!">AIO Indicator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/gumbon">Chat with me</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="#!">TradingView Link</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-dark py-5">
+            <div class="container px-5">
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="text-center my-5">
+                            <h1 class="display-5 fw-bolder text-white mb-2">The TradingView Pure Price Action All In One Indicator</h1>
+                            <p class="lead text-white-50 mb-4">If you are the one who is “Price Action” style & does not want to use many indicators or complex indicators, this simple beautiful one is right for you.</p>
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                                <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
+                                <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://medium.com/@tranholenguyen/trading-view-price-action-all-in-one-indicator-e6238b80b830">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Features section-->
+        <section class="py-5 border-bottom" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i></div>
+                        <h2 class="h4 fw-bolder">Statistic Panel</h2>
+                        <p>Session, trend, and money management information panels.</p>
+                         <!--<a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a>-->
+                    </div>
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-calendar2-range"></i></div>
+                        <h2 class="h4 fw-bolder">Time, Lookback & Session Information</h2>
+                        <p>Full informationa and tools about trading time, lookback data ranges & trading sessions.</p>
+                         <!--<a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a>-->
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-graph-up"></i></div>
+                        <h2 class="h4 fw-bolder">Many Useful Price Actions Tools</h2>
+                        <p>From magic bars, trendline, price levels, moving average,... to accumulation zone. You can change the setting values easily.</p>
+                         <!--<a class="text-decoration-none" href="#!">
+                            Call to action
+                            <i class="bi bi-arrow-right"></i>
+                        </a>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trial section-->
+        <!--<section class="bg-white py-5 border-bottom" id="trial">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-person-lines-fill"></i></div>
+                    <h2 class="fw-bolder">Free Trial Request</h2>
+                    <p class="lead mb-0">Please fill out this form for a free 3 days trial of AIO Indicator</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form id="TrialContactForm" method="POST" 
+                              action=""
+                             data-sb-form-api-token="API_TOKEN">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="TrialName" id="TrialName" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="TrialName">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="TrialName:required">A name is required.</div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="TrialEmail" id="TrialEmail" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="TrialEmail">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="TrialEmail:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="TrialEmail:email">Email is not valid.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="TrialTradingViewAccount" id="TrialTradingViewAccount" type="text" placeholder="Your TradingView Account..." data-sb-validations="required" />
+                                <label for="TrialTradingViewAccount">TradingView Account</label>
+                                <div class="invalid-feedback" data-sb-feedback="TrialTradingViewAccount:required">A TradingView Account is required.</div>
+                            </div>
+                            
+                            <div class="d-none" id="TrialSubmitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                </div>
+                            </div>
+                            <div class="d-none" id="TrialSubmitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="TrialSubmitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>-->
+
+        <!-- Pricing section-->
+        <section class="bg-light py-5 border-bottom" id="pppayment">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bolder">Choose Your Plan</h2>
+                    <!--<p class="lead mb-0">All plans include free upgrade in the future.</p>-->
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <!-- Pricing card free-->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card mb-5 mb-xl-0">
+                            <div class="card-body p-5">
+                                <div class="small text-uppercase fw-bold text-muted">Monthly</div>
+                                <div class="mb-3">
+                                    <span class="display-4 fw-bold">$14.99</span>
+                                    <span class="text-muted">/ mo.</span>
+                                </div>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>AIO Indicator</strong>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Members Only Other Trading Indicators
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        AIO Indicator Free Upgrade Lifetime
+                                    </li>
+                                </ul>
+                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5YN90136M46076201MG2NGBQ">Choose plan</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pricing card pro-->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card mb-5 mb-xl-0">
+                            <div class="card-body p-5">
+                                <div class="small text-uppercase fw-bold">
+                                    <i class="bi bi-star-fill text-warning"></i>
+                                    12 Months
+                                </div>
+                                <div class="mb-3">
+                                    <span class="display-4 fw-bold">$9.99</span>
+                                    <span class="text-muted">/ mo.</span>
+                                </div>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>AIO Indicator</strong>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Members Only Other Trading Indicators
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        AIO Indicator Free Upgrade Lifetime
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>SAVE 33.33%!</strong>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        *Billed as 12 months
+                                    </li>
+                                    <!--<li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Dedicated support
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Free linked domain
+                                    </li>
+                                    <li class="text-muted">
+                                        <i class="bi bi-x"></i>
+                                        Monthly status reports
+                                    </li>-->
+                                </ul>
+                                <div class="d-grid"><a class="btn btn-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7RE928638K7399923MJE2QLA">Choose plan</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Pricing card enterprise-->
+                    <div class="col-lg-6 col-xl-4">
+                        <div class="card">
+                            <div class="card-body p-5">
+                                <div class="small text-uppercase fw-bold text-muted">Quarterly</div>
+                                <div class="mb-3">
+                                    <span class="display-4 fw-bold">$12.99</span>
+                                    <span class="text-muted">/ mo.</span>
+                                </div>
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>AIO Indicator</strong>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Members Only Other Trading Indicators
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        AIO Indicator Free Upgrade Lifetime
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>SAVE 13.33%! </strong>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        *Billed as 3 months
+                                    </li>
+                                    <!--<li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Dedicated support
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        <strong>Unlimited</strong>
+                                        linked domains
+                                    </li>
+                                    <li class="text-muted">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Monthly status reports
+                                    </li>-->
+                                </ul>
+                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4NW71753S0407282GMJE2POQ">Choose plan</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials section-->
+        
+        <!--<section class="py-5 border-bottom">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <h2 class="fw-bolder">Customer testimonials</h2>
+                    <p class="lead mb-0">Our customers love working with us</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        
+                        <div class="card mb-4">
+                            <div class="card-body p-4">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
+                                    <div class="ms-4">
+                                        <p class="mb-1">Thank you for putting together such a great product. We loved working with you and the whole team, and we will be recommending you to others!</p>
+                                        <div class="small text-muted">- Client Name, Location</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="card">
+                            <div class="card-body p-4">
+                                <div class="d-flex">
+                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
+                                    <div class="ms-4">
+                                        <p class="mb-1">The whole team was a huge help with putting things together for our company and brand. We will be hiring them again in the near future for additional work!</p>
+                                        <div class="small text-muted">- Client Name, Location</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <!-- Contact section-->
+        <!--<section class="bg-light py-5">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">Get in touch</h2>
+                    <p class="lead mb-0">We'd love to hear from you</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                            </div>
+                           
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                                <label for="phone">Phone number</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                <label for="message">Message</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                            </div>
+                            
+                            
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                    To activate this form, sign up at
+                                    <br />
+                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                </div>
+                            </div>
+                            
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            
+                            <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>-->
+
+        <!-- Contact section-->
+        <!-- <section class="bg-light py-5">
+            <div class="container px-5 my-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                    <h2 class="fw-bolder">After Payment</h2>
+                    <p>Send me an email with the following information. You'll be able to access the Indicator within 24-48 hours.</p>
+                    <p class="lead mb-0">All plans include free upgrade in the future.</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-7 col-xl-8">
+                        <div class="card mb-5 mb-xl-0">
+                            <div class="card-body p-5">
+                                <ul class="list-unstyled mb-4">
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your Name
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your Payment Email
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your Payment Date
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your Plan (1 mo./ 3mo./ 12 mo.)
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your TradingView User Account
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Your Telegram Account (Optional)
+                                        </br>*For quick contact in case of any issues, or I will contact you via email
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="bi bi-check text-primary"></i>
+                                        Proof of Payment (Optional)
+                                        </br>*For a faster process
+                                    </li>
+                                </ul>
+                                <div class="d-grid"><a class="btn btn-primary" 
+                                    href="mailto:tranholenguyen@gmail.com?subject=[AIO Indicator] Request Access
+                                    &body=Hi Nguyen,%0D%0A %0D%0AI have done the payment via your website. My information is as below:
+                                    %0D%0A - My Name: 
+                                    %0D%0A - My Payment Email: 
+                                    %0D%0A - My Registered Plan: 
+                                    %0D%0A - My TradingView User Account: 
+                                    %0D%0A - My Telegram Account: 
+                                    %0D%0A - Proof of Payment: as attached file
+                                    %0D%0A - Others: 
+                                    %0D%0A
+                                    %0D%0ABest Regards, 
+                                    %0D%0A
+                                   ">Send me an email</a></a></div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+        </section>-->
+
+
+
+        <!-- Contact section-->
+        <section class="bg-white py-5 border-bottom">
+            <div class="container px-5 my-5 px-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-person-lines-fill"></i></div>
+                    <h2 class="fw-bolder">After Payment</h2>
+                    <p class="lead mb-0">Please fill out the payment information. </br>Indicator access on TradingView will be granted within 24-48 hours after the confirmation process.</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-6">
+                        <form id="contactForm" method="POST" 
+                              action="https://script.google.com/macros/s/AKfycbywh7am4rhPKzbHoKGZ3BditY0u7Mgz5S7PPBMeHrPhS2gPD0_OZW8khnHjLrfsuenP/exec"
+                              data-sb-form-api-token="API_TOKEN">
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="Name" id="Name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                <label for="Name">Full name</label>
+                                <div class="invalid-feedback" data-sb-feedback="Name:required">A name is required.</div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="Email" id="Email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                                <label for="Email">Email address</label>
+                                <div class="invalid-feedback" data-sb-feedback="Email:required">An email is required.</div>
+                                <div class="invalid-feedback" data-sb-feedback="Email:email">Email is not valid.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="PaymentDate" id="PaymentDate" type="date" placeholder="Enter your payment date..." data-sb-validations="required" />
+                                <label for="PaymentDate">Payment Date</label>
+                                <div class="invalid-feedback" data-sb-feedback="PaymentDate:required">A payment date is required.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <select class="form-control" name="RegisterdPlan" id="RegisterdPlan">
+                                    <option value="1">Registerd Plan: 1 month</option>
+                                    <option value="3">Registerd Plan: 3 months</option>
+                                    <option value="12">Registerd Plan: 12 months</option>
+                                  </select>
+                                
+                                <div class="invalid-feedback" data-sb-feedback="RegisterdPlan:required">A registered plan is required.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="TradingViewAccount" id="TradingViewAccount" type="text" placeholder="Your TradingView Account..." data-sb-validations="required" />
+                                <label for="TradingViewAccount">TradingView Account</label>
+                                <div class="invalid-feedback" data-sb-feedback="TradingViewAccount:required">A TradingView Account is required.</div>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" name="TelegramAccount" id="TelegramAccount" type="text" placeholder="Your Telegram Account..."/>
+                                <label for="TelegramAccount">Telegram Account (Optional)</label>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" name="Message" id="Message" type="text" placeholder="Enter your message here (if any)..." style="height: 10rem"></textarea>
+                                <label for="Message">Message (If any)</label>
+                            </div>
+                            
+                            
+                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                            <div class="d-none" id="submitSuccessMessage">
+                                <div class="text-center mb-3">
+                                    <div class="fw-bolder">Form submission successful!</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; tranholenguyen@gmail.com 2022</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
