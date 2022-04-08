@@ -20,6 +20,7 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
         />
+        <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
     </head>
     <body>
         <script>
@@ -48,9 +49,10 @@
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/gumbon">Chat with me</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="#!">TradingView Link</a></li>
                         <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://nguyentran.substack.com/">Substack</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="#!">TradingView</a></li>
+                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/gumbon">Chat with me</a></li>
                     </ul>
                 </div>
             </div>
@@ -65,7 +67,7 @@
                             <p class="lead text-white-50 mb-4">If you are the one who is “Price Action” style & does not want to use many indicators or complex indicators, this simple beautiful AIO Indicator is right for you.</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://medium.com/@tranholenguyen/trading-view-price-action-all-in-one-indicator-e6238b80b830">Learn More</a>
+                                <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://nguyentran.substack.com/p/tradingview-price-action-all-in-one">Learn More</a>
                             </div>
                         </div>
                     </div>
@@ -114,7 +116,7 @@
                     <h2 class="fw-bolder">Choose Your Plan</h2>
                     <p class="lead mb-0">Need free 3 days trial? 
                         <a target="_blank" href="https://t.me/gumbon">DM me</a> or <a href="mailto:tranholenguyen@gmail.com?subject=[AIO Indicator] Request free trial
-                        &body=Hi Nguyen,%0D%0A %0D%0AI would like to have free trial for AIO Indicator. My information is as below:
+                        &body=Hi Nguyen,%0D%0A %0D%0AI would like to have a free trial for AIO Indicator. My information is as below:
                         %0D%0A - My Name: 
                         %0D%0A - My TradingView Username: 
                         %0D%0A
@@ -271,7 +273,7 @@
                                 <input class="form-control" name="TelegramUsername" id="TelegramUsername" type="text" placeholder="Your Telegram Username..."/>
                                 <label for="TelegramUsername">Telegram Username (not required)</label>
                             </div>
-                            
+                            <div class="h-captcha" data-sitekey="5f5b7326-0bb1-4ff2-9f96-37521a767c7e"></div>
                             <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
                             <!--<div class="d-none" id="submitSuccessMessage">
