@@ -11294,3 +11294,22 @@ textarea.form-control-lg {
   width: 4rem;
   font-size: 2rem;
 }
+
+#captchaBackground {
+  height: 50px;
+  width: 150px;
+  background-color: silver;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+ }
+ #captcha {
+  height: 100%;
+  width: 80%;
+  font-size: 50px;
+  letter-spacing: 3px;
+  margin: auto;
+  display: block;
+ 
+ }
