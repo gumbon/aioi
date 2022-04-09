@@ -1,7 +1,7 @@
 // document.querySelector() is used to select an element from the document using its ID
 let captchaText = document.querySelector('#captcha');
 var ctx = captchaText.getContext("2d");
-ctx.font = "50px Roboto";
+ctx.font = "40px Roboto";
 ctx.fillStyle = "##0d6efd";
 
 let userText = document.querySelector('#ncaptcha');
