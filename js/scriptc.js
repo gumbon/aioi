@@ -20,38 +20,7 @@ for (let i = 1; i <= 7; i++) {
 var c = emptyArr.join('');
 ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
 
-// This event listener is stimulated whenever the user press the "Enter" button
-// "Correct!" or "Incorrect, please try again" message is
-// displayed after validating the input text with CAPTCHA
-userText.addEventListener('keyup', function(e) {
- // Key Code Value of "Enter" Button is 13
- if (e.keyCode === 13) {
- if (userText.value === c) {
- output.classList.add("correctCaptcha");
- output.innerHTML = "Correct!";
- } else {
- output.classList.add("incorrectCaptcha");
- output.innerHTML = "Incorrect, please try again";
- }
- }
-});
-// This event listener is stimulated whenever the user clicks the "Submit" button
-// "Correct!" or "Incorrect, please try again" message is
-// displayed after validating the input text with CAPTCHA
-submitButton.addEventListener('click', function() {
- if (userText.value === c) {
-//  output.classList.add("correctCaptcha");
-//  output.innerHTML = "Correct!";
- //alert("Correct!");
- //document.getElementById("submitOKMessage").removeAttribute("hidden"); 
- 
- } else {
-//  output.classList.add("incorrectCaptcha");
-//  output.innerHTML = "Incorrect, please try again";
- //alert("Incorrect");
- //document.getElementById("submitNGMessage").removeAttribute("hidden"); 
- }
-});
+
 // This event listener is stimulated whenever the user press the "Refresh" button
 // A new random CAPTCHA is generated and displayed after the user clicks the "Refresh" button
 refreshButton.addEventListener('click', function() {

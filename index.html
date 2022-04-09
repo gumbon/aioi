@@ -29,7 +29,6 @@
                 form.addEventListener("submit", function(e) {
                   e.preventDefault();
 
-
                   if (userText.value === c) {
                     document.getElementById("submitOKMessage").removeAttribute("hidden"); 
                     document.getElementById("submitNGMessage").setAttribute("hidden", true); 
@@ -37,8 +36,8 @@
                     } else {
                     document.getElementById("submitNGMessage").removeAttribute("hidden"); 
                     document.getElementById("submitOKMessage").setAttribute("hidden", true); 
+                    return;
                     }
-
 
                   const data = new FormData(form);
                   const action = e.target.action;
@@ -47,7 +46,8 @@
                     body: data,
                   })
                   .then(() => {
-                    alert("Form submission successful!");
+                    //alert("Form submission successful!");
+                    document.getElementById("submitButton").setAttribute("disabled", true); 
                   })
                 });
               });
@@ -253,7 +253,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <form id="contactForm" method="POST" 
-                        >
+                        action="https://script.google.com/macros/s/AKfycbwGRxtWiMg19Vl8RYqOtWEH6RJZse9QpqC8AZocGp9tHlRlRCAairvx8doasX8kEydQ/exec">
                             <div class="form-floating mb-3">
                                 <input class="form-control" name="Name" id="Name" type="text" placeholder="Enter your name..." required />
                                 <label for="Name">Full name (*)</label>
@@ -285,8 +285,6 @@
                                 <input class="form-control" name="TelegramUsername" id="TelegramUsername" type="text" placeholder="Your Telegram Username..."/>
                                 <label for="TelegramUsername">Telegram Username (not required)</label>
                             </div>
-                            
-
 
                             <div class="form-floating mb-3"> 
                                 <div id="captchaBackground">
@@ -296,19 +294,14 @@
                                 </div>
                                 
                             </div>
+
                             <div class="form-floating mb-3">
-                               
                                 <input class="form-control" name="ncaptcha" id="ncaptcha" type="text" placeholder="Enter ncaptcha..." required/>
                                 <label for="ncaptcha">Please enter captcha above (*)</label>
                                 </br>
                             </div>
 
-
-
-
                             <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
-                            <!--<div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
-                            <!--<div class="d-none" id="submitSuccessMessage"></div>-->
                             <div Class="text-center text-danger mb-3" id="submitOKMessage" hidden>
                                 <div class="fw-bolder">Form submission successful!</div>
                             </div>
@@ -330,7 +323,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
-        <script src="js/scriptc.js"></script>
-        <!--<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>-->
+
     </body>
 </html>
