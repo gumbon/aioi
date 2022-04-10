@@ -49,6 +49,7 @@
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 33, 37, 41;
+  --bs-tradingview-rgb: 13, 17, 22;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: 33, 37, 41;
@@ -7887,6 +7888,14 @@ textarea.form-control-lg {
 
 .bg-gradient {
   background-image: var(--bs-gradient) !important;
+}
+
+.bg-tradingview {
+  background-color: #131722 !important;
+}
+
+.bg-tradingview-50 {
+  background-color: rgba(13,17,22,0.5);
 }
 
 .user-select-all {

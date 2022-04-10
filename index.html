@@ -22,6 +22,7 @@
         />
         <style type="text/css">
             span.ltrText {unicode-bidi: bidi-override; direction: rtl}
+            span.spamprotection {display:none;}
         </style>
         
     </head>
@@ -56,9 +57,9 @@
               });
         </script>
         <!-- Responsive navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-tradingview">
             <div class="container px-5" >
-                <a class="navbar-brand" href="#!">AIO Indicator</a>
+                <a class="navbar-brand" href="#!"><img src="assets/favicon.ico" height= "50px" alt="AIO Indicator Logo">AIO Indicator</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -73,13 +74,14 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-dark py-5">
+        <header class="bg-tradingview py-5">
+            <div class="container bg-image" style=" background-image: url('assets/test.png'); background-size: cover;">
             <div class="container px-5">
                 <div class="row gx-5 justify-content-center">
                     <div class="col-lg-6">
                         <div class="text-center my-5">
                             <h1 class="display-5 fw-bolder text-white mb-2">The TradingView Pure Price Action All In One Indicator</h1>
-                            <p class="lead text-white-50 mb-4">If you are the one who is “Price Action” style & does not want to use many indicators or complex indicators, this simple beautiful AIO Indicator is right for you.</p>
+                            <p class="lead text-white bg-tradingview-50 mb-4">If you are the one who is “Price Action” style & does not want to use many indicators or complex indicators, this simple beautiful AIO Indicator is right for you.</p>
                             <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                                 <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
                                 <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://nguyentran.substack.com/p/tradingview-price-action-all-in-one">Learn More</a>
@@ -87,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </header>
         <!-- Features section-->
@@ -130,7 +133,7 @@
                 <div class="text-center mb-5">
                     <h2 class="fw-bolder">Choose Your Plan</h2>
                     <p class="lead mb-0">Need free 3 days trial? 
-                        <a target="_blank" href="https://t.me/gumbon">DM me</a> or <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;tranhol&#x65;nguy&#x65;n&commat;g&#x6d;&#x61;&#x69;&#x6c;&period;com?subject=[AIO Indicator] Request free trial
+                        <a target="_blank" href="https://t.me/gumbon">DM me</a> or <a target="_blank" href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;tranhol&#x65;nguy&#x65;n&commat;g&#x6d;&#x61;&#x69;&#x6c;&period;com?subject=[AIO Indicator] Request free trial
                         &body=Hi Nguyen,%0D%0A %0D%0AI would like to have a free trial for AIO Indicator. My information is as below:
                         %0D%0A - My Name: 
                         %0D%0A - My TradingView Username: 
@@ -147,7 +150,7 @@
                             <div class="card-body p-5">
                                 <div class="small text-uppercase fw-bold text-muted">Monthly</div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$14.99</span>
+                                    <span class="display-5 fw-bold">$14.99</span>
                                     <span class="text-muted">/ mo.</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
@@ -177,7 +180,7 @@
                                     12 Months
                                 </div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$9.99</span>
+                                    <span class="display-5 fw-bold">$9.99</span>
                                     <span class="text-muted">/ mo.</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
@@ -212,7 +215,7 @@
                             <div class="card-body p-5">
                                 <div class="small text-uppercase fw-bold text-muted">Quarterly</div>
                                 <div class="mb-3">
-                                    <span class="display-4 fw-bold">$12.99</span>
+                                    <span class="display-5 fw-bold">$12.99</span>
                                     <span class="text-muted">/ mo.</span>
                                 </div>
                                 <ul class="list-unstyled mb-4">
@@ -319,9 +322,9 @@
         </section>
 
         <!-- Footer-->
-        <footer class="py-5 bg-dark">
+        <footer class="py-5 bg-tradingview">
             <!--<div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; <span class="ltrText">moc.liamg@neyugnelohnart</span> 2022</p></div>-->
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; Nguyen Tran 2022</p></div>
+            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; tranholenguyen<span class="spamprotection">ICT AIO Indicator Price action</span>@gmail.com 2022</p></div>
             
         </footer>
         <!-- Bootstrap core JS-->
