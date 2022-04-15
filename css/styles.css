@@ -7765,6 +7765,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-gray {
+  --bs-text-opacity: 1;
+  color: #6c757d;
+}
+
 .text-body {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-body-color-rgb), var(--bs-text-opacity)) !important;
@@ -11321,4 +11326,9 @@ textarea.form-control-lg {
   margin: auto;
   display: block;
  
+ }
+
+ #disclaimer {
+  font-size:10px;
+  margin: 10px;
  }
