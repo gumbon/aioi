@@ -11332,3 +11332,33 @@ textarea.form-control-lg {
   font-size:10px;
   margin: 10px;
  }
+
+ @media (min-width: 576px) {
+  .container-sm, .container {
+    max-width: 540px;
+  }
+}
+
+/* small screen, hidden by default */
+@media only screen and (max-width: 450px ) {
+  .fixed-top-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+}
+
+@media only screen and (max-width: 600 ) {
+  .fixed-top-mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+  }
+  .bg-tradingview-mobile {
+    background-color: #131722 !important;
+  }
+}
