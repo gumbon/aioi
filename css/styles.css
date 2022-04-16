@@ -215,7 +215,7 @@ small, .small {
 }
 
 mark, .mark {
-  padding: 0.2em;
+  padding: 0.2em; 
   background-color: #fcf8e3;
 }
 
@@ -11331,6 +11331,14 @@ textarea.form-control-lg {
  #disclaimer {
   font-size:10px;
   margin: 10px;
+ }
+
+ #navfooter {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 0.875em
  }
 
  @media (min-width: 576px) {

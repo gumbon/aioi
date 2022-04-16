@@ -56,26 +56,25 @@
               });
         </script>
         <!-- Responsive navbar-->
-        
-        <nav class="navbar navbar-expand-lg navbar-dark bg-tradingview">
-            <!--<div class="container px-5 fixed-top bg-tradingview">-->
-            <!--<div class="container px-5 fixed-top-mobile bg-tradingview-mobile">-->
-                <div class="container px-5">
-                <a class="navbar-brand" href="#!"><img src="assets/favicon.ico" height= "50px" alt="AIO Indicator Logo">AIO Indicator</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://nguyentran.substack.com/">Substack</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="#!">TradingView</a></li>
-                        <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/nguyenthl">Chat with me</a></li>
-                    </ul>
+        <section id="home">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-tradingview">
+                <!--<div class="container px-5 fixed-top bg-tradingview">-->
+                <!--<div class="container px-5 fixed-top-mobile bg-tradingview-mobile">-->
+                    <div class="container px-5">
+                    <a class="navbar-brand" href="#!"><img src="assets/favicon.ico" height= "50px" alt="AIO Indicator Logo">AIO Indicator</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#home">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li class="nav-item"><a class="nav-link" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li class="nav-item"><a class="nav-link" target="_blank" href="https://nguyentran.substack.com/">Substack</a></li>
+                            <li class="nav-item"><a class="nav-link" target="_blank" href="#!">TradingView</a></li>                        
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </section>
+            </nav>
+        </section>
         <!-- Header-->
         <header class="bg-tradingview py-3">
             <div class="container bg-image" style=" background-image: url('assets/logo.png'); background-size: cover;">
@@ -329,11 +328,22 @@
         </section>
 
         <!-- Footer-->
-        <footer class="py-4 bg-tradingview">
+        <footer class="py-2 bg-tradingview">
             <!--<div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; <span class="ltrText">moc.liamg@neyugnelohnart</span> 2022</p></div>-->
-            <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; tranholenguyen<span class="spamprotection">ICT AIO Indicator Price action</span>@g<span class="spamprotection">ICT AIO Indicator Price action</span>mail.com 2022</p></div>
-            <div class="container px-5"><p class="text-gray" id="disclaimer">Disclaimer: Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose, you must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions, aioindicator.com takes no responsibility for loss incurred as a result of your trading.</p>
+            <div class="container">
+                <ul id="navfooter">
+                    <li class="nav-item"><a class="nav-link text-gray active" aria-current="page" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
+                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://nguyentran.substack.com/">Substack</a></li>
+                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="#!">TradingView</a></li>                        
+                </ul>
             </div>
+            <div class="container px-5">
+                <p class="text-gray" id="disclaimer">Disclaimer: Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose, you must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions, aioindicator.com takes no responsibility for loss incurred as a result of your trading.</p>
+                <p class="m-0 text-end text-gray small">&copy; tranholenguyen<span class="spamprotection">ICT AIO Indicator Price action</span>@g<span class="spamprotection">ICT AIO Indicator Price action</span>mail.com 2022</p>
+            </div>
+            
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
