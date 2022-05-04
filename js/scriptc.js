@@ -14,7 +14,7 @@ let alphaNums = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'
 let emptyArr = [];
 // This loop generates a random string of 7 characters using alphaNums
 // Further this string is displayed as a CAPTCHA
-for (let i = 1; i <= 7; i++) {
+for (let i = 1; i <= 6; i++) {
  emptyArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
 }
 var c = emptyArr.join('');
@@ -26,7 +26,7 @@ ctx.fillText(emptyArr.join(''),captchaText.width/4, captchaText.height/2);
 refreshButton.addEventListener('click', function() {
  userText.value = "";
  let refreshArr = [];
- for (let j = 1; j <= 7; j++) {
+ for (let j = 1; j <= 6; j++) {
  refreshArr.push(alphaNums[Math.floor(Math.random() * alphaNums.length)]);
  }
  ctx.clearRect(0, 0, captchaText.width, captchaText.height);
