@@ -7295,6 +7295,11 @@ textarea.form-control-lg {
   margin-bottom: 3rem !important;
 }
 
+.my-6 {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+
 .my-auto {
   margin-top: auto !important;
   margin-bottom: auto !important;
@@ -11339,6 +11344,10 @@ textarea.form-control-lg {
     flex-wrap: wrap;
     justify-content: center;
     font-size: 0.875em
+ }
+
+ ul#navfooter {
+    list-style-type: none;
  }
 
  @media (min-width: 576px) {
