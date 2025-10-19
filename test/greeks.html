@@ -6,11 +6,15 @@
 <script>
 async function getGreeks() {
   const sym = document.getElementById('symbol').value.trim() || 'GLD';
-  const res = await fetch(`https://options-delta.onrender.com/greeks?symbol=${sym}`);
-  const data = await res.json();
-  if (data.error) {
-    document.getElementById('output').textContent = data.error;
-  } else {
+  try {
+    const res = await fetch(`https://options-delta.onrender.com/greeks?symbol=${sym}`);
+    const data = await res.json();
+
+    if (data.error) {
+      document.getElementById('output').textContent = data.error;
+      return;
+    }
+
     document.getElementById('output').textContent = `
 Symbol: ${data.symbol}
 Price: ${data.price}
@@ -19,8 +23,12 @@ Strike: ${data.strike}
 IV: ${data.iv}
 Delta (Call): ${data.delta_call}
 Gamma (Call): ${data.gamma_call}
+Delta (Put): ${data.delta_put}
+Gamma (Put): ${data.gamma_put}
 Bias: ${data.bias}
 `;
+  } catch (err) {
+    document.getElementById('output').textContent = 'Error fetching data. Please try again.';
   }
 }
 </script>
