@@ -1,1285 +1,1231 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>AIO Indicator - All In One Price Action Indicator</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Bootstrap icons-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-        <style type="text/css">
-            span.ltrText {unicode-bidi: bidi-override; direction: rtl}
-            span.spamprotection {display:none;}
-        </style>
-    </head>
-    <!-- Google tag (gtag.js) -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Indicator - The ultimate TradingView Pure Price Action All In One Indicator for professional traders" />
+    <meta name="author" content="AIO Indicator" />
+    <title>AIO Indicator - All In One Price Action Indicator</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    
+    <!-- Modern Styles -->
+    <link href="css/modern-styles.css" rel="stylesheet" />
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-2LFT6ZC32N');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-2LFT6ZC32N');
     </script>
-    <body>
-        <script>
-            window.addEventListener("load", function() {
-                const form = document.getElementById('contactForm');
-                form.addEventListener("submit", function(e) {
-                  e.preventDefault();
+</head>
 
-                  if (userText.value === c) {
-                    document.getElementById("submitOKMessage").removeAttribute("hidden"); 
-                    document.getElementById("submitNGMessage").setAttribute("hidden", true); 
-                    
-                    } else {
-                    document.getElementById("submitNGMessage").removeAttribute("hidden"); 
-                    document.getElementById("submitOKMessage").setAttribute("hidden", true); 
-                    return;
-                    }
-
-                  const data = new FormData(form);
-                  const action = e.target.action;
-                  fetch(action, {
-                    method: 'POST',
-                    body: data,
-                  })
-                  .then(() => {
-                    //alert("Form submission successful!");
-                    document.getElementById("submitButton").setAttribute("disabled", true); 
-                  })
-                });
-              });
-        </script>
-        <!-- Responsive navbar-->
-        <section id="home">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-tradingview fixed-top" style="padding-top: 0px;padding-bottom: 0px;">
-                <!--<div class="container px-5 fixed-top bg-tradingview">-->
-                <!--<div class="container px-5 fixed-top-mobile bg-tradingview-mobile">-->
-                    <div class="container px-5">
-                    <a class="navbar-brand" href="#!"><img src="assets/favicon.ico" height= "50px" alt="AIO Indicator Logo">AIO Indicator</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="#home">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="#acclink">Access Links</a></li>
-                            <li class="nav-item"><a class="nav-link" aria-current="page" href="#pppayment">Plan</a></li>
-                            <!--<li class="nav-item"><a class="nav-link" target="_blank" href="https://www.tradingview.com/script/HkQfaOpX-Price-Action-All-In-One-Indicator/">TradingView</a></li>-->
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Media
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-dark bg-tradingview" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a>
-                                    <a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a>
-                                    <a class="dropdown-item" target="_blank" href="https://nguyentran.substack.com/">Substack</a>
-                                    <a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl">Chat with me</a>
-                                </div>
-                            </li>            
+<body>
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#home">
+                <img src="assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+                <span>AIO Indicator</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-door"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features"><i class="bi bi-stars"></i><span>Features</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#indicators"><i class="bi bi-grid"></i><span>All Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials"><i class="bi bi-chat-quote"></i><span>Reviews</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-question-circle"></i><span>FAQ</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Community
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl">Chat with me</a></li>
                         </ul>
-                    </div>
-                </div>
-            </nav>
-        </section>
-        <!-- Header-->
-        <header class="bg-tradingview py-3">
-            <div class="container bg-image" style=" background-image: url('assets/hdbg.png'); background-size: cover;">
-                <div class="container px-5">
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-7">
-                            <div class="text-center my-6">
-                                <h1 class="display-5 fw-bolder text-white mb-2">The TradingView Pure Price Action All In One Indicator</h1>
-                                <p class="lead text-white bg-tradingview-50 mb-4">If you are the one who is “Price Action” style & does not want to use many indicators or complex indicators, this simple beautiful AIO Indicator is right for you. This is the best [Time] & [Price] Indicator.</p>
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#features">Get Started</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://nguyentran.substack.com/p/tradingview-price-action-all-in-one">Learn More</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" target="_blank" href="https://t.me/aiotradehub">AIO TradeHub</a>
-                                </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modern Hero Section -->
+    <section id="home" class="modern-hero">
+        <div class="hero-background-image"></div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-xl-8">
+                    <div class="text-center hero-text">
+                        <!--<div class="hero-badge mb-4">
+                            <span class="badge-icon">⚡</span>
+                            <span>Trusted by 500+ Traders on TradingView</span>
+                        </div>-->
+                        <h1 class="hero-title mb-4">Price Action<br/><span class="hero-title-accent">All In One Indicator</span></h1>
+                        <p class="hero-subtitle mb-5">Built for traders who value clarity over clutter. <span class="accent">Spot structure, timing, and momentum</span> in seconds with a clean, professional layout that keeps your chart readable. Turn price and time into a confident trading plan.</p>
+                        <div class="hero-buttons">
+                            <a class="btn btn-hero-primary btn-glow" href="https://t.me/nguyenthl" target="_blank">
+                                <i class="bi bi-lightning-charge-fill"></i>
+                                <span>Start 5-Day Free Trial</span>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <a class="btn btn-hero-secondary" href="#pricing">
+                                <i class="bi bi-tags"></i>
+                                View Pricing
+                            </a>
+                        </div>
+                        <div class="hero-stats mt-5">
+                            <!--<div class="stat-item">
+                                <div class="stat-number" data-count="500">500+</div>
+                                <div class="stat-label">Active Traders</div>
+                            </div>-->
+                            <div class="stat-item">
+                                <div class="stat-number">18+</div>
+                                <div class="stat-label">Pro Indicators</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">4.9★</div>
+                                <div class="stat-label">TradingView Rating</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">0</div>
+                                <div class="stat-label">Repaints</div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- Features section-->
-        <section class="py-3 border-bottom" id="features">
-            <div class="container px-5 my-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bolder">Save Time - Analyze Better</h2>
-                    <p class="lead">
-                        Detecting those things used to be a manual, complicated process. 
-                    </br>What used to take minutes or hours of work, now takes seconds! 
-                </p>
-                </div>
-                <div class="row gx-5">
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection "></i></div>
-                        <h2 class="h4 fw-bolder">Breakout Prediction & Statistic Panels</h2>
-                        <p>Breakout Prediction, Session, trend, and money management (balance, %risk, stop-loss) information panels.</p>
-                         <!--<a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>-->
-                    </div>
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-calendar2-range"></i></div>
-                        <h2 class="h4 fw-bolder">Time, Lookback & Session Information</h2>
-                        <p>Timezone setting, full information and tools about trading time, lookback data ranges & trading sessions with max customization (DR, IDR, ITC Killzone, Quarterly Theory, STD, etc.)</p>
-                         <!--<a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>-->
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-graph-up"></i></div>
-                        <h2 class="h4 fw-bolder">Many Useful Price Actions Tools</h2>
-                        <p>From market structure, magic bars, trendline, price levels, NWOG... to Smart Money Technique. You can change the setting values easily.</p>
-                         <!--<a class="text-decoration-none" href="#!">
-                            Call to action
-                            <i class="bi bi-arrow-right"></i>
-                        </a>-->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- PR section-->
-        <section class="bg-light py-3 border-bottom" id="features2">
-            <div class="text-center mb-5">
-                <h2 class="fw-bolder">The Only Indicator You'll Ever Need</h2>
-                <p class="lead">
-                    Every price action & timing tool you need packed into an indicator.
-                    </br>Optimized for best usability
-                </p>
-            </div>
-
-            <!-- Slideshow section-->
-            <div class="container px-1 my-3">
-            <div id="imgslides" class="carousel slide carousel-fade" data-ride="carousel">
-
-                <!-- Indicators 
-                 <!--
-                <ul class="carousel-indicators">
-                  <li data-target="#demo" data-slide-to="0" class="active"></li>
-                  <li data-target="#demo" data-slide-to="1"></li>
-                  <li data-target="#demo" data-slide-to="2"></li>
-                </ul>
-                -->
-                
-                 <!-- Inner -->
-                <div class="carousel-inner">
-                    <!-- Single item -->
-                    <div class="carousel-item active">
-                        <img
-                            src="assets/hdbg.png"
-                            class="d-block w-100"
-                            alt="Overview"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Overview</h5>
-                            <p>
-                                You can enable which indicators to display. They are made to support your analysis as much as possible with a simple beautiful interface without messing up the chart.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio-tpo.png"
-                            class="d-block w-100"
-                            alt="Advanced Trendlines & TPO-inspired Liquidity"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Advanced Trendlines & TPO-inspired Liquidity</h5>
-                            <p>
-                                High quality Trendlins Breakout - Pullback with Big player liquidity levels
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio-ms-vip.png"
-                            class="d-block w-100"
-                            alt="AIO Advanced Market Structure with Smart Money Detection"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>AIO Advanced Market Structure with Smart Money Detection</h5>
-                            <p>
-                                The dual-signal approach (structure break + participation confirmation) provides high-probability setups that align with professional order flow
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio-banker.png"
-                            class="d-block w-100"
-                            alt="AIO Banker Momentum Volatility"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>AIO Banker Momentum Volatility</h5>
-                            <p>
-                                A professional institutional momentum indicator that tracks banker (big player) participation combined with volatility expansion detection.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio-mc.png"
-                            class="d-block w-100"
-                            alt="AIO Prediction Market Simulator"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>AIO Prediction Market Simulator</h5>
-                            <p>
-                                A professional-grade quantitative indicator that simulates binary prediction markets using Monte Carlo methods, Particle Filtering, and Importance Sampling. Provides institutional-level probability estimates for bullish and bearish outcomes.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio-seesaw.png"
-                            class="d-block w-100"
-                            alt="Unbelievable big win-rate Strategy"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Unbelievable big win-rate Strategy</h5>
-                            <p>
-                                Real back-test results with high win-rate. No repaint.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/bop.jpg"
-                            class="d-block w-100"
-                            alt="Breakout Prediction"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Breakout Prediction</h5>
-                            <p>
-                                The indicator will show its prediction of whether the price will break the previous high/low with the win rate.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/oldhl.jpg"
-                            class="d-block w-100"
-                            alt="Old High/Low"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Market Structure</h5>
-                            <p>
-                                Show the market structure (BOS & CHoCH levels)
-                                </br>To detect the next buy/sell stops levels or whether market structure shifted or not.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/aio_key.png"
-                            class="d-block w-100"
-                            alt="Old High/Low"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Key volumes Levels</h5>
-                            <p>
-                                These are the most reacted levels. Used as Support/Resistance, Entry/TP/SL Levels.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/time-sep.jpg"
-                            class="d-block w-100"
-                            alt="Time Separator"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Time Separators</h5>
-                            <p>
-                                5 type of separatos: Anchor Time (a vertical line at a specific time), Daily, Weekly, Monthly, Quarterly.
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/price-levels.jpg"
-                            class="d-block w-100"
-                            alt="Price Levels"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Price Levels</h5>
-                            <p>
-                                NWOG (New Week Opening Gap), Previous 1H/4H/Day/Week/Month H/L/C H/L/C, ADR H/L, Price line & price zone at a specific time (O/C/H/L)
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/smt.jpg"
-                            class="d-block w-100"
-                            alt="SMT Divergence"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>SMT Divergence</h5>
-                            <p>
-                                SMT (Smart Money Technique) Divergence. Display divergence between selected symbol like S&P500 (ES) vs NASDAQ100 (NQ).
-                            </p>
-                        </div>
-                    </div>
-
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/mgb.jpg"
-                            class="d-block w-100"
-                            alt="Magic Bands"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Magic Bands</h5>
-                            <p>
-                                This help you alot in identifying the current trend, potential entry, profit taking and also stop loss points.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/acc-zone.jpg"
-                            class="d-block w-100"
-                            alt="Accumulation Zone"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Accumulation Zone</h5>
-                            <p>
-                                The market tends to reprice the higher/lower to the old high/low or imbalance/fair value price.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/lookback.jpg"
-                            class="d-block w-100"
-                            alt="Lookback Data Ranges"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Lookback Data Ranges</h5>
-                            <p>
-                                This can display high/low/mid of the daily or 4h data ranges
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/magic-bars.jpg"
-                            class="d-block w-100"
-                            alt="Magic Bars"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Magic Bars</h5>
-                            <p>
-                                The indicator has Fractal Bars, Imbalance Bars (Fair Value Gap) and Trend Bars.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/trendlines.jpg"
-                            class="d-block w-100"
-                            alt="Trendlines"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Trendlines</h5>
-                            <p>
-                                A simple & widely used analysis approach for many traders.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/sessionstd.jpg"
-                            class="d-block w-100"
-                            alt="Session STD"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Session & STD</h5>
-                            <p>
-                                6 sessions (Asian, London Open, New York Open, RDR, ODR, ADR) & Standard Deviations
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/ma.jpg"
-                            class="d-block w-100"
-                            alt="Moving Average"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Moving Average</h5>
-                            <p>
-                                One of the most used indicators for every trader. It can show up to 4 MAs & bands of 1 MA.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/maribbon.jpg"
-                            class="d-block w-100"
-                            alt="Moving Average Ribbon"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Moving Average Ribbon</h5>
-                            <p>
-                                Ribbon showed by 4 MA values. 
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/zigzag.jpg"
-                            class="d-block w-100"
-                            alt="Zig Zag"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Zig Zag</h5>
-                            <p>
-                                This can show up to 2 ZigZag lines. </br>This is suitable for traders who have difficulty in detecting key levels of the prices.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/vwap.jpg"
-                            class="d-block w-100"
-                            alt="VWAP"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>VWAP</h5>
-                            <p>
-                                VWAP with 2 options (Anchored or Rolling) & Stdev Bands.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Single item -->
-                    <div class="carousel-item">
-                        <img
-                            src="assets/spanels.jpg"
-                            class="d-block w-100"
-                            alt="Statistic Panel"
-                            width="auto"
-                        />
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Statistic Panel</h5>
-                            <p>
-                                There are 5 panels: Session Info, Previous D/W Breakout Info, Money Management, 2 Trend Panels
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Inner -->
-            
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#imgslides" data-slide="prev">
-                  <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#imgslides" data-slide="next">
-                  <span class="carousel-control-next-icon"></span>
-                </a>
-              </div>
-            </div>
-        </section>
-
-
-        <!-- Access Link section-->
-        <section class="bg-light py-3 border-bottom " id="acclink">
-            <div class="container px-5 my-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bolder">AIO Indicators Access Links</h2>
-                </div>
-                <div class="row gx-5 justify-content-center">
-            <!-- VIP Indicators -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="card mb-5 mb-xl-0">
-                    <div class="card-body p-6">
-                        <div class="text-uppercase fw-bold">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            VIP Indicators
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/wjFf7BvK-AIO-Advanced-Trendlines-with-TPO-inspired-Liquidity/">AIO Advanced Trendlines with TPO-inspired Liquidity</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/L3YdzL2F-AIO-Advanced-Market-Structure-with-Smart-Money-Detection/">AIO Advanced Market Structure with Smart Money Detection</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/ZQTw5w1T-AIO-Banker-Momentum-Volatility/">AIO Banker Momentum Volatility</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/sAfWIFZK-AIO-Prediction-Market-Simulator/">AIO Prediction Market Simulator</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/uoG0rM5Y-AIO-Seesaw-Trailing-Strategy/">AIO Seesaw Trailing Strategy</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="">All Premium Indicators</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Premium Indicators -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="card mb-5 mb-xl-0">
-                    <div class="card-body p-6">
-                        <div class="text-uppercase fw-bold">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <i class="bi bi-star-fill text-warning"></i>
-                            Premium Indicators
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/HkQfaOpX-Price-Action-All-In-One-Indicator/">AIO Price Action All In One Indicator</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/IjGE8hp9-AIO-Session-STD/">AIO Session STD</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/zTcGWdQH-AIO-Lookback/">AIO Lookback</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/o5X8AiiP-AIO-Trendlines/">AIO Trendlines</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/iw9NAL4J-AIO-Accumulation-Zone/">AIO Accumulation Zone</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/eR3GCd9S-AIO-Magic-Bars/">AIO Magic Bars</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/MiEQk8vL-AIO-Magic-Bands/">AIO Magic Bands</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/4gg7qcnJ-AIO-SMT-Divergence/">AIO SMT Divergence</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/TL6YOBMZ-AIO-Market-Structure/">AIO Market Structure</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/UMIcyQ0E-AIO-Price-Levels/">AIO Price Levels</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/YlAcXhzy-AIO-Time-Separators/">AIO Time Separators</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/JixWzLj5-AIO-Breakout-Prediction/">AIO Breakout Prediction</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/Xsd23Prr-AIO-Key-Volume/">AIO Key Volume</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- Free Indicators -->
-            <div class="col-lg-6 col-xl-4">
-                <div class="card mb-5 mb-xl-0">
-                    <div class="card-body p-6">
-                        <div class="text-uppercase fw-bold">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            Free Indicators
-                        </div>
-                        <ul class="list-unstyled mb-4">
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/yS3fw9DB-AIO-Moving-Average/">AIO Moving Average</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/vxY25nDn-AIO-Zig-Zag/">AIO ZigZag</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/s9Qft0Ab-AIO-VWAP/">AIO VWAP</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/E2PGDjUd-AIO-Watermark/">AIO Watermark</a>
-                            </li>
-                            <li class="mb-2">
-                                <i class="bi bi-check text-primary"></i>
-                                <a target="_blank" href="https://www.tradingview.com/script/0emXpAMv-AIO-Statistic-Panel/">AIO Statistic Panel</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Social Proof Bar -->
+    <section class="social-proof-bar">
+        <div class="container">
+            <div class="proof-track">
+                <div class="proof-item">
+                    <img src="https://www.tradingview.com/static/images/logo-tradingview.svg" alt="TradingView" class="proof-logo" loading="lazy">
+                </div>
+                <div class="proof-item">
+                    <i class="bi bi-shield-check"></i>
+                    <span>Published on TradingView</span>
+                </div>
+                <div class="proof-item">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>No Repaint Guarantee</span>
+                </div>
+                <div class="proof-item">
+                    <i class="bi bi-arrow-repeat"></i>
+                    <span>Free Lifetime Updates</span>
+                </div>
+                <div class="proof-item">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>5-Day Free Trial</span>
+                </div>
+                <div class="proof-item">
+                    <i class="bi bi-headset"></i>
+                    <span>24/7 Support</span>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-
-        <!-- Pricing section-->
-        <section class="py-3 border-bottom" id="pppayment">
-            <div class="container px-5 my-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bolder">Choose Your Plan</h2>
-                    <p class="lead mb-0">Need free 5 days trial? 
-                        <a target="_blank" href="https://t.me/nguyenthl">DM me</a> or <a target="_blank" href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;tranhol&#x65;nguy&#x65;n&commat;g&#x6d;&#x61;&#x69;&#x6c;&period;com?subject=[AIO Indicator] Request free trial
-                        &body=Hi Nguyen,%0D%0A %0D%0AI would like to have a free trial for AIO Indicator. My information is as below:
-                        %0D%0A - My Name: 
-                        %0D%0A - My TradingView Username: 
-                        %0D%0A
-                        %0D%0ABest Regards, 
-                        %0D%0A
-                       ">send me an email</a> 
-                       with your TradingView Username.</p>
-                </div>
-                <div class="text-center mb-3">
-                    <h3 class="fw-bolder">Premium Plans</h2>
-                </div> 
-                <div class="row gx-5 justify-content-center">
-                    <!-- monthly-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Monthly</div>
-                                <div class="mb-3">
-                                    <span class="display-5 fw-bold">$14.99</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5YN90136M46076201MG2NGBQ">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 12 months-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="text-uppercase fw-bold">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    12 Months
-                                </div>
-                                <div class="mb-3">
-                                    <span class="display-4 fw-bold">$9.99</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>SAVE 33.33%!</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        *Billed as 12 months
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7RE928638K7399923MJE2QLA">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Quarterly-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Quarterly</div>
-                                <div class="mb-3">
-                                    <span class="display-5 fw-bold">$12.99</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>SAVE 13.33%! </strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        *Billed as 3 months
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4NW71753S0407282GMJE2POQ">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                 
-                </div>
-                
+    <!-- Features Section -->
+    <section id="features" class="modern-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Everything You Need in One Place</h2>
+                <p class="section-subtitle">Powerful tools designed to save time and improve your trading analysis</p>
             </div>
-        </section>
-
-        <!-- Pricing section-->
-        <section class="py-3 border-bottom" id="pppayment">
-            <div class="container px-5 my-4">
-                <div class="text-center mb-3">
-                    <h3 class="fw-bolder">VIP Plans</h2>
-                </div> 
-                <div class="row gx-5 justify-content-center">
-                    <!-- monthly-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Monthly</div>
-                                <div class="mb-3">
-                                    <span class="display-5 fw-bold">$99.99</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO VIP Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI">Choose plan</a></div>
-                            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-bullseye"></i>
                         </div>
+                        <h3 class="feature-title">Smart Predictions</h3>
+                        <p class="feature-description">Advanced breakout prediction with statistical panels. Get real-time insights on market structure and trend analysis with high accuracy.</p>
                     </div>
-                    <!-- 12 months-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card mb-5 mb-xl-0">
-                            <div class="card-body p-5">
-                                <div class="text-uppercase fw-bold">
-                                    <i class="bi bi-star-fill text-warning"></i>
-                                    12 Months
-                                </div>
-                                <div class="mb-3">
-                                    <span class="display-4 fw-bold">$66.66</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO VIP Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>SAVE 33.33%!</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        *Billed as 12 months
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0HX77090V2672522BNA5TX2Q">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Quarterly-->
-                    <div class="col-lg-6 col-xl-4">
-                        <div class="card">
-                            <div class="card-body p-5">
-                                <div class="small text-uppercase fw-bold text-muted">Quarterly</div>
-                                <div class="mb-3">
-                                    <span class="display-5 fw-bold">$86.66</span>
-                                    <span class="text-muted">/ mo.</span>
-                                </div>
-                                <ul class="list-unstyled mb-4">
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO VIP Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>AIO Premium Indicators</strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        Members Only Other Trading Indicators
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        AIO Indicator Free Upgrade Lifetime
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        <strong>SAVE 13.33%! </strong>
-                                    </li>
-                                    <li class="mb-2">
-                                        <i class="bi bi-check text-primary"></i>
-                                        *Billed as 3 months
-                                    </li>
-                                </ul>
-                                <div class="d-grid"><a class="btn btn-outline-primary" target="_blank" href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5MV22615DV115624SNA5TW4I">Choose plan</a></div>
-                            </div>
-                        </div>
-                    </div>
-                 
                 </div>
-                
-            </div>
-        </section>
-         
-
-        <!-- Testimonials section-->
-        <section class="bg-light py-3 border-bottom">
-            <div class="container px-5 my-4 px-4">
-                <div class="text-center mb-5">
-                    <h2 class="fw-bolder">Customer Testimonials</h2>
-                    <p class="lead mb-0">Our customers love it.</p>
-                </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <!-- Testimonial 1-->
-                        <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">Hey, have you ever thought about making a discord group?</br>
-                                            You have prob the best indicator I’ve ever used and I’ve used/paid for many.</p>
-                                        <div class="small text-muted">- cgs18g, TradingView</div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-clock-history"></i>
                         </div>
-
-                         <!-- Testimonial 5-->
-                         <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">True legend. For real. TY!
-                                        <div class="small text-muted">- Hilux Aydee, Telegram</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Testimonial 2-->
-                        <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">Wow, looks nice. Try to make it work with all time frames. The one I’ve seen from another guy just didn’t work right.
-                                            I decided to join you. I hope you will keep improving your indicator and I hope I can give you ideas to consider.</p>
-                                        <div class="small text-muted">- Kokoro, Telegram</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <h3 class="feature-title">Time Mastery</h3>
+                        <p class="feature-description">Complete timezone, session, and lookback data range tools. Includes DR, IDR, ITC Killzone, Quarterly Theory, and more.</p>
                     </div>
-
-                    <div class="col-lg-6">
-                        <!-- Testimonial 1-->
-                        <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">
-                                            Yeah god damn. Awesome! Amazing work Nguyen. Thank you very much!</br>
-                                            You are actually a king!! Appreciate it sir!</p>
-                                        <div class="small text-muted">- RaRe, Telegram</div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-bezier2"></i>
                         </div>
-
-                         <!-- Testimonial 5-->
-                         <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">I have been going through the indicator one at a time and then next to add one or two for confluence. It is really 👍🏻</p>
-                                        <div class="small text-muted">- Silroy, Telegram</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <h3 class="feature-title">Price Action Tools</h3>
+                        <p class="feature-description">Market structure, magic bars, trendlines, price levels, NWOG, and Smart Money Techniques. Fully customizable settings.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-bar-chart-line"></i>
                         </div>
-
-                        <!-- Testimonial 2-->
-                        <div class="card mb-4">
-                            <div class="card-body p-4">
-                                <div class="d-flex">
-                                    <div class="flex-shrink-0"><i class="bi bi-chat-right-quote-fill text-primary fs-1"></i></div>
-                                    <div class="ms-4">
-                                        <p class="mb-1">
-                                            Great work! Your indicator takes into account every detail that others do not. I couldn't find one that satisfied me until yours. Thank you, my man!
-                                        <div class="small text-muted">- SM K, Telegram</div>
-                                    </div>
-                                </div>
-                            </div>
+                        <h3 class="feature-title">Advanced Analytics</h3>
+                        <p class="feature-description">TPO-inspired liquidity levels, institutional momentum tracking, and Monte Carlo prediction markets for professional analysis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightning-charge"></i>
                         </div>
+                        <h3 class="feature-title">High Win Rate</h3>
+                        <p class="feature-description">Proven strategies with real back-test results. No repaint, reliable signals backed by data-driven approach.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-sliders"></i>
+                        </div>
+                        <h3 class="feature-title">Full Customization</h3>
+                        <p class="feature-description">Enable or disable any indicator. Clean, beautiful interface that doesn't clutter your chart. Make it truly yours.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact section-->
-        <section class="bg-light py-3 border-bottom">
-            <div class="container px-5 my-4 px-5">
-                <div class="text-center mb-5">
-                    <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bag"></i></div>
-                    <h2 class="fw-bolder">After Payment</h2>
-                    <p class="lead mb-0">Please fill out the payment information. </br>Indicator access on TradingView will be granted within 24-48 hours after confirmation process.</p>
+    <!-- All Indicators Section -->
+    <section id="indicators" class="modern-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Complete Indicator Suite</h2>
+                <p class="section-subtitle">Choose from VIP, Premium, or Free indicators based on your trading needs</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <ul class="nav nav-pills justify-content-center mb-5" id="indicatorTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active indicator-tab" id="vip-tab" data-bs-toggle="pill" data-bs-target="#vip" type="button">
+                        <i class="bi bi-star-fill me-2"></i>VIP Indicators
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link indicator-tab" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button">
+                        <i class="bi bi-star-half me-2"></i>Premium Indicators
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link indicator-tab" id="free-tab" data-bs-toggle="pill" data-bs-target="#free" type="button">
+                        <i class="bi bi-gift me-2"></i>Free Indicators
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content" id="indicatorTabContent">
+                <!-- VIP Indicators -->
+                <div class="tab-pane fade show active" id="vip" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal" 
+                                 data-title="AIO Advanced Trendlines with TPO-inspired Liquidity"
+                                 data-description="High quality trendline breakout and pullback detection combined with TPO-inspired big player liquidity levels. Professional institutional analysis tool."
+                                 data-url="https://www.tradingview.com/script/wjFf7BvK-AIO-Advanced-Trendlines-with-TPO-inspired-Liquidity/"
+                                 data-image="assets/aio-tpo.png">
+                                <div class="indicator-badge vip">VIP</div>
+                                <h5>Advanced Trendlines & TPO Liquidity</h5>
+                                <p>Professional trendline analysis with institutional liquidity levels</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Advanced Market Structure with Smart Money Detection"
+                                 data-description="Dual-signal approach combining structure break and participation confirmation for high-probability setups that align with professional order flow."
+                                 data-url="https://www.tradingview.com/script/L3YdzL2F-AIO-Advanced-Market-Structure-with-Smart-Money-Detection/"
+                                 data-image="assets/aio-ms-vip.png">
+                                <div class="indicator-badge vip">VIP</div>
+                                <h5>Advanced Market Structure</h5>
+                                <p>Smart money detection with institutional order flow analysis</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Banker Momentum Volatility"
+                                 data-description="Professional institutional momentum indicator that tracks banker (big player) participation combined with volatility expansion detection."
+                                 data-url="https://www.tradingview.com/script/ZQTw5w1T-AIO-Banker-Momentum-Volatility/"
+                                 data-image="assets/aio-banker.png">
+                                <div class="indicator-badge vip">VIP</div>
+                                <h5>Banker Momentum Volatility</h5>
+                                <p>Track institutional participation and volatility expansion</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Prediction Market Simulator"
+                                 data-description="Professional-grade quantitative indicator simulating binary prediction markets using Monte Carlo methods, Particle Filtering, and Importance Sampling."
+                                 data-url="https://www.tradingview.com/script/sAfWIFZK-AIO-Prediction-Market-Simulator/"
+                                 data-image="assets/aio-mc.png">
+                                <div class="indicator-badge vip">VIP</div>
+                                <h5>Prediction Market Simulator</h5>
+                                <p>Monte Carlo simulation for institutional-level probability estimates</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Seesaw Trailing Strategy"
+                                 data-description="Unbelievable high win-rate strategy with real back-test results. No repaint signals for reliable and consistent trading performance."
+                                 data-url="https://www.tradingview.com/script/uoG0rM5Y-AIO-Seesaw-Trailing-Strategy/"
+                                 data-image="assets/aio-seesaw.png">
+                                <div class="indicator-badge vip">VIP</div>
+                                <h5>Seesaw Trailing Strategy</h5>
+                                <p>High win-rate strategy with proven back-test results</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row gx-5 justify-content-center">
-                    <div class="col-lg-6">
-                        <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbwGRxtWiMg19Vl8RYqOtWEH6RJZse9QpqC8AZocGp9tHlRlRCAairvx8doasX8kEydQ/exec">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="Name" id="Name" type="text" placeholder="Enter your name..." required />
-                                <label for="Name">Full name (*)</label>
+
+                <!-- Premium Indicators -->
+                <div class="tab-pane fade" id="premium" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Price Action All In One Indicator"
+                                 data-description="The complete price action indicator combining time and price analysis. Includes market structure, sessions, price levels, magic bars, trendlines, and more."
+                                 data-url="https://www.tradingview.com/script/HkQfaOpX-Price-Action-All-In-One-Indicator/"
+                                 data-image="assets/hdbg.png">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Price Action All In One</h5>
+                                <p>Complete price action and time analysis toolkit</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="Email" id="Email" type="email" placeholder="name@example.com" required />
-                                <label for="Email">Email address (*)</label>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Magic Bands"
+                                 data-description="Trend bands that change color based on market direction. Identify retracements and profit-taking points with multi-timeframe analysis."
+                                 data-url="https://www.tradingview.com/script/MiEQk8vL-AIO-Magic-Bands/"
+                                 data-image="assets/mgb.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Magic Bands</h5>
+                                <p>Dynamic trend bands for entries and exits</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="PaymentDate" id="PaymentDate" type="date" placeholder="Enter your payment date..." required />
-                                <label for="PaymentDate">Payment Date (*)</label>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Magic Bars"
+                                 data-description="Includes Fractal Bars, Imbalance Bars (Fair Value Gap), and Trend Bars. Color-coded candles for multi-dimensional market analysis."
+                                 data-url="https://www.tradingview.com/script/eR3GCd9S-AIO-Magic-Bars/"
+                                data-image="assets/magic-bars.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Magic Bars</h5>
+                                <p>Fractal, Imbalance, and Trend Bar analysis</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                Plan:  
-                                <input checked="checked" name="Plan" type="radio" value="1" /> 1 mo.
-                                <input name="Plan" type="radio" value="3" /> 3 mo.
-                                <input name="Plan" type="radio" value="12" /> 12 mo.
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Market Structure"
+                                 data-description="Automatically detect Break of Structure (BOS) and Change of Character (CHoCH) with protection lines for multi-timeframe analysis."
+                                 data-url="https://www.tradingview.com/script/TL6YOBMZ-AIO-Market-Structure/"
+                                 data-image="assets/oldhl.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Market Structure</h5>
+                                <p>BOS & CHoCH detection with protection levels</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="TradingViewUsername" id="TradingViewUsername" type="text" placeholder="Your TradingView Username..." required />
-                                <label for="TradingViewUsername">TradingView Username (*)</label>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Breakout Prediction"
+                                 data-description="AI-powered prediction showing whether price will break previous high/low with win rate statistics for multiple timeframes."
+                                 data-url="https://www.tradingview.com/script/JixWzLj5-AIO-Breakout-Prediction/"
+                                 data-image="assets/bop.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Breakout Prediction</h5>
+                                <p>AI predictions with win rate statistics</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="TelegramUsername" id="TelegramUsername" type="text" placeholder="Your Telegram Username..."/>
-                                <label for="TelegramUsername">Telegram Username (not required)</label>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Session STD"
+                                 data-description="7 customizable trading sessions (Asian, London, NY, DR, IDR, ODR, OIDR) with Standard Deviation levels for each session."
+                                 data-url="https://www.tradingview.com/script/IjGE8hp9-AIO-Session-STD/"
+                                 data-image="assets/sessionstd.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Session & STD</h5>
+                                <p>7 sessions with Standard Deviation levels</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <!-- Honeypot Field -->
-                            <div style="display: none;">
-                                <input type="text" name="honeypot" id="honeypot" value="" />
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Price Levels"
+                                 data-description="NWOG, Previous timeframe H/L/C (1H, 4H, Day, Week, Month), ADR levels, and specific time price zones."
+                                 data-url="https://www.tradingview.com/script/UMIcyQ0E-AIO-Price-Levels/"
+                                 data-image="assets/price-levels.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Price Levels</h5>
+                                <p>Key price levels across all timeframes</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <div id="captchaBackground">
-                                    <canvas id="captcha" width="200" height="50">captcha text</canvas>
-                                </div>
-                                <div class="btn btn-primary btn-lg mt-2" id="refreshButton"><i class="bi bi-arrow-clockwise"></i> Refresh</div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO SMT Divergence"
+                                 data-description="Smart Money Technique divergence between correlated symbols like S&P500 vs NASDAQ100 for institutional flow analysis."
+                                 data-url="https://www.tradingview.com/script/4gg7qcnJ-AIO-SMT-Divergence/"
+                                 data-image="assets/smt.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>SMT Divergence</h5>
+                                <p>Track divergence between correlated markets</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" name="ncaptcha" id="ncaptcha" type="text" placeholder="Enter captcha..." required />
-                                <label for="ncaptcha">Please enter captcha above (*)</label>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Trendlines"
+                                 data-description="Automatic trendline detection with customizable pivot strength. Option to use high/low or close prices for drawing."
+                                 data-url="https://www.tradingview.com/script/o5X8AiiP-AIO-Trendlines/"
+                                 data-image="assets/trendlines.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Trendlines</h5>
+                                <p>Automatic trendline detection and drawing</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="d-grid"><button class="btn btn-primary btn-lg" id="submitButton" type="submit" disabled>Submit</button></div>
-                            <div class="text-center text-danger mb-3" id="submitOKMessage" hidden>
-                                <div class="fw-bolder">Form submission successful!</div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Accumulation Zone"
+                                 data-description="Identify zones where market reprices to old high/low or imbalance/fair value price for smart money entries."
+                                 data-url="https://www.tradingview.com/script/iw9NAL4J-AIO-Accumulation-Zone/"
+                                 data-image="assets/acc-zone.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Accumulation Zone</h5>
+                                <p>Smart money accumulation and distribution zones</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                            <div class="text-center text-danger mb-3" id="submitNGMessage" hidden>
-                                <div class="fw-bolder">Please check again!</div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Lookback"
+                                 data-description="High/Low/Mid levels of data ranges on daily/4H charts. Perfect for multi-timeframe structure analysis."
+                                 data-url="https://www.tradingview.com/script/zTcGWdQH-AIO-Lookback/"
+                                 data-image="assets/lookback.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Lookback</h5>
+                                <p>Historical data range analysis</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
-                        </form>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Time Separators"
+                                 data-description="5 types of separators: Anchor Time, Daily, Weekly, Monthly, Quarterly for better timing analysis."
+                                 data-url="https://www.tradingview.com/script/YlAcXhzy-AIO-Time-Separators/"
+                                 data-image="assets/time-sep.jpg">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Time Separators</h5>
+                                <p>5 time period separators for timing</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Key Volume"
+                                 data-description="Identify the most reacted volume levels for Support/Resistance and Entry/TP/SL level determination."
+                                 data-url="https://www.tradingview.com/script/Xsd23Prr-AIO-Key-Volume/"
+                                 data-image="assets/aio_key.png">
+                                <div class="indicator-badge premium">PREMIUM</div>
+                                <h5>Key Volume</h5>
+                                <p>Most reacted volume-based price levels</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Free Indicators -->
+                <div class="tab-pane fade" id="free" role="tabpanel">
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Moving Average"
+                                 data-description="Up to 4 customizable moving averages with 5 types: EMA, SMA, WMA, VWMA, SMMA. Includes MA Bands option."
+                                 data-url="https://www.tradingview.com/script/yS3fw9DB-AIO-Moving-Average/"
+                                 data-image="assets/ma.jpg">
+                                <div class="indicator-badge free">FREE</div>
+                                <h5>Moving Average</h5>
+                                <p>4 customizable MAs with bands option</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO ZigZag"
+                                 data-description="Up to 2 ZigZag lines for detecting key levels and market structure. Ideal for Fibonacci drawing."
+                                 data-url="https://www.tradingview.com/script/vxY25nDn-AIO-Zig-Zag/"
+                                 data-image="assets/zigzag.jpg">
+                                <div class="indicator-badge free">FREE</div>
+                                <h5>ZigZag</h5>
+                                <p>Key level detection with ZigZag patterns</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO VWAP"
+                                 data-description="Volume Weighted Average Price with anchored and rolling options for institutional price analysis."
+                                 data-url="https://www.tradingview.com/script/s9Qft0Ab-AIO-VWAP/"
+                                 data-image="assets/vwap.jpg">
+                                <div class="indicator-badge free">FREE</div>
+                                <h5>VWAP</h5>
+                                <p>Anchored & rolling VWAP options</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Watermark"
+                                 data-description="Add custom watermark/copyright to your charts to protect your analysis from being copied."
+                                 data-url="https://www.tradingview.com/script/E2PGDjUd-AIO-Watermark/"
+                                 data-image="assets/hdbg.png">
+                                <div class="indicator-badge free">FREE</div>
+                                <h5>Watermark</h5>
+                                <p>Protect your charts with custom watermark</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6">
+                            <div class="indicator-card" data-bs-toggle="modal" data-bs-target="#indicatorModal"
+                                 data-title="AIO Statistic Panel"
+                                 data-description="Display session info, trend panels, and money management calculations for better risk management."
+                                 data-url="https://www.tradingview.com/script/0emXpAMv-AIO-Statistic-Panel/"
+                                 data-image="assets/spanels.jpg">
+                                <div class="indicator-badge free">FREE</div>
+                                <h5>Statistic Panel</h5>
+                                <p>Session info and money management panel</p>
+                                <i class="bi bi-arrow-right-circle indicator-arrow"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <script>
-            // Enhanced CAPTCHA Generation
-            function generateCaptcha() {
-                const canvas = document.getElementById('captcha');
-                const ctx = canvas.getContext('2d');
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%';
-                let captchaText = '';
-                for (let i = 0; i < 6; i++) {
-                    captchaText += chars.charAt(Math.floor(Math.random() * chars.length));
-                }
+    <!-- Modal for Indicator Details -->
+    <div class="modal fade" id="indicatorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background: var(--card-bg); border: 1px solid var(--card-border);">
+                <div class="modal-header" style="border-bottom: 1px solid var(--card-border);">
+                    <h5 class="modal-title" id="indicatorModalLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="indicatorModalImage" src="" alt="" class="img-fluid rounded mb-3" style="width: 100%;">
+                    <p id="indicatorModalDescription" class="text-secondary"></p>
+                </div>
+                <div class="modal-footer" style="border-top: 1px solid var(--card-border);">
+                    <a id="indicatorModalLink" href="#" target="_blank" class="btn btn-hero-primary">
+                        View on TradingView
+                        <i class="bi bi-box-arrow-up-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                // Clear canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.fillStyle = '#f0f0f0';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Loved by Professional Traders</h2>
+                <p class="section-subtitle">See what our community has to say about AIO Indicator</p>
+            </div>
+            <div class="testimonial-marquee" role="region" aria-label="Testimonials">
+                <div class="testimonial-track">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"This indicator has completely changed my trading approach. The clarity and precision are unmatched. Best investment I've made for my trading career."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JD</div>
+                            <div>
+                                <div class="testimonial-name">John Davis</div>
+                                <div class="testimonial-role">Professional Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I've tried many indicators, but AIO is the only one that combines everything I need without cluttering my charts. The time-saving features alone are worth it."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SM</div>
+                            <div>
+                                <div class="testimonial-name">Sarah Martinez</div>
+                                <div class="testimonial-role">Day Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Breakout prediction and market structure tools are the perfect combo for my entries. Clear, fast, and actionable."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MC</div>
+                            <div>
+                                <div class="testimonial-name">Michael Chen</div>
+                                <div class="testimonial-role">Swing Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Clean interface, powerful features. The Smart Money detection has been a game-changer for identifying institutional moves. Worth every penny."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RL</div>
+                            <div>
+                                <div class="testimonial-name">Robert Lee</div>
+                                <div class="testimonial-role">Forex Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"As a beginner, I was overwhelmed with indicators. AIO simplified everything while giving me professional-grade tools. Support team is also excellent."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ET</div>
+                            <div>
+                                <div class="testimonial-name">Emily Taylor</div>
+                                <div class="testimonial-role">New Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The combination of price action and time analysis is perfect. I can't imagine trading without AIO now. This is the real deal."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DW</div>
+                            <div>
+                                <div class="testimonial-name">David Wilson</div>
+                                <div class="testimonial-role">Crypto Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Magic Bands and Price Levels together give me a clean roadmap. The signals are clear without noise."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">HA</div>
+                            <div>
+                                <div class="testimonial-name">Hannah Ali</div>
+                                <div class="testimonial-role">Options Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The VIP indicators are on another level. TPO liquidity and banker momentum save me hours each week."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TP</div>
+                            <div>
+                                <div class="testimonial-name">Thomas Park</div>
+                                <div class="testimonial-role">Futures Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"This indicator has completely changed my trading approach. The clarity and precision are unmatched. Best investment I've made for my trading career."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">JD</div>
+                            <div>
+                                <div class="testimonial-name">John Davis</div>
+                                <div class="testimonial-role">Professional Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"I've tried many indicators, but AIO is the only one that combines everything I need without cluttering my charts. The time-saving features alone are worth it."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SM</div>
+                            <div>
+                                <div class="testimonial-name">Sarah Martinez</div>
+                                <div class="testimonial-role">Day Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Breakout prediction and market structure tools are the perfect combo for my entries. Clear, fast, and actionable."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">MC</div>
+                            <div>
+                                <div class="testimonial-name">Michael Chen</div>
+                                <div class="testimonial-role">Swing Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Clean interface, powerful features. The Smart Money detection has been a game-changer for identifying institutional moves. Worth every penny."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">RL</div>
+                            <div>
+                                <div class="testimonial-name">Robert Lee</div>
+                                <div class="testimonial-role">Forex Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"As a beginner, I was overwhelmed with indicators. AIO simplified everything while giving me professional-grade tools. Support team is also excellent."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">ET</div>
+                            <div>
+                                <div class="testimonial-name">Emily Taylor</div>
+                                <div class="testimonial-role">New Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The combination of price action and time analysis is perfect. I can't imagine trading without AIO now. This is the real deal."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">DW</div>
+                            <div>
+                                <div class="testimonial-name">David Wilson</div>
+                                <div class="testimonial-role">Crypto Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Magic Bands and Price Levels together give me a clean roadmap. The signals are clear without noise."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">HA</div>
+                            <div>
+                                <div class="testimonial-name">Hannah Ali</div>
+                                <div class="testimonial-role">Options Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"The VIP indicators are on another level. TPO liquidity and banker momentum save me hours each week."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">TP</div>
+                            <div>
+                                <div class="testimonial-name">Thomas Park</div>
+                                <div class="testimonial-role">Futures Trader</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                // Add noise (random lines)
-                for (let i = 0; i < 5; i++) {
-                    ctx.beginPath();
-                    ctx.moveTo(Math.random() * canvas.width, Math.random() * canvas.height);
-                    ctx.lineTo(Math.random() * canvas.width, Math.random() * canvas.height);
-                    ctx.strokeStyle = `rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.3)`;
-                    ctx.stroke();
-                }
+    <!-- Pricing Section -->
+    <section id="pricing" class="modern-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle">Choose the plan that works best for your trading style</p>
+            </div>
 
-                // Draw text with random fonts and slight rotation
-                ctx.font = '20px Arial';
-                ctx.fillStyle = '#333';
-                for (let i = 0; i < captchaText.length; i++) {
-                    ctx.save();
-                    ctx.translate(30 + i * 30, 35);
-                    ctx.rotate((Math.random() - 0.5) * 0.3);
-                    ctx.fillText(captchaText[i], 0, 0);
-                    ctx.restore();
-                }
+            <!-- Free Trial Banner -->
+            <div class="trial-banner mb-5">
+                <div class="trial-banner-content">
+                    <div class="trial-badge-icon"><i class="bi bi-gift-fill"></i></div>
+                    <div>
+                        <h4>Try Everything Free for 5 Days</h4>
+                        <p>No credit card required. Full access to all Premium + VIP indicators.</p>
+                    </div>
+                    <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-trial">
+                        <i class="bi bi-lightning-charge-fill me-2"></i>Get Free Trial
+                    </a>
+                </div>
+            </div>
 
-                return captchaText;
-            }
+            <!-- Premium Plans -->
+            <div class="text-center mb-4">
+                <h3 class="h4 gradient-text">Premium Plans</h3>
+                <p class="text-secondary">Perfect for price action traders</p>
+            </div>
+            <div class="row justify-content-center g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card">
+                        <h3 class="feature-title">Monthly</h3>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold gradient-text">$14.99</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3">Less than <strong>$0.50/day</strong></div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>13 Trading Tools</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Free Upgrade Lifetime</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>24/7 Support</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5YN90136M46076201MG2NGBQ" target="_blank" class="btn btn-hero-secondary w-100">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card pricing-popular">
+                        <div class="badge bg-gradient mb-3" style="background: var(--accent-gradient);">Most Popular</div>
+                        <h3 class="feature-title">12 Months</h3>
+                        <div class="my-4">
+                            <div class="price-original"><s>$14.99</s></div>
+                            <span class="display-4 fw-bold gradient-text">$9.99</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3">Just <strong>$0.33/day</strong> &mdash; less than a coffee</div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>13 Trading Tools</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Free Upgrade Lifetime</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access</li>
+                            <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 33% &mdash; $60/year</strong></li>
+                            <li class="mb-3 text-secondary small">*Billed as $119.88 annually</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7RE928638K7399923MJE2QLA" target="_blank" class="btn btn-hero-primary w-100">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card">
+                        <h3 class="feature-title">Quarterly</h3>
+                        <div class="my-4">
+                            <div class="price-original"><s>$14.99</s></div>
+                            <span class="display-4 fw-bold gradient-text">$12.99</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3">Just <strong>$0.43/day</strong></div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>13 Trading Tools</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Free Upgrade Lifetime</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Community Access</li>
+                            <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 13% &mdash; $6/quarter</strong></li>
+                            <li class="mb-3 text-secondary small">*Billed as $38.97 per 3 months</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4NW71753S0407282GMJE2POQ" target="_blank" class="btn btn-hero-secondary w-100">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
 
-            // Store CAPTCHA and form submission time
-            let captchaText = generateCaptcha();
-            let formStartTime = Date.now();
+            <!-- VIP Plans -->
+            <div class="text-center mb-4 mt-5">
+                <h3 class="h4 gradient-text">VIP Plans</h3>
+                <p class="text-secondary">For serious traders who want institutional-grade tools</p>
+            </div>
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card">
+                        <div class="badge bg-warning text-dark mb-3">VIP</div>
+                        <h3 class="feature-title">Monthly</h3>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold gradient-text">$99.99</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3"><strong>$3.33/day</strong> for institutional tools</div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-star-fill text-warning me-2"></i><strong>AIO VIP Indicators</strong></li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>18+ Total Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Institutional Tools</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Priority Support</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI" target="_blank" class="btn btn-hero-secondary w-100">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card pricing-popular-vip">
+                        <div class="badge bg-warning text-dark mb-3">VIP - Best Value</div>
+                        <h3 class="feature-title">12 Months</h3>
+                        <div class="my-4">
+                            <div class="price-original"><s>$99.99</s></div>
+                            <span class="display-4 fw-bold gradient-text">$66.66</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3"><strong>$2.22/day</strong> &mdash; elite trading tools</div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-star-fill text-warning me-2"></i><strong>AIO VIP Indicators</strong></li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>18+ Total Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Institutional Tools</li>
+                            <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 33% &mdash; $400/year</strong></li>
+                            <li class="mb-3 text-secondary small">*Billed as $799.92 annually</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0HX77090V2672522BNA5TX2Q" target="_blank" class="btn btn-hero-primary w-100">Choose Plan</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card text-center pricing-card">
+                        <div class="badge bg-warning text-dark mb-3">VIP</div>
+                        <h3 class="feature-title">Quarterly</h3>
+                        <div class="my-4">
+                            <div class="price-original"><s>$99.99</s></div>
+                            <span class="display-4 fw-bold gradient-text">$86.66</span>
+                            <span class="text-secondary fs-5">/month</span>
+                        </div>
+                        <div class="price-perday mb-3"><strong>$2.89/day</strong></div>
+                        <ul class="list-unstyled text-start mb-4">
+                            <li class="mb-3"><i class="bi bi-star-fill text-warning me-2"></i><strong>AIO VIP Indicators</strong></li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>AIO Premium Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>18+ Total Indicators</li>
+                            <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i>Institutional Tools</li>
+                            <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 13% &mdash; $40/quarter</strong></li>
+                            <li class="mb-3 text-secondary small">*Billed as $259.98 per 3 months</li>
+                        </ul>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5MV22615DV115624SNA5TW4I" target="_blank" class="btn btn-hero-secondary w-100">Choose Plan</a>
+                    </div>
+                </div>
+            </div>
 
-            // Refresh CAPTCHA
-            document.getElementById('refreshButton').addEventListener('click', () => {
-                captchaText = generateCaptcha();
-            });
+            <div class="text-center mt-5">
+                <p class="text-secondary small">All plans include lifetime free upgrades &bull; Cancel anytime &bull; 24/7 support</p>
+            </div>
+        </div>
+    </section>
 
-            // Form submission handling
-            window.addEventListener("load", function() {
-                const form = document.getElementById('contactForm');
-                const submitButton = document.getElementById('submitButton');
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about AIO Indicator</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion faq-accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    What is AIO Indicator and how does it work?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    AIO (All In One) Indicator is a comprehensive TradingView price action indicator that combines time and price analysis tools. It includes market structure detection, sessions & STD, price levels, magic bars, trendlines, breakout predictions, and many more features. The indicator works on all TradingView markets including forex, stocks, crypto, commodities, and indices.
+                                </div>
+                            </div>
+                        </div>
 
-                // Enable submit button after 3 seconds to prevent instant bot submissions
-                setTimeout(() => {
-                    submitButton.removeAttribute('disabled');
-                }, 3000);
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    What's the difference between VIP and Premium plans?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>Premium Plans</strong> include the core AIO Price Action indicator with 13 powerful tools plus free indicators. Perfect for traders focused on price action and time analysis.<br><br>
+                                    <strong>VIP Plans</strong> include everything in Premium PLUS 5 advanced institutional-grade indicators: Advanced Trendlines with TPO Liquidity, Advanced Market Structure with Smart Money Detection, Banker Momentum Volatility, Prediction Market Simulator, and Seesaw Trailing Strategy.
+                                </div>
+                            </div>
+                        </div>
 
-                form.addEventListener("submit", function(e) {
-                    e.preventDefault();
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Do the indicators repaint?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    No, AIO indicators do not repaint. All signals and levels are calculated in real-time and remain fixed once formed. This is crucial for reliable back-testing and live trading. You can trust the signals you see on your chart.
+                                </div>
+                            </div>
+                        </div>
 
-                    // Honeypot check
-                    const honeypot = document.getElementById('honeypot').value;
-                    if (honeypot !== '') {
-                        document.getElementById('submitNGMessage').removeAttribute('hidden');
-                        document.getElementById('submitOKMessage').setAttribute('hidden', true);
-                        return;
-                    }
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Can I use these indicators on lower timeframes like 1-minute or 5-minute?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! AIO indicators work on all timeframes from 15-second charts up to monthly charts. They're optimized for scalping, day trading, swing trading, and position trading. The indicators automatically adjust calculations based on the selected timeframe.
+                                </div>
+                            </div>
+                        </div>
 
-                    // Time-based check (minimum 5 seconds to fill form)
-                    const timeElapsed = (Date.now() - formStartTime) / 1000;
-                    if (timeElapsed < 5) {
-                        document.getElementById('submitNGMessage').removeAttribute('hidden');
-                        document.getElementById('submitOKMessage').setAttribute('hidden', true);
-                        return;
-                    }
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    How do I get access after payment?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    After completing your payment via PayPal, please send your TradingView username to us via Telegram (@nguyenthl) or email. We will grant you access to the indicators within 24 hours (usually much faster). You'll receive an invitation in your TradingView account which you need to accept.
+                                </div>
+                            </div>
+                        </div>
 
-                    // CAPTCHA validation
-                    const userText = document.getElementById('ncaptcha').value;
-                    if (userText !== captchaText) {
-                        document.getElementById('submitNGMessage').removeAttribute('hidden');
-                        document.getElementById('submitOKMessage').setAttribute('hidden', true);
-                        captchaText = generateCaptcha(); // Refresh CAPTCHA on failure
-                        return;
-                    }
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                                    Do you offer a free trial?
+                                </button>
+                            </h2>
+                            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! We offer a 5-day free trial so you can test all features before committing. Simply contact us on Telegram (@nguyenthl) or send an email to tranholenguyen@gmail.com with your TradingView username to request trial access.
+                                </div>
+                            </div>
+                        </div>
 
-                    // Proceed with form submission
-                    const data = new FormData(form);
-                    const action = e.target.action;
-                    fetch(action, {
-                        method: 'POST',
-                        body: data,
-                    })
-                    .then(() => {
-                        document.getElementById('submitOKMessage').removeAttribute('hidden');
-                        document.getElementById('submitNGMessage').setAttribute('hidden', true);
-                        submitButton.setAttribute('disabled', true);
-                        captchaText = generateCaptcha(); // Refresh CAPTCHA after submission
-                    })
-                    .catch(() => {
-                        document.getElementById('submitNGMessage').removeAttribute('hidden');
-                        document.getElementById('submitOKMessage').setAttribute('hidden', true);
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                                    What happens if I see "Internal server study error"?
+                                </button>
+                            </h2>
+                            <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    This error typically occurs when you've had the TradingView tab open for many hours or made many setting changes. Simply close the current TradingView tab and open a new one. The error will disappear and everything will work fine. This is a TradingView platform limitation, not an indicator issue.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8">
+                                    Are updates included in my subscription?
+                                </button>
+                            </h2>
+                            <div id="faq8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes! All updates and new features are included free of charge during your subscription period. We regularly update the indicators based on user feedback and market conditions. Update notifications are sent via our Telegram channel.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Chat, join the community, follow updates, or email us directly</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="feature-card">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary w-100">
+                                    <i class="bi bi-chat-dots me-2"></i>
+                                    Chat / DM
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://t.me/aiotradehub" target="_blank" class="btn btn-hero-secondary w-100">
+                                    <i class="bi bi-people-fill me-2"></i>
+                                    Join Community
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="https://x.com/gumbon" target="_blank" class="btn btn-hero-secondary w-100">
+                                    <i class="bi bi-twitter-x me-2"></i>
+                                    Follow on X
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="mailto:tranholenguyen@gmail.com" class="btn btn-hero-secondary w-100">
+                                    <i class="bi bi-envelope me-2"></i>
+                                    Send E-mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">AIO Indicator</h5>
+                    <p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#features" class="text-secondary text-decoration-none">Features</a></li>
+                        <li class="mb-2"><a href="#indicators" class="text-secondary text-decoration-none">All Indicators</a></li>
+                        <li class="mb-2"><a href="#testimonials" class="text-secondary text-decoration-none">Testimonials</a></li>
+                        <li class="mb-2"><a href="#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                        <li class="mb-2"><a href="#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">Community</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" class="text-secondary text-decoration-none">Medium</a></li>
+                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter</a></li>
+                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" class="text-secondary text-decoration-none">Substack</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: var(--card-border);">
+            <div class="text-center">
+                <p class="text-secondary small mb-2">
+                    <strong>Disclaimer:</strong> Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose. You must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions. AIO Indicator takes no responsibility for loss incurred as a result of your trading.
+                </p>
+                <p class="text-secondary small mb-0">© 2026 AIO Indicator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-sticky-trial">
+            <i class="bi bi-lightning-charge-fill"></i>
+            Start Free Trial
+        </a>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                });
+                }
             });
-        </script>
+        });
 
-        <style>
-            #captchaBackground {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.modern-navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 14, 39, 0.98)';
+                navbar.style.boxShadow = '0 4px 16px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 14, 39, 0.95)';
+                navbar.style.boxShadow = 'none';
             }
-            #captcha {
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-            #refreshButton {
-                width: 200px; /* Match canvas width for alignment */
-            }
-        </style>
+        });
 
-        <!-- Footer-->
-        <footer class="py-2 bg-tradingview">
-            <!--<div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; <span class="ltrText">moc.liamg@neyugnelohnart</span> 2023</p></div>-->
-            <div class="container">
-                <ul id="navfooter">
-                    <li class="nav-item"><a class="nav-link text-gray" aria-current="page" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-gray" aria-current="page" href="#acclink">Access Links</a></li>
-                    <li class="nav-item"><a class="nav-link text-gray" aria-current="page" href="#pppayment">Plan</a></li>
-                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://www.tradingview.com/script/HkQfaOpX-Price-Action-All-In-One-Indicator/">TradingView</a></li>
-                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                    <li class="nav-item"><a class="nav-link text-gray" target="_blank" href="https://t.me/nguyenthl">Chat with me</a></li>
-                </ul>
-            </div>
-            <div class="container px-5">
-                <p class="text-gray disclaimer">Disclaimer: Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose, you must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions, aioindicator.com takes no responsibility for loss incurred as a result of your trading.
-                </br>
-                
-                <p class="m-0 text-end text-gray small">&copy; tranholenguyen<span class="spamprotection">ICT AIO Indicator Price action</span>@g<span class="spamprotection">ICT AIO Indicator Price action</span>mail.com 2025</p>
-            </div>
+        // Auto-inject preview images into indicator cards from data-image attribute
+        (function() {
+            document.querySelectorAll('.indicator-card[data-image]').forEach(function(card) {
+                var imgSrc = card.getAttribute('data-image');
+
+                // Create image preview container
+                var preview = document.createElement('div');
+                preview.className = 'indicator-card-preview';
+                var img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = '';
+                img.loading = 'lazy';
+                preview.appendChild(img);
+
+                // Wrap non-badge children in body div
+                var body = document.createElement('div');
+                body.className = 'indicator-card-body';
+                Array.from(card.children)
+                    .filter(function(el) { return !el.classList.contains('indicator-badge'); })
+                    .forEach(function(el) { body.appendChild(el); });
+
+                // Assemble: badge stays at card level (overlays image), then preview, then body
+                card.insertBefore(preview, card.firstChild);
+                card.appendChild(body);
+            });
+        })();
+
+        // Modal population
+        const indicatorModal = document.getElementById('indicatorModal');
+        indicatorModal.addEventListener('show.bs.modal', function (event) {
+            const button = event.relatedTarget;
+            const title = button.getAttribute('data-title');
+            const description = button.getAttribute('data-description');
+            const url = button.getAttribute('data-url');
+            const image = button.getAttribute('data-image');
             
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="js/scriptc.js"></script>
-
-    </body>
+            const modalTitle = indicatorModal.querySelector('.modal-title');
+            const modalDescription = indicatorModal.querySelector('#indicatorModalDescription');
+            const modalLink = indicatorModal.querySelector('#indicatorModalLink');
+            const modalImage = indicatorModal.querySelector('#indicatorModalImage');
+            
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalLink.href = url;
+            modalImage.src = image;
+            modalImage.alt = title;
+        });
+    </script>
+</body>
 </html>
