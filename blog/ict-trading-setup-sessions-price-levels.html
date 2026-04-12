@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Complete ICT trading setup guide covering session analysis (Asian/London/NY Kill Zones), standard deviation projections, DR/IDR, PDH/PDL/PWH/PWL price levels, NWOG, and multi-layered lookback ranges." />
+    <meta name="keywords" content="ICT trading, kill zones, session STD, standard deviation, DR IDR, PDH PDL, NWOG, price levels, Asian range, TradingView indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>ICT Trading Setup: Sessions, Price Levels &amp; Standard Deviation Projections | AIO Indicator</title>
+
+    <meta property="og:title" content="ICT Trading Setup: Sessions, Price Levels & Standard Deviation Projections" />
+    <meta property="og:description" content="How to use AIO Session STD, Price Levels, Time Separators, and Lookback indicators to build a complete ICT-based trading framework." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/ict-trading-setup-sessions-price-levels.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">ICT Concepts</div>
+        <h1 class="article-title">ICT Trading Setup: Sessions, Price Levels &amp; Standard Deviation Projections</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 30, 2026</span>
+            <span><i class="bi bi-clock"></i> 16 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The ICT Framework: Time + Price + Levels</h2>
+<p>The ICT (Inner Circle Trader) methodology is built on three pillars: <strong>when</strong> institutions move markets (time/sessions), <strong>where</strong> they target (price levels), and <strong>how far</strong> price is likely to reach (standard deviation projections). The AIO suite implements all three with four specialized indicators.</p>
+
+<hr>
+
+<h2>Part 1: Session Analysis (AIO Session STD)</h2>
+
+<h3>6 Configurable Kill Zones</h3>
+<p>AIO Session STD provides 6 fully customizable trading sessions, each with independent time windows, colors, and sub-line options:</p>
+
+<table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+    <thead><tr style="border-bottom:2px solid var(--card-border);">
+        <th style="padding:8px;">Session</th><th style="padding:8px;">Default Time (EST)</th><th style="padding:8px;">ICT Concept</th>
+    </tr></thead>
+    <tbody>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">1st Session</td><td style="padding:8px;">19:00-00:00</td><td style="padding:8px;">Asian Session</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">2nd Session</td><td style="padding:8px;">01:00-05:00</td><td style="padding:8px;">London Open Kill Zone</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">3rd Session</td><td style="padding:8px;">07:00-11:00</td><td style="padding:8px;">NY Open Kill Zone</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">4th Session</td><td style="padding:8px;">09:30-10:30</td><td style="padding:8px;">DR (Defining Range)</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">5th Session</td><td style="padding:8px;">03:00-04:00</td><td style="padding:8px;">ODR (Opening DR)</td></tr>
+        <tr><td style="padding:8px;">6th Session</td><td style="padding:8px;">19:30-20:30</td><td style="padding:8px;">ADR (Asian DR)</td></tr>
+    </tbody>
+</table>
+
+<p>Each session draws a box showing the High/Low of that time window, with optional sub-lines for Close and Equilibrium (EQ = midpoint of H/L or midpoint of closes).</p>
+
+<h3>Standard Deviation Projections</h3>
+<p>This is the core ICT concept. After a Defining Range forms, price tends to move in <strong>standard deviation multiples</strong> of that range:</p>
+
+<p><code>STD Level N = Session High/Low &plusmn; N &times; (Session Range &times; Rate)</code></p>
+
+<h4>Two Rate Options</h4>
+<ul>
+    <li><strong>Rate 0.5:</strong> Used for DR/IDR concept. Projections are at &plusmn;0.5, &plusmn;1.0, &plusmn;1.5, &plusmn;2.0, etc. of the session range.</li>
+    <li><strong>Rate 1.0:</strong> Used for Asian Range concept. Projections at &plusmn;1, &plusmn;2, &plusmn;3 of the session range.</li>
+</ul>
+
+<p>You can run up to <strong>3 simultaneous STD sources</strong> from different sessions (e.g., DR projections + Asian Range projections on the same chart), each with independent price source options (Close-based or High/Low-based range).</p>
+
+<h4>Optional Range Adjustment</h4>
+<p>If the session range is unusually tight or wide, you can apply an adjustment factor (0.0-1.0) that blends the raw range with a reference level, preventing outlier sessions from producing absurd projections.</p>
+
+<h3>How to Trade STD Projections</h3>
+<ol>
+    <li>Mark the DR (09:30-10:30 EST default)</li>
+    <li>Note the STD projections (&plusmn;0.5, &plusmn;1.0, etc.)</li>
+    <li>As price moves during NY session, <strong>STD levels act as targets and reversal zones</strong></li>
+    <li>Combine with market structure (BOS/CHoCH) at STD levels for high-probability entries</li>
+</ol>
+
+<hr>
+
+<h2>Part 2: Key Price Levels (AIO Price Levels)</h2>
+
+<h3>Multi-Timeframe Previous Period Levels</h3>
+<p>AIO Price Levels draws horizontal levels from previous periods across 5 timeframes:</p>
+<ul>
+    <li><strong>Previous 1H:</strong> P1hH, P1hL, P1hEQ, P1hC</li>
+    <li><strong>Previous 4H:</strong> P4hH, P4hL, P4hEQ, P4hC</li>
+    <li><strong>Previous Day:</strong> PDH, PDL, PDEQ, PDC</li>
+    <li><strong>Previous Week:</strong> PWH, PWL, PWEQ, PWC</li>
+    <li><strong>Previous Month:</strong> PMH, PML, PMEQ, PMC</li>
+</ul>
+
+<p>Each level includes the <strong>Equilibrium (EQ)</strong> &mdash; the midpoint &mdash; which in ICT theory represents the &ldquo;fair value&rdquo; of the period. Price trading above EQ = premium; below = discount.</p>
+
+<h3>ADR (Average Daily Range)</h3>
+<p>Projects the expected high and low of the current day based on the average daily range over N days (default 5). Essential for knowing &ldquo;how far can price realistically move today?&rdquo;</p>
+
+<h3>NWOG (New Week Opening Gap)</h3>
+<p>One of the most powerful ICT concepts. The NWOG is the gap between the previous week&rsquo;s close and the current week&rsquo;s open. AIO draws this as a colored box with:</p>
+<ul>
+    <li>Up to <strong>5 historical NWOGs</strong> visible</li>
+    <li><strong>Consequent Encroachment (C.E.):</strong> The 50% midpoint of the gap &mdash; a key target level in ICT theory</li>
+    <li>Optional extension to current bar</li>
+</ul>
+
+<h3>Anchor Time Price Levels</h3>
+<p>Two configurable time-based price captures:</p>
+<ul>
+    <li><strong>Time 1 (default: 00:00, label &ldquo;NYMO&rdquo;):</strong> NY Midnight Open &mdash; a key ICT reference</li>
+    <li><strong>Time 2 (default: 08:30, label &ldquo;NYO&rdquo;):</strong> NY Open price</li>
+</ul>
+<p>Configurable price source (open, close, high, low, etc.) for each anchor time.</p>
+
+<hr>
+
+<h2>Part 3: Time Structure (AIO Time Separators)</h2>
+<p>AIO Time Separators provides visual time structure on the chart:</p>
+<ul>
+    <li><strong>Day/Week/Month/Quarter separators</strong> as vertical lines</li>
+    <li><strong>Day-of-week labels</strong> (Mon-Sun) color-coded at the bottom</li>
+    <li><strong>2 Anchor Time vertical lines</strong> (default: Midnight and 08:30) &mdash; matching the price levels anchor times</li>
+    <li>Timezone-aware: all separators respect the configured GMT offset</li>
+</ul>
+
+<p><strong>ICT application:</strong> Day-of-week profiling (Tuesdays and Wednesdays are highest-probability ICT trading days). Anchor times visually mark kill zone transitions.</p>
+
+<hr>
+
+<h2>Part 4: Price Range Context (AIO Lookback)</h2>
+<p>AIO Lookback shows where current price sits within the broader range using <strong>triple-layered high/low/equilibrium</strong>:</p>
+
+<h3>Two Timeframe Tiers</h3>
+<ul>
+    <li><strong>4H Lookback:</strong> Default 30/60/90 bars (~5/10/15 day range at 4H)</li>
+    <li><strong>Daily Lookback:</strong> Default 20/40/60 days (~1/2/3 month range)</li>
+</ul>
+
+<h3>Visual Encoding</h3>
+<ul>
+    <li>Lookback lines increase in width for longer periods (1px &rarr; 2px &rarr; 4px) &mdash; visually encoding significance</li>
+    <li><strong>Equilibrium line:</strong> <code>(min_of_highs + max_of_lows) / 2</code> &mdash; the true midpoint across all lookback periods</li>
+    <li>Optional <strong>quarter lines</strong>: midpoints between equilibrium and extreme zones</li>
+    <li><strong>Background fill:</strong> Red above equilibrium (premium), green below (discount)</li>
+</ul>
+
+<h3>Smart Overlap Handling</h3>
+<p>When two lookback levels converge (same price), the shorter one truncates to avoid cluttering. Lines can optionally extend right for forward reference.</p>
+
+<h3>Reset Anchoring</h3>
+<ul>
+    <li>Daily lookback resets from <strong>1st day of the month</strong> (if enabled)</li>
+    <li>4H lookback resets from <strong>1st day of the week</strong> (if enabled)</li>
+</ul>
+
+<hr>
+
+<h2>Putting It All Together: Complete ICT Trading Flow</h2>
+<ol>
+    <li><strong>Pre-session:</strong> Use AIO Lookback to determine if price is in premium or discount of the weekly/monthly range</li>
+    <li><strong>Session open:</strong> AIO Time Separators marks the kill zone start; AIO Session STD draws the DR box</li>
+    <li><strong>Key levels:</strong> AIO Price Levels shows PDH/PDL/NWOG/C.E. &mdash; these are your liquidity targets</li>
+    <li><strong>Range forms:</strong> After the DR closes, note the STD projections</li>
+    <li><strong>Entry trigger:</strong> Wait for price to sweep a key level (PDH/PDL or NWOG C.E.) at an STD projection, then look for structure confirmation (BOS/CHoCH from AIO Advanced MS)</li>
+    <li><strong>Target:</strong> Opposite STD level or next significant price level</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>Build Your Complete ICT Chart</h3>
+    <p>Sessions, price levels, standard deviation projections, and lookback ranges &mdash; all automated.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank">
+        <i class="bi bi-lightning-charge-fill"></i> Start Free 5-Day Trial
+    </a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-4"><a href="smt-divergence-cross-symbol-analysis.html" class="sidebar-link" style="padding:12px 0;">SMT Divergence Guide &rarr;</a></div>
+            <div class="col-md-4"><a href="smart-money-trading-guide.html" class="sidebar-link" style="padding:12px 0;">Smart Money Trading &rarr;</a></div>
+            <div class="col-md-4"><a href="aio-trading-stack-combination-guide.html" class="sidebar-link" style="padding:12px 0;">AIO Trading Stacks &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

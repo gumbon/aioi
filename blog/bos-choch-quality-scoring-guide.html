@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Deep dive into BOS/CHoCH quality scoring: from basic detection in MS Light to 7-factor weighted scoring in Advanced MS. Learn what separates real structure breaks from fakeouts." />
+    <meta name="keywords" content="BOS scoring, CHoCH quality, break of structure, market structure shift, non-repainting, TradingView indicator, price action" />
+    <meta name="author" content="AIO Indicator" />
+    <title>BOS/CHoCH Quality: From Basic to 7-Factor Scoring | AIO Indicator</title>
+
+    <meta property="og:title" content="BOS/CHoCH Quality: From Basic to 7-Factor Scoring" />
+    <meta property="og:description" content="Not all BOS are equal. Learn the 7 factors that separate genuine structure breaks from fakeouts, with star ratings and persistent map-based scoring." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/bos-choch-quality-scoring-guide.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Market Structure</div>
+        <h1 class="article-title">BOS/CHoCH Quality: From Basic to 7-Factor Scoring</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 26, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Problem: Too Many BOS Signals</h2>
+<p>Any basic market structure indicator can detect Break of Structure &mdash; price closes beyond a prior swing high or low. The problem is that <strong>most BOS events are weak</strong>. They get swept back immediately, trapping traders who entered on the break. The real skill isn&rsquo;t detecting BOS; it&rsquo;s <strong>filtering for quality</strong>.</p>
+
+<p>The AIO suite offers three levels of market structure analysis, each adding more sophistication:</p>
+
+<h2>Level 1: AIO Market Structure Light (Basic Detection)</h2>
+<p>The simplest approach &mdash; standard swing pivot detection + BOS/CHoCH labeling:</p>
+<ul>
+    <li>Detects swing highs/lows using configurable period (default 8)</li>
+    <li>BOS: Price closes beyond the prior swing level in the same direction</li>
+    <li>CHoCH: Price closes beyond the prior swing level in the opposite direction (trend change)</li>
+    <li>No scoring, no quality rating</li>
+</ul>
+
+<h3>Unique Feature: Pullback Mark System</h3>
+<p>MS Light compensates for its simplicity with an innovative <strong>Pullback Mark</strong> that highlights bars where price is pulling back toward the most recent committed pivot point:</p>
+<ul>
+    <li>Configurable minimum distance (value-based or percentage-based)</li>
+    <li><strong>Magic Band filter:</strong> Only marks long pullbacks when Magic Bands say &ldquo;UP&rdquo; (green), short pullbacks when &ldquo;DOWN&rdquo; (red)</li>
+    <li>Visual: Bar color or background color highlighting</li>
+    <li>Cooldown per direction to prevent noise</li>
+</ul>
+
+<p><strong>Best for:</strong> Traders who want clean, uncluttered BOS/CHoCH labels + pullback zone identification. Minimalist approach.</p>
+
+<h2>Level 2: AIO Advanced Market Structure (7-Factor Scoring)</h2>
+<p>This is where AIO fundamentally differentiates from every other market structure indicator on TradingView. Every BOS event is scored from 0 to 100 using <strong>7 weighted factors</strong>:</p>
+
+<h3>Factor 1: Body Size (Weight: 30/100)</h3>
+<p>How large is the candle body relative to ATR(14)? A BOS with a massive body candle (e.g., body &gt; 1.5&times; ATR) shows conviction. A BOS with a tiny body relative to the range is likely a wick that barely closed beyond the level.</p>
+<p><strong>Scoring:</strong> Linear scale from 0 (body = 0) to 30 points (body &ge; 2&times; ATR)</p>
+
+<h3>Factor 2: Close Distance Past Level (Weight: 25/100)</h3>
+<p>How far did the close extend beyond the broken level? A close that&rsquo;s 0.01% past the swing high is suspicious. A close that&rsquo;s 1% past it shows genuine displacement.</p>
+<p><strong>Scoring:</strong> Measured as distance / ATR, scaled 0-25 points</p>
+
+<h3>Factor 3: Volume (Weight: 20/100)</h3>
+<p>Is volume above the 20-bar SMA? Structure breaks on high volume are more likely to follow through because they have participation behind them.</p>
+<p><strong>Scoring:</strong> volume/SMA ratio, scaled 0-20 points. Can be disabled for markets without volume data.</p>
+
+<h3>Factor 4: Trend Alignment (Weight: 10/100)</h3>
+<p>Is the break in the direction of the <strong>Magic Band trend</strong>? A bullish BOS during a Magic Band uptrend (green) is more reliable than one occurring in a downtrend (red). The indicator uses its built-in Magic Bands for this assessment.</p>
+<p><strong>Scoring:</strong> 10 points if aligned, 0 if counter-trend</p>
+
+<h3>Factor 5: Previous Level Touches (Weight: 15/100)</h3>
+<p>How many times was the broken level tested before the break? A level tested 4-5 times before breaking carries more significance than one touched only once. Each failed attempt builds up stop-loss orders above/below, creating liquidity that fuels the eventual break.</p>
+<p><strong>Scoring:</strong> Scaled by touch count, 0-15 points</p>
+
+<h3>Factor 6: Pre-Break Momentum (Weight: 10/100)</h3>
+<p>In the N bars before the break (default 3), were consecutive candles moving in the break direction? This measures the &ldquo;run-up&rdquo; into the break. A break preceded by 3 consecutive bullish candles is more credible than one appearing out of nowhere.</p>
+<p><strong>Scoring:</strong> Count of aligned candles / lookback, scaled 0-10</p>
+
+<h3>Factor 7: Wick Penalty (Weight: -10/100)</h3>
+<p>This is a <strong>deduction</strong>, not a bonus. If the breaking candle has excessive wick (wick &gt; threshold &times; ATR within the wick lookback period), the score is penalized. Large wicks on the break candle suggest the break was rejected, increasing fakeout probability.</p>
+<p><strong>Scoring:</strong> Deducts 0-10 points based on wick severity</p>
+
+<h3>Star Rating System</h3>
+<ul>
+    <li><strong>★★★ (&ge;75/100):</strong> Excellent BOS &mdash; large body, past close, volume, trend aligned, well-tested level, momentum, clean wick</li>
+    <li><strong>★★ (&ge;50/100):</strong> Good BOS &mdash; most factors positive but some weaknesses</li>
+    <li><strong>★ (&lt;50/100):</strong> Weak BOS &mdash; consider waiting for better signal</li>
+</ul>
+
+<p>You can filter to show only ★★+ or ★★★ signals &mdash; dramatically reducing your signal count while keeping the highest-probability setups.</p>
+
+<h3>Triple-Scheme Scoring for Robustness</h3>
+<p>The indicator doesn&rsquo;t rely on a single weighting scheme. It computes <strong>3 different weight distributions</strong> and takes the <strong>highest score</strong>. This ensures that a BOS that scores poorly under one weighting but excellently under another still gets recognized. It prevents a single dominant factor from suppressing otherwise good signals.</p>
+
+<h3>Map-Based Persistent Scoring (Non-Repainting)</h3>
+<p>Every BOS score is computed once on bar confirmation and stored in a <code>map&lt;string, int&gt;</code>. The score is <strong>never recomputed on subsequent bars</strong>. This is a technical implementation detail but critically important: many other indicators recalculate past scores as new data arrives (repainting). AIO Advanced MS&rsquo;s map-based approach makes this impossible.</p>
+
+<h2>Level 3: All In One v2 (Dual Structure)</h2>
+<p>The original AIO flagship includes <strong>two independent market structure systems</strong> with different periods (MS1 and MS2), allowing you to see both higher and lower timeframe structure on the same chart. This is useful for identifying when short-term and medium-term structure align.</p>
+
+<h2>Comparison Summary</h2>
+<table style="width:100%; border-collapse:collapse; margin:1.5rem 0;">
+    <thead><tr style="border-bottom:2px solid var(--card-border);">
+        <th style="padding:8px; text-align:left;">Feature</th>
+        <th style="padding:8px; text-align:center;">MS Light</th>
+        <th style="padding:8px; text-align:center;">Advanced MS</th>
+        <th style="padding:8px; text-align:center;">All In One v2</th>
+    </tr></thead>
+    <tbody>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">BOS/CHoCH Detection</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&#10003;</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Quality Scoring (0-100)</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&#10003; (7-factor)</td><td style="text-align:center;">&mdash;</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Star Rating Filter</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">★/★★/★★★</td><td style="text-align:center;">&mdash;</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Non-Repainting Scores</td><td style="text-align:center;">N/A</td><td style="text-align:center;">&#10003; (map-based)</td><td style="text-align:center;">N/A</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Pullback Mark</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&mdash;</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Built-in Volatility</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&#10003; (Chaikin)</td><td style="text-align:center;">&mdash;</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Dual Structure Periods</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&#10003;</td></tr>
+        <tr><td style="padding:8px;">Chart Performance</td><td style="text-align:center;">Fastest</td><td style="text-align:center;">Medium</td><td style="text-align:center;">Heavier (20+ features)</td></tr>
+    </tbody>
+</table>
+
+<h2>Which Should You Use?</h2>
+<ul>
+    <li><strong>MS Light:</strong> If you want clean, fast BOS/CHoCH + automatic pullback detection. Great for lower timeframes where scoring overhead isn&rsquo;t needed.</li>
+    <li><strong>Advanced MS:</strong> If you&rsquo;re serious about filtering fakeouts. The 7-factor scoring is the best way to avoid false structure breaks. Essential for higher timeframe analysis.</li>
+    <li><strong>All In One v2:</strong> If you want market structure as part of a comprehensive toolkit with 20+ other features in a single indicator.</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See 7-Factor BOS Scoring in Action</h3>
+    <p>Filter out fakeouts with transparent quality scoring on every structure break.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/HRq5Y5Mb-AIO-Advanced-Market-Structure-with-Smart-Money-Detection/" target="_blank">
+        <i class="bi bi-graph-up-arrow"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="market-structure-bos-choch-explained.html" class="sidebar-link" style="padding:12px 0;">Market Structure BOS/CHoCH Explained &rarr;</a></div>
+            <div class="col-md-6"><a href="top-bottom-confidence-scoring.html" class="sidebar-link" style="padding:12px 0;">Top/Bottom Confidence Scoring &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

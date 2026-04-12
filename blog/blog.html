@@ -1,10 +1,156 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Blog</title>
-  </head>
-  <body>
-    <h1>Hello Blog!</h1>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Indicator blog — deep-dive guides on smart money trading, market structure, ICT concepts, risk management, and indicator strategies for TradingView." />
+    <meta name="keywords" content="trading blog, smart money, market structure, ICT trading, TradingView indicators, price action, AIO Indicator" />
+    <title>Blog | AIO Indicator — Trading Guides &amp; Indicator Deep Dives</title>
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+    <style>
+        .blog-filter-btn{background:transparent;border:1px solid var(--card-border);color:var(--text-secondary);padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s}
+        .blog-filter-btn:hover,.blog-filter-btn.active{background:var(--accent-primary);color:#fff;border-color:var(--accent-primary)}
+        .blog-card{transition:opacity .3s,transform .3s}
+        .blog-card.hidden{display:none}
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section style="padding-top:120px;padding-bottom:40px;">
+        <div class="container">
+            <h1 style="color:var(--text-primary);font-weight:800;margin-bottom:8px;">Blog</h1>
+            <p class="text-secondary mb-4">Deep-dive guides, strategy breakdowns, and indicator tutorials.</p>
+
+            <div class="d-flex flex-wrap gap-2 mb-4" id="blogFilters">
+                <button class="blog-filter-btn active" data-filter="all">All</button>
+                <button class="blog-filter-btn" data-filter="indicators">Indicators</button>
+                <button class="blog-filter-btn" data-filter="strategies">Strategies</button>
+                <button class="blog-filter-btn" data-filter="ict">ICT Concepts</button>
+                <button class="blog-filter-btn" data-filter="advanced">Advanced</button>
+            </div>
+
+            <div class="row g-4" id="blogGrid">
+                <!-- ICT -->
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="ict">
+                    <a href="ict-trading-setup-sessions-price-levels.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:var(--accent-primary);">ICT Concepts</span><h5 class="card-title" style="color:var(--text-primary);">ICT Sessions, Price Levels &amp; STD Projections</h5><p class="card-text text-secondary small">Complete ICT framework — kill zones, DR/IDR, NWOG, lookback ranges, and standard deviation projections.</p><small class="text-secondary">April 30 · 16 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="ict">
+                    <a href="smt-divergence-cross-symbol-analysis.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:var(--accent-primary);">ICT Concepts</span><h5 class="card-title" style="color:var(--text-primary);">SMT Divergence: Cross-Symbol Analysis</h5><p class="card-text text-secondary small">Detect institutional footprints between correlated assets (ES/NQ, BTC/ETH). Aggressive vs conservative mode.</p><small class="text-secondary">May 2 · 11 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="ict">
+                    <a href="accumulation-zones-breakout-prediction.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:var(--accent-primary);">Data-Driven</span><h5 class="card-title" style="color:var(--text-primary);">Accumulation Zones &amp; Breakout Prediction</h5><p class="card-text text-secondary small">HTF accumulation detection, statistical breakout win rate tracking, and integrated position sizing.</p><small class="text-secondary">May 4 · 12 min</small></div>
+                    </a>
+                </div>
+
+                <!-- Strategies -->
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="strategies">
+                    <a href="aio-trading-stack-combination-guide.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#e67e22;">Trading Strategy</span><h5 class="card-title" style="color:var(--text-primary);">5 AIO Trading Stacks That Work Together</h5><p class="card-text text-secondary small">Five proven multi-indicator strategies with specific entry, stop-loss, and target rules.</p><small class="text-secondary">April 24 · 14 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="strategies">
+                    <a href="bos-choch-quality-scoring-guide.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#e67e22;">Market Structure</span><h5 class="card-title" style="color:var(--text-primary);">BOS/CHoCH Quality Scoring: 7-Factor Guide</h5><p class="card-text text-secondary small">MS Light vs Advanced MS vs All In One v2. Learn the 7-factor scoring system and how to trade only ★★★ setups.</p><small class="text-secondary">April 26 · 13 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="strategies advanced">
+                    <a href="risk-management-probability-kelly-criterion.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#9b59b6;">Risk Management</span><h5 class="card-title" style="color:var(--text-primary);">Kelly Criterion, VaR &amp; Crash Probability</h5><p class="card-text text-secondary small">Position sizing with Kelly, Value at Risk, Expected Shortfall, Importance Sampling, and Particle Filter.</p><small class="text-secondary">April 28 · 14 min</small></div>
+                    </a>
+                </div>
+
+                <!-- Indicators -->
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="banker-momentum-institutional-flow.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#27ae60;">Momentum</span><h5 class="card-title" style="color:var(--text-primary);">Banker Momentum: 3-Tier RSI &amp; Institutional Flow</h5><p class="card-text text-secondary small">RSI decomposition into Banker/Hot Money/Retail tiers, Chaikin Volatility, KDJ, CVD 10 levels.</p><small class="text-secondary">April 14 · 12 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="top-bottom-confidence-scoring.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#27ae60;">Reversal Detection</span><h5 class="card-title" style="color:var(--text-primary);">Top/Bottom Confidence: 9-Factor Scoring</h5><p class="card-text text-secondary small">9 independent reversal factors with exact weights. Mandatory BOS/MSS gating, one-shot signals.</p><small class="text-secondary">April 16 · 14 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="trendline-breakout-liquidity-detection.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#27ae60;">Trendlines</span><h5 class="card-title" style="color:var(--text-primary);">Trendline Breakout &amp; Liquidity Detection</h5><p class="card-text text-secondary small">TPO-based liquidity mapping, breakout ★ scoring, Up Buy/Down Sell retracement system.</p><small class="text-secondary">April 18 · 13 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="magic-bands-atr-fibonacci-trading.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#27ae60;">Trend Following</span><h5 class="card-title" style="color:var(--text-primary);">Magic Bands: ATR × Fibonacci Trading</h5><p class="card-text text-secondary small">Modified True Range, Wilder's MA, 3 Fibonacci layers at 61.8/78.6/88.6%, sub-band precision entries.</p><small class="text-secondary">April 20 · 11 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="volume-profile-poc-key-levels.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#27ae60;">Volume Analysis</span><h5 class="card-title" style="color:var(--text-primary);">Volume Profile POC &amp; Key Levels</h5><p class="card-text text-secondary small">Touch-weighted POC algorithm, dual-TF POC, Rolling VWAP with auto-adaptation, Anchored VWAP.</p><small class="text-secondary">April 22 · 12 min</small></div>
+                    </a>
+                </div>
+
+                <!-- Original 5 -->
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="smart-money-trading-guide.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#3498db;">Smart Money</span><h5 class="card-title" style="color:var(--text-primary);">What is Smart Money Trading? Complete Guide</h5><p class="card-text text-secondary small">How institutions move markets, liquidity sweeps, order blocks, FVGs, and smart money strategy.</p><small class="text-secondary">April 12 · 12 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="dow-theory-trading-guide.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#3498db;">Dow Theory</span><h5 class="card-title" style="color:var(--text-primary);">Dow Theory Trading Guide 2026</h5><p class="card-text text-secondary small">Close-based structure, three market phases, dual-timeframe analysis, and phase detection.</p><small class="text-secondary">April 12 · 10 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators strategies">
+                    <a href="market-structure-bos-choch-explained.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#3498db;">Market Structure</span><h5 class="card-title" style="color:var(--text-primary);">Market Structure: BOS &amp; CHoCH Explained</h5><p class="card-text text-secondary small">Break of Structure vs Change of Character. How to read market structure like a professional.</p><small class="text-secondary">April 12 · 11 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="advanced">
+                    <a href="monte-carlo-simulation-trading.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#9b59b6;">Quantitative</span><h5 class="card-title" style="color:var(--text-primary);">Monte Carlo Simulation for Trading</h5><p class="card-text text-secondary small">How probability-based forecasting works: 1500 simulated paths, dual-strike evaluation, Brier Score calibration.</p><small class="text-secondary">April 12 · 13 min</small></div>
+                    </a>
+                </div>
+                <div class="col-md-6 col-lg-4 blog-card" data-cat="indicators">
+                    <a href="open-interest-cvd-crypto-futures.html" class="card h-100" style="background:var(--card-bg);border:1px solid var(--card-border);text-decoration:none;">
+                        <div class="card-body"><span class="badge mb-2" style="background:#3498db;">Crypto Futures</span><h5 class="card-title" style="color:var(--text-primary);">Open Interest &amp; CVD: Crypto Futures Guide</h5><p class="card-text text-secondary small">OI z-score analysis, CVD divergence, liquidation proxy detection, 6-type setup classification.</p><small class="text-secondary">April 12 · 12 min</small></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
+        btn.addEventListener('click',function(){
+            document.querySelectorAll('.blog-filter-btn').forEach(function(b){b.classList.remove('active')});
+            this.classList.add('active');
+            var filter=this.getAttribute('data-filter');
+            document.querySelectorAll('.blog-card').forEach(function(card){
+                if(filter==='all'||card.getAttribute('data-cat').indexOf(filter)!==-1){
+                    card.classList.remove('hidden');
+                }else{
+                    card.classList.add('hidden');
+                }
+            });
+        });
+    });
+    </script>
+</body>
 </html>

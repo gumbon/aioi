@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Master risk management with Kelly Criterion position sizing, Value at Risk, crash probability detection via importance sampling, and Brier Score calibration — all from AIO Prediction Market Simulator." />
+    <meta name="keywords" content="Kelly Criterion, position sizing, Value at Risk, VaR, crash detection, importance sampling, Brier Score, risk management, Monte Carlo, TradingView" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Risk Management with Probability: Kelly Criterion, VaR &amp; Crash Detection | AIO Indicator</title>
+
+    <meta property="og:title" content="Risk Management with Probability: Kelly Criterion, VaR & Crash Detection" />
+    <meta property="og:description" content="Turn complex quantitative risk management into actionable BUY/SHORT/WAIT/AVOID decisions with the AIO Prediction Market Simulator." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/risk-management-probability-kelly-criterion.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Risk Management</div>
+        <h1 class="article-title">Risk Management with Probability: Kelly Criterion, VaR &amp; Crash Detection</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 28, 2026</span>
+            <span><i class="bi bi-clock"></i> 14 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Indicator That Tells You When NOT to Trade</h2>
+<p>Most indicators focus on finding entries. AIO Prediction Market Simulator does something fundamentally different: it computes the <strong>probability of price reaching specific targets</strong> and uses that to generate BUY/SHORT/WAIT/AVOID decisions. The WAIT and AVOID states are arguably the most valuable signals &mdash; knowing when to stay out is the essence of risk management.</p>
+
+<h2>Kelly Criterion: Optimal Position Sizing</h2>
+<p>The Kelly Criterion is the mathematically optimal formula for position sizing given an edge:</p>
+
+<p style="text-align:center; font-size:1.2em;"><strong>f* = (p &times; b - q) / b</strong></p>
+
+<p>Where:</p>
+<ul>
+    <li><strong>p</strong> = probability of winning (from Monte Carlo simulation)</li>
+    <li><strong>q</strong> = probability of losing (1 - p)</li>
+    <li><strong>b</strong> = ratio of win amount to loss amount</li>
+    <li><strong>f*</strong> = fraction of capital to risk</li>
+</ul>
+
+<h3>Why Fractional Kelly?</h3>
+<p>Full Kelly is mathematically optimal but produces <strong>extreme drawdowns</strong>. A 50% drawdown is common under full Kelly. AIO uses <strong>fractional Kelly</strong> (default 15% of full Kelly for crypto, higher for less volatile markets), which sacrifices some return for dramatically smoother equity curves.</p>
+
+<p>The indicator automatically adjusts the fractional Kelly based on Market Type preset:</p>
+<ul>
+    <li><strong>Crypto:</strong> 15% Kelly (very conservative &mdash; high volatility)</li>
+    <li><strong>Stocks:</strong> 25% Kelly</li>
+    <li><strong>Forex:</strong> 30% Kelly</li>
+    <li><strong>Bonds:</strong> 40% Kelly (lowest volatility)</li>
+</ul>
+
+<h2>Value at Risk (VaR) &amp; Expected Shortfall</h2>
+<p>VaR answers: &ldquo;What&rsquo;s the <strong>worst-case loss</strong> I should expect with X% confidence over Y period?&rdquo;</p>
+
+<p>AIO computes VaR directly from Monte Carlo paths:</p>
+<ul>
+    <li><strong>VaR 95%:</strong> The 5th-percentile outcome from 1,500 simulated price paths. &ldquo;Only 5% of scenarios are worse than this.&rdquo;</li>
+    <li><strong>VaR 99%:</strong> The 1st-percentile outcome. Extreme downside.</li>
+    <li><strong>Expected Shortfall (CVaR):</strong> The average of all scenarios worse than VaR. While VaR tells you the boundary, ES tells you <strong>how bad it gets if that boundary is crossed</strong>.</li>
+</ul>
+
+<h2>Crash Probability via Importance Sampling</h2>
+<p>Standard Monte Carlo is terrible at estimating rare events. Running 1,500 simulations, a 2% crash probability means only ~30 paths actually crash &mdash; too few for reliable estimation.</p>
+
+<p>AIO solves this with <strong>Importance Sampling</strong> &mdash; a technique from quantitative finance:</p>
+
+<ol>
+    <li><strong>Tilt the sampling distribution:</strong> Instead of sampling from the real-world distribution, sample from a shifted distribution that makes crashes more likely ($\mu$ shifted down by the crash threshold)</li>
+    <li><strong>Run simulations:</strong> More crash scenarios are generated</li>
+    <li><strong>Reweight results:</strong> Each path&rsquo;s probability is adjusted by the <strong>likelihood ratio</strong> (how much more likely the tilted distribution made this path vs the real distribution)</li>
+    <li><strong>Result:</strong> Crash probability estimated with 10-100&times; more effective samples</li>
+</ol>
+
+<p>The crash threshold is calibrated per Market Type (crypto default: 5% crash in 1 day; stocks: 3%).</p>
+
+<h2>Particle Filter: Bayesian Probability Updating</h2>
+<p>While Monte Carlo provides a forward-looking probability estimate, the <strong>Particle Filter</strong> provides a backward-looking one that updates with each new bar:</p>
+
+<ol>
+    <li><strong>Propagate:</strong> 200 particles simulate possible future states based on process volatility</li>
+    <li><strong>Reweight:</strong> Each particle is scored by how well it predicted the actual observed price (exponential weighting based on observation noise)</li>
+    <li><strong>Resample:</strong> Particles with low weights are eliminated; high-weight particles are duplicated (systematic resampling)</li>
+    <li><strong>Estimate:</strong> The weighted average probability from all particles gives the PF probability</li>
+</ol>
+
+<p>The Particle Filter acts as a <strong>second opinion</strong> to Monte Carlo. When both agree, confidence is highest.</p>
+
+<h2>The 4-Signal Decision Engine</h2>
+<p>All these components feed into a simple decision framework:</p>
+
+<ol>
+    <li><strong>MC Signal:</strong> Is the stronger Monte Carlo probability &gt;33%?</li>
+    <li><strong>PF Agreement:</strong> Does the Particle Filter agree (&gt;54%)?</li>
+    <li><strong>Bias Edge:</strong> Is there a measurable edge (&gt;5% difference between bull and bear)?</li>
+    <li><strong>Model Convergence:</strong> Do Monte Carlo and Black-Scholes agree within tolerance?</li>
+</ol>
+
+<h3>Decision States</h3>
+<ul>
+    <li><strong>BUY / SHORT:</strong> 3-4 signals agree + crash risk acceptable &rarr; green/red marker</li>
+    <li><strong>BUY? / SHORT?:</strong> Only 2 signals agree &rarr; possible but uncertain</li>
+    <li><strong>WAIT:</strong> Crash risk moderate &rarr; orange marker &mdash; <em>stay out</em></li>
+    <li><strong>AVOID:</strong> Crash risk severe &rarr; dark red marker &mdash; <em>close positions</em></li>
+</ul>
+
+<h2>Brier Score: Is the Model Working?</h2>
+<p>Every N bars (configurable), the indicator records its probability prediction and later evaluates whether the outcome matched. The <strong>Brier Score</strong> measures calibration quality:</p>
+
+<ul>
+    <li><strong>Brier &lt; 0.15:</strong> Excellent calibration &mdash; model predictions are reliable</li>
+    <li><strong>Brier 0.15-0.25:</strong> Acceptable &mdash; model provides useful edge</li>
+    <li><strong>Brier &gt; 0.25:</strong> Poor &mdash; model may need parameter adjustment or market regime has changed</li>
+</ul>
+
+<p>This is <strong>self-auditing</strong> &mdash; the indicator tells you when its own predictions are degrading, something no other TradingView indicator does.</p>
+
+<h2>Practical Risk Management Workflow</h2>
+<ol>
+    <li><strong>Check Decision State:</strong> Only trade when state is BUY or SHORT (not WAIT/AVOID)</li>
+    <li><strong>Check Crash Probability:</strong> If crash prob &gt; 6%, reduce position or stay flat</li>
+    <li><strong>Set position size using Kelly %</strong> (shown in the info table)</li>
+    <li><strong>Set stop loss at VaR 95% level</strong></li>
+    <li><strong>Check Brier Score:</strong> If &gt;0.25, reduce conviction and position size by 50%</li>
+    <li><strong>Use signal alerts:</strong> &ldquo;WAIT/AVOID &rarr; BUY/SHORT&rdquo; transition alerts catch the exact moment conditions improve</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>See Probability-Based Risk Management</h3>
+    <p>Monte Carlo simulation, Kelly sizing, crash detection, and self-calibrating accuracy &mdash; all on your TradingView chart.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/sAfWIFZK-AIO-Prediction-Market-Simulator/" target="_blank">
+        <i class="bi bi-graph-up-arrow"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="monte-carlo-simulation-trading.html" class="sidebar-link" style="padding:12px 0;">Monte Carlo Simulation Guide &rarr;</a></div>
+            <div class="col-md-6"><a href="top-bottom-confidence-scoring.html" class="sidebar-link" style="padding:12px 0;">Top/Bottom Confidence Scoring &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

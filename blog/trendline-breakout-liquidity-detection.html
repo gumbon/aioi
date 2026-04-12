@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how automated trendline detection, breakout quality scoring, and TPO-based probability-rated liquidity lines work in AIO Trendlines with Liquidity indicator." />
+    <meta name="keywords" content="trendline breakout, liquidity detection, TPO profile, breakout scoring, support resistance, TradingView indicator, price action trading" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Trendline Breakout Trading: Quality Scoring &amp; Liquidity Detection | AIO Indicator</title>
+
+    <meta property="og:title" content="Trendline Breakout Trading: Quality Scoring & Liquidity Detection" />
+    <meta property="og:description" content="How AIO Trendlines uses TPO-based probability-rated liquidity and multi-factor breakout scoring to find high-probability trade entries." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/trendline-breakout-liquidity-detection.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero">
+        <div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+            <div class="article-tag">Trendlines</div>
+            <h1 class="article-title">Trendline Breakout Trading: Quality Scoring &amp; Liquidity Detection</h1>
+            <div class="article-meta">
+                <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                <span><i class="bi bi-calendar3"></i> April 18, 2026</span>
+                <span><i class="bi bi-clock"></i> 12 min read</span>
+            </div>
+        </div></div></div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Problem with Traditional Trendlines</h2>
+<p>Manual trendlines are subjective. Two traders can draw completely different lines on the same chart. And once price breaks a trendline, most traders have no framework for judging <em>whether the breakout is genuine or a fakeout</em>.</p>
+
+<p>AIO Trendlines with Liquidity solves both problems: <strong>automated trendline detection</strong> with configurable strength parameters, <strong>quality-scored breakouts</strong> rated ★ to ★★★, and <strong>TPO-based liquidity lines</strong> that show where price is statistically most likely to be attracted.</p>
+
+<h2>Automated Trendline Detection</h2>
+<p>Trendlines are built from pivot highs and pivot lows with multiple noise filters:</p>
+<ul>
+    <li><strong>Strength parameter</strong> (default 14): Controls how many bars must exist on each side of a pivot to qualify</li>
+    <li><strong>Minimum slope filter</strong> (default 0.3%): Eliminates near-horizontal lines that are really support/resistance, not trendlines</li>
+    <li><strong>Minimum pivot distance</strong> (default 1.0%): Adjacent pivots must be at least 1% apart in price to avoid clustering</li>
+    <li><strong>Touch tolerance</strong> (default 0.5%): How close price must be to &ldquo;touch&rdquo; the trendline</li>
+</ul>
+
+<h2>Breakout Quality Scoring (★ to ★★★)</h2>
+<p>When price breaks through a trendline, AIO Trendlines doesn&rsquo;t just label it &ldquo;B Up&rdquo; or &ldquo;B Down&rdquo; &mdash; it rates the breakout quality:</p>
+
+<h3>Scoring Factors for B Up / B Down</h3>
+<ul>
+    <li><strong>Volume spike:</strong> Is volume &ge; 150% of the 20-bar average? Volume confirms participation.</li>
+    <li><strong>Candle body quality:</strong> A strong close well beyond the trendline (not just a wick) increases quality</li>
+    <li><strong>HTF alignment:</strong> Is the higher-timeframe MA confirming the direction?</li>
+</ul>
+
+<p><strong>★</strong> = Basic breakout (meets minimum criteria)<br>
+<strong>★★</strong> = Good breakout (volume + body confirmation)<br>
+<strong>★★★</strong> = Excellent breakout (all factors aligned)</p>
+
+<p>You can filter signals to only show ★★+ or ★★★ only &mdash; dramatically reducing noise while keeping the highest-probability setups.</p>
+
+<h2>The Up Buy / Down Sell System</h2>
+<p>The most sophisticated signal in this indicator isn&rsquo;t the breakout itself &mdash; it&rsquo;s what happens <em>after</em>:</p>
+
+<ol>
+    <li><strong>B Up fires:</strong> Price breaks above the upper trendline</li>
+    <li><strong>Price continues to break the Trendline Pivot High (TPH)</strong></li>
+    <li><strong>Price retraces ~50% of the breakout move</strong></li>
+    <li><strong>&ldquo;Up Buy&rdquo; signal fires at the retracement</strong></li>
+</ol>
+
+<p>This sequence captures the classic &ldquo;breakout &rarr; retest &rarr; continuation&rdquo; pattern that professional traders use. The 50% retracement requirement means you&rsquo;re entering at a better price than the initial breakout, with confirmation that the breakout level is holding as support.</p>
+
+<p>The same logic applies in reverse for Down Sell signals.</p>
+
+<h2>TPO-Based Liquidity Lines</h2>
+<p>This is perhaps the most unique feature. Traditional &ldquo;liquidity&rdquo; indicators simply draw horizontal lines at random swing points. AIO Trendlines uses actual <strong>Time-Price-Opportunity (TPO)</strong> analysis &mdash; the same methodology used by Market Profile traders.</p>
+
+<h3>How TPO Liquidity Works</h3>
+<ol>
+    <li>Divide each session&rsquo;s price range into bins (configurable resolution)</li>
+    <li>Count how many time periods price spent in each bin (TPO count)</li>
+    <li>Merge nearby levels that are within tolerance</li>
+    <li>Score each level based on TPO count AND position within the range</li>
+</ol>
+
+<h3>Probability Ratings</h3>
+<ul>
+    <li><strong>Very High (★★★):</strong> 1-print levels at the extreme top/bottom 10% of the range &mdash; <strong>85-95% probability of being tested.</strong> These are single-print (one TPO) levels at extremes, meaning price touched this level exactly once and reversed. Institutional theory says these levels &ldquo;must&rdquo; be revisited.</li>
+    <li><strong>High (★★):</strong> 1-print levels in the 10-30% edge zone &mdash; <strong>65-70% probability</strong></li>
+    <li><strong>Medium (★):</strong> 2-print levels at edges &mdash; <strong>40-50% probability</strong></li>
+</ul>
+
+<h3>Market Type Presets</h3>
+<p>Different markets have different volume profiles. AIO provides optimized presets:</p>
+<ul>
+    <li><strong>Forex:</strong> Tighter bins, lower merge tolerance (lower volatility)</li>
+    <li><strong>Crypto:</strong> Wider bins, higher merge tolerance (volatile, 24/7)</li>
+    <li><strong>Stocks:</strong> Medium settings, session-based</li>
+    <li><strong>Futures:</strong> Similar to stocks but with wider ranges</li>
+</ul>
+
+<h2>Trendline Support &amp; Resistance Mode</h2>
+<p>Beyond breakouts, the indicator detects <strong>pullbacks to trendlines</strong> as S/R signals:</p>
+<ul>
+    <li>Price must have been at least 1% away from the trendline (pullback distance)</li>
+    <li>Within the lookback window, price must have moved away and returned</li>
+    <li>Pivot confirmation at the touch point increases quality</li>
+    <li>Separate minimum bars and price between consecutive S/R signals prevents clustering</li>
+</ul>
+
+<h2>MA S/R Mode &amp; HTF Filter</h2>
+<p>The indicator also supports <strong>Moving Average-based S/R</strong> (price bouncing off a configurable MA) and a <strong>Higher Timeframe MA filter</strong> that requires the HTF trend to align with the signal direction. Signal Mode lets you choose &ldquo;Trendline only,&rdquo; &ldquo;MA only,&rdquo; or &ldquo;All.&rdquo;</p>
+
+<h2>Practical Trading Strategy</h2>
+<h3>The Breakout &rarr; Retest &rarr; Continuation</h3>
+<ol>
+    <li>Wait for ★★+ B Up/B Down signal with volume confirmation</li>
+    <li>Do NOT chase the breakout</li>
+    <li>Wait for the Up Buy/Down Sell signal (50% retracement)</li>
+    <li>Enter at the retracement level</li>
+    <li>Stop loss below the broken trendline level</li>
+    <li>Target: Next TPO liquidity line (★★★ levels are magnetic)</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>See Trendline Scoring &amp; Liquidity in Action</h3>
+    <p>Automated trendlines with quality-rated breakouts and probability-rated liquidity targets.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/z56LG7Pz-AIO-Advanced-Trendlines-with-TPO-inspired-Liquidity/" target="_blank">
+        <i class="bi bi-graph-up-arrow"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+        </div></div></div></div>
+    </section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="ict-trading-setup-sessions-price-levels.html" class="sidebar-link" style="padding:12px 0;">ICT Trading Setup: Sessions &amp; Price Levels &rarr;</a></div>
+            <div class="col-md-6"><a href="volume-profile-poc-key-levels.html" class="sidebar-link" style="padding:12px 0;">Volume Profile POC: Key Levels &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

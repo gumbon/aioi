@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how touch-weighted Volume Profile POC works, with dual-timeframe analysis, Rolling vs Anchored VWAP, and practical key level identification." />
+    <meta name="keywords" content="volume profile, POC, point of control, VWAP, touch weighted, key levels, support resistance, TradingView indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Volume Profile POC: Touch-Weighted Key Levels | AIO Indicator</title>
+
+    <meta property="og:title" content="Volume Profile POC: Touch-Weighted Key Levels" />
+    <meta property="og:description" content="How AIO Key Volume combines volume AND price visits to find the most significant levels on any chart." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/volume-profile-poc-key-levels.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Volume Analysis</div>
+        <h1 class="article-title">Volume Profile POC: Touch-Weighted Key Levels</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 22, 2026</span>
+            <span><i class="bi bi-clock"></i> 9 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What Is Point of Control (POC)?</h2>
+<p>The Point of Control is the price level where the most trading activity occurred over a given period. It acts as a <strong>magnet for price</strong> &mdash; markets tend to rotate around the POC because it represents fair value as perceived by the majority of market participants.</p>
+
+<p>Traditional volume profile indicators only consider traded volume at each price level. AIO Key Volume takes this further by also counting <strong>how many times price visited each level</strong> (touches), creating a more robust assessment of which levels truly matter.</p>
+
+<h2>Touch-Weighted POC Algorithm</h2>
+<p>Here&rsquo;s how the algorithm works step by step:</p>
+
+<ol>
+    <li><strong>Divide the price range into bins:</strong> Over the lookback period (default 20 bars), find the highest high and lowest low, then split this range into 25 rows (configurable)</li>
+    <li><strong>For each historical bar:</strong> Determine which bins the bar&rsquo;s range (high to low) covers and distribute that bar&rsquo;s volume across all bins it touches. Also increment the touch count for each bin.</li>
+    <li><strong>Score each bin:</strong> Combined score = <code>volume_score &times; (1 - balance) + touch_score &times; balance</code></li>
+    <li><strong>POC = highest-scoring bin</strong></li>
+</ol>
+
+<h3>The Balance Parameter</h3>
+<p>The balance (default: &ldquo;Balanced&rdquo; = 0.5) controls how much weight goes to volume vs touches:</p>
+<ul>
+    <li><strong>100% Volume (balance=0.0):</strong> Traditional volume profile &mdash; pure volume accumulation</li>
+    <li><strong>75% Volume (0.25):</strong> Slightly touch-aware</li>
+    <li><strong>Balanced (0.5):</strong> Equal weight to volume and touches &mdash; recommended default</li>
+    <li><strong>75% Touches (0.75):</strong> Emphasizes price revisits over raw volume</li>
+    <li><strong>100% Touches (1.0):</strong> Pure frequency &mdash; where did price spend the most time?</li>
+</ul>
+
+<h3>Why Touches Matter</h3>
+<p>Consider two price levels:</p>
+<ul>
+    <li><strong>Level A:</strong> $50,000 volume in one bar (single large candle passed through)</li>
+    <li><strong>Level B:</strong> $30,000 volume across 8 separate visits</li>
+</ul>
+<p>Traditional volume profile picks Level A. But Level B is more significant because price was <strong>attracted to it 8 times</strong> &mdash; it&rsquo;s a genuine point of interest, not just a zone price passed through once with high volume. The touch-weighted approach captures this difference.</p>
+
+<h2>Dual-Timeframe POC</h2>
+<p>AIO Key Volume computes POC on two timeframes simultaneously:</p>
+<ul>
+    <li><strong>Main TF POC (pink line):</strong> Computed on the current chart timeframe</li>
+    <li><strong>Higher TF POC (blue line):</strong> Computed on a configurable higher timeframe (default: 1H)</li>
+</ul>
+
+<p>When both POCs converge on the same price level, it creates a <strong>strong support/resistance confluence</strong>. When they diverge, the higher TF POC typically acts as the stronger magnet.</p>
+
+<h2>VWAP: Two Modes</h2>
+<p>AIO Key Volume also includes optional VWAP with two calculation methods:</p>
+
+<h3>Anchored VWAP (Session-Based)</h3>
+<p>Resets at the beginning of each trading day. The classic VWAP calculation:</p>
+<p><code>VWAP = &Sigma;(Price &times; Volume) / &Sigma;Volume</code></p>
+<p>With standard deviation bands at 1&sigma;, 2.168&sigma;, and 2.786&sigma; for statistical price extremes.</p>
+
+<h3>Rolling VWAP (Time-Windowed)</h3>
+<p>Instead of resetting daily, Rolling VWAP uses a <strong>dynamic time window</strong> that automatically adapts to your chart timeframe:</p>
+<ul>
+    <li>1-minute chart &rarr; 1-hour rolling window</li>
+    <li>5-minute chart &rarr; 4-hour window</li>
+    <li>1-hour chart &rarr; 1-day window</li>
+    <li>4-hour chart &rarr; 3-day window</li>
+    <li>Daily chart &rarr; ~30-day window</li>
+</ul>
+<p>Rolling VWAP is <strong>more responsive than anchored VWAP</strong> and doesn&rsquo;t have the end-of-day compression problem where anchored VWAP becomes meaningless as the session nears its close.</p>
+
+<h2>Moving Average Overlay</h2>
+<p>A configurable MA (EMA/SMA/WMA, default EMA 89) provides trend context. When POC is above the MA, the structure is bullish. When below, bearish.</p>
+
+<h2>Practical Trading Strategy</h2>
+<h3>POC Confluence Entry</h3>
+<ol>
+    <li>Identify where Main TF POC and Higher TF POC converge (within 0.5%)</li>
+    <li>Wait for price to pull back to this confluence zone</li>
+    <li>Look for a rejection candle (pin bar, engulfing) at the level</li>
+    <li>Enter in the direction of the MA trend</li>
+    <li>Stop loss: Other side of the POC level</li>
+    <li>Target: Next significant swing high/low or VWAP band</li>
+</ol>
+
+<h3>POC as Range Midpoint</h3>
+<p>In ranging markets, POC acts as the equilibrium. Price oscillates above and below it. You can trade the extremes of the recent range with POC as the mean-reversion target.</p>
+
+<div class="indicator-cta-box">
+    <h3>See Touch-Weighted POC in Action</h3>
+    <p>Find the levels that actually matter &mdash; not just by volume, but by how many times price was attracted to them.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/Xsd23Prr-AIO-Key-Volume/" target="_blank">
+        <i class="bi bi-graph-up-arrow"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="trendline-breakout-liquidity-detection.html" class="sidebar-link" style="padding:12px 0;">Trendline Breakout &amp; Liquidity &rarr;</a></div>
+            <div class="col-md-6"><a href="open-interest-cvd-crypto-futures.html" class="sidebar-link" style="padding:12px 0;">Open Interest &amp; CVD Guide &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Master accumulation zone detection, statistical breakout prediction with win rate tracking, and integrated position sizing. Covers AIO Accumulation Zone, Breakout Prediction, and Statistic Panel." />
+    <meta name="keywords" content="accumulation zone, Wyckoff, breakout prediction, win rate, position sizing, money management, multi timeframe trend, TradingView indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Accumulation Zones &amp; Breakout Prediction: Data-Driven Entry Timing | AIO Indicator</title>
+
+    <meta property="og:title" content="Accumulation Zones & Breakout Prediction: Data-Driven Entry Timing" />
+    <meta property="og:description" content="Detect Wyckoff accumulation/distribution zones, validate breakouts with historical win rate statistics, and size positions correctly — all automated." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Data-Driven</div>
+        <h1 class="article-title">Accumulation Zones &amp; Breakout Prediction: Data-Driven Entry Timing</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 4, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Three Data-Driven Tools for Entry Timing</h2>
+<p>Most trading decisions are based on subjective judgment: &ldquo;I think price will break out here.&rdquo; The three AIO indicators covered in this article replace subjective judgment with <strong>data</strong>: accumulation zone detection from higher timeframe candle structure, statistical breakout validation from historical win rates, and precise position sizing from risk calculations.</p>
+
+<hr>
+
+<h2>Part 1: Accumulation Zone Detection (AIO Accumulation Zone)</h2>
+
+<h3>The Concept</h3>
+<p>In Wyckoff methodology, <strong>accumulation</strong> is the phase where institutional buyers quietly build positions before a markup phase. <strong>Distribution</strong> is the opposite &mdash; institutions selling before a markdown. These phases are most clearly visible on higher timeframes, where candle bodies reveal the direction of the &ldquo;compose&rdquo; force.</p>
+
+<h3>How AIO Accumulation Zone Works</h3>
+<p>The indicator visualizes HTF (Higher Time Frame) candle body zones as colored boxes on your lower timeframe chart:</p>
+
+<ul>
+    <li><strong>Bullish HTF candle (O &lt; C):</strong> Zone extends from Open down to Low (green box) &mdash; this is where accumulation occurred before the bullish close</li>
+    <li><strong>Bearish HTF candle (O &gt; C):</strong> Zone extends from High down to Open (red box) &mdash; distribution occurred above the open before the bearish close</li>
+</ul>
+
+<h3>Auto-Timeframe Selection</h3>
+<p>The indicator automatically selects the appropriate HTF based on your chart timeframe:</p>
+<ul>
+    <li>Intraday (&le;60m) &rarr; Daily zones</li>
+    <li>Intraday (&le;240m) &rarr; Weekly zones</li>
+    <li>Daily &rarr; 3-Month zones</li>
+    <li>Weekly &rarr; 6-Month zones</li>
+    <li>Monthly+ &rarr; 12-Month zones</li>
+</ul>
+
+<p>Both the <strong>current and previous period zones</strong> are displayed, giving you context of the last two HTF candles&rsquo; accumulation/distribution activity.</p>
+
+<h3>Trading Application</h3>
+<p>When price is trading within a green (accumulation) zone, it&rsquo;s in the area where buyers were active on the higher timeframe. Pullbacks into this zone have a higher probability of finding support. Conversely, rallies into a red (distribution) zone face institutional selling pressure.</p>
+
+<hr>
+
+<h2>Part 2: Breakout Prediction (AIO Breakout Prediction)</h2>
+
+<h3>Built-In Statistical Backtesting Engine</h3>
+<p>Instead of relying on heuristics, this indicator <strong>counts every breakout across your entire chart history</strong> and tells you the win rate:</p>
+
+<h4>The Breakout Pattern</h4>
+<ol>
+    <li>Pattern detected: <code>close[2] &gt; high[3]</code> (two bars ago closed above three bars ago&rsquo;s high)</li>
+    <li>Win condition: <code>high[1] &gt; high[2]</code> (one bar ago made a higher high than two bars ago) &mdash; follow-through confirmed</li>
+    <li>Loss: Follow-through did not occur</li>
+</ol>
+
+<p>The indicator displays cumulative <strong>Win Rate %</strong>, total <strong>Win Count</strong>, and <strong>Loss Count</strong>. These are not theoretical backtests &mdash; they&rsquo;re computed from the actual price bars on your chart.</p>
+
+<h4>The Bias System</h4>
+<p>A second, more nuanced system detects <strong>inside-bar breakout patterns</strong> &mdash; where price breaks out of the prior bar&rsquo;s range AND the next candle confirms with matching direction (green candle after bullish breakout, red after bearish). This system has its own independent Win Rate.</p>
+
+<h4>Multi-Timeframe Breakout Dots</h4>
+<p>The indicator also shows colored dots for 1H, 4H, Daily, and Weekly timeframes, indicating whether the previous close broke above or below the prior-prior-period high/low. This creates a quick-glance <strong>multi-TF breakout matrix</strong>.</p>
+
+<h3>How to Use It</h3>
+<ul>
+    <li>If the Win Rate is &gt;60%, breakout-with-follow-through patterns are reliable on this symbol/TF combination</li>
+    <li>Only trade breakouts when the Bias system also shows a confirming color dot</li>
+    <li>If Win Rate is &lt;45%, consider <em>fading</em> breakouts instead of trading them</li>
+</ul>
+
+<hr>
+
+<h2>Part 3: Position Sizing &amp; Real-Time Tracking (AIO Statistic Panel)</h2>
+
+<h3>Breakout Information Table</h3>
+<p>AIO Statistic Panel answers the question &ldquo;Has today&rsquo;s price broken yesterday&rsquo;s key levels?&rdquo; in real-time:</p>
+<ul>
+    <li><strong>PDH:</strong> Has today&rsquo;s high broken Previous Day High? (Yes/Not yet)</li>
+    <li><strong>PDL:</strong> Has today&rsquo;s low broken Previous Day Low?</li>
+    <li><strong>PWH:</strong> Has this week&rsquo;s high broken Previous Week High?</li>
+    <li><strong>PWL:</strong> Has this week&rsquo;s low broken Previous Week Low?</li>
+</ul>
+
+<h3>Multi-Timeframe Trend Matrix</h3>
+<p>Shows trend direction across 5m, 15m, 1H, 4H, Daily, and Weekly timeframes using SMA comparisons. Plus a configurable MA Trend panel (4 MAs: SMA/EMA/RMA/WMA/VWMA with periods 20/50/100/200).</p>
+
+<h3>Integrated Money Management Calculator</h3>
+<p>The most practical feature &mdash; automatic position sizing:</p>
+
+<h4>Inputs</h4>
+<ul>
+    <li><strong>Balance:</strong> Your account size (e.g., $3,000)</li>
+    <li><strong>Risk %:</strong> How much to risk per trade (e.g., 2%)</li>
+    <li><strong>Stop Loss:</strong> In lots (for forex) or units (for crypto/stocks)</li>
+</ul>
+
+<h4>Outputs</h4>
+<ul>
+    <li><strong>Risk Amount:</strong> $3,000 &times; 2% = $60</li>
+    <li><strong>For Forex:</strong> Lot size = Risk Amount / (SL pips &times; 10). Auto-detects JPY pairs.</li>
+    <li><strong>For Crypto/Stocks:</strong> Units = Risk Amount / (Current Price &times; SL%)</li>
+</ul>
+
+<p>No more manual calculations or separate position sizing tools &mdash; the number is right on your chart.</p>
+
+<hr>
+
+<h2>Putting It Together: Data-Driven Entry</h2>
+<ol>
+    <li><strong>AIO Accumulation Zone:</strong> Is price in an accumulation (green) or distribution (red) zone?</li>
+    <li><strong>AIO Breakout Prediction:</strong> Is the breakout win rate &gt;55% for this symbol/TF? Is the Bias system confirming?</li>
+    <li><strong>AIO Statistic Panel:</strong> Has PDH/PDL been broken? What&rsquo;s the multi-TF trend alignment?</li>
+    <li><strong>If all align:</strong> Use the Money Management calculator to determine position size, enter the trade</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>Trade with Data, Not Guesses</h3>
+    <p>Accumulation detection, statistical breakout validation, and integrated position sizing.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank">
+        <i class="bi bi-lightning-charge-fill"></i> Start Free 5-Day Trial
+    </a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="dow-theory-trading-guide.html" class="sidebar-link" style="padding:12px 0;">Dow Theory Trading Guide &rarr;</a></div>
+            <div class="col-md-6"><a href="risk-management-probability-kelly-criterion.html" class="sidebar-link" style="padding:12px 0;">Risk Management with Probability &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

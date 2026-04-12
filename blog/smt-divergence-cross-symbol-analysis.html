@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how SMT Divergence detects institutional footprints by comparing swing highs/lows between correlated assets like ES vs NQ or BTC vs ETH. Aggressive vs conservative mode explained." />
+    <meta name="keywords" content="SMT divergence, smart money technique, institutional divergence, correlated assets, ES NQ, BTC ETH, ICT trading, TradingView indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>SMT Divergence: How Institutions Leave Footprints Between Correlated Assets | AIO Indicator</title>
+
+    <meta property="og:title" content="SMT Divergence: How Institutions Leave Footprints Between Correlated Assets" />
+    <meta property="og:description" content="Detect when ES makes a higher high but NQ doesn't — the classic institutional divergence signal. AIO SMT automates this with configurable filters." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/smt-divergence-cross-symbol-analysis.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">ICT Concepts</div>
+        <h1 class="article-title">SMT Divergence: How Institutions Leave Footprints Between Correlated Assets</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 2, 2026</span>
+            <span><i class="bi bi-clock"></i> 11 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What Is SMT Divergence?</h2>
+<p>SMT (Smart Money Technique) Divergence occurs when two normally correlated assets <strong>fail to confirm each other&rsquo;s swing points</strong>. For example:</p>
+<ul>
+    <li><strong>Bearish SMT:</strong> ES (S&amp;P 500 futures) makes a higher high, but NQ (Nasdaq futures) makes a <em>lower</em> high. The strongest asset (NQ, which should lead) is diverging &mdash; institutions are distributing.</li>
+    <li><strong>Bullish SMT:</strong> BTC makes a lower low, but ETH makes a <em>higher</em> low. The weaker asset is showing relative strength &mdash; accumulation is happening.</li>
+</ul>
+
+<p>The insight is that institutions can&rsquo;t perfectly manipulate every correlated market simultaneously. When they begin to exit positions in one market, the correlated market reveals the divergence before the primary market confirms it.</p>
+
+<h2>How AIO SMT Divergence Works</h2>
+
+<h3>Step 1: Synchronized Pivot Detection</h3>
+<p>The indicator detects swing highs and lows on your current symbol using <code>ta.highestbars</code>/<code>ta.lowestbars</code> with a configurable period (default 10). At the same time, it captures the swing values of the <strong>comparison symbol</strong> (default: NAS100) at the exact same bar.</p>
+
+<p>This creates synchronized pivot pairs: &ldquo;At bar X, Symbol A had a swing high of Y, and Symbol B had a corresponding high of Z.&rdquo;</p>
+
+<h3>Step 2: Array-Based History</h3>
+<p>The last 5 swing points (value + bar index) are stored in arrays for both the current symbol and the comparison symbol. This allows comparing the current swing with previous swings to detect divergence patterns.</p>
+
+<h3>Step 3: Divergence Detection</h3>
+<p>Divergence fires when:</p>
+<ul>
+    <li><strong>For bearish SMT:</strong> Symbol A&rsquo;s swing high is higher than the previous swing high, BUT Symbol B&rsquo;s corresponding high is lower (or vice versa)</li>
+    <li><strong>For bullish SMT:</strong> Symbol A&rsquo;s swing low is lower than the previous swing low, BUT Symbol B&rsquo;s corresponding low is higher (or vice versa)</li>
+</ul>
+
+<h3>Quality Filters</h3>
+<p>Not every divergence is meaningful. AIO SMT applies multiple filters to reduce noise:</p>
+
+<h4>1. Minimum Distance Filter (default: 0.05%)</h4>
+<p>Both the current symbol and comparison symbol must have at least 0.05% price distance between the two divergent pivots. This eliminates trivial divergences where the &ldquo;higher high&rdquo; is only 0.01% higher.</p>
+
+<h4>2. Doji Filter</h4>
+<p>The confirming candle must NOT be a doji (body &le; 10% of range). Dojis indicate indecision, not confirmation. The candle must be directional &mdash; red for bearish SMT, green for bullish.</p>
+
+<h4>3. Close Confirmation</h4>
+<p>For bearish SMT: the close must be below the open AND below the swing high (showing selling pressure).<br>
+For bullish SMT: the close must be above the open AND above the swing low (showing buying pressure).</p>
+
+<h3>Aggressive vs Conservative Mode</h3>
+<ul>
+    <li><strong>Aggressive (ON, default):</strong> Uses the <em>most recent</em> pivot pair. Faster signals but higher false positive rate. Good for scalping and day trading.</li>
+    <li><strong>Conservative (OFF):</strong> Waits one additional pivot cycle before confirming. Slower but significantly more reliable. Preferred for swing trading.</li>
+</ul>
+
+<h2>Common Correlated Pairs</h2>
+<table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+    <thead><tr style="border-bottom:2px solid var(--card-border);">
+        <th style="padding:8px;">Primary Chart</th><th style="padding:8px;">Comparison Symbol</th><th style="padding:8px;">Rationale</th>
+    </tr></thead>
+    <tbody>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">ES / SPX</td><td style="padding:8px;">NQ / NAS100</td><td style="padding:8px;">Classic index pair &mdash; NQ leads due to tech weighting</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">BTC</td><td style="padding:8px;">ETH</td><td style="padding:8px;">Crypto majors &mdash; BTC is the &ldquo;reserve,&rdquo; ETH leads risk-on moves</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">EURUSD</td><td style="padding:8px;">DXY</td><td style="padding:8px;">Inverse correlation &mdash; divergence = one is lagging</td></tr>
+        <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Gold</td><td style="padding:8px;">Silver</td><td style="padding:8px;">Precious metals &mdash; silver is more volatile, leads at extremes</td></tr>
+        <tr><td style="padding:8px;">YM (Dow)</td><td style="padding:8px;">ES (S&amp;P)</td><td style="padding:8px;">Industrial vs broad market divergence</td></tr>
+    </tbody>
+</table>
+
+<h2>Practical Trading Strategy</h2>
+
+<h3>Bearish SMT Reversal</h3>
+<ol>
+    <li>You&rsquo;re watching ES on the 15-minute chart with NAS100 as comparison</li>
+    <li>ES makes a new swing high, but NAS100&rsquo;s swing high is lower than its previous &rarr; <strong>bearish SMT line appears</strong></li>
+    <li>Confirm with a red candle close below the swing high</li>
+    <li>Enter short with stop above the ES swing high</li>
+    <li>Target: Previous swing low or next significant support level</li>
+</ol>
+
+<h3>Combining SMT with Other AIO Indicators</h3>
+<ul>
+    <li><strong>SMT + AIO Top/Bottom Confidence:</strong> SMT fires at the same level where Top/Bottom shows High Confidence = highest conviction reversal</li>
+    <li><strong>SMT + AIO Session STD:</strong> SMT divergence at an STD projection level = institutional reversal at a statistical target</li>
+    <li><strong>SMT + AIO Price Levels:</strong> SMT at PDH/PDL or NWOG C.E. = institutions sweeping liquidity at key prices</li>
+</ul>
+
+<h2>Common Mistakes</h2>
+<ol>
+    <li><strong>Using uncorrelated assets:</strong> SMT only works between genuinely correlated markets. AAPL vs Gold is not a valid pair.</li>
+    <li><strong>Ignoring the distance filter:</strong> Tiny divergences (0.01%) are noise. Ensure at least 0.05% minimum distance.</li>
+    <li><strong>Trading against the HTF trend:</strong> SMT is most powerful when it signals reversals <em>in alignment</em> with the higher timeframe direction.</li>
+    <li><strong>Not waiting for confirmation candle:</strong> The SMT pattern is the setup; the directional close is the trigger.</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>Detect Institutional Footprints</h3>
+    <p>Automated cross-symbol divergence detection with smart filters and two detection modes.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/4gg7qcnJ-AIO-SMT-Divergence/" target="_blank">
+        <i class="bi bi-graph-up-arrow"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <section class="blog-cta-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <h3 class="mb-4" style="color: var(--text-primary);">Related Articles</h3>
+        <div class="row g-3">
+            <div class="col-md-6"><a href="ict-trading-setup-sessions-price-levels.html" class="sidebar-link" style="padding:12px 0;">ICT Sessions &amp; Price Levels &rarr;</a></div>
+            <div class="col-md-6"><a href="smart-money-trading-guide.html" class="sidebar-link" style="padding:12px 0;">Smart Money Trading Guide &rarr;</a></div>
+        </div>
+    </div></div></div></section>
+
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
