@@ -45,7 +45,7 @@
 
 <p>The AIO suite offers three levels of market structure analysis, each adding more sophistication:</p>
 
-<h2>Level 1: AIO Market Structure Light (Basic Detection)</h2>
+<h2>Level 1: AIO Market Structure (Basic Detection)</h2>
 <p>The simplest approach &mdash; standard swing pivot detection + BOS/CHoCH labeling:</p>
 <ul>
     <li>Detects swing highs/lows using configurable period (default 8)</li>
@@ -111,7 +111,7 @@
 <h3>Map-Based Persistent Scoring (Non-Repainting)</h3>
 <p>Every BOS score is computed once on bar confirmation and stored in a <code>map&lt;string, int&gt;</code>. The score is <strong>never recomputed on subsequent bars</strong>. This is a technical implementation detail but critically important: many other indicators recalculate past scores as new data arrives (repainting). AIO Advanced MS&rsquo;s map-based approach makes this impossible.</p>
 
-<h2>Level 3: All In One v2 (Dual Structure)</h2>
+<h2>Level 3: All In One Indicator (Dual Structure)</h2>
 <p>The original AIO flagship includes <strong>two independent market structure systems</strong> with different periods (MS1 and MS2), allowing you to see both higher and lower timeframe structure on the same chart. This is useful for identifying when short-term and medium-term structure align.</p>
 
 <h2>Comparison Summary</h2>
@@ -120,7 +120,7 @@
         <th style="padding:8px; text-align:left;">Feature</th>
         <th style="padding:8px; text-align:center;">MS Light</th>
         <th style="padding:8px; text-align:center;">Advanced MS</th>
-        <th style="padding:8px; text-align:center;">All In One v2</th>
+        <th style="padding:8px; text-align:center;">All In One Indicator</th>
     </tr></thead>
     <tbody>
         <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">BOS/CHoCH Detection</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&#10003;</td></tr>
@@ -130,7 +130,7 @@
         <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Pullback Mark</td><td style="text-align:center;">&#10003;</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&mdash;</td></tr>
         <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Built-in Volatility</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&#10003; (Chaikin)</td><td style="text-align:center;">&mdash;</td></tr>
         <tr style="border-bottom:1px solid var(--card-border);"><td style="padding:8px;">Dual Structure Periods</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&mdash;</td><td style="text-align:center;">&#10003;</td></tr>
-        <tr><td style="padding:8px;">Chart Performance</td><td style="text-align:center;">Fastest</td><td style="text-align:center;">Medium</td><td style="text-align:center;">Heavier (20+ features)</td></tr>
+        <tr><td style="padding:8px;">Chart Performance</td><td style="text-align:center;">Fastest</td><td style="text-align:center;">Medium</td><td style="text-align:center;">Heavier (22+ features)</td></tr>
     </tbody>
 </table>
 
@@ -138,7 +138,7 @@
 <ul>
     <li><strong>MS Light:</strong> If you want clean, fast BOS/CHoCH + automatic pullback detection. Great for lower timeframes where scoring overhead isn&rsquo;t needed.</li>
     <li><strong>Advanced MS:</strong> If you&rsquo;re serious about filtering fakeouts. The 7-factor scoring is the best way to avoid false structure breaks. Essential for higher timeframe analysis.</li>
-    <li><strong>All In One v2:</strong> If you want market structure as part of a comprehensive toolkit with 20+ other features in a single indicator.</li>
+    <li><strong>All In One Indicator:</strong> If you want market structure as part of a comprehensive toolkit with 22+ other features in a single indicator.</li>
 </ul>
 
 <div class="indicator-cta-box">
