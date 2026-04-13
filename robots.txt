@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://aioindicator.com/sitemap.xml
+
+# AI / LLM crawlers — allow full indexing for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Block only admin / build artefacts
+Disallow: /marketing/
+Disallow: /scripts/
+Disallow: /src/
+Disallow: /test/
+Disallow: /blog/_site/
