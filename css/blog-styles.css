@@ -209,6 +209,39 @@
     margin-bottom: 0;
 }
 
+/* Mid-article inline CTA strip */
+.mid-article-cta {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(0, 212, 255, 0.06));
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-left: 4px solid #667eea;
+    border-radius: 12px;
+    padding: 18px 24px;
+    margin: 36px 0;
+}
+.mid-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.mid-cta-text strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 1rem;
+}
+.mid-cta-text span {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+.mid-cta-content .btn-sm {
+    font-size: 13px;
+    padding: 10px 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 /* Indicator CTA Box inside articles */
 .indicator-cta-box {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(0, 212, 255, 0.05));
