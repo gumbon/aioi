@@ -82,8 +82,80 @@
       "url": "https://aioindicator.com/"
     }
     </script>
-    
-    <!-- Fonts -->
+
+    <!-- Schema.org — FAQPage (enables Google rich snippet accordion in SERP) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is AIO Indicator and how does it work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIO Indicator is a professional suite of 22+ TradingView Pine Script indicators for smart money and institutional price action trading. It covers market structure (BOS/CHoCH), liquidity sweeps, Dow Theory phases, banker momentum, ICT concepts (NWOG, PDH/PDL, session STD), volume profile, SMT divergence, and Monte Carlo simulation. Works on all TradingView markets — crypto, forex, stocks, futures, and indices — across all timeframes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do AIO indicators repaint?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. All AIO indicators are non-repainting. All signals, levels, and market structure labels are fixed once the bar closes. This is essential for reliable backtesting and live trading confidence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free trial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. AIO Indicator offers a 5-day free trial with full access to all Premium and VIP indicators. No credit card is required. Contact @nguyenthl on Telegram with your TradingView username to start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Premium and VIP plans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Premium plans include the core AIO indicator suite with 13 professional tools — market structure, sessions, price levels, trendlines, breakout prediction, and more. VIP plans include everything in Premium plus 8 advanced institutional indicators: Advanced Market Structure with smart money detection, Banker Momentum, Top/Bottom Confidence scoring, SMT Divergence, Open Interest & CVD flow, Monte Carlo simulation, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which TradingView plan do I need to use AIO Indicator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIO Indicator works with any TradingView plan including the free plan. However, a TradingView Pro or higher plan is recommended to use multiple indicators on the same chart simultaneously."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I get access after payment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "After payment, send your TradingView username to @nguyenthl on Telegram. Access is granted within 24 hours (usually much faster). You will receive a TradingView invitation that you need to accept in your account settings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are updates included in the subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All indicator updates and new features are included free of charge for the duration of your subscription. Update notifications are sent via the AIO Telegram community channel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What markets and timeframes does AIO Indicator support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AIO Indicator works on all TradingView markets: cryptocurrency (BTC, ETH, altcoins), forex (all pairs), US stocks, futures (ES, NQ, Gold, Oil), and indices. It supports all timeframes from 15-second intraday charts to monthly charts, and automatically adjusts calculations for the selected timeframe."
+          }
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1063,6 +1135,83 @@
 
             <div class="text-center mt-5">
                 <p class="text-secondary small">All plans include lifetime free upgrades &bull; Cancel anytime &bull; 24/7 support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="modern-features" style="padding-top: 60px; padding-bottom: 60px;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Learn Smart Money Trading</h2>
+                <p class="section-subtitle">In-depth guides on market structure, ICT concepts, liquidity, and institutional strategies</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/smart-money-trading-guide.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bank"></i></div>
+                            <h3 class="feature-title">Smart Money Trading Guide</h3>
+                            <p class="feature-description">How institutional traders move markets and how to align your trades with their order flow using SMC concepts.</p>
+                            <span class="text-accent small">14 min read →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/market-structure-bos-choch-explained.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-diagram-3"></i></div>
+                            <h3 class="feature-title">BOS &amp; CHoCH Explained</h3>
+                            <p class="feature-description">Break of Structure and Change of Character — the core signals of smart money price action with real chart examples.</p>
+                            <span class="text-accent small">11 min read →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/liquidity-sweeps-stop-hunts-guide.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-water"></i></div>
+                            <h3 class="feature-title">Liquidity Sweeps &amp; Stop Hunts</h3>
+                            <p class="feature-description">Why institutions trigger retail stop losses before reversing — and how to detect sweeps before they happen.</p>
+                            <span class="text-accent small">11 min read →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/ict-trading-setup-sessions-price-levels.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                            <h3 class="feature-title">ICT Sessions &amp; Price Levels</h3>
+                            <p class="feature-description">Killzones, NWOG, PDH/PDL, STD projections — the complete ICT price level toolkit on TradingView.</p>
+                            <span class="text-accent small">12 min read →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/risk-management-probability-kelly-criterion.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                            <h3 class="feature-title">Risk Management &amp; Kelly Criterion</h3>
+                            <p class="feature-description">Position sizing, win rate math, and the Kelly Criterion — the statistical foundation of professional trading.</p>
+                            <span class="text-accent small">12 min read →</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="blog/aio-trading-stack-combination-guide.html" class="text-decoration-none">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">AIO Stack Combination Guide</h3>
+                            <p class="feature-description">How to combine AIO indicators for maximum confluence — the exact multi-indicator setup used by professional traders.</p>
+                            <span class="text-accent small">12 min read →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="blog/" class="btn btn-hero-secondary">
+                    <i class="bi bi-journal-text me-2"></i>View All Articles
+                </a>
             </div>
         </div>
     </section>
