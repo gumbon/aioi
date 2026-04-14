@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Nine OBV and price action combination patterns that reveal strong trends, weakening trends, and reversal setups for swing trading ETFs and stocks. The definitive guide to combining volume with structure." />
+    <meta name="keywords" content="OBV trading, on balance volume, price action volume, swing trading, OBV divergence, volume confirmation, swing trade ETFs, TradingView" />
+    <meta name="author" content="AIO Indicator" />
+    <title>OBV &amp; Price Action: 9 Patterns for Swing Trading | AIO Indicator</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <meta property="og:title" content="OBV &amp; Price Action: 9 Patterns for Swing Trading" />
+    <meta property="og:description" content="Nine OBV + price action combination patterns across all three market states: uptrend, downtrend, and sideways. How to identify accumulation, distribution, and trend health in real time." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/volume-obv-price-action-swing-trading.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/volume-obv-price-action-swing-trading.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="OBV &amp; Price Action: 9 Patterns for Swing Trading" />
+    <meta name="twitter:description" content="Nine OBV and price action combination patterns that reveal strong trends, weakening trends, and reversal setups for swing trading ETFs and stocks." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "OBV & Price Action: 9 Patterns for Swing Trading",
+      "description": "Nine OBV + price action combination patterns across all three market states: uptrend, downtrend, and sideways. How to identify accumulation, distribution, and trend health in real time.",
+      "url": "https://aioindicator.com/blog/volume-obv-price-action-swing-trading.html",
+      "datePublished": "2026-05-20",
+      "dateModified": "2026-05-20",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/volume-obv-price-action-swing-trading.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "OBV Price Action Swing Trading", "item": "https://aioindicator.com/blog/volume-obv-price-action-swing-trading.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Volume Analysis</div>
+                    <h1 class="article-title">OBV &amp; Price Action: 9 Patterns for Swing Trading</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 20, 2026</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<h2>Why Volume Belongs in Your Swing Trading Process</h2>
+<p>Traders who ignore volume in their price action analysis are working with half the available information. Every candlestick tells you <em>where</em> price went. Volume tells you <em>how much conviction</em> was behind that movement. A breakout on high volume represents genuine market interest from a broad participant base. The same move on low volume is a fragile gesture that may evaporate immediately. Without volume context, price structure analysis cannot differentiate between these two fundamentally different situations.</p>
+<p>The On Balance Volume indicator is one of the cleanest tools for incorporating volume into price analysis without adding extreme complexity. Originally developed by Joe Granville and later refined by various technical analysts, OBV accumulates volume in a direction-sensitive way: on days when price closes higher than the previous close, the full day&rsquo;s volume is added to OBV. On days when price closes lower, volume is subtracted. The result is a running cumulative total that trends upward when buying volume dominates and downward when selling volume dominates.</p>
+<p>The critical insight from OBV analysis is the relationship between OBV direction and price direction. When they agree, the move is supported. When they disagree, caution is warranted. This agreement vs. divergence framework produces nine distinct patterns across the three market states (uptrend, downtrend, and sideways), each with specific implications for how to position.</p>
+
+<h2>The Three Uptrend Patterns</h2>
+
+<h3>Pattern U1: Price Rising + OBV Rising (Strong Uptrend)</h3>
+<p>This is the textbook confirmation: price making higher highs and higher lows while OBV also makes consistent higher highs. Buying volume exceeds selling volume on every significant up move. The trend is healthy, with accumulation behind it, and the probability of continuation is high. This is the environment for holding positions longer than usual and giving trades more room to develop. Reduce position size gradually only as the pattern deteriorates into U2 or U3.</p>
+
+<h3>Pattern U2: Price Rising + OBV Flat (Moderate Uptrend)</h3>
+<p>Price continues making higher structure, but OBV has stopped trending higher &mdash; it is running sideways. The uptrend is still intact on price structure alone, but the volume backbone is weakening. More sellers are absorbing the same buying activity that previously drove OBV higher. This is a warning pattern, not an exit signal. Maintain existing positions but tighten stops and reduce the size of any new additions. Watch for OBV to resume trending higher (upgrades to U1) or turn down (degrades to U3).</p>
+
+<h3>Pattern U3: Price Rising + OBV Falling (Weak Uptrend Near Reversal)</h3>
+<p>Price is still technically making higher highs, but OBV is making lower highs. This is classic bearish divergence from a volume perspective: the same price movements are being driven by decreasing participation. Institutional volume is not supporting the advance. In practice, this pattern often precedes a significant correction or trend reversal by several bars, giving the alert trader time to reduce long exposure before the breakdown. Do not aggressively short on this pattern alone &mdash; use it as a reason to take profits and raise stops, not as a reversal entry signal.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>The Three Downtrend Patterns</h2>
+
+<h3>Pattern D1: Price Falling + OBV Falling (Strong Downtrend)</h3>
+<p>The bearish equivalent of U1. Price making lower lows and lower highs while OBV also trends lower. Selling is supported by volume, and the decline is likely to continue. For short swing positions, this is the environment to hold and let the trend work. Be especially careful with any countertrend long ideas here &mdash; the volume backdrop confirms that any bounce lacks institutional support.</p>
+
+<h3>Pattern D2: Price Falling + OBV Flat (Moderate Downtrend)</h3>
+<p>Selling continues in price structure, but OBV is running sideways rather than falling. Similar to U2, this signals weakening conviction in the current direction. The sellers who were actively distributing into the decline are becoming less aggressive. This is an early warning of a potential trend pause or correction higher. It does not signal outright reversal &mdash; but tightening shorts and expecting a tricky period of mixed signals is reasonable.</p>
+
+<h3>Pattern D3: Price Falling + OBV Rising (Weak Downtrend Near Reversal)</h3>
+<p>This is bullish divergence in OBV terms. Price makes new lows while OBV makes higher lows, indicating that buyers are stepping in on the dips with increasing volume even as price technically continues lower. This pattern frequently precedes a significant reversal bottom. Patient swing buyers watch for this pattern combined with a price structure shift (failed lower low or a move above a prior swing high) as a compound indicator of trend change.</p>
+
+<h2>The Three Sideways/Range Patterns</h2>
+
+<h3>Pattern S1: Price Ranging + OBV Rising (Potential Accumulation)</h3>
+<p>Price is unable to make new highs or lows &mdash; it is range-bound &mdash; but OBV is consistently rising. This combination suggests accumulation is underway: buyers are progressively building positions within the range while price has not yet moved to reflect the buying pressure. This is the Wyckoff accumulation pattern in OBV terms. Wait for the breakout above the range for confirmation, but begin positioning aggressively once the range break occurs with supporting OBV confirmation. The breakout from an accumulation range with rising OBV tends to be sustained and consequential.</p>
+
+<h3>Pattern S2: Price Ranging + OBV Falling (Potential Distribution)</h3>
+<p>The bearish mirror of S1. Price appears stable in a range, but OBV is falling as sellers quietly exit positions. This is distribution in Wyckoff&rsquo;s framework. Institutional participants are reducing exposure while retail participants observe apparent stability and see nothing concerning. When the range eventually breaks to the downside, it will typically break with conviction and little warning. Avoid building long positions in instruments showing S2. The apparent calm is not safety; it is a facade over active selling.</p>
+
+<h3>Pattern S3: Price Ranging + OBV Flat (Uncertainty &mdash; No Trade)</h3>
+<p>Both price and OBV are essentially directionless. There is no informational edge available from either price action or volume in this state. This is the correct moment to step away from this instrument entirely. No forced analysis, no position, no speculation about which direction the eventual break will take. The absence of directional information is itself information: the market has not yet revealed its next move. Wait until one of the other eight patterns is present before committing capital.</p>
+
+<h2>Applying the 9 Patterns to Swing Trading Decisions</h2>
+<p>The practical workflow for applying this framework to a swing trading watchlist:</p>
+<ol>
+<li>Classify the current market state from price structure alone: uptrend, downtrend, or range. This takes approximately 30 seconds per chart.</li>
+<li>Overlay OBV and observe its trend relative to price. Classify the pattern as U1&ndash;U3, D1&ndash;D3, or S1&ndash;S3.</li>
+<li>Apply the appropriate positioning logic from the framework above: hold and add (U1/D1), hold and watch (U2/D2), reduce and protect (U3/D3), prepare to enter on break (S1/S2), avoid entirely (S3).</li>
+<li>Trigger actual entries on price structure confirmations (swing break, trendline break, pullback to support/resistance) that align with the OBV pattern reading.</li>
+</ol>
+<p>The <strong>AIO Key Volume</strong> indicator adds an additional layer to this analysis by showing the POC (Point of Control) &mdash; the price level where the most volume has been transacted in recent history. When a swing long entry triggers near the current-timeframe POC with a U1 OBV pattern, the confluence of two independent volume-based tools pointing in the same direction represents a significantly higher-quality setup than either one alone.</p>
+
+<h2>The Single Most Common Error</h2>
+<p>Traders who learn the nine patterns typically make one consistent mistake: they use the divergence patterns (U3 and D3) as direct entry triggers for reversal trades rather than as position management signals. Acting directly on a U3 pattern by going short frequently results in being short a still-trending market that deteriorates slowly over many bars before actually reversing. The correct use of U3 is to exit or reduce longs, not to initiate shorts. Wait for price structure confirmation of the reversal &mdash; a genuine lower low formation after a failed higher high &mdash; before reversing direction.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+<li>Nine OBV + price action combinations exist across three market states &mdash; each combination has a specific positioning implication</li>
+<li>U1 (price and OBV both rising) and D1 (both falling) are the strongest continuation signals &mdash; hold and add</li>
+<li>U3 (price rising, OBV falling) and D3 (price falling, OBV rising) are divergence warnings &mdash; reduce exposure, do not blindly reverse</li>
+<li>S1 (range + rising OBV) is the greatest opportunity pattern &mdash; accumulation in progress; prepare for breakout</li>
+<li>S3 (range + flat OBV) means no edge &mdash; step away from this instrument until a clear pattern develops</li>
+<li>Use OBV to manage existing positions first; use it as an entry signal only when combined with price structure confirmation</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:60px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="volume-spread-analysis-vsa-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">Volume Spread Analysis: Reading Institutional Intent</h3>
+                            <p class="feature-description">Absorption patterns, OBV divergence, effort vs result principle, and the CVD + POC combination strategy.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="wyckoff-accumulation-distribution-deep.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bank2"></i></div>
+                            <h3 class="feature-title">Wyckoff Method Deep Dive: Accumulation vs Distribution</h3>
+                            <p class="feature-description">Three Wyckoff laws, the Composite Man model, the Spring pattern, and phase-based entry timing.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="money-flow-index-mfi-trading-strategies.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-cash-stack"></i></div>
+                            <h3 class="feature-title">Money Flow Index: The Volume-Weighted RSI Explained</h3>
+                            <p class="feature-description">How MFI builds on RSI by incorporating volume, and the 7-period divergence strategy with 200 EMA trend filter.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
