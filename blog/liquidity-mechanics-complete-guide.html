@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A complete guide to liquidity mechanics in trading: the 7 types of liquidity, how the Depth of Market works, what market makers actually do, latent liquidity beyond highs and lows, and how to trade with liquidity concepts." />
+    <meta name="keywords" content="liquidity trading, types of liquidity, depth of market DOM, market makers, latent liquidity, iceberg orders, spoofing, liquidity pool, liquidity void, smart money liquidity, AIO Indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Liquidity Mechanics: 7 Types, Market Makers, and How to Trade | AIO Indicator</title>
+
+    <meta property="og:title" content="Liquidity Mechanics: 7 Types, Market Makers, and How to Trade" />
+    <meta property="og:description" content="The complete guide to liquidity in trading — DOM mechanics, 7 types, market makers, and how latent liquidity extends far beyond obvious highs and lows." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/liquidity-mechanics-complete-guide.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/liquidity-mechanics-complete-guide.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Liquidity Mechanics: 7 Types, Market Makers, and How to Trade" />
+    <meta name="twitter:description" content="DOM mechanics, 7 types of liquidity, market makers, latent liquidity beyond highs and lows — the complete trading guide." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Liquidity Mechanics: 7 Types, Market Makers, and How to Trade",
+      "description": "A complete guide to liquidity mechanics in trading: the 7 types of liquidity, how the Depth of Market works, what market makers actually do, latent liquidity beyond highs and lows, and how to trade with liquidity concepts.",
+      "url": "https://aioindicator.com/blog/liquidity-mechanics-complete-guide.html",
+      "datePublished": "2026-04-29",
+      "dateModified": "2026-04-29",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/liquidity-mechanics-complete-guide.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT15M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Liquidity Mechanics Complete Guide", "item": "https://aioindicator.com/blog/liquidity-mechanics-complete-guide.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Smart Money Concepts</div>
+                    <h1 class="article-title">Liquidity Mechanics: 7 Types, Market Makers, and How to Trade It</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> April 29, 2026</span>
+                        <span><i class="bi bi-clock"></i> 15 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<h2>The Core Misunderstanding About Liquidity</h2>
+<p>The word &ldquo;liquidity&rdquo; has become one of the most overused and most misused terms in retail trading. Traders speak of &ldquo;chasing liquidity&rdquo;, &ldquo;price targeting liquidity pools&rdquo;, and &ldquo;liquidity grabs&rdquo; without having a working definition of the underlying concept. This creates layers of confusion that compound over time and produce bad trading decisions.</p>
+
+<p>The formal definition is precise: <strong>liquidity is the ease with which a market can be traded without causing significant changes in price.</strong> It is the ability to trade without slippage. In other words, liquidity is a <em>quality of the market</em>, not a location in the price chart.</p>
+
+<p>What varies across the chart is market depth &mdash; the number of orders sitting at each price level. Areas of high market depth represent high liquidity: a large number of orders must be consumed before price can move. Areas of low market depth represent low liquidity, or liquidity voids: price can travel a wide range with relatively little trading activity.</p>
+
+<p>Liquidity exists because market participants have different perceptions of the market. When someone is willing to sell at the same price someone else is willing to buy, a trade occurs. If price perfectly reflected fair value for all participants simultaneously, there would be no reason for buyers and sellers to disagree, and no reason for liquidity to exist. The existence of liquidity therefore disproves the strong form of the Efficient Market Hypothesis.</p>
+
+<h2>How Price Actually Moves: DOM Mechanics</h2>
+<p>To understand how liquidity affects price movement, you need to understand the Depth of Market (DOM), also called the order book. The DOM shows all limit orders sitting above and below the current price. Above current price: sell limit orders in the ask column. Below current price: buy limit orders in the bid column.</p>
+
+<p>There are two fundamentally different order types:</p>
+<ul>
+    <li><strong>Limit orders</strong> — passive; they wait at a specific price to be filled. They do not initiate price movement. They represent the available liquidity in the market.</li>
+    <li><strong>Market orders</strong> — aggressive; they execute immediately at the best available price. They are the orders that <em>consume</em> limit orders and <em>cause</em> price movement.</li>
+</ul>
+
+<p>When a buyer places a market order, it matches against the lowest available ask (sell limit) orders. If those orders are fully consumed, the next price level above becomes the ask. The fewer limit orders sitting at a given price, the less aggression is required to move price through it. This is the essence of market depth: shallow depth = low liquidity = price can move easily; deep depth = high liquidity = price requires significant volume to move.</p>
+
+<h2>The 7 Types of Liquidity</h2>
+<p>Most traders who discuss liquidity focus on one or two aspects. In reality, there are seven distinct types, each with different mechanics and implications:</p>
+
+<h3>1. Active Liquidity</h3>
+<p>Market orders that initiate price movement. These are the aggressive participants — buyers hitting the ask, sellers hitting the bid. Active liquidity <em>consumes</em> passive liquidity and causes price to move.</p>
+
+<h3>2. Passive Liquidity</h3>
+<p>Limit orders sitting in the order book waiting to be filled. These do not initiate price movement — they provide the opposition against which active orders must match. The visible part of the DOM shows passive liquidity.</p>
+
+<h3>3. Retail Liquidity</h3>
+<p>Both active (retail market orders) and passive (retail limit orders) coming from individual traders. Retail liquidity is largely predictable because retail traders follow similar patterns: they buy breakouts, sell breakdowns, place stops at obvious levels, and use the same widely-taught indicators. This predictability is what makes it exploitable.</p>
+
+<h3>4. Institutional Liquidity</h3>
+<p>Market and limit orders from institutional participants (hedge funds, banks, pension funds). Because their orders are large, institutions have incentives to hide their activity &mdash; which leads directly to the next two types.</p>
+
+<h3>5. Hidden Liquidity</h3>
+<p>Institutional liquidity that is concealed from the public order flow. It takes two forms:</p>
+<ul>
+    <li><strong>Passive hidden liquidity</strong> — iceberg orders. These are limit orders where only a small portion appears in the public order book (Level 2 DOM). As that portion is filled, another portion is automatically shown. The visible portion is the tip of the iceberg; the full order size is concealed.</li>
+    <li><strong>Active hidden liquidity</strong> — dark pool orders. Large trades executed through private exchanges (dark pools such as Goldman Sachs Sigma X or Liquidnet) that are invisible to the public order flow in real time. These trades do affect price action, but they are not visible in the standard DOM until after execution.</li>
+</ul>
+
+<h3>6. Fake Liquidity (Spoofing)</h3>
+<p>Passive institutional liquidity placed with no intention of being filled. An institution places a very large limit order near current price, changing the apparent depth of the market and influencing other participants&rsquo; perception. When price approaches the level, the order is cancelled before it can be executed. This is called spoofing. Its goal is to change the behavior of other market participants watching the DOM &mdash; typically other institutional players, not retail traders. Retail traders simply get caught in the middle of these institutional battles.</p>
+
+<h3>7. Latent Liquidity</h3>
+<p>Stop orders held by brokers that have not yet entered the order flow. They remain invisible until the market reaches the trigger price, at which point the broker automatically converts them into market orders. This is the type of liquidity most directly relevant to retail traders. Latent liquidity is:</p>
+<ul>
+    <li>Buy stop orders sitting just above swing highs (retail breakout buyers + short-seller stop losses)</li>
+    <li>Sell stop orders sitting just below swing lows (retail breakdown sellers + long-trader stop losses)</li>
+</ul>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Market Makers: The Full Picture</h2>
+<p>Market makers have a formally defined role in financial markets that is often mischaracterized in retail trading education. Understanding what they actually do &mdash; and what they can also do &mdash; is essential.</p>
+
+<p><strong>The legitimate role:</strong> Market makers provide liquidity by quoting bid prices slightly higher than the current best bid and ask prices slightly lower than the current best ask. This narrows the spread and makes the market more efficient. Their profit comes from this narrower spread margin. Without market makers, bid-ask spreads would widen dramatically, increasing trading costs for everyone and destabilizing the market.</p>
+
+<p><strong>The dark side:</strong> The same liquidity provision role also allows market makers to remove or skew liquidity in specific situations. By withdrawing their quotes from one side of the market, a market maker creates a liquidity vacuum &mdash; an area where price can move extremely fast with very little opposing order flow. This is distinct from manipulation (which involves price movement with malicious intent) but produces similar effects in the chart. Market makers also compete with each other, and these inter-market-maker conflicts produce price movements that have nothing to do with retail traders at all.</p>
+
+<p>The key insight is that the market is not a binary arena of smart money versus retail traders. It is a multi-layered environment where institutions, algorithms, market makers, retail traders, commercial traders, and even governments play competing games simultaneously, each with different goals and time horizons, all reflected in the same price chart.</p>
+
+<h2>Latent Liquidity Extends Far Beyond Highs and Lows</h2>
+<p>The most important practical insight about latent liquidity: <strong>it is not limited to obvious swing highs and lows.</strong></p>
+
+<p>Latent liquidity accumulates wherever retail traders behave predictably. Any technique that is widely used by retail traders will produce predictable stop placement, creating latent liquidity pools at those levels. This includes:</p>
+
+<ul>
+    <li><strong>Obvious trendlines</strong> — retail traders cluster their stops just beyond prominent trendlines</li>
+    <li><strong>Fibonacci retracement levels</strong> — particularly 38.2%, 50%, 61.8%, where retail traders place buy and sell orders in large numbers</li>
+    <li><strong>Widely-used moving averages</strong> — the 20, 50, 100, and 200 EMA/SMA are used as stop levels by millions of traders</li>
+    <li><strong>Breakouts of common chart patterns</strong> — head and shoulders necklines, rectangle breakouts, triangle apex levels</li>
+    <li><strong>Round psychological numbers</strong> — $100, $1000, $0.50, etc.</li>
+</ul>
+
+<p>Latent liquidity is therefore not a feature of market structure per se &mdash; it is a phenomenon that emerges from the predictable behavior of retail traders at any level where they act in concert.</p>
+
+<h2>Liquidity Pools vs. Liquidity Voids</h2>
+<p>Two concepts that directly affect how price moves through a chart:</p>
+
+<p><strong>Liquidity pool:</strong> An area where a large number of orders (particularly stop orders) are concentrated. Price that enters a liquidity pool triggers a surge of market orders, producing a high-activity, high-volume event. For the smart money, this is an opportunity to execute large positions because orders can be filled without causing significant slippage. The deeper the pool, the more orders can be absorbed without a proportional change in price.</p>
+
+<p><strong>Liquidity void:</strong> An area of shallow market depth where relatively few limit orders exist. Price can traverse a wide range with minimal trading activity. Low volume and wide price range is not necessarily a sign of weak movement &mdash; it can indicate a liquidity void where price is simply moving through space with little opposition. This is a critical distinction that classical VSA analysis often misinterprets.</p>
+
+<p>Highs and lows are not created equal. Major highs and lows (those that preceded significant price moves) attract far more stop orders than minor swings, making them deeper liquidity pools. Double tops and double bottoms &mdash; where the same price level has been tested twice &mdash; create even deeper pools because more retail participants have placed orders at that level. Fractal price structure means liquidity pools exist at every degree: major, intermediate, and minor.</p>
+
+<h2>How Rough vs. Smooth Structure Determines Zone Reliability</h2>
+<p>One of the most practical applications of liquidity theory is understanding why supply and demand zones sometimes hold and sometimes fail. The answer lies in the fractal structure of the move preceding the zone.</p>
+
+<p>When price establishes a break of structure, the low that created the movement becomes a strong low, and a demand zone is drawn above it. Smart money that wants to add long positions needs liquidity to enter. The question is: where does that liquidity come from?</p>
+
+<ul>
+    <li><strong>Smooth range and smooth pullback</strong>: few internal highs and lows, meaning few minor liquidity pools between current price and the demand zone. Smart money has no choice but to drive price below the demand zone (triggering the major pool) to fill its orders. The zone is more likely to fail.</li>
+    <li><strong>Rough range or rough pullback</strong>: multiple internal swings create minor liquidity pools along the way. Smart money can enter incrementally by triggering these minor pools, without needing to violate the demand zone. The zone is more likely to hold.</li>
+</ul>
+
+<p>A rough pullback into a demand zone is therefore more bullish than a smooth pullback, even though it may look messier and less clean on the chart.</p>
+
+<h2>Not All False Breakouts Are Manipulation</h2>
+<p>One of the most important nuances that retail trading education consistently gets wrong: <strong>false breakouts are not always the result of smart money manipulation.</strong></p>
+
+<p>A false breakout on a price chart can be caused by any of the following:</p>
+<ul>
+    <li><strong>Failed auction</strong>: price attempted to discover value at a higher level but found insufficient buying interest. No manipulation, just a market mechanism failure.</li>
+    <li><strong>Inventory shift</strong>: a market maker managing their net position (hedging risk) places large orders that temporarily move price without directional intent.</li>
+    <li><strong>Portfolio rebalancing</strong>: mutual funds and asset managers executing large orders around month-end, quarter-end, or index rebalancing dates.</li>
+    <li><strong>News whip</strong>: sudden repricing of macro expectations from a news release producing a spike that is immediately reversed as the market processes the actual implication of the event.</li>
+</ul>
+
+<p>The price chart shows the outcome, not the intent. It shows the effect, not the cause. Different market participants &mdash; speculators, arbitrageurs, hedgers &mdash; all coexist and interact in the same chart. When a false breakout occurs and the structure-based analysis fails, the answer is usually not in another timeframe or a different indicator. It is in understanding that a market participant operating under entirely different logic (a hedger, a market maker rebalancing, an index fund executing a mandate) temporarily overrode the structural supply and demand dynamics you were tracking.</p>
+
+<h2>How to Trade With Liquidity Concepts</h2>
+<p>The practical framework combines market structure, supply and demand zones, and latent liquidity awareness:</p>
+
+<ol>
+    <li><strong>Identify the trend</strong> using break of structure signals. The <strong>AIO Advanced Market Structure</strong> indicator detects BOS and CHoCH with quality scoring across 5 factors &mdash; use it to determine which direction the dominant order flow is positioned.</li>
+    <li><strong>Mark the demand or supply zone</strong> at the strong high or low that preceded the break of structure.</li>
+    <li><strong>Assess the internal structure</strong> of both the trending move and the current pullback. Rough internal structure (multiple minor swings) means the zone is more likely to hold because minor liquidity pools provide intermediate entry points for institutions.</li>
+    <li><strong>Assess the liquidity pool below the strong low (or above the strong high)</strong>. A very large liquidity pool below the zone (double bottom, major prior swing) increases the probability that smart money will test that pool before reversing &mdash; meaning a false breakout below the zone before the real move upward.</li>
+    <li><strong>Look for the liquidity inducement signal</strong>: price pierces the zone with a prominent wick but closes back inside it. The <strong>AIO Accumulation Zones</strong> indicator identifies high-quality accumulation events at these levels with volume and volatility confirmation.</li>
+    <li><strong>Enter on the reversal candle</strong>, with stop loss beyond the most extreme wick of the false breakout.</li>
+</ol>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>Liquidity is a quality of the market (ease of trading without slippage), not a price destination. What varies across the chart is market depth.</li>
+    <li>The 7 types of liquidity are: active, passive, retail, institutional, hidden (iceberg + dark pool), fake (spoofing), and latent (stop orders).</li>
+    <li>Market makers provide liquidity legitimately but can also remove or skew it, and their inter-market-maker battles produce price movements unrelated to retail dynamics.</li>
+    <li>Latent liquidity extends to any level where retail traders behave predictably: trendlines, Fibonacci levels, round numbers, moving averages, chart pattern breakouts.</li>
+    <li>Rough internal structure in a pullback is more bullish than smooth structure because minor liquidity pools allow institutions to enter without needing to violate the zone.</li>
+    <li>Not all false breakouts are manipulation &mdash; failed auctions, inventory shifts, portfolio rebalancing, and news whips all produce the same chart pattern.</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:60px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="liquidity-sweeps-stop-hunts-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-water"></i></div>
+                            <h3 class="feature-title">Liquidity Sweeps &amp; Stop Hunts</h3>
+                            <p class="feature-description">How smart money triggers retail stop orders at highs and lows to build positions, and how to identify manipulation events before the reversal.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="institutional-supply-demand-composite-operator.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-globe2"></i></div>
+                            <h3 class="feature-title">Institutional Supply &amp; Demand</h3>
+                            <p class="feature-description">Order splitting mechanics, composite operator theory, and precise zone drawing — the complete institutional supply and demand framework.</p>
+                            <span class="feature-description small">15 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="ict-concepts-truth-critical-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                            <h3 class="feature-title">ICT Concepts: What&rsquo;s Real, What&rsquo;s Rebranded</h3>
+                            <p class="feature-description">A critical review of ICT trading concepts — what is genuinely useful, what is Wyckoff/Dow Theory with new labels, and the practical framework that works.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
