@@ -1,186 +1,188 @@
 {
   "nav": {
-    "home": "\ud648",
-    "features": "\uae30\ub2a5",
-    "indicators": "\ubaa8\ub4e0 \uc9c0\ud45c",
-    "blog": "\ube14\ub85c\uadf8",
-    "reviews": "\ub9ac\ubdf0",
-    "faq": "\uc790\uc8fc \ubb3b\ub294 \uc9c8\ubb38",
-    "pricing": "\uac00\uaca9",
-    "community": "\ucee4\ubba4\ub2c8\ud2f0",
-    "chat": "\ucc44\ud305\ud558\uae30"
+    "home": "홈",
+    "features": "기능",
+    "indicators": "모든 지표",
+    "blog": "블로그",
+    "reviews": "리뷰",
+    "faq": "자주 묻는 질문",
+    "pricing": "가격",
+    "community": "커뮤니티",
+    "chat": "채팅하기"
   },
   "hero": {
-    "title1": "\ud504\ub77c\uc774\uc2a4 \uc561\uc158",
-    "title2": "\uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uc9c0\ud45c",
-    "subtitle": "\uae30\uad00 \uc8fc\ubb38 \ud750\ub984\uacfc \uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uc6c0\uc9c1\uc784\uc5d0 \ub9de\ucd94\uc138\uc694. <span class=\"accent\">\ub2e4\uc74c \ub300\ud615 \uc6c0\uc9c1\uc784 \uc804\uc5d0 \ub1f1\ucee4 \ucc38\uc5ec, \uc720\ub3d9\uc131 \ud328\ud134, \uace0\ud655\ub960 \uc149\uc5c5\uc744 \uac10\uc9c0\ud558\uc138\uc694.</span> \uae30\uad00\ucc98\ub7fc \uc0dd\uac01\ud558\ub294 \ud2b8\ub808\uc774\ub354\ub97c \uc704\ud55c \uc804\ubb38 \uc218\uc900 \ub3c4\uad6c.",
-    "cta_trial": "5\uc77c \ubb34\ub8cc \uccb4\ud5d8 \uc2dc\uc791",
-    "cta_pricing": "\uac00\uaca9 \ubcf4\uae30",
-    "stat_indicators": "\ud504\ub85c \uc9c0\ud45c",
-    "stat_rating": "\ud3c9\uc810",
-    "stat_repaints": "\ub9ac\ud398\uc778\ud2b8"
+    "title1": "프라이스 액션",
+    "title2": "스마트 머니 지표",
+    "subtitle": "기관 주문 흐름과 스마트 머니 움직임에 맞추세요. <span class=\"accent\">다음 대형 움직임 전에 뇱커 참여, 유동성 패턴, 고확률 셉업을 감지하세요.</span> 기관처럼 생각하는 트레이더를 위한 전문 수준 도구.",
+    "cta_trial": "5일 무료 체험 시작",
+    "cta_pricing": "가격 보기",
+    "stat_indicators": "프로 지표",
+    "stat_rating": "평점",
+    "stat_repaints": "리페인트"
   },
   "proof": {
-    "published": "TradingView\uc5d0\uc11c \uacf5\uac1c",
-    "norepaint": "\ub9ac\ud398\uc778\ud2b8 \uc5c6\uc74c \ubcf4\uc7a5",
-    "updates": "\ud3c9\uc0dd \ubb34\ub8cc \uc5c5\ub370\uc774\ud2b8",
-    "trial": "5\uc77c \ubb34\ub8cc \uccb4\ud5d8",
-    "support": "24/7 \uc9c0\uc6d0"
+    "published": "TradingView에서 공개",
+    "norepaint": "리페인트 없음 보장",
+    "updates": "평생 무료 업데이트",
+    "trial": "5일 무료 체험",
+    "support": "24/7 지원"
   },
   "features": {
-    "title": "\ud558\ub098\uc758 \ud328\ud0a4\uc9c0\uc5d0 \uae30\uad00 \uc218\uc900\uc758 \ub3c4\uad6c",
-    "subtitle": "\uc2a4\ub9c8\ud2b8 \uba38\ub2c8\ub97c \ucd94\uc801\ud558\uace0 \uac70\ub798\uc5d0\uc11c \ucd94\uce21\uc744 \uc81c\uac70\ud558\ub3c4\ub85d \uc124\uacc4\ub41c \uc804\ubb38 \uae30\ub2a5",
+    "title": "하나의 패키지에 기관 수준의 도구",
+    "subtitle": "스마트 머니를 추적하고 거래에서 추측을 제거하도록 설계된 전문 기능",
     "cards": {
       "smart_money": {
-        "title": "\uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uac10\uc9c0",
-        "desc": "\uc2e4\uc2dc\uac04\uc73c\ub85c \uae30\uad00 \ucc38\uc5ec\uc640 \ub1f1\ucee4 \uc6c0\uc9c1\uc784\uc744 \ucd94\uc801\ud569\ub2c8\ub2e4. \uace0\uae09 \uc54c\uace0\ub9ac\uc998\uc744 \uc0ac\uc6a9\ud558\uc5ec \uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uc8fc\ubb38 \ud750\ub984\uc5d0 \ub9de\ub294 \uace0\ud655\ub960 \uc149\uc5c5\uc744 \ud30c\uc545\ud569\ub2c8\ub2e4."
+        "title": "스마트 머니 감지",
+        "desc": "실시간으로 기관 참여와 뇱커 움직임을 추적합니다. 고급 알고리즘을 사용하여 스마트 머니 주문 흐름에 맞는 고확률 셉업을 파악합니다."
       },
       "time": {
-        "title": "\uc2dc\uac04 \ub9c8\uc2a4\ud130\ub9ac",
-        "desc": "\uc644\uc804\ud55c \uc2dc\uac04\ub300, \uc138\uc158, \ub8e9\ubc31 \ub370\uc774\ud130 \ubc94\uc704 \ub3c4\uad6c. DR, IDR, ITC \ud0ac\uc874, \ubd84\uae30 \uc774\ub860 \ub4f1\uc744 \ud3ec\ud568\ud569\ub2c8\ub2e4."
+        "title": "시간 마스터리",
+        "desc": "완전한 시간대, 세션, 룩백 데이터 범위 도구. DR, IDR, ITC 킬존, 분기 이론 등을 포함합니다."
       },
       "institutional": {
-        "title": "\uae30\uad00 \ud504\ub77c\uc774\uc2a4 \uc561\uc158",
-        "desc": "\uc2dc\uc7a5 \uad6c\uc870, \uc720\ub3d9\uc131 \uc0ac\ub0e5, \uc801\ub9bd \uc874, \uc804\ubb38 \ucd94\uc138\uc120 \ubd84\uc11d. \uace0\uae09 \ud504\ub77c\uc774\uc2a4 \uc561\uc158 \ub3c4\uad6c\ub85c \uae30\uad00\uc758 \uc2dc\uac01\uc73c\ub85c \uc2dc\uc7a5\uc744 \ubd05\ub2c8\ub2e4."
+        "title": "기관 프라이스 액션",
+        "desc": "시장 구조, 유동성 사냥, 적립 존, 전문 추세선 분석. 고급 프라이스 액션 도구로 기관의 시각으로 시장을 봅니다."
       },
       "analytics": {
-        "title": "\uace0\uae09 \ubd84\uc11d",
-        "desc": "TPO\uc5d0\uc11c \uc601\uac10\ubc1b\uc740 \uc720\ub3d9\uc131 \ub808\ubca8, \uae30\uad00 \ubaa8\uba58\ud140 \ucd94\uc801, \uc804\ubb38 \ubd84\uc11d\uc744 \uc704\ud55c \ubaac\ud14c\uce74\ub97c\ub85c \uc608\uce21 \uc2dc\uc7a5."
+        "title": "고급 분석",
+        "desc": "TPO에서 영감받은 유동성 레벨, 기관 모멘텀 추적, 전문 분석을 위한 몬테카를로 예측 시장."
       },
       "winrate": {
-        "title": "\ub192\uc740 \uc2b9\ub960",
-        "desc": "\uc2e4\uc81c \ubc31\ud14c\uc2a4\ud2b8 \uacb0\uacfc\ub85c \uac80\uc99d\ub41c \uc804\ub7b5. \ub9ac\ud398\uc778\ud2b8 \uc5c6\uc74c, \ub370\uc774\ud130 \uae30\ubc18 \uc811\uadfc\ubc95\uc73c\ub85c \ub4b7\ubc1b\uce68\ud55c \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \uc2e0\ud638."
+        "title": "높은 승률",
+        "desc": "실제 백테스트 결과로 검증된 전략. 리페인트 없음, 데이터 기반 접근법으로 뒷받침한 신뢰할 수 있는 신호."
       },
       "customization": {
-        "title": "\uc644\uc804\ud55c \ucee4\uc2a4\ud130\ub9c8\uc774\uc988",
-        "desc": "\ubaa8\ub4e0 \uc9c0\ud45c\ub97c \ud65c\uc131\ud654\ud558\uac70\ub098 \ube44\ud65c\uc131\ud654\ud569\ub2c8\ub2e4. \ucc28\ud2b8\ub97c \uc5b4\uc9c0\ub7fd\ud788\uc9c0 \uc54a\ub294 \uae68\ub057\ud558\uace0 \uc544\ub984\ub2e4\uc6b4 \uc778\ud130\ud398\uc774\uc2a4. \uc9c4\uc815\ud55c \ub098\ub9cc\uc758 \uac83\uc73c\ub85c \ub9cc\ub4dc\uc138\uc694."
+        "title": "완전한 커스터마이즈",
+        "desc": "모든 지표를 활성화하거나 비활성화합니다. 차트를 어지럽히지 않는 깨끗하고 아름다운 인터페이스. 진정한 나만의 것으로 만드세요."
       }
     }
   },
   "indicators": {
-    "title": "\uc644\uc804\ud55c \uc9c0\ud45c \ud328\ud0a4\uc9c0",
-    "subtitle": "\uac70\ub798 \ud544\uc694\uc5d0 \ub530\ub77c VIP, \ud504\ub9ac\ubbf8\uc5c4 \ub610\ub294 \ubb34\ub8cc \uc9c0\ud45c \uc911\uc5d0\uc11c \uc120\ud0dd\ud558\uc138\uc694",
+    "title": "완전한 지표 패키지",
+    "subtitle": "거래 필요에 따라 VIP, 프리미엄 또는 무료 지표 중에서 선택하세요",
     "tabs": {
-      "vip": "VIP \uc9c0\ud45c",
-      "premium": "\ud504\ub9ac\ubbf8\uc5c4 \uc9c0\ud45c",
-      "free": "\ubb34\ub8cc \uc9c0\ud45c"
+      "vip": "VIP 지표",
+      "premium": "프리미엄 지표",
+      "free": "무료 지표"
     },
-    "modal_btn": "TradingView\uc5d0\uc11c \ubcf4\uae30"
+    "modal_btn": "TradingView에서 보기"
   },
   "testimonials": {
-    "title": "\uc804 \uc138\uacc4 \uc804\ubb38 \ud2b8\ub808\uc774\ub354\uc758 \uc2e0\ub8b0\ub97c \ubc1b\uace0 \uc788\uc2b5\ub2c8\ub2e4",
-    "subtitle": "\ud2b8\ub808\uc774\ub354\ub4e4\uc774 \uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uac10\uc9c0\ub97c \uc0ac\uc6a9\ud558\uc5ec \uac70\ub798 \uacb0\uacfc\ub97c \uac1c\uc120\ud558\ub294 \ubc29\ubc95\uc744 \ud655\uc778\ud558\uc138\uc694"
+    "title": "전 세계 전문 트레이더의 신뢰를 받고 있습니다",
+    "subtitle": "트레이더들이 스마트 머니 감지를 사용하여 거래 결과를 개선하는 방법을 확인하세요"
   },
   "pricing": {
-    "title": "\uac04\ub2e8\ud558\uace0 \ud22c\uba85\ud55c \uac00\uaca9",
-    "subtitle": "\uac70\ub798 \uc2a4\ud0c0\uc77c\uc5d0 \uac00\uc7a5 \uc801\ud569\ud55c \ud50c\ub79c\uc744 \uc120\ud0dd\ud558\uc138\uc694",
-    "trial_title": "5\uc77c \ub3d9\uc548 \ubaa8\ub4e0 \uae30\ub2a5 \ubb34\ub8cc \uccb4\ud5d8",
-    "trial_desc": "\uc2e0\uc6a9\uce74\ub4dc \ubd88\ud544\uc694. \ubaa8\ub4e0 \ud504\ub9ac\ubbf8\uc5c4 + VIP \uc9c0\ud45c\uc5d0 \uc644\uc804 \uc811\uadfc.",
-    "trial_btn": "\ubb34\ub8cc \uccb4\ud5d8 \ubc1b\uae30",
-    "vip_label": "VIP \ud50c\ub79c",
-    "vip_desc": "\uae30\uad00 \uc218\uc900\uc758 \ub3c4\uad6c\ub97c \uc6d0\ud558\ub294 \uc9c4\uc9c0\ud55c \ud2b8\ub808\uc774\ub354\ub97c \uc704\ud574",
-    "premium_label": "\ud504\ub9ac\ubbf8\uc5c4 \ud50c\ub79c",
-    "premium_desc": "\uc804\ubb38 \ud504\ub77c\uc774\uc2a4 \uc561\uc158 \ubc0f \uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \ub3c4\uad6c",
-    "monthly": "\uc6d4\uac04",
-    "quarterly": "\ubd84\uae30",
-    "annual": "12\uac1c\uc6d4",
-    "per_month": "/\uc6d4",
-    "per_day": "/\uc77c",
-    "choose_plan": "\ud50c\ub79c \uc120\ud0dd",
-    "footer_note": "\ubaa8\ub4e0 \ud50c\ub79c\uc5d0 \ud3c9\uc0dd \ubb34\ub8cc \uc5c5\uadf8\ub808\uc774\ub4dc \ud3ec\ud568 \u2022 \uc5b8\uc81c\ub4e0\uc9c0 \ucde8\uc18c \uac00\ub2a5 \u2022 24/7 \uc9c0\uc6d0",
-    "vip_best": "VIP - \ucd5c\uace0 \uac00\uce58",
-    "most_popular": "\uac00\uc7a5 \uc778\uae30",
-    "save": "\uc808\uc57d",
-    "billed_annually_vip": "*\uc5f0\uac04 $419.90\uc73c\ub85c \uccad\uad6c",
-    "billed_quarterly_vip": "*3\uac1c\uc6d4\ub9c8\ub2e4 $122.97\ub85c \uccad\uad6c",
-    "billed_annually_prem": "*\uc5f0\uac04 $119.99\ub85c \uccad\uad6c",
-    "billed_quarterly_prem": "*3\uac1c\uc6d4\ub9c8\ub2e4 $38.99\ub85c \uccad\uad6c",
+    "title": "간단하고 투명한 가격",
+    "subtitle": "거래 스타일에 가장 적합한 플랜을 선택하세요",
+    "trial_title": "5일 동안 모든 기능 무료 체험",
+    "trial_desc": "신용카드 불필요. 모든 프리미엄 + VIP 지표에 완전 접근.",
+    "trial_btn": "무료 체험 받기",
+    "vip_label": "VIP 플랜",
+    "vip_desc": "기관 수준의 도구를 원하는 진지한 트레이더를 위해",
+    "premium_label": "프리미엄 플랜",
+    "premium_desc": "전문 프라이스 액션 및 스마트 머니 도구",
+    "monthly": "월간",
+    "quarterly": "분기",
+    "annual": "12개월",
+    "per_month": "/월",
+    "per_day": "/일",
+    "choose_plan": "플랜 선택",
+    "footer_note": "모든 플랜에 평생 무료 업그레이드 포함 • 언제든지 취소 가능 • 24/7 지원",
+    "vip_best": "VIP - 최고 가치",
+    "most_popular": "가장 인기",
+    "save": "절약",
+    "billed_annually_vip": "*연간 $419.90으로 청구",
+    "billed_quarterly_vip": "*3개월마다 $122.97로 청구",
+    "billed_annually_prem": "*연간 $119.99로 청구",
+    "billed_quarterly_prem": "*3개월마다 $38.99로 청구",
     "features": {
-      "vip_indicators": "AIO VIP \uc9c0\ud45c",
-      "premium_indicators": "AIO \ud504\ub9ac\ubbf8\uc5c4 \uc9c0\ud45c",
-      "total_25": "25+ \ucd1d \uc9c0\ud45c",
-      "institutional": "\uae30\uad00 \ub3c4\uad6c",
-      "priority_support": "\uc6b0\uc120 \uc9c0\uc6d0",
-      "tools_14": "14\uac1c \uac70\ub798 \ub3c4\uad6c",
-      "free_upgrade": "\ud3c9\uc0dd \ubb34\ub8cc \uc5c5\uadf8\ub808\uc774\ub4dc",
-      "community": "\ucee4\ubba4\ub2c8\ud2f0 \uc811\uadfc",
-      "support_247": "24/7 \uc9c0\uc6d0",
-      "elite_tools": "\uc5d8\ub9ac\ud2b8 \uac70\ub798 \ub3c4\uad6c",
-      "per_day_inst": "\uae30\uad00 \ub3c4\uad6c\uc5d0",
+      "vip_indicators": "AIO VIP 지표",
+      "premium_indicators": "AIO 프리미엄 지표",
+      "total_25": "25+ 총 지표",
+      "institutional": "기관 도구",
+      "priority_support": "우선 지원",
+      "tools_14": "14개 거래 도구",
+      "free_upgrade": "평생 무료 업그레이드",
+      "community": "커뮤니티 접근",
+      "support_247": "24/7 지원",
+      "elite_tools": "엘리트 거래 도구",
+      "per_day_inst": "기관 도구에",
       "less_coffee": "이하",
       "just": "단지",
       "coffee": "커피 한 잔보다 저렴"
     }
   },
   "blog_section": {
-    "title": "\uc2a4\ub9c8\ud2b8 \uba38\ub2c8 \uac70\ub798 \ubc30\uc6b0\uae30",
-    "subtitle": "\uc2dc\uc7a5 \uad6c\uc870, ICT \uac1c\ub150, \uc720\ub3d9\uc131, \uae30\uad00 \uc804\ub7b5\uc5d0 \ub300\ud55c \uc2ec\uce35 \uac00\uc774\ub4dc",
-    "view_all": "\ubaa8\ub4e0 \uae30\uc0ac \ubcf4\uae30",
-    "read_more": "\ubd84 \uc77d\uae30 \u2192"
+    "title": "스마트 머니 거래 배우기",
+    "subtitle": "시장 구조, ICT 개념, 유동성, 기관 전략에 대한 심층 가이드",
+    "view_all": "모든 기사 보기",
+    "read_more": "분 읽기 →"
   },
   "faq": {
-    "title": "\uc790\uc8fc \ubb3b\ub294 \uc9c8\ubb38",
-    "subtitle": "AIO Indicator\uc5d0 \ub300\ud574 \uc54c\uc544\uc57c \ud560 \ubaa8\ub4e0 \uac83",
+    "title": "자주 묻는 질문",
+    "subtitle": "AIO Indicator에 대해 알아야 할 모든 것",
     "items": {
-      "q1": "AIO Indicator\ub780 \ubb34\uc5c7\uc774\uace0 \uc5b4\ub5bb\uac8c \uc791\ub3d9\ud558\ub098\uc694?",
-      "a1": "AIO(All In One) Indicator\ub294 \uc2dc\uac04 \ubc0f \uac00\uaca9 \ubd84\uc11d \ub3c4\uad6c\ub97c \uacb0\ud569\ud55c \ud3ec\uad04\uc801\uc778 TradingView \ud504\ub77c\uc774\uc2a4 \uc561\uc158 \uc9c0\ud45c\uc785\ub2c8\ub2e4. \uc2dc\uc7a5 \uad6c\uc870 \uac10\uc9c0, \uc138\uc158 & STD, \uac00\uaca9 \ub808\ubca8, \ub9e4\uc9c1 \ubc14, \ucd94\uc138\uc120, \ube0c\ub808\uc774\ud06c\uc544\uc6c3 \uc608\uce21 \ub4f1 \ub9ce\uc740 \uae30\ub2a5\uc774 \ud3ec\ud568\ub429\ub2c8\ub2e4. \uc678\ud658, \uc8fc\uc2dd, \uc554\ud638\ud654\ud3d0, \uc0c1\ud488, \uc9c0\uc218 \ub4f1 \ubaa8\ub4e0 TradingView \uc2dc\uc7a5\uc5d0\uc11c \uc791\ub3d9\ud569\ub2c8\ub2e4.",
-      "q2": "VIP\uc640 \ud504\ub9ac\ubbf8\uc5c4 \ud50c\ub79c\uc758 \ucc28\uc774\uc810\uc740 \ubb34\uc5c7\uc778\uac00\uc694?",
-      "a2": "<strong>\ud504\ub9ac\ubbf8\uc5c4 \ud50c\ub79c</strong>\uc5d0\ub294 14\uac1c\uc758 \uac15\ub825\ud55c \ub3c4\uad6c\uc640 \ubb34\ub8cc \uc9c0\ud45c\uac00 \ud3ec\ud568\ub41c \ud575\uc2ec AIO Price Action \uc9c0\ud45c\uac00 \ud3ec\ud568\ub429\ub2c8\ub2e4.<br><br><strong>VIP \ud50c\ub79c</strong>\uc5d0\ub294 \ud504\ub9ac\ubbf8\uc5c4\uc758 \ubaa8\ub4e0 \uac83\uc5d0 \ub354\ud574 8\uac1c\uc758 \uace0\uae09 \uae30\uad00 \uc218\uc900 \uc9c0\ud45c\uac00 \ud3ec\ud568\ub429\ub2c8\ub2e4: Top Bottom Confidence, TPO Liquidity\uac00 \uc788\ub294 Advanced Trendlines, Smart Money Detection\uc774 \uc788\ub294 Advanced Market Structure, Banker Momentum Volatility, Prediction Market Simulator, Perps Flow Positioning, Seesaw Trailing Strategy.",
-      "q3": "\uc9c0\ud45c\uac00 \ub9ac\ud398\uc778\ud2b8\ud558\ub098\uc694?",
-      "a3": "\uc544\ub2c8\uc694, AIO \uc9c0\ud45c\ub294 \ub9ac\ud398\uc778\ud2b8\ud558\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4. \ubaa8\ub4e0 \uc2e0\ud638\uc640 \ub808\ubca8\uc740 \uc2e4\uc2dc\uac04\uc73c\ub85c \uacc4\uc0b0\ub418\uba70 \ud615\uc131 \ud6c4 \uace0\uc815\ub429\ub2c8\ub2e4. \uc774\uac83\uc740 \uc2e0\ub8b0\ud560 \uc218 \uc788\ub294 \ubc31\ud14c\uc2a4\ud2b8\uc640 \ub77c\uc774\ube0c \uac70\ub798\uc5d0 \ud544\uc218\uc801\uc785\ub2c8\ub2e4. \ucc28\ud2b8\uc5d0 \ud45c\uc2dc\ub418\ub294 \uc2e0\ud638\ub97c \uc2e0\ub8b0\ud560 \uc218 \uc788\uc2b5\ub2c8\ub2e4.",
-      "q4": "1\ubd84 \ub610\ub294 5\ubd84\uacfc \uac19\uc740 \ub099\uc740 \ud0c0\uc784\ud504\ub808\uc784\uc5d0\uc11c \uc774\ub7ec\ud55c \uc9c0\ud45c\ub97c \uc0ac\uc6a9\ud560 \uc218 \uc788\ub098\uc694?",
-      "a4": "\ub124! AIO \uc9c0\ud45c\ub294 15\ucd08 \ucc28\ud2b8\ubd80\ud130 \uc6d4\uac04 \ucc28\ud2b8\uae4c\uc9c0 \ubaa8\ub4e0 \ud0c0\uc784\ud504\ub808\uc784\uc5d0\uc11c \uc791\ub3d9\ud569\ub2c8\ub2e4. \uc2a4\uce98\ub9ad, \ub370\uc774 \ud2b8\ub808\uc774\ub529, \uc2a4\uc717 \ud2b8\ub808\uc774\ub529, \ud3ec\uc9c0\uc158 \ud2b8\ub808\uc774\ub529\uc5d0 \ucd5c\uc801\ud654\ub418\uc5b4 \uc788\uc2b5\ub2c8\ub2e4.",
-      "q5": "\uacb0\uc81c \ud6c4 \uc811\uadfc\uad8c\uc744 \uc5b4\ub5bb\uac8c \uc5bb\ub098\uc694?",
-      "a5": "PayPal\ub85c \uacb0\uc81c\ub97c \uc644\ub8cc\ud55c \ud6c4, Telegram(@nguyenthl) \ub610\ub294 \uc774\uba54\uc77c\ub85c TradingView \uc0ac\uc6a9\uc790 \uc774\ub984\uc744 \ubcf4\ub0b4\uc8fc\uc138\uc694. 24\uc2dc\uac04 \uc774\ub0b4(\ubcf4\ud1b5 \ud6e8\uc52c \ube60\ub974\uac8c)\uc5d0 \uc9c0\ud45c \uc811\uadfc\uad8c\uc744 \ubd80\uc5ec\ud569\ub2c8\ub2e4. TradingView \uacc4\uc815\uc5d0 \ucd08\ub300\uc7a5\uc774 \ub3c4\ucc29\ud558\uba74 \uc218\ub77d\ud558\uc154\uc57c \ud569\ub2c8\ub2e4.",
-      "q6": "\ubb34\ub8cc \uccb4\ud5d8\uc744 \uc81c\uacf5\ud558\ub098\uc694?",
-      "a6": "\ub124! \ud655\uc815\ud558\uae30 \uc804\uc5d0 \ubaa8\ub4e0 \uae30\ub2a5\uc744 \ud14c\uc2a4\ud2b8\ud560 \uc218 \uc788\ub3c4\ub85d 5\uc77c \ubb34\ub8cc \uccb4\ud5d8\uc744 \uc81c\uacf5\ud569\ub2c8\ub2e4. TradingView \uc0ac\uc6a9\uc790 \uc774\ub984\uc73c\ub85c Telegram(@nguyenthl)\uc5d0 \uc5f0\ub77d\ud558\uac70\ub098 tranholenguyen@gmail.com\uc73c\ub85c \uc774\uba54\uc77c\uc744 \ubcf4\ub0b4 \uccb4\ud5d8 \uc811\uadfc\uad8c\uc744 \uc694\uccad\ud558\uc138\uc694.",
-      "q7": "'Internal server study error'\uac00 \ud45c\uc2dc\ub418\uba74 \uc5b4\ub5bb\uac8c \ud574\uc57c \ud558\ub098\uc694?",
-      "a7": "\uc774 \uc624\ub958\ub294 \uc77c\ubc18\uc801\uc73c\ub85c TradingView \ud0ed\uc744 \uba87 \uc2dc\uac04 \ub3d9\uc548 \uc5f4\uc5b4 \ub450\uc5c8\uac70\ub098 \ub9ce\uc740 \uc124\uc815 \ubcc0\uacbd\uc744 \ud588\uc744 \ub54c \ubc1c\uc0dd\ud569\ub2c8\ub2e4. \ud604\uc7ac TradingView \ud0ed\uc744 \ub2eb\uace0 \uc0c8 \ud0ed\uc744 \uc5ec\uc138\uc694. \uc624\ub958\uac00 \uc0ac\ub77c\uc9c0\uace0 \ubaa8\ub4e0 \uac83\uc774 \uc815\uc0c1\uc801\uc73c\ub85c \uc791\ub3d9\ud569\ub2c8\ub2e4.",
-      "q8": "\uc5c5\ub370\uc774\ud2b8\uac00 \uad6c\ub3c5\uc5d0 \ud3ec\ud568\ub418\ub098\uc694?",
-      "a8": "\ub124! \ubaa8\ub4e0 \uc5c5\ub370\uc774\ud2b8\uc640 \uc0c8 \uae30\ub2a5\uc740 \uad6c\ub3c5 \uae30\uac04 \ub3d9\uc548 \ubb34\ub8cc\ub85c \ud3ec\ud568\ub429\ub2c8\ub2e4. \uc0ac\uc6a9\uc790 \ud53c\ub4dc\ubc31\uacfc \uc2dc\uc7a5 \uc0c1\ud669\uc5d0 \ub530\ub77c \uc815\uae30\uc801\uc73c\ub85c \uc9c0\ud45c\ub97c \uc5c5\ub370\uc774\ud2b8\ud569\ub2c8\ub2e4. \uc5c5\ub370\uc774\ud2b8 \uc54c\ub9bc\uc740 Telegram \ucc44\ub110\uc744 \ud1b5\ud574 \uc804\uc1a1\ub429\ub2c8\ub2e4."
+      "q1": "AIO Indicator란 무엇이고 어떻게 작동하나요?",
+      "a1": "AIO(All In One) Indicator는 시간 및 가격 분석 도구를 결합한 포괄적인 TradingView 프라이스 액션 지표입니다. 시장 구조 감지, 세션 & STD, 가격 레벨, 매직 바, 추세선, 브레이크아웃 예측 등 많은 기능이 포함됩니다. 외환, 주식, 암호화폐, 상품, 지수 등 모든 TradingView 시장에서 작동합니다.",
+      "q2": "VIP와 프리미엄 플랜의 차이점은 무엇인가요?",
+      "a2": "<strong>프리미엄 플랜</strong>에는 14개의 강력한 도구와 무료 지표가 포함된 핵심 AIO Price Action 지표가 포함됩니다.<br><br><strong>VIP 플랜</strong>에는 프리미엄의 모든 것에 더해 8개의 고급 기관 수준 지표가 포함됩니다: Top Bottom Confidence, TPO Liquidity가 있는 Advanced Trendlines, Smart Money Detection이 있는 Advanced Market Structure, Banker Momentum Volatility, Prediction Market Simulator, Perps Flow Positioning, Seesaw Trailing Strategy.",
+      "q3": "지표가 리페인트하나요?",
+      "a3": "아니요, AIO 지표는 리페인트하지 않습니다. 모든 신호와 레벨은 실시간으로 계산되며 형성 후 고정됩니다. 이것은 신뢰할 수 있는 백테스트와 라이브 거래에 필수적입니다. 차트에 표시되는 신호를 신뢰할 수 있습니다.",
+      "q4": "1분 또는 5분과 같은 낙은 타임프레임에서 이러한 지표를 사용할 수 있나요?",
+      "a4": "네! AIO 지표는 15초 차트부터 월간 차트까지 모든 타임프레임에서 작동합니다. 스캘릭, 데이 트레이딩, 스윗 트레이딩, 포지션 트레이딩에 최적화되어 있습니다.",
+      "q5": "결제 후 접근권을 어떻게 얻나요?",
+      "a5": "PayPal로 결제를 완료한 후, Telegram(@nguyenthl) 또는 이메일로 TradingView 사용자 이름을 보내주세요. 24시간 이내(보통 훨씬 빠르게)에 지표 접근권을 부여합니다. TradingView 계정에 초대장이 도착하면 수락하셔야 합니다.",
+      "q6": "무료 체험을 제공하나요?",
+      "a6": "네! 확정하기 전에 모든 기능을 테스트할 수 있도록 5일 무료 체험을 제공합니다. TradingView 사용자 이름으로 Telegram(@nguyenthl)에 연락하거나 tranholenguyen@gmail.com으로 이메일을 보내 체험 접근권을 요청하세요.",
+      "q7": "'Internal server study error'가 표시되면 어떻게 해야 하나요?",
+      "a7": "이 오류는 일반적으로 TradingView 탭을 몇 시간 동안 열어 두었거나 많은 설정 변경을 했을 때 발생합니다. 현재 TradingView 탭을 닫고 새 탭을 여세요. 오류가 사라지고 모든 것이 정상적으로 작동합니다.",
+      "q8": "업데이트가 구독에 포함되나요?",
+      "a8": "네! 모든 업데이트와 새 기능은 구독 기간 동안 무료로 포함됩니다. 사용자 피드백과 시장 상황에 따라 정기적으로 지표를 업데이트합니다. 업데이트 알림은 Telegram 채널을 통해 전송됩니다."
     }
   },
   "contact": {
-    "title": "\uc5f0\ub77d\ud558\uae30",
-    "subtitle": "\ucc44\ud305, \ucee4\ubba4\ub2c8\ud2f0 \ucc38\uc5ec, \uc5c5\ub370\uc774\ud2b8 \ud314\ub85c\uc6b0 \ub610\ub294 \uc9c1\uc811 \uc774\uba54\uc77c",
-    "chat": "\ucc44\ud305 / DM",
-    "community": "\ucee4\ubba4\ub2c8\ud2f0 \ucc38\uc5ec",
-    "follow_x": "X\uc5d0\uc11c \ud314\ub85c\uc6b0",
-    "email": "\uc774\uba54\uc77c \ubcf4\ub0b4\uae30"
+    "title": "연락하기",
+    "subtitle": "채팅, 커뮤니티 참여, 업데이트 팔로우 또는 직접 이메일",
+    "chat": "채팅 / DM",
+    "community": "커뮤니티 참여",
+    "follow_x": "X에서 팔로우",
+    "email": "이메일 보내기"
   },
   "footer": {
-    "tagline": "\uc804\ubb38 \ud2b8\ub808\uc774\ub354\ub97c \uc704\ud55c \uad81\uadf9\uc758 TradingView \ud504\ub77c\uc774\uc2a4 \uc561\uc158 \uc9c0\ud45c \ud328\ud0a4\uc9c0.",
-    "quick_links": "\ube60\ub978 \ub9c1\ud06c",
-    "community": "\ucee4\ubba4\ub2c8\ud2f0",
-    "features": "\uae30\ub2a5",
-    "indicators": "\ubaa8\ub4e0 \uc9c0\ud45c",
-    "blog": "\ube14\ub85c\uadf8",
-    "testimonials": "\ub9ac\ubdf0",
-    "faq": "\uc790\uc8fc \ubb3b\ub294 \uc9c8\ubb38",
-    "pricing": "\uac00\uaca9",
-    "disclaimer": "\uac70\ub798\ub294 \uc7ac\ubb34\uc801 \uc190\uc2e4\uc758 \uac00\ub2a5\uc131\uc744 \ud3ec\ud568\ud569\ub2c8\ub2e4. \uc78a\uc744 \uc900\ube44\uac00 \ub41c \uc790\uae08\uc73c\ub85c\ub9cc \uac70\ub798\ud558\uc138\uc694. \ud1b5\uc81c\ud560 \uc218 \uc5c6\ub294 \uc694\uc778\uc73c\ub85c \uc778\ud574 \uac70\ub798 \uacc4\uc88c\uc758 \ubaa8\ub4e0 \uc790\uae08\uc744 \uc78a\uc744 \uc218 \uc788\uc74c\uc744 \uc778\uc2dd\ud558\uc138\uc694. \uc7ac\ubb34\uc801 \uacb0\uc815\uc740 \uc2a4\uc2a4\ub85c \ub0b4\ub824\uc57c \ud569\ub2c8\ub2e4. AIO Indicator\ub294 \uadc0\ud558\uc758 \uac70\ub798\ub85c \uc778\ud55c \uc190\uc2e4\uc5d0 \ub300\ud574 \ucc45\uc784\uc9c0\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
-    "copyright": "\u00A9 2026 AIO Indicator. All rights reserved."
+    "tagline": "전문 트레이더를 위한 궁극의 TradingView 프라이스 액션 지표 패키지.",
+    "quick_links": "빠른 링크",
+    "community": "커뮤니티",
+    "features": "기능",
+    "indicators": "모든 지표",
+    "blog": "블로그",
+    "testimonials": "리뷰",
+    "faq": "자주 묻는 질문",
+    "pricing": "가격",
+    "disclaimer": "거래는 재무적 손실의 가능성을 포함합니다. 잊을 준비가 된 자금으로만 거래하세요. 통제할 수 없는 요인으로 인해 거래 계좌의 모든 자금을 잊을 수 있음을 인식하세요. 재무적 결정은 스스로 내려야 합니다. AIO Indicator는 귀하의 거래로 인한 손실에 대해 책임지지 않습니다.",
+    "copyright": "© 2026 AIO Indicator. All rights reserved."
   },
-  "sticky_cta": "\ubb34\ub8cc \uccb4\ud5d8 \uc2dc\uc791",
+  "sticky_cta": "무료 체험 시작",
   "blog": {
-    "title": "\ube14\ub85c\uadf8",
-    "title_hero": "\ud2b8\ub808\uc774\ub529 <span class=\"hero-title-accent\">\uc778\uc0ac\uc774\ud2b8</span>",
-    "subtitle": "\uc2ec\uce35 \uac00\uc774\ub4dc, \uc804\ub7b5 \ubd84\uc11d, \uc9c0\ud45c \ud280\ud1a0\ub9ac\uc5bc.",
-    "filter_all": "\uc804\uccb4",
-    "filter_indicators": "\uc9c0\ud45c",
-    "filter_strategies": "\uc804\ub7b5",
-    "filter_ict": "ICT \uac1c\ub150",
-    "filter_advanced": "\uace0\uae09",
-    "read_min": "\ubd84",
-    "back_home": "\ud648",    "cta_title": "\uae30\uad00 \ub3c4\uad6c\ub85c <span class=\"hero-title-accent\">\uac70\ub798\ub97c</span> \uc2dc\uc791\ud560 \uc900\ube44\uac00 \ub418\uc154\uc2a8\ub098\uc694\uff1f",
-    "cta_desc": "25+ AIO \uc9c0\ud45c\ub97c \ubaa8\ub450 5\uc77c \ubb34\ub8cc\ub85c \uc2dc\ub3c4\ud574\ubcf4\uc138\uc694. \uc2e0\uc6a9\uce74\ub4dc \ubd88\ud544\uc694.",
-    "cta_btn": "5\uc77c \ubb34\ub8cc \uccb4\ud5d8 \uc2dc\uc791",    "article": {
-      "home": "\ud648",
-      "blog": "\ube14\ub85c\uadf8",
-      "min_read": "\ubd84 \uc77d\uae30",
-      "try_free": "AIO Indicator\ub97c 5\uc77c \ubb34\ub8cc\ub85c \uccb4\ud5d8\ud558\uc138\uc694",
-      "try_desc": "\uc2e0\uc6a9\uce74\ub4dc \ubd88\ud544\uc694. \ubaa8\ub4e0 \ud504\ub9ac\ubbf8\uc5c4 + VIP \uc9c0\ud45c\uc5d0 \uc644\uc804 \uc811\uadfc.",
-      "start_trial": "\ubb34\ub8cc \uccb4\ud5d8 \uc2dc\uc791"
+    "title": "블로그",
+    "title_hero": "트레이딩 <span class=\"hero-title-accent\">인사이트</span>",
+    "subtitle": "심층 가이드, 전략 분석, 지표 튀토리얼.",
+    "filter_all": "전체",
+    "filter_indicators": "지표",
+    "filter_strategies": "전략",
+    "filter_ict": "ICT 개념",
+    "filter_advanced": "고급",
+    "read_min": "분",
+    "back_home": "홈",
+    "cta_title": "<span class=\"hero-title-accent\">기관급 도구</span>로 거래를 시작할 준비가 되셨나요？",
+    "cta_desc": "25+ AIO 지표를 모두 5일 무료로 시도해보세요. 신용카드 불필요.",
+    "cta_btn": "5일 무료 체험 시작",
+    "article": {
+      "home": "홈",
+      "blog": "블로그",
+      "min_read": "분 읽기",
+      "try_free": "AIO Indicator를 5일 무료로 체험하세요",
+      "try_desc": "신용카드 불필요. 모든 프리미엄 + VIP 지표에 완전 접근.",
+      "start_trial": "무료 체험 시작"
     }
   }
 }
