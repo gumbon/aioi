@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="../css/modern-styles.css" rel="stylesheet" />
     <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
@@ -26,19 +27,19 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li></ul></div></div></nav>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li><li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
 
     <section style="padding-top:120px;padding-bottom:40px;">
         <div class="container">
-            <h1 style="color:var(--text-primary);font-weight:800;margin-bottom:8px;">Blog</h1>
-            <p class="text-secondary mb-4">Deep-dive guides, strategy breakdowns, and indicator tutorials.</p>
+            <h1 style="color:var(--text-primary);font-weight:800;margin-bottom:8px;" data-i18n="blog.title">Blog</h1>
+            <p class="text-secondary mb-4" data-i18n="blog.subtitle">Deep-dive guides, strategy breakdowns, and indicator tutorials.</p>
 
             <div class="d-flex flex-wrap gap-2 mb-4" id="blogFilters">
-                <button class="blog-filter-btn active" data-filter="all">All</button>
-                <button class="blog-filter-btn" data-filter="indicators">Indicators</button>
-                <button class="blog-filter-btn" data-filter="strategies">Strategies</button>
-                <button class="blog-filter-btn" data-filter="ict">ICT Concepts</button>
-                <button class="blog-filter-btn" data-filter="advanced">Advanced</button>
+                <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filter_all">All</button>
+                <button class="blog-filter-btn" data-filter="indicators" data-i18n="blog.filter_indicators">Indicators</button>
+                <button class="blog-filter-btn" data-filter="strategies" data-i18n="blog.filter_strategies">Strategies</button>
+                <button class="blog-filter-btn" data-filter="ict" data-i18n="blog.filter_ict">ICT Concepts</button>
+                <button class="blog-filter-btn" data-filter="advanced" data-i18n="blog.filter_advanced">Advanced</button>
             </div>
 
             <div class="row g-4" id="blogGrid">
@@ -136,6 +137,7 @@
     <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);"><div class="container"><div class="row"><div class="col-lg-4 mb-4"><h5 class="mb-3">AIO Indicator</h5><p class="text-secondary">The ultimate TradingView price action indicator suite for professional traders.</p></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Quick Links</h5><ul class="list-unstyled"><li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none">Features</a></li><li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li><li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li></ul></div><div class="col-lg-4 mb-4"><h5 class="mb-3">Community</h5><ul class="list-unstyled"><li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li><li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li></ul></div></div><hr class="my-4" style="border-color: var(--card-border);"><div class="text-center"><p class="text-secondary small mb-0">&copy; 2026 AIO Indicator. All rights reserved.</p></div></div></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
     <script>
     document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
         btn.addEventListener('click',function(){
