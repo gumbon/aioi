@@ -1,0 +1,183 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "indicators": "All Indicators",
+    "blog": "Blog",
+    "reviews": "Reviews",
+    "faq": "FAQ",
+    "pricing": "Pricing",
+    "community": "Community",
+    "chat": "Chat with me"
+  },
+  "hero": {
+    "title1": "Price Action",
+    "title2": "Smart Money Indicators",
+    "subtitle": "Align with institutional order flow and smart money movements. <span class=\"accent\">Detect banker participation, liquidity patterns, and high-probability setups</span> before the next major move. Professional-grade tools designed for traders who think like institutions.",
+    "cta_trial": "Start 5-Day Free Trial",
+    "cta_pricing": "View Pricing",
+    "stat_indicators": "Pro Indicators",
+    "stat_rating": "Rating",
+    "stat_repaints": "Repaints"
+  },
+  "proof": {
+    "published": "Published on TradingView",
+    "norepaint": "No Repaint Guarantee",
+    "updates": "Free Lifetime Updates",
+    "trial": "5-Day Free Trial",
+    "support": "24/7 Support"
+  },
+  "features": {
+    "title": "Institutional-Grade Tools in One Suite",
+    "subtitle": "Professional features designed to track smart money and eliminate guesswork from your trading",
+    "cards": {
+      "smart_money": {
+        "title": "Smart Money Detection",
+        "desc": "Track institutional participation and banker movements in real-time. Identify high-probability setups aligned with smart money order flow using advanced algorithms."
+      },
+      "time": {
+        "title": "Time Mastery",
+        "desc": "Complete timezone, session, and lookback data range tools. Includes DR, IDR, ITC Killzone, Quarterly Theory, and more."
+      },
+      "institutional": {
+        "title": "Institutional Price Action",
+        "desc": "Market structure, liquidity hunting, accumulation zones, and professional trendline analysis. See the market through an institutional lens with advanced price action tools."
+      },
+      "analytics": {
+        "title": "Advanced Analytics",
+        "desc": "TPO-inspired liquidity levels, institutional momentum tracking, and Monte Carlo prediction markets for professional analysis."
+      },
+      "winrate": {
+        "title": "High Win Rate",
+        "desc": "Proven strategies with real back-test results. No repaint, reliable signals backed by data-driven approach."
+      },
+      "customization": {
+        "title": "Full Customization",
+        "desc": "Enable or disable any indicator. Clean, beautiful interface that doesn't clutter your chart. Make it truly yours."
+      }
+    }
+  },
+  "indicators": {
+    "title": "Complete Indicator Suite",
+    "subtitle": "Choose from VIP, Premium, or Free indicators based on your trading needs",
+    "tabs": {
+      "vip": "VIP Indicators",
+      "premium": "Premium Indicators",
+      "free": "Free Indicators"
+    },
+    "modal_btn": "View on TradingView"
+  },
+  "testimonials": {
+    "title": "Trusted by Professional Traders Worldwide",
+    "subtitle": "See how traders use smart money detection to improve their trading results"
+  },
+  "pricing": {
+    "title": "Simple, Transparent Pricing",
+    "subtitle": "Choose the plan that works best for your trading style",
+    "trial_title": "Try Everything Free for 5 Days",
+    "trial_desc": "No credit card required. Full access to all Premium + VIP indicators.",
+    "trial_btn": "Get Free Trial",
+    "vip_label": "VIP Plans",
+    "vip_desc": "For serious traders who want institutional-grade tools",
+    "premium_label": "Premium Plans",
+    "premium_desc": "Professional price action and smart money tools",
+    "monthly": "Monthly",
+    "quarterly": "Quarterly",
+    "annual": "12 Months",
+    "per_month": "/month",
+    "per_day": "/day",
+    "choose_plan": "Choose Plan",
+    "footer_note": "All plans include lifetime free upgrades \u2022 Cancel anytime \u2022 24/7 support",
+    "vip_best": "VIP - Best Value",
+    "most_popular": "Most Popular",
+    "save": "SAVE",
+    "billed_annually_vip": "*Billed as $419.90 annually",
+    "billed_quarterly_vip": "*Billed as $122.97 per 3 months",
+    "billed_annually_prem": "*Billed as $119.99 annually",
+    "billed_quarterly_prem": "*Billed as $38.99 per 3 months",
+    "features": {
+      "vip_indicators": "AIO VIP Indicators",
+      "premium_indicators": "AIO Premium Indicators",
+      "total_25": "25+ Total Indicators",
+      "institutional": "Institutional Tools",
+      "priority_support": "Priority Support",
+      "tools_14": "14 Trading Tools",
+      "free_upgrade": "Free Upgrade Lifetime",
+      "community": "Community Access",
+      "support_247": "24/7 Support",
+      "elite_tools": "elite trading tools",
+      "per_day_inst": "for institutional tools",
+      "less_coffee": "Less than",
+      "just": "Just"
+    }
+  },
+  "blog_section": {
+    "title": "Learn Smart Money Trading",
+    "subtitle": "In-depth guides on market structure, ICT concepts, liquidity, and institutional strategies",
+    "view_all": "View All Articles",
+    "read_more": "min read \u2192"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about AIO Indicator",
+    "items": {
+      "q1": "What is AIO Indicator and how does it work?",
+      "a1": "AIO (All In One) Indicator is a comprehensive TradingView price action indicator that combines time and price analysis tools. It includes market structure detection, sessions & STD, price levels, magic bars, trendlines, breakout predictions, and many more features. The indicator works on all TradingView markets including forex, stocks, crypto, commodities, and indices.",
+      "q2": "What's the difference between VIP and Premium plans?",
+      "a2": "<strong>Premium Plans</strong> include the core AIO Price Action indicator with 14 powerful tools plus free indicators. Perfect for traders focused on price action and time analysis.<br><br><strong>VIP Plans</strong> include everything in Premium PLUS 8 advanced institutional-grade indicators: Top Bottom Confidence, Advanced Trendlines with TPO Liquidity, Advanced Market Structure with Smart Money Detection, Banker Momentum Volatility, Prediction Market Simulator, Perps Flow Positioning (AIO PFP), and Seesaw Trailing Strategy.",
+      "q3": "Do the indicators repaint?",
+      "a3": "No, AIO indicators do not repaint. All signals and levels are calculated in real-time and remain fixed once formed. This is crucial for reliable back-testing and live trading. You can trust the signals you see on your chart.",
+      "q4": "Can I use these indicators on lower timeframes like 1-minute or 5-minute?",
+      "a4": "Yes! AIO indicators work on all timeframes from 15-second charts up to monthly charts. They're optimized for scalping, day trading, swing trading, and position trading. The indicators automatically adjust calculations based on the selected timeframe.",
+      "q5": "How do I get access after payment?",
+      "a5": "After completing your payment via PayPal, please send your TradingView username to us via Telegram (@nguyenthl) or email. We will grant you access to the indicators within 24 hours (usually much faster). You'll receive an invitation in your TradingView account which you need to accept.",
+      "q6": "Do you offer a free trial?",
+      "a6": "Yes! We offer a 5-day free trial so you can test all features before committing. Simply contact us on Telegram (@nguyenthl) or send an email to tranholenguyen@gmail.com with your TradingView username to request trial access.",
+      "q7": "What happens if I see 'Internal server study error'?",
+      "a7": "This error typically occurs when you've had the TradingView tab open for many hours or made many setting changes. Simply close the current TradingView tab and open a new one. The error will disappear and everything will work fine. This is a TradingView platform limitation, not an indicator issue.",
+      "q8": "Are updates included in my subscription?",
+      "a8": "Yes! All updates and new features are included free of charge during your subscription period. We regularly update the indicators based on user feedback and market conditions. Update notifications are sent via our Telegram channel."
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Chat, join the community, follow updates, or email us directly",
+    "chat": "Chat / DM",
+    "community": "Join Community",
+    "follow_x": "Follow on X",
+    "email": "Send E-mail"
+  },
+  "footer": {
+    "tagline": "The ultimate TradingView price action indicator suite for professional traders.",
+    "quick_links": "Quick Links",
+    "community": "Community",
+    "features": "Features",
+    "indicators": "All Indicators",
+    "blog": "Blog",
+    "testimonials": "Testimonials",
+    "faq": "FAQ",
+    "pricing": "Pricing",
+    "disclaimer": "Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose. You must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions. AIO Indicator takes no responsibility for loss incurred as a result of your trading.",
+    "copyright": "\u00A9 2026 AIO Indicator. All rights reserved."
+  },
+  "sticky_cta": "Start Free Trial",
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Deep-dive guides, strategy breakdowns, and indicator tutorials.",
+    "filter_all": "All",
+    "filter_indicators": "Indicators",
+    "filter_strategies": "Strategies",
+    "filter_ict": "ICT Concepts",
+    "filter_advanced": "Advanced",
+    "read_min": "min",
+    "back_home": "Home",
+    "article": {
+      "home": "Home",
+      "blog": "Blog",
+      "min_read": "min read",
+      "try_free": "Try AIO Indicator Free for 5 Days",
+      "try_desc": "No credit card required. Full access to all Premium + VIP indicators.",
+      "start_trial": "Start Free Trial"
+    }
+  }
+}
