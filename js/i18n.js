@@ -11,6 +11,7 @@
   var STORAGE_KEY = 'aio_lang';
   var _current = 'en';
   var _translations = {};
+  var _cache = {};
 
   /* ---- path helper ---- */
   function getBase() {
@@ -36,15 +37,17 @@
 
   /* ---- load locale JSON ---- */
   function loadLocale(lang) {
-    if (lang === 'en' && Object.keys(_translations).length > 0 && _current === 'en') {
-      return Promise.resolve({});
-    }
+    if (_cache[lang]) return Promise.resolve(_cache[lang]);
     var base = getBase();
     var url = base + 'locales/' + lang + '.json';
     return fetch(url)
       .then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
+      })
+      .then(function (t) {
+        _cache[lang] = t;
+        return t;
       })
       .catch(function (e) {
         console.warn('[AIOi18n] Failed to load locale "' + lang + '":', e);
@@ -100,6 +103,47 @@
     });
   }
 
+  /* ---- blog article language notice ---- */
+  function updateBlogNotice(lang) {
+    if (!document.querySelector('.article-body')) return;
+    var existing = document.getElementById('aio-lang-notice');
+    if (lang === 'en') {
+      if (existing) existing.remove();
+      return;
+    }
+    if (!existing) {
+      existing = document.createElement('div');
+      existing.id = 'aio-lang-notice';
+      existing.className = 'lang-notice-banner container';
+      existing.style.marginTop = '90px';
+      var articleSection = document.querySelector('.article-content-section');
+      if (articleSection) {
+        articleSection.parentNode.insertBefore(existing, articleSection);
+      } else {
+        var nav = document.querySelector('nav');
+        if (nav && nav.nextSibling) nav.parentNode.insertBefore(existing, nav.nextSibling);
+        else document.body.prepend(existing);
+      }
+    }
+    var msgs = {
+      vi: 'Bài viết này được viết bằng tiếng Anh.',
+      ja: 'この記事は英語で書かれています。',
+      ko: '이 기사는 영어로 작성되었습니다.'
+    };
+    var linkTexts = {
+      vi: 'Dịch với Google Translate',
+      ja: 'Google翻訳で読む',
+      ko: 'Google 번역으로 읽기'
+    };
+    var tl = { vi: 'vi', ja: 'ja', ko: 'ko' };
+    var pageUrl = encodeURIComponent(window.location.href.split('?')[0]);
+    existing.innerHTML =
+      '<i class="bi bi-translate"></i>' +
+      '<span>' + (msgs[lang] || 'This article is in English.') + ' ' +
+      '<a href="https://translate.google.com/translate?sl=en&tl=' + (tl[lang] || lang) + '&u=' + pageUrl + '" target="_blank" rel="noopener">' +
+      (linkTexts[lang] || 'Translate with Google') + ' \u2197</a></span>';
+  }
+
   /* ---- switch language ---- */
   function switchLang(lang) {
     if (LANGS.indexOf(lang) === -1) return;
@@ -116,6 +160,7 @@
       _translations = t;
       applyTranslations(t);
       updateSwitcherUI(lang);
+      updateBlogNotice(lang);
     });
   }
 
@@ -143,6 +188,7 @@
       _translations = t;
       applyTranslations(t);
       updateSwitcherUI(lang);
+      updateBlogNotice(lang);
     });
   }
 
