@@ -172,8 +172,9 @@
     "filter_ict": "ICT \uac1c\ub150",
     "filter_advanced": "\uace0\uae09",
     "read_min": "\ubd84",
-    "back_home": "\ud648",
-    "article": {
+    "back_home": "\ud648",    "cta_title": "\uae30\uad00 \ub3c4\uad6c\ub85c <span class=\"hero-title-accent\">\uac70\ub798\ub97c</span> \uc2dc\uc791\ud560 \uc900\ube44\uac00 \ub418\uc154\uc2a8\ub098\uc694\uff1f",
+    "cta_desc": "25+ AIO \uc9c0\ud45c\ub97c \ubaa8\ub450 5\uc77c \ubb34\ub8cc\ub85c \uc2dc\ub3c4\ud574\ubcf4\uc138\uc694. \uc2e0\uc6a9\uce74\ub4dc \ubd88\ud544\uc694.",
+    "cta_btn": "5\uc77c \ubb34\ub8cc \uccb4\ud5d8 \uc2dc\uc791",    "article": {
       "home": "\ud648",
       "blog": "\ube14\ub85c\uadf8",
       "min_read": "\ubd84 \uc77d\uae30",

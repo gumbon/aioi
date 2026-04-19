@@ -173,6 +173,9 @@
     "filter_advanced": "Advanced",
     "read_min": "min",
     "back_home": "Home",
+    "cta_title": "Ready to Trade with <span class=\"hero-title-accent\">Institutional Tools</span>?",
+    "cta_desc": "Try all 25+ AIO indicators free for 5 days. No credit card required.",
+    "cta_btn": "Start 5-Day Free Trial",
     "article": {
       "home": "Home",
       "blog": "Blog",
