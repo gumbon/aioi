@@ -125,19 +125,19 @@
       "q1": "AIO Indicatorとは何ですか？どのように機能しますか？",
       "a1": "AIO（All In One）Indicatorは、時間と価格分析ツールを組み合わせた包括的なTradingViewプライスアクションインジケーターです。マーケット構造検出、セッション＆STD、価格レベル、マジックバー、トレンドライン、ブレイクアウト予測など多くの機能を含みます。外国為替、株式、暗号貨幣、商品、指数などすべてのTradingView市場で機能します。",
       "q2": "VIPとPremiumプランの違いは何ですか？",
-      "a2": "<strong>Premiumプラン</strong>には、14の強力なツールと無料インジケーターを含むコアAIO Price Actionインジケーターが含まれています。<br><br><strong>VIPプラン</strong>にはPremiumのすべてに加えて8つの高度な機関投資家グレードインジケーターが含まれます：Top Bottom Confidence、TPO Liquidity付きAdvanced Trendlines、Smart Money Detection付きAdvanced Market Structure、Banker Momentum Volatility、Prediction Market Simulator、Perps Flow Positioning、Seesaw Trailing Strategy。",
+      "a2": "<strong>Premiumプラン</strong>には、14の強力なツールと無料インジケーターを含むコアAIO Price Actionインジケーターが含まれています。プライスアクションと時間分析に集中したトレーダーに最適です。<br><br><strong>VIPプラン</strong>にはPremiumのすべてに加えて8つの高度な機関投資家グレードインジケーターが含まれます：Top Bottom Confidence、TPO Liquidity付きAdvanced Trendlines、Smart Money Detection付きAdvanced Market Structure、Banker Momentum Volatility、Prediction Market Simulator、Perps Flow Positioning（AIO PFP）、Seesaw Trailing Strategy。",
       "q3": "インジケーターはリペイントしますか？",
       "a3": "いいえ、AIOインジケーターはリペイントしません。すべてのシグナルとレベルはリアルタイムで計算され、形成後は固定されます。これは信頼性の高いバックテストとライブ取引に不可欠です。チャートに表示されるシグナルを信頼できます。",
-      "q4": "1分やで5分のような低いタイムフレームでこれらのインジケーターを使用できますか？",
-      "a4": "はい！AIOインジケーターは15秒チャートから月次チャートまで、すべてのタイムフレームで機能します。スキャルピング、デイトレード、スイングトレード、ポジショントレードに最適化されています。",
+      "q4": "1分や5分のような低いタイムフレームでこれらのインジケーターを使用できますか？",
+      "a4": "はい！AIOインジケーターは15秒チャートから月次チャートまで、すべてのタイムフレームで機能します。スキャルピング、デイトレード、スイングトレード、ポジショントレードに最適化されています。インジケーターは選択したタイムフレームに基づいて自動的に計算を調整します。",
       "q5": "支払い後、アクセスを取得するにはどうすればよいですか？",
-      "a5": "PayPalで支払いを完了した後、Telegram（@nguyenthl）またはメールでTradingViewのユーザー名をお送りください。24時間以内（通常はもっと早く）アクセスを許可します。TradingViewアカウントに招待状が届きますので承認してください。",
+      "a5": "PayPalで支払いを完了した後、Telegram（<a href='https://t.me/nguyenthl' target='_blank'>@nguyenthl</a>）またはメールでTradingViewのユーザー名をお送りください。24時間以内（通常はもっと早く）アクセスを許可します。TradingViewアカウントに招待状が届きますので承認してください。",
       "q6": "無料トライアルはありますか？",
-      "a6": "はい！コミットする前にすべての機能をテストできるように、5日間の無料トライアルを提供しています。TradingViewのユーザー名でTelegram（@nguyenthl）に連絡するか、tranholenguyen@gmail.comにメールを送ってトライアルアクセスをリクエストしてください。",
+      "a6": "はい！コミットする前にすべての機能をテストできるように、5日間の無料トライアルを提供しています。TradingViewのユーザー名でTelegram（<a href='https://t.me/nguyenthl' target='_blank'>@nguyenthl</a>）に連絡するか、<a href='mailto:tranholenguyen@gmail.com'>tranholenguyen@gmail.com</a>にメールを送ってトライアルアクセスをリクエストしてください。",
       "q7": "'Internal server study error'が表示されたらどうすればよいですか？",
-      "a7": "このエラーは通常、TradingViewのタブを何時間も開いていたり、多くの設定変更を行ったりした場合に発生します。現在のTradingViewタブを閉じて新しいタブを開いてください。エラーは消えてすべて正常に機能します。",
+      "a7": "このエラーは通常、TradingViewのタブを何時間も開いていたり、多くの設定変更を行ったりした場合に発生します。現在のTradingViewタブを閉じて新しいタブを開いてください。エラーは消えてすべて正常に機能します。これはTradingViewプラットフォームの制限であり、インジケーターの問題ではありません。",
       "q8": "アップデートはサブスクリプションに含まれていますか？",
-      "a8": "はい！すべてのアップデートと新機能は、サブスクリプション期間中は無料で含まれています。ユーザーフィードバックと市場状況に基づいて、定期的にインジケーターを更新しています。"
+      "a8": "はい！すべてのアップデートと新機能は、サブスクリプション期間中は無料で含まれています。ユーザーフィードバックと市場状況に基づいて、定期的にインジケーターを更新しています。アップデート通知はTelegramチャンネルで送信されます。"
     }
   },
   "contact": {
@@ -180,7 +180,7 @@
       "home": "ホーム",
       "blog": "ブログ",
       "min_read": "分で読む",
-      "try_free": "AIO Indicatorをで5日間無料でお試し",
+      "try_free": "AIO Indicatorを5日間無料でお試し",
       "try_desc": "クレジットカード不要。全Premium + VIPインジケーターへの完全アクセス。",
       "start_trial": "無料トライアル開始"
     }
