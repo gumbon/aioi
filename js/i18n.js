@@ -64,26 +64,68 @@
 
   /* ---- apply translations to DOM ---- */
   function applyTranslations(t) {
+    // Ensure t is a valid object
+    if (!t || typeof t !== 'object') t = {};
+    
+    // data-i18n-html: set innerHTML (process first to avoid selector interference)
+    try {
+      document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+        var keyStr = el.getAttribute('data-i18n-html');
+        if (keyStr) {
+          var val = get(t, keyStr);
+          if (val !== undefined && val !== null) {
+            el.innerHTML = val;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('[AIOi18n] Error applying data-i18n-html:', e);
+    }
+    
     // data-i18n: set textContent
-    document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var val = get(t, el.getAttribute('data-i18n'));
-      if (val !== undefined) el.textContent = val;
-    });
-    // data-i18n-html: set innerHTML
-    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
-      var val = get(t, el.getAttribute('data-i18n-html'));
-      if (val !== undefined) el.innerHTML = val;
-    });
+    try {
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var keyStr = el.getAttribute('data-i18n');
+        if (keyStr) {
+          var val = get(t, keyStr);
+          if (val !== undefined && val !== null) {
+            el.textContent = val;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('[AIOi18n] Error applying data-i18n:', e);
+    }
+    
     // data-i18n-placeholder: set placeholder attribute
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
-      var val = get(t, el.getAttribute('data-i18n-placeholder'));
-      if (val !== undefined) el.placeholder = val;
-    });
+    try {
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+        var keyStr = el.getAttribute('data-i18n-placeholder');
+        if (keyStr) {
+          var val = get(t, keyStr);
+          if (val !== undefined && val !== null) {
+            el.placeholder = val;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('[AIOi18n] Error applying data-i18n-placeholder:', e);
+    }
+    
     // data-i18n-title: set title attribute
-    document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
-      var val = get(t, el.getAttribute('data-i18n-title'));
-      if (val !== undefined) el.title = val;
-    });
+    try {
+      document.querySelectorAll('[data-i18n-title]').forEach(function (el) {
+        var keyStr = el.getAttribute('data-i18n-title');
+        if (keyStr) {
+          var val = get(t, keyStr);
+          if (val !== undefined && val !== null) {
+            el.title = val;
+          }
+        }
+      });
+    } catch (e) {
+      console.warn('[AIOi18n] Error applying data-i18n-title:', e);
+    }
   }
 
   /* ---- update language switcher UI ---- */
@@ -179,16 +221,27 @@
       }
     });
 
-    if (lang === 'en') {
-      updateSwitcherUI(lang);
-      return;
-    }
-
+    // Always load and apply locale, even for EN
     loadLocale(lang).then(function (t) {
-      _translations = t;
-      applyTranslations(t);
+      if (t && typeof t === 'object' && Object.keys(t).length > 0) {
+        _translations = t;
+        applyTranslations(t);
+      } else if (lang !== 'en') {
+        console.warn('[AIOi18n] Locale for ' + lang + ' is empty, trying again...');
+        // Retry if loading failed
+        _cache[lang] = undefined;
+        loadLocale(lang).then(function (t2) {
+          _translations = t2 || {};
+          applyTranslations(t2 || {});
+        });
+        updateSwitcherUI(lang);
+        return;
+      }
       updateSwitcherUI(lang);
       updateBlogNotice(lang);
+    }).catch(function (err) {
+      console.error('[AIOi18n] Failed to initialize language:', err);
+      updateSwitcherUI(lang);
     });
   }
 
