@@ -76,6 +76,7 @@
     <!-- Modern Styles -->
     <link href="../css/modern-styles.css" rel="stylesheet" />
     <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
 
     <style>
         .blog-filter-btn{background:transparent;border:1px solid var(--card-border);color:var(--text-secondary);padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;font-size:.9rem}
@@ -106,19 +107,20 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">Community</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"><span data-i18n="nav.community">Community</span></a>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
                             <li><a class="dropdown-item" target="_blank" href="https://x.com/gumbon">Twitter / X</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl">Chat with me</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl" data-i18n="nav.chat">Chat with me</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧 EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧 English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳 Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵 日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷 한국어</a></li></ul></li>
                 </ul>
             </div>
         </div>
@@ -129,8 +131,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
-                    <h1 class="blog-hero-title">Trading <span class="hero-title-accent">Insights</span></h1>
-                    <p class="blog-hero-subtitle">Market analysis, trading education, and smart money concepts from the AIO Indicator team. Learn to trade like institutions.</p>
+                    <h1 class="blog-hero-title" data-i18n-html="blog.title_hero">Trading <span class="hero-title-accent">Insights</span></h1>
+                    <p class="blog-hero-subtitle" data-i18n="blog.subtitle">Market analysis, trading education, and smart money concepts from the AIO Indicator team. Learn to trade like institutions.</p>
                 </div>
             </div>
         </div>
@@ -140,11 +142,11 @@
     <section class="blog-posts-section">
         <div class="container">
             <div class="d-flex flex-wrap gap-2 mb-4" id="blogFilters">
-                <button class="blog-filter-btn active" data-filter="all">All</button>
-                <button class="blog-filter-btn" data-filter="indicators">Indicators</button>
-                <button class="blog-filter-btn" data-filter="strategies">Strategies</button>
-                <button class="blog-filter-btn" data-filter="ict">ICT Concepts</button>
-                <button class="blog-filter-btn" data-filter="advanced">Advanced</button>
+                <button class="blog-filter-btn active" data-filter="all" data-i18n="blog.filter_all">All</button>
+                <button class="blog-filter-btn" data-filter="indicators" data-i18n="blog.filter_indicators">Indicators</button>
+                <button class="blog-filter-btn" data-filter="strategies" data-i18n="blog.filter_strategies">Strategies</button>
+                <button class="blog-filter-btn" data-filter="ict" data-i18n="blog.filter_ict">ICT Concepts</button>
+                <button class="blog-filter-btn" data-filter="advanced" data-i18n="blog.filter_advanced">Advanced</button>
             </div>
             <div class="row g-4">
 
@@ -762,6 +764,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
     <script>
     document.querySelectorAll('.blog-filter-btn').forEach(function(btn){
         btn.addEventListener('click',function(){
