@@ -125,7 +125,7 @@
       "q1": "AIO Indicator란 무엇이고 어떻게 작동하나요?",
       "a1": "AIO(All In One) Indicator는 시간 및 가격 분석 도구를 결합한 포괄적인 TradingView 프라이스 액션 지표입니다. 시장 구조 감지, 세션 & STD, 가격 레벨, 매직 바, 추세선, 브레이크아웃 예측 등 많은 기능이 포함됩니다. 외환, 주식, 암호화폐, 상품, 지수 등 모든 TradingView 시장에서 작동합니다.",
       "q2": "VIP와 프리미엄 플랜의 차이점은 무엇인가요?",
-      "a2": "<strong>프리미엄 플랜</strong>에는 14개의 강력한 도구와 무료 지표가 포함된 핵심 AIO Price Action 지표가 포함됩니다. 프라이스 액션과 시간 분석에 집중하는 트레이더에게 완벽합니다.<br><br><strong>VIP 플랜</strong>에는 프리미엄의 모든 것에 더해 8개의 고급 기관 수준 지표가 포함됩니다: Top Bottom Confidence, TPO Liquidity가 있는 Advanced Trendlines, Smart Money Detection이 있는 Advanced Market Structure, Banker Momentum Volatility, Prediction Market Simulator, Perps Flow Positioning (AIO PFP), Seesaw Trailing Strategy.",
+      "a2": "<strong>프리미엄 플랜</strong>에는 14개의 강력한 도구와 무료 지표가 포함된 핵심 AIO Price Action 지표가 포함됩니다. 프라이스 액션과 시간 분석에 집중하는 트레이더에게 완벽합니다.<br><br><strong>VIP 플랜</strong>에는 프리미엄의 모든 것에 더해 9개의 고급 기관 수준 지표가 포함됩니다: Top Bottom Confidence, TPO Liquidity가 있는 Advanced Trendlines, Smart Money Detection이 있는 Advanced Market Structure, Banker Momentum Volatility, Prediction Market Simulator, Perps Flow Positioning (AIO PFP), Supply & Demand Zones, Seesaw Trailing Strategy.",
       "q3": "지표가 리페인트하나요?",
       "a3": "아니요, AIO 지표는 리페인트하지 않습니다. 모든 신호와 레벨은 실시간으로 계산되며 형성 후 고정됩니다. 이것은 신뢰할 수 있는 백테스트와 라이브 거래에 필수적입니다. 차트에 표시되는 신호를 신뢰할 수 있습니다.",
       "q4": "1분 또는 5분과 같은 낮은 타임프레임에서 이러한 지표를 사용할 수 있나요?",
