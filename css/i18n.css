@@ -1,0 +1,109 @@
+/* =========================================================
+   AIO Indicator — Language Switcher Styles
+   ========================================================= */
+
+/* Language dropdown button */
+.lang-switcher-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.lang-switcher-current {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Dropdown items */
+.lang-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.lang-dropdown-item:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* Active language indicator */
+[data-lang-btn].active,
+.dropdown-item[data-lang-btn].active {
+  color: var(--accent-primary, #6c63ff) !important;
+  font-weight: 700;
+  position: relative;
+}
+
+[data-lang-btn].active::after {
+  content: '✓';
+  margin-left: 4px;
+  font-size: 0.75rem;
+}
+
+/* Globe icon in navbar */
+.lang-globe-icon {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+/* Blog post language notice banner */
+.lang-notice-banner {
+  background: rgba(108, 99, 255, 0.12);
+  border: 1px solid rgba(108, 99, 255, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-secondary, #8892b0);
+}
+
+.lang-notice-banner i {
+  color: var(--accent-primary, #6c63ff);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Inline language switcher for blog posts */
+.blog-lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.blog-lang-btn {
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--card-border, rgba(255,255,255,0.1));
+  background: transparent;
+  color: var(--text-secondary, #8892b0);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.blog-lang-btn:hover,
+.blog-lang-btn.active {
+  background: var(--accent-primary, #6c63ff);
+  border-color: var(--accent-primary, #6c63ff);
+  color: #fff;
+}
+
+/* Translated content sections */
+[data-lang-section] {
+  display: none;
+}
+
+[data-lang-section].lang-visible {
+  display: block;
+}
