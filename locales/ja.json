@@ -107,8 +107,9 @@
       "support_247": "24/7\u30b5\u30dd\u30fc\u30c8",
       "elite_tools": "\u30a8\u30ea\u30fc\u30c8\u53d6\u5f15\u30c4\u30fc\u30eb",
       "per_day_inst": "\u6a5f\u95a2\u6295\u8cc7\u5bb6\u30c4\u30fc\u30eb\u306b",
-      "less_coffee": "",
-      "just": ""
+      "less_coffee": "以下",
+      "just": "わずか",
+      "coffee": "コーヒー一杯より安い"
     }
   },
   "blog_section": {
@@ -162,8 +163,7 @@
   },
   "sticky_cta": "\u7121\u6599\u30c8\u30e9\u30a4\u30a2\u30eb\u958b\u59cb",
   "blog": {
-    "title": "\u30d6\u30ed\u30b0",
-    "subtitle": "\u8a73\u7d30\u30ac\u30a4\u30c9\u3001\u6226\u7565\u5206\u6790\u3001\u30a4\u30f3\u30b8\u30b1\u30fc\u30bf\u30fc\u30c1\u30e5\u30fc\u30c8\u30ea\u30a2\u30eb\u3002",
+    "title": "\u30d6\u30ed\u30b0",    "title_hero": "\u30c8\u30ec\u30fc\u30c9 <span class=\"hero-title-accent\">\u30a4\u30f3\u30b5\u30a4\u30c8</span>",    "subtitle": "\u8a73\u7d30\u30ac\u30a4\u30c9\u3001\u6226\u7565\u5206\u6790\u3001\u30a4\u30f3\u30b8\u30b1\u30fc\u30bf\u30fc\u30c1\u30e5\u30fc\u30c8\u30ea\u30a2\u30eb\u3002",
     "filter_all": "\u3059\u3079\u3066",
     "filter_indicators": "\u30a4\u30f3\u30b8\u30b1\u30fc\u30bf\u30fc",
     "filter_strategies": "\u6226\u7565",

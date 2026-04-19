@@ -162,8 +162,7 @@
   },
   "sticky_cta": "Dùng Thử Miễn Phí",
   "blog": {
-    "title": "Blog",
-    "subtitle": "Hướng dẫn chuyên sâu, phân tích chiến lược và hướng dẫn sử dụng indicators.",
+    "title": "Blog",    "title_hero": "Kiến Thức <span class=\"hero-title-accent\">Giao Dịch</span>",    "subtitle": "Hướng dẫn chuyên sâu, phân tích chiến lược và hướng dẫn sử dụng indicators.",
     "filter_all": "Tất Cả",
     "filter_indicators": "Indicators",
     "filter_strategies": "Chiến Lược",

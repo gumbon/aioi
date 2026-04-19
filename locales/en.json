@@ -108,7 +108,8 @@
       "elite_tools": "elite trading tools",
       "per_day_inst": "for institutional tools",
       "less_coffee": "Less than",
-      "just": "Just"
+      "just": "Just",
+      "coffee": "less than a coffee"
     }
   },
   "blog_section": {
@@ -163,6 +164,7 @@
   "sticky_cta": "Start Free Trial",
   "blog": {
     "title": "Blog",
+    "title_hero": "Trading <span class=\"hero-title-accent\">Insights</span>",
     "subtitle": "Deep-dive guides, strategy breakdowns, and indicator tutorials.",
     "filter_all": "All",
     "filter_indicators": "Indicators",
