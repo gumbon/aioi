@@ -34,15 +34,19 @@
 /* Active language indicator */
 [data-lang-btn].active,
 .dropdown-item[data-lang-btn].active {
-  color: var(--accent-primary, #6c63ff) !important;
+  background: var(--accent-primary, #6c63ff) !important;
+  color: #fff !important;
   font-weight: 700;
   position: relative;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
 [data-lang-btn].active::after {
-  content: '✓';
-  margin-left: 4px;
-  font-size: 0.75rem;
+  content: ' ✓';
+  margin-left: 2px;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 /* Globe icon in navbar */
