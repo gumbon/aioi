@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to trade supply and demand zones with auto-detection, 9-point quality scoring, non-repainting pivots, and three high-probability setups using AIO S&D." />
+    <meta name="keywords" content="supply demand zones, AIO Supply Demand, zone scoring, non-repainting indicator, unmitigated zones, ICT zones, SMC zones, TradingView indicator, AIO Indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Supply &amp; Demand Zones: Auto-Detection, Scoring &amp; Zone Trading | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Supply &amp; Demand Zones: Auto-Detection, Scoring &amp; Zone Trading" />
+    <meta property="og:description" content="Master supply and demand zone trading with auto-detection, 9-point quality scoring, and three proven setups — bounce, breakout, and flipped zone retest." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-supply-demand-zones.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-supply-demand-zones.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Supply &amp; Demand Zones: Auto-Detection, Scoring &amp; Zone Trading" />
+    <meta name="twitter:description" content="Master supply and demand zone trading with auto-detection, 9-point quality scoring, and three proven setups — bounce, breakout, and flipped zone retest." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Supply & Demand Zones: Auto-Detection, Scoring & Zone Trading",
+      "description": "Learn how to trade supply and demand zones with auto-detection, 9-point quality scoring, non-repainting pivots, and three high-probability setups using AIO S&D.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-supply-demand-zones.html",
+      "datePublished": "2026-04-25",
+      "dateModified": "2026-04-25",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-supply-demand-zones.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Supply & Demand Zones", "item": "https://aioindicator.com/blog/how-to-use-aio-supply-demand-zones.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Supply &amp; Demand Zones: Auto-Detection, Scoring &amp; Zone Trading</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 25, 2026</span>
+            <span><i class="bi bi-clock"></i> 11 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Problem with Manual Zone Drawing</h2>
+<p>Every trader who has spent time with supply and demand theory eventually faces the same bottleneck: the zones that are worth trading are rarely obvious in real time. You draw a zone, price ignores it. You skip one, price snaps back perfectly. The inconsistency is not a failure of the concept &mdash; supply and demand zones are structurally sound &mdash; it is a failure of <em>consistent identification</em>. A zone drawn by one trader will differ from another&rsquo;s in the same price area, based purely on how strictly they interpreted the pivot, the departure candle, and the prior rejections.</p>
+<p><strong>AIO Supply &amp; Demand Zones</strong> (shorttitle: <strong>AIO S&amp;D</strong>) eliminates this inconsistency. It automatically identifies pivot-based zones, applies a 9-point composite quality score to each one, and displays only the zones that meet your chosen confidence threshold. The result is a clean, objective map of where institutional order flow has historically concentrated &mdash; without any manual drawing.</p>
+<p>This guide covers how the indicator works under the hood, what each parameter controls, and three specific trade setups you can implement immediately.</p>
+
+<h2>What Makes a Zone Non-Repainting?</h2>
+<p>The term &ldquo;non-repainting&rdquo; is widely misunderstood in trading indicator discussions. Many indicators show signals in real time that disappear or shift once the bar closes &mdash; a phenomenon called repainting. It is particularly common in indicators that look for pivot highs and lows, because a pivot requires confirmation from bars on <em>both sides</em> of the swing.</p>
+<p>AIO S&amp;D uses a <strong>confirmed-on-bar-close</strong> approach with a pivot lookback of 10 bars on each side. A pivot high is only registered after 10 subsequent bars have confirmed that no higher high was made. This means:</p>
+<ul>
+    <li>Zones appear 10 bars after the actual swing &mdash; never during the formation</li>
+    <li>Once drawn, a zone&rsquo;s position never shifts or disappears retroactively</li>
+    <li>You are never misled by a zone that was visible in real time but vanished on refresh</li>
+</ul>
+<p>The practical consequence is a small delay in zone identification. The trade-off is complete historical integrity &mdash; every zone you see on chart genuinely existed at the bar it was drawn, confirmed by structure on both sides.</p>
+
+<h2>How Zones Are Defined (The Pivot Box)</h2>
+<p>Each zone is built around a confirmed pivot high (supply) or pivot low (demand). The zone boundaries use the pivot bar&rsquo;s high and low to define the box&rsquo;s top and bottom. This keeps the zone physically meaningful: it represents the exact candle where price reversed, not an abstract price average.</p>
+<p>Zones extend 200 bars to the right by default (<strong>Zone Extend</strong> setting), giving you a forward-looking view of where price may react if it returns. Up to <strong>5 zones per side</strong> are displayed at any time. When a new qualifying zone forms and the maximum is already reached, the <em>oldest</em> zone is removed first, keeping the map current.</p>
+<p>This &ldquo;most recent 5 zones&rdquo; constraint is deliberate. A zone from 800 bars ago on a 4H chart is rarely actionable for a day trader. The indicator keeps you focused on the zones that the current market is aware of and may be pricing in.</p>
+
+<h2>The 9-Point Quality Scoring System</h2>
+<p>Every zone receives a composite score from 0 to 9. The score is displayed as a badge on each zone box (e.g., &ldquo;&#9733; 7&rdquo;) and is the primary filter for separating high-probability zones from low-quality ones. Here is what each point represents:</p>
+
+<h3>Base Criteria (Max 7 Points &mdash; Always Active)</h3>
+<ol>
+    <li><strong>Extreme Swing (+1):</strong> The pivot is at or near the highest high or lowest low in the surrounding lookback window (5&times; pivot length). Extreme pivots represent genuine exhaustion points, not routine fluctuations.</li>
+    <li><strong>Drastic Departure (+1):</strong> The candle immediately departing the pivot had a body &ge; 0.8&times; the 14-period ATR. A large momentum candle leaving the zone confirms that significant orders were placed at that level &mdash; the market moved fast because someone was buying or selling in size.</li>
+    <li><strong>Multiple Rejections (+1):</strong> Price has returned to the zone area (within 1.5&times; ATR) at least twice since the pivot formed without breaking through. Each rejection is evidence that the same orders are still resting there. Two prior rejections earn the point.</li>
+    <li><strong>Zone Flip (+1):</strong> This criterion is awarded retroactively when a zone that was supply becomes demand (or vice versa). Role reversal is one of the strongest structural signals in supply and demand theory &mdash; the level transitions from a resistance cluster to a support cluster because the original sellers have been absorbed.</li>
+    <li><strong>Recency (+1):</strong> The pivot formed within the last 20&times; pivot length bars. Older zones lose institutional relevance as the order flow that created them has typically been executed or cancelled.</li>
+    <li><strong>Psychological Round Number (+1):</strong> The zone price is within 10% of a major round number for that instrument&rsquo;s price magnitude. The auto-detect feature sets this threshold automatically &mdash; 500 for BTC (price &ge; 10,000), 50 for Gold (price &ge; 1,000), 5 for USDJPY (price &ge; 100), and so on. Round numbers cluster stop orders and limit orders from institutional desks and retail traders alike, amplifying the zone&rsquo;s significance.</li>
+    <li><strong>High-Volume Pivot (+1):</strong> The pivot bar&rsquo;s volume was &ge; 2&times; the 20-bar average. Elevated volume at a pivot confirms institutional participation. This is one of the most reliable single criteria in the system.</li>
+</ol>
+
+<h3>Optional Score Bonuses (Max +2 Points)</h3>
+<p>Two additional criteria are available but disabled by default. Enabling them raises the maximum possible score to 9:</p>
+<ul>
+    <li><strong>Zone Freshness (+1):</strong> Price has <em>not</em> re-entered the zone since it formed. In ICT and Smart Money Concepts (SMC) terminology, this is called an &ldquo;unmitigated zone&rdquo; &mdash; the original institutional orders placed there have not yet been touched. The logic is straightforward: if price has never come back, those orders are still waiting. Fresh zones are considered the highest-probability entry areas in ICT methodology. Enable this bonus if you want to filter for unmitigated zones specifically.</li>
+    <li><strong>FVG at Departure (+1):</strong> The candle departing the pivot created a Fair Value Gap (FVG) &mdash; a price imbalance where the low of the bar after the pivot is above the high of the bar before it (demand FVG) or the reverse (supply FVG). A departure FVG means the zone was left so aggressively that price skipped a range entirely, confirming exceptional institutional intent.</li>
+</ul>
+
+<h3>Practical Score Interpretation</h3>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Score</th><th>Filter Setting</th><th>What It Means</th></tr></thead>
+    <tbody>
+        <tr><td>0&ndash;2</td><td>All Zones</td><td>Weak zones &mdash; structurally present but lacking confirming factors</td></tr>
+        <tr><td>3&ndash;4</td><td>Score &ge; 3</td><td>Moderate quality &mdash; suitable for scalping or short-term intraday context</td></tr>
+        <tr><td>5&ndash;6</td><td>Score &ge; 5 (default)</td><td>Good quality &mdash; recommended baseline for swing and day trading</td></tr>
+        <tr><td>7&ndash;9</td><td>High Quality (&ge; 7)</td><td>Institutional-grade &mdash; use for high-conviction position trades or options expirations</td></tr>
+    </tbody>
+</table>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Auto Psychological Level Detection</h2>
+<p>Round numbers carry disproportionate weight in financial markets. Stop-loss clusters, limit orders from algorithmic systems, and retail breakout entries all concentrate at whole-number levels. A demand zone sitting precisely at 2,000 in Gold is meaningfully stronger than one at 1,987 &mdash; even if the candlestick structure looks identical.</p>
+<p>AIO S&amp;D&rsquo;s auto-detect feature reads the current instrument&rsquo;s price and sets the appropriate round-number increment automatically:</p>
+<ul>
+    <li><strong>BTC, NQ-style instruments (&ge; 10,000):</strong> 500-point steps (e.g., 95,000 / 95,500)</li>
+    <li><strong>Gold, ES, major indices (&ge; 1,000):</strong> 50-point steps (e.g., 3,150 / 3,200)</li>
+    <li><strong>USDJPY, Crude Oil (&ge; 100):</strong> 5-point steps (e.g., 150.00 / 155.00)</li>
+    <li><strong>Forex crosses (&ge; 10):</strong> 0.5-point steps</li>
+    <li><strong>EUR/USD-type majors (&ge; 1):</strong> 0.05-point steps (e.g., 1.0800 / 1.0850)</li>
+    <li><strong>Crypto micro-caps (&lt; 1):</strong> 0.005-point steps</li>
+</ul>
+<p>A zone within 10% of the nearest round-number step earns the psychological level point (+1) in the scoring system. You can override this with a manual step size if your instrument has non-standard conventions.</p>
+
+<h2>Zone Freshness and the Unmitigated Zone Concept</h2>
+<p>Among the optional scoring bonuses, <strong>Zone Freshness</strong> deserves special attention because it represents one of the most important concepts in institutional price action theory. In ICT methodology, a zone is &ldquo;mitigated&rdquo; once price re-enters it after formation &mdash; the assumption being that the institution&rsquo;s pending orders have been filled. An <em>unmitigated</em> zone (fresh zone) implies those orders are still sitting in the book, waiting.</p>
+<p>In practice, fresh demand zones tend to produce sharper, faster bounces when reached for the first time. Tested zones (ones price has re-entered and bounced from previously) can still be excellent trades, but the first test of a virgin zone often carries a better risk-to-reward profile &mdash; the entry is tighter because the level is well-defined, and the stop placement (just below the zone) is logical and agreed upon by multiple frameworks.</p>
+<p>Enable the Zone Freshness bonus when you want to prioritize unmitigated zones specifically. Disable it when you are using the indicator in a more general supply-demand context where repeated rejections are the primary evidence you care about.</p>
+
+<h2>Three Trade Setups</h2>
+
+<h3>Setup 1: Zone Bounce Trade (High-Score Demand Zone)</h3>
+<p>This is the core use case: price falls into a high-quality demand zone and produces a reversal candlestick pattern. The indicator&rsquo;s in-zone reaction system automatically detects bounce signals (&#9650; shape on demand zones, &#9660; on supply) when price action inside the zone meets reversal criteria &mdash; pin bars, engulfing candles, or directional close after prior indecision.</p>
+<p><strong>Setup conditions (demand zone example):</strong></p>
+<ol>
+    <li>A demand zone with score &ge; 6 is visible below current price</li>
+    <li>Price approaches and enters the zone (green box turns active)</li>
+    <li>Wait for the bar to <em>close</em> &mdash; the bounce signal (&#9650;) only fires on a confirmed bar close to prevent false entries on intrabar wicks</li>
+    <li>Enter long on the next bar open after the &#9650; signal</li>
+    <li>Stop-loss: below the zone&rsquo;s bottom edge (add 0.5&times; ATR buffer for spread and volatility)</li>
+    <li>Target: the nearest supply zone above, or use a 2:1 R:R minimum</li>
+</ol>
+<p><strong>What to avoid:</strong> Zones with score &le; 4 that lack the volume or recency criteria. These often act as weak support that bends rather than holds. A low-score zone in a strong downtrend is particularly dangerous &mdash; the momentum will overwhelm the latent order flow.</p>
+
+<h3>Setup 2: Zone Breakout Trade (Supply Zone Broken Upward)</h3>
+<p>When price breaks through a supply zone decisively rather than bouncing off it, the zone&rsquo;s structural role has been invalidated. More importantly, the breakout above supply is one of the cleanest bullish signals available &mdash; it means the absorption of selling pressure is complete.</p>
+<p>AIO S&amp;D displays breakout warning signals (&#9889; shape) when a momentum candle plus volume spike suggest price will punch through the zone. The alert system fires a &ldquo;Zone Breakout&rdquo; alert on the breakout bar.</p>
+<p><strong>Setup conditions (supply zone broken upward):</strong></p>
+<ol>
+    <li>A supply zone with score &ge; 5 sits above current price</li>
+    <li>A high-volume momentum candle closes <em>above</em> the zone&rsquo;s top boundary (the &#9889; breakout signal appears)</li>
+    <li>Enter long on the next bar open, or wait for a 1&ndash;3 bar consolidation above the broken zone</li>
+    <li>Stop-loss: back below the zone&rsquo;s top edge (the broken resistance now acts as support)</li>
+    <li>Target: next supply zone above, or a measured move based on the zone height</li>
+</ol>
+<p><strong>Confluence tip:</strong> Breakouts backed by the <strong>AIO Banker Momentum Volatility</strong> indicator showing Banker-tier RSI in bullish territory (above 50%) carry significantly higher conviction. When institutional momentum aligns with a structural zone breakout, the follow-through is typically clean and fast.</p>
+
+<h3>Setup 3: Flipped Zone Retest</h3>
+<p>A flipped zone is the supply-demand equivalent of a classic support/resistance polarity switch. When price breaks through a supply zone and then returns to test the top of that zone from above, it is now being treated as demand &mdash; the old sellers have been absorbed and the level now attracts buyers defending their breakout position.</p>
+<p>AIO S&amp;D automatically detects these role reversals and recolors the zone in purple (the default <code>flippedColor</code>). The flip alert fires when the role change is confirmed on bar close.</p>
+<p><strong>Setup conditions:</strong></p>
+<ol>
+    <li>A purple (flipped) zone appears on chart &mdash; it was previously supply, now acting as demand</li>
+    <li>Price pulls back into the flipped zone from above</li>
+    <li>Look for a rejection wick or an engulfing green candle inside the zone</li>
+    <li>Enter long on close of the confirmation candle</li>
+    <li>Stop-loss: below the flipped zone&rsquo;s bottom (if price breaks back through, the flip is invalidated)</li>
+    <li>Target: the prior high that produced the original supply zone, plus extension</li>
+</ol>
+<p>Flipped zones inherit the +1 score from criterion 4 (Acted as Both Support and Resistance), making them structurally among the highest-quality zones available. A flipped zone with a score of 7+ is a genuinely rare and compelling setup.</p>
+
+<h2>Dashboard and Label Configuration</h2>
+<p>The top-right dashboard (enabled by default) provides a real-time summary of zone counts, active predictions, and prediction accuracy tracking. For traders who prefer a clean chart, switching to <strong>Compact display mode</strong> removes all text labels while preserving the zone boxes themselves.</p>
+<p>In <strong>Full mode</strong>, each zone label shows configurable information:</p>
+<ul>
+    <li><strong>Zone Price:</strong> The zone&rsquo;s midpoint or boundary price (useful for setting alerts or limit orders at exact levels)</li>
+    <li><strong>Distance %:</strong> How far the zone is from current price as a percentage &mdash; helpful for sizing trades based on distance to target</li>
+    <li><strong>Distance Value:</strong> The same distance in price units (pips, points, dollars)</li>
+    <li><strong>Score Number:</strong> Displays as &ldquo;7/9&rdquo; when optional criteria are enabled, or &ldquo;7/7&rdquo; when using only base criteria</li>
+</ul>
+<p>The <strong>Min Zone Clearance at Creation</strong> setting (default 0.5&times; ATR) prevents the indicator from drawing zones that are too close to current price at the time of formation. A zone that forms within half an ATR of the current price is typically a sign of a shallow pivot that will be broken within bars &mdash; not the kind of institutional level worth tracking.</p>
+
+<h2>Recommended Settings by Use Case</h2>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Use Case</th><th>Score Filter</th><th>Pivot Lookback</th><th>Freshness</th><th>FVG Bonus</th></tr></thead>
+    <tbody>
+        <tr><td>Day trading (1H / 4H)</td><td>&ge; 5</td><td>10 (default)</td><td>Off</td><td>Off</td></tr>
+        <tr><td>Swing trading (Daily)</td><td>&ge; 6</td><td>14</td><td>On</td><td>Off</td></tr>
+        <tr><td>Position / HTF context</td><td>&ge; 7</td><td>20</td><td>On</td><td>On</td></tr>
+        <tr><td>ICT / SMC methodology</td><td>&ge; 5</td><td>10</td><td>On (critical)</td><td>On</td></tr>
+    </tbody>
+</table>
+<p>For ICT-aligned traders who specifically want to trade unmitigated zones, the Freshness bonus is the single most important optional setting. Enable it and set the score filter to &ge; 5 &mdash; this combination will show only zones that have never been retested since formation and have at least moderate structural quality.</p>
+
+<h2>Zone Prediction Panel</h2>
+<p>An often-overlooked feature of AIO S&amp;D is the <strong>Zone Prediction</strong> module. When price is positioned between a demand zone below and a supply zone above (not currently inside either), the indicator computes a probabilistic estimate of which zone price will reach first. The calculation weights four factors: momentum (EMA slope + RSI direction, 30%), volume trend (20%), market structure (higher highs/lows vs. lower highs/lows, 30%), and proximity (20%).</p>
+<p>The result is displayed as a percentage overlay inside each nearest zone box. When the demand zone shows &ldquo;62%&rdquo;, it means the model estimates a 62% probability that price will touch the demand zone before the supply zone. The dashboard tracks historical accuracy of these predictions over time, allowing you to evaluate whether the model has edge on your instrument and timeframe.</p>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Supply &amp; Demand Zones in Action</h3>
+    <p>Auto-identified zones with 9-point scoring, freshness detection, and in-zone reaction signals.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Common Mistakes to Avoid</h2>
+<ul>
+    <li><strong>Trading every zone regardless of score:</strong> The default &ldquo;Score &ge; 5&rdquo; filter exists for a reason. Zones at score 2&ndash;3 are structurally present but statistically weaker. Treat them as context, not setups.</li>
+    <li><strong>Ignoring the broader trend:</strong> A demand zone is not a reason to go long in the middle of a confirmed daily downtrend. Supply and demand zones identify <em>potential</em> reversal areas &mdash; trend context determines whether those reversals are likely to extend or fail. Use a higher-timeframe indicator alongside AIO S&amp;D to confirm trend direction before trading counter-trend zone bounces.</li>
+    <li><strong>Treating old zones as equally valid:</strong> The Max Zones = 5 setting keeps the chart focused on recent structure. Do not manually search for zones from months ago on a 15-minute chart &mdash; those pivots are irrelevant to current institutional activity.</li>
+    <li><strong>Missing the Min Zone Age filter:</strong> New zones display immediately, but reaction signals (bounce/breakout shapes) are suppressed for the first 5 bars after formation by default. This is intentional &mdash; a zone that has only existed for 3 bars has not yet demonstrated that the market respects it. Wait for the zone to mature before trading its signals.</li>
+    <li><strong>Confusing the indicator&rsquo;s pivot delay with repainting:</strong> The 10-bar lookback means zones appear 10 bars after the actual swing. This is not repainting &mdash; it is confirmation. You are seeing the correct historical zone, just with a structured delay for reliability.</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>AIO S&amp;D is fully <strong>non-repainting</strong> &mdash; all zones are confirmed on bar close with a 10-bar pivot lookback on each side</li>
+    <li>The <strong>9-point scoring system</strong> separates institutional-grade zones from noise using volume, momentum, recency, psychological levels, and optional freshness/FVG criteria</li>
+    <li><strong>Max 5 zones per side</strong> keeps the chart focused on the most recent and actionable structure &mdash; oldest zones are removed first as new ones form</li>
+    <li><strong>Auto Psychological Level detection</strong> adapts to any instrument&rsquo;s price magnitude and awards a score bonus when zones align with major round numbers</li>
+    <li><strong>Fresh zones</strong> (unmitigated &mdash; price has not returned since formation) are the highest-probability first-touch opportunities in ICT/SMC methodology &mdash; enable the Freshness bonus to prioritize them</li>
+    <li>Three core setups: <strong>Zone Bounce</strong> (reversal inside a high-score zone), <strong>Zone Breakout</strong> (momentum candle + volume punch through supply), and <strong>Flipped Zone Retest</strong> (old supply retested as new demand)</li>
+    <li>The <strong>Zone Prediction</strong> panel provides a probability estimate for which zone price will reach first &mdash; track its historical accuracy in the dashboard to validate edge on your instrument</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="institutional-supply-demand-composite-operator.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-building"></i></div>
+                            <h3 class="feature-title">Institutional Supply &amp; Demand: The Composite Operator</h3>
+                            <p class="feature-description">How institutions split large orders across time and price to build positions without moving the market against themselves.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="premium-discount-lookback-zones.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">Premium &amp; Discount Zones: The Lookback Framework</h3>
+                            <p class="feature-description">How to define premium and discount relative to recent range structure and trade the statistical edge of mean reversion from extremes.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

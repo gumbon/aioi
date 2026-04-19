@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to use AIO RSI's multi-layer divergence engine, Dual RSI bias filter, W/M patterns, and Double Bottom/Top detection for high-conviction reversal signals." />
+    <meta name="keywords" content="AIO RSI, RSI divergence, dual RSI divergence, W pattern RSI, M pattern RSI, TradingView indicator, price RSI divergence, secondary RSI filter" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis" />
+    <meta property="og:description" content="Step-by-step guide to AIO RSI's divergence engine, Secondary RSI bias filter, W/M patterns, and Double Bottom/Top detection." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-rsi.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-rsi.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis" />
+    <meta name="twitter:description" content="Learn how to use AIO RSI's multi-layer divergence engine, Dual RSI bias filter, W/M patterns, and Double Bottom/Top detection for high-conviction reversal signals." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO RSI: Multi-Layer Divergence, Patterns & Dual RSI Analysis",
+      "description": "Learn how to use AIO RSI's multi-layer divergence engine, Dual RSI bias filter, W/M patterns, and Double Bottom/Top detection for high-conviction reversal signals.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-rsi.html",
+      "datePublished": "2026-04-23",
+      "dateModified": "2026-04-23",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-rsi.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT10M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO RSI: Multi-Layer Divergence, Patterns & Dual RSI Analysis", "item": "https://aioindicator.com/blog/how-to-use-aio-rsi.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 23, 2026</span>
+            <span><i class="bi bi-clock"></i> 10 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What Is AIO RSI?</h2>
+<p>The standard RSI is one of the most widely used momentum oscillators in existence &mdash; and one of the most misused. Traders default to the 14-period setting, add horizontal lines at 70 and 30, and then wonder why they keep getting chopped up buying &ldquo;oversold&rdquo; readings in strong downtrends.</p>
+<p><strong>AIO RSI</strong> (Pine Script v6, shorttitle: <code>AIO RSI</code>) is a complete rebuild of the oscillator with six analytical layers stacked on top of the core calculation: a secondary higher-timeframe RSI for directional bias, two smoothing MAs with optional Bollinger Bands mode, Dual RSI divergence, Price-vs-RSI multi-pivot divergence, W/V/M/^ pattern detection, and Double Bottom/Top signals. Each layer is independently toggleable &mdash; you can run the indicator as a plain RSI(14) or activate every module simultaneously for maximum confluence analysis.</p>
+<p>This guide walks through each layer in practical order: what it shows, how to enable it, and how to combine layers into high-conviction setups.</p>
+
+<h2>Step 1: Core Settings &mdash; RSI Length, Source, and the &ldquo;Calculate Divergence&rdquo; Switch</h2>
+<p>Open the indicator settings and the first group you see is <strong>RSI Settings</strong>. Defaults are intentionally conservative:</p>
+<ul>
+    <li><strong>RSI Length:</strong> 14 bars (industry standard; reduce to 9&ndash;10 for scalping, increase to 21&ndash;25 for swing)</li>
+    <li><strong>Source:</strong> close price</li>
+    <li><strong>Calculate Divergence:</strong> <em>off by default</em></li>
+</ul>
+
+<h3>Why &ldquo;Calculate Divergence&rdquo; Must Be Enabled Manually</h3>
+<p>This toggle controls an additional calculation layer that tracks price pivot highs/lows alongside RSI pivot highs/lows. It is deliberately disabled by default for one reason: performance. Divergence scanning runs extra lookback loops on every bar, and on long-history charts this adds real computation overhead. More importantly, the divergence <strong>alerts will not fire</strong> unless this box is checked &mdash; enabling the visual display alone is not sufficient. If you want <code>Regular Bullish Divergence Alert</code> or <code>Regular Bearish Divergence Alert</code> to trigger, tick <strong>Calculate Divergence</strong> first.</p>
+<p>Think of it as an explicit opt-in: the indicator is telling you it&rsquo;s about to do heavier work and asking for your permission before it starts.</p>
+
+<h2>Step 2: Secondary RSI &mdash; Your Built-In Directional Bias Filter</h2>
+<p>The second option in RSI Settings is <strong>Show Secondary RSI</strong>, also off by default. When enabled, the indicator fetches RSI data from a higher timeframe (default: <code>240</code> = 4-hour chart) and plots it as a cyan line in the same oscillator pane.</p>
+<p>The Secondary RSI serves two distinct purposes:</p>
+<ol>
+    <li><strong>Visual bias context:</strong> Glancing at where the 4H RSI sits relative to 50 gives you a quick read on whether the higher timeframe trend is bullish (above 50) or bearish (below 50) without switching charts.</li>
+    <li><strong>Signal filter:</strong> It feeds directly into three other modules &mdash; Price-RSI Divergence, W/V/M/^ Patterns, and Double Bottom/Top &mdash; as an optional qualifying condition. When &ldquo;Filter by Secondary RSI&rdquo; is enabled in those groups, a bullish signal on the lower timeframe is only shown if the 4H RSI confirms the same direction.</li>
+</ol>
+
+<h3>Secondary RSI Configuration</h3>
+<ul>
+    <li><strong>Secondary RSI Timeframe:</strong> Default 240 (4H). Change to <code>D</code> for position traders on 1H charts, or <code>60</code> for scalpers on 5-minute charts.</li>
+    <li><strong>Secondary RSI Length:</strong> Default 14. You can increase this (e.g., 21) on the secondary to make it a slower, harder-to-fake bias signal.</li>
+</ul>
+<p>A practical rule: if the Secondary RSI is above 55 and rising, treat pullbacks to oversold on the primary RSI as buying opportunities. If the Secondary RSI is below 45 and falling, the same oversold reading could be the beginning of a waterfall. The number matters less than the <em>direction and zone</em> of the secondary.</p>
+
+<h2>Step 3: Smoothing MA Layer &mdash; MA Types and Bollinger Bands Mode</h2>
+<p>The <strong>Smoothing MA</strong> group adds one or two moving averages directly on the RSI line. This is not a price-chart MA &mdash; it smooths the RSI itself, which helps filter noise and gives crossover signals between the raw RSI and the smoothed version.</p>
+
+<h3>MA Type Options</h3>
+<ul>
+    <li><strong>None:</strong> No MA overlay (raw RSI only)</li>
+    <li><strong>SMA:</strong> Default &mdash; two SMAs plotted (MA 1 = period 9, MA 2 = period 14)</li>
+    <li><strong>SMA + Bollinger Bands:</strong> Plots MA 1 as the SMA centerline with upper and lower bands at &plusmn;2.0 standard deviations of RSI values. RSI touching the upper BB while inside OB territory = exhaustion signal; touching the lower BB in OS territory = potential snap-back.</li>
+    <li><strong>EMA / SMMA (RMA) / WMA / VWMA:</strong> Volume-weighted and rate-of-change-weighted alternatives. VWMA is particularly interesting for crypto where volume distribution is uneven.</li>
+</ul>
+<p>The most actionable use of the MA layer is watching RSI cross MA 1 (the faster, period-9 line) from below after a bullish divergence forms &mdash; the MA crossover becomes the execution trigger rather than the divergence signal itself, giving you a more precise entry bar.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Dual RSI Divergence: RSI vs Secondary RSI</h2>
+<p>This is the module that gives AIO RSI its most distinctive edge. Standard divergence tools compare <em>price</em> to RSI. This module compares the <strong>main RSI to the Secondary RSI</strong> &mdash; looking for moments when both oscillators diverge from each other simultaneously in the same direction.</p>
+<p>The logic: if the 1H RSI is making a higher low while the 4H RSI is also making a higher low (both diverging bullishly from a common reference), the argument for a reversal has higher institutional backing than a divergence visible only on the lower timeframe.</p>
+
+<h3>Configuration</h3>
+<ul>
+    <li><strong>Show Divergence BgColor:</strong> When enabled, shades the oscillator pane background green (dual bullish divergence) or red (dual bearish divergence) at confirmation bars. This is your visual flag to zoom in.</li>
+    <li><strong>Pivot Left / Right Bars:</strong> Default 5 each side. Controls how many bars must pass before a swing high/low is confirmed as a valid pivot.</li>
+    <li><strong>Pivot Detection Mode:</strong> <em>Fast (1-bar right)</em> or <em>Standard</em>.</li>
+</ul>
+
+<h3>Fast vs Standard Pivot Detection: The Timing Tradeoff</h3>
+<p>This setting has a meaningful effect on signal timing that most users overlook:</p>
+<ul>
+    <li><strong>Standard mode:</strong> A pivot is confirmed only after the full <em>Right Bars</em> window (default 5 bars) closes to the right of the pivot bar. Signal appears 5 bars late but is more precise &mdash; fewer false pivots.</li>
+    <li><strong>Fast (1-bar right) mode:</strong> A pivot is confirmed after just <em>1 bar</em> to the right instead of 5. Signal appears (Right Bars &minus; 1) = 4 bars earlier. More responsive but slightly less precise on noisy timeframes.</li>
+</ul>
+<p>For day trading on 15-minute or 1-hour charts, Fast mode is generally preferable &mdash; the 4-bar head start can mean the difference between catching the reversal candle and chasing it. For weekly swing analysis, Standard mode&rsquo;s precision outweighs the timing cost.</p>
+
+<h2>Price vs RSI Divergence (Multi-Pivot)</h2>
+<p>The <strong>Price-RSI Divergence</strong> module is the closest equivalent to traditional RSI divergence as most traders know it &mdash; except it requires <em>consecutive</em> qualifying pivot sequences rather than a single pivot comparison. This eliminates a huge category of false signals that plague standard divergence indicators.</p>
+
+<h3>How Multi-Pivot Detection Works</h3>
+<p>Enable this module via <strong>&ldquo;Enable Price-RSI Divergence&rdquo;</strong>. Key parameters:</p>
+<ul>
+    <li><strong>Number of Pivots (n):</strong> Default 2, maximum 3. With n=2, the indicator looks for 2 consecutive RSI highs (for bearish) that are declining while the corresponding price highs are not. With n=3, all three peaks must confirm the same pattern &mdash; significantly stricter.</li>
+    <li><strong>Max Bars Between Pivots:</strong> Default 60 bars. If two consecutive pivots are more than 60 bars apart, they are not considered part of the same divergence sequence. This prevents the indicator from &ldquo;connecting&rdquo; unrelated swing points.</li>
+    <li><strong>Pivot Left / Right Bars:</strong> Default 4 each side. Slightly tighter than the Dual RSI group because price pivots are defined by bars around them, not just the oscillator.</li>
+</ul>
+
+<h3>OB/OS Zone Confluence</h3>
+<p>Signal quality improves significantly when at least one of the divergence pivots falls inside the overbought (&gt;70) or oversold (&lt;30) zone. A bearish divergence where the RSI was at 74 on pivot 1 and 68 on pivot 2 carries substantially more conviction than one where both pivots sat between 55 and 60. The indicator does not filter by this automatically, but the background color highlighting (orange for bearish, aqua for bullish) fires at the confirmation bar, letting you visually assess pivot zone placement immediately.</p>
+
+<h3>Secondary RSI Filter for Price-RSI Divergence</h3>
+<p>Enable <strong>&ldquo;Filter by Secondary RSI&rdquo;</strong> in the Price-RSI group to apply the higher-timeframe bias check. Bullish divergence signals are shown only when the main RSI is above the Secondary RSI at the pivot bar (or has crossed back above within 1 bar &mdash; the &ldquo;false-break recovery&rdquo; clause). This one setting alone can eliminate a majority of divergence fakeouts in counter-trend conditions.</p>
+
+<h2>W/V/M/^ Pattern Detection</h2>
+<p>Where the divergence modules measure <em>direction</em> disagreement between RSI and price (or between timeframes), the pattern module measures <em>shape</em>. It looks for four classic RSI formations:</p>
+<ul>
+    <li><strong>W (Double Bottom):</strong> Two RSI troughs at approximately the same level in the oversold or mid zone &mdash; classic accumulation signal</li>
+    <li><strong>V (Single Bottom):</strong> A single sharp RSI trough followed by a strong bounce &mdash; fast reversal with no retest</li>
+    <li><strong>M (Double Top):</strong> Two RSI peaks at approximately the same level in the overbought or mid zone &mdash; classic distribution signal</li>
+    <li><strong>^ (Single Top):</strong> A single sharp RSI peak followed by a rapid drop</li>
+</ul>
+
+<h3>The Dual-Confirmation Requirement</h3>
+<p>This is the module&rsquo;s defining constraint: <strong>a pattern fires only when BOTH the main RSI and the Secondary RSI show a matching pattern within the same time window.</strong> A W on the 1H RSI alone is a pattern. A W on both the 1H RSI and the 4H RSI simultaneously is a setup worth taking seriously. This dual-confirmation requirement is strict &mdash; you will see fewer signals, but those that do appear carry substantially higher structural conviction than single-oscillator patterns.</p>
+
+<h3>Pattern Quality Filter</h3>
+<p>The <strong>Pattern Quality Filter</strong> setting controls where on the RSI scale the pattern pivots must land:</p>
+<ul>
+    <li><strong>Mid-zone (&lt;40 / &gt;60):</strong> Default. Pivots must be below 40 (for W/V) or above 60 (for M/^). This catches mid-range patterns common in trending markets where RSI never reaches classic extremes.</li>
+    <li><strong>Oversold/Overbought (&lt;30 / &gt;70):</strong> Strictest mode. Pivots must be fully inside the OS/OB zone. Highest quality signals, lowest frequency &mdash; use this on daily or weekly charts where extreme RSI readings are meaningful.</li>
+</ul>
+<p>A practical configuration for intraday traders: Mid-zone filter with Secondary RSI filter enabled. This gives reasonable signal frequency while requiring higher-timeframe structural confirmation.</p>
+
+<h2>Double Bottom / Top Detection</h2>
+<p>The <strong>Double Bottom/Top</strong> module uses a three-step logic sequence that differs from the W/M pattern detection in a key way: it anchors the pattern to a reference-line <em>break</em> event first, then looks for the double formation near that reference.</p>
+
+<h3>Three-Step Logic</h3>
+<ol>
+    <li><strong>Strong break:</strong> RSI crosses through the reference line (either RSI 50 in Mid-Band mode, or the Secondary RSI line in Secondary RSI mode) and reaches a minimum threshold &mdash; default 58 for bullish breaks, 42 for bearish breaks. This filters out weak crosses.</li>
+    <li><strong>First pivot:</strong> RSI pulls back toward the reference line and forms the first bottom (or top) within the acceptance zone.</li>
+    <li><strong>Second pivot:</strong> RSI bounces away, then returns to form a second bottom (or top) within tolerance of the first &mdash; default tolerance of 4.0 RSI points. Signal fires at second-pivot confirmation.</li>
+</ol>
+
+<h3>Detection Modes</h3>
+<ul>
+    <li><strong>Mid-Band:</strong> Reference line is RSI 50 with a &plusmn;8 point acceptance zone (42&ndash;58 band). Pivots must form inside this zone. Classic double-bottom near the 50 midline.</li>
+    <li><strong>Secondary RSI:</strong> Reference line is the Secondary RSI value itself, with a tighter &plusmn;5 point zone. This dynamically adjusts the reference based on the higher-timeframe RSI level, making it more adaptive to trending conditions.</li>
+    <li><strong>All:</strong> Runs both modes simultaneously and displays signals from either.</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See AIO RSI in Action</h3>
+    <p>Multi-layer divergence, pattern detection, and dual RSI bias filter in a single oscillator.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Building Complete Setups: Three Practical Configurations</h2>
+
+<h3>Setup 1: Basic Bias Filter (Beginner)</h3>
+<p>Objective: Use the Secondary RSI as a simple directional filter for standard RSI readings.</p>
+<ol>
+    <li>Enable <strong>Show Secondary RSI</strong> (Timeframe: 240 / 4H)</li>
+    <li>Leave all other modules disabled</li>
+    <li>Trade rule: only take long setups (price at support, bullish structure) when the Secondary RSI is above 50 and trending up. Only take short setups when it is below 50 and trending down.</li>
+    <li>RSI entering OS (&lt;30) while Secondary RSI is above 55 = buying zone. RSI entering OB (&gt;70) while Secondary RSI is below 45 = selling zone.</li>
+</ol>
+<p>This setup alone eliminates the single most common RSI mistake: fading momentum in a strong trend because the oscillator looks &ldquo;extreme.&rdquo;</p>
+
+<h3>Setup 2: Advanced Divergence with Secondary RSI Filter (Intermediate)</h3>
+<p>Objective: Identify high-conviction reversal setups using Price-RSI multi-pivot divergence filtered by the 4H bias.</p>
+<ol>
+    <li>Enable <strong>Calculate Divergence</strong> in RSI Settings</li>
+    <li>Enable <strong>Show Secondary RSI</strong> (240 timeframe)</li>
+    <li>Enable <strong>Price-RSI Divergence</strong> module:
+        <ul>
+            <li>Number of Pivots: 2</li>
+            <li>Pivot Detection Mode: Fast (1-bar right)</li>
+            <li>Show BgColor on Divergence: ON (orange/aqua highlight)</li>
+            <li>Filter by Secondary RSI: ON</li>
+        </ul>
+    </li>
+    <li>Trade rule: enter on the background color signal bar only when the divergence pivot(s) touch the OB or OS zone. Wait for RSI to cross the MA 1 line (SMA 9) in the direction of the divergence before executing.</li>
+    <li>Stop loss: beyond the most recent swing high/low. Target: first structural resistance/support on the price chart.</li>
+</ol>
+<p>The Secondary RSI filter and OB/OS zone requirement together act as a two-factor gate. Most noise signals fail at least one condition and are automatically suppressed without you having to evaluate them manually.</p>
+
+<h3>Setup 3: W/M Pattern Reversal Confirmation (Intermediate&ndash;Advanced)</h3>
+<p>Objective: Use dual-confirmed RSI patterns as reversal signals in mean-reversion or trend-change contexts.</p>
+<ol>
+    <li>Enable <strong>Show Secondary RSI</strong> (240 timeframe)</li>
+    <li>Enable <strong>W/V/M/^ Patterns</strong> module:
+        <ul>
+            <li>Pattern Quality Filter: Mid-zone (&lt;40 / &gt;60) for intraday; Oversold/Overbought for swing</li>
+            <li>Filter by Secondary RSI: ON</li>
+        </ul>
+    </li>
+    <li>When a W or V label appears, look for price confirmation: a bullish engulfing candle, a BOS on the lower timeframe, or a close above the most recent swing high.</li>
+    <li>When an M or ^ label appears, look for price confirmation: a bearish engulfing, BOS flip, or close below the recent swing low.</li>
+    <li>The pattern alone is not a trigger &mdash; use it as an alerting mechanism to focus your attention, then apply discretionary price action judgment.</li>
+</ol>
+<p>One important caveat: because the dual-confirmation requirement means both the 1H and 4H RSI must show the same pattern simultaneously, these signals naturally cluster around major inflection points &mdash; tops and bottoms that are visible in retrospect on higher-timeframe charts. They are high-value alerts, not high-frequency ones. Expecting one per day is unrealistic; one or two per week on a single instrument is a reasonable baseline.</p>
+
+<h2>Alert System Overview</h2>
+<p>AIO RSI consolidates all alert conditions in a single <strong>Alert Settings</strong> group. Key points:</p>
+<ul>
+    <li><strong>OB/OS entry alerts</strong> (on by default): fire once when RSI first crosses into the OB or OS zone, do not repeat while RSI stays in the zone</li>
+    <li><strong>Cross-down from OB / Cross-up from OS alerts</strong> (on by default): fire when RSI exits the extreme zone &mdash; range-chart safe (fires only once even when multiple Range bars map to the same higher-timeframe candle)</li>
+    <li><strong>Divergence alerts</strong> (off by default): require <em>Calculate Divergence</em> to be enabled &mdash; Regular Bullish/Bearish, Dual RSI Bullish/Bearish, Price-RSI Bullish/Bearish</li>
+    <li><strong>Pattern alerts</strong> (on by default): W/V Bull alert and M/^ Bear alert fire when dual-confirmed patterns are detected</li>
+    <li><strong>Double Bottom/Top alerts</strong> (on by default): fire when the three-step sequence completes</li>
+    <li><strong>Alert Cooldown:</strong> default 5 bars &mdash; shared across all alert types to prevent alert flooding during cluster conditions</li>
+</ul>
+<p>When setting up TradingView alerts, select the <code>AIO RSI</code> indicator and choose <strong>&ldquo;Any alert() function call&rdquo;</strong> &mdash; this captures all enabled alert conditions through a single alert instance rather than requiring one alert per condition type.</p>
+
+<h2>Visual Reference: What You&rsquo;re Looking At</h2>
+<p>The oscillator pane displays:</p>
+<ul>
+    <li><strong>Yellow line:</strong> Main RSI (14-period, default)</li>
+    <li><strong>Cyan line:</strong> Secondary RSI (4H, visible only when enabled)</li>
+    <li><strong>Blue / Purple lines:</strong> MA 1 (period 9) and MA 2 (period 14) on the RSI</li>
+    <li><strong>Green bands:</strong> Bollinger Bands around MA 1 (SMA+BB mode only)</li>
+    <li><strong>Purple background fill:</strong> Standard OB/OS zone shading between 30 and 70</li>
+    <li><strong>Green gradient:</strong> Intensity increases above 70 (overbought gradient)</li>
+    <li><strong>Red gradient:</strong> Intensity increases below 30 (oversold gradient)</li>
+    <li><strong>Green/Red background:</strong> Dual RSI Divergence highlight (when BgColor enabled)</li>
+    <li><strong>Orange/Aqua background:</strong> Price-RSI Divergence highlight</li>
+    <li><strong>Lime/Red background:</strong> Double Bottom/Top signal</li>
+    <li><strong>W / V / M / ^ labels:</strong> Pattern markers at detection bars</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li><strong>Enable &ldquo;Calculate Divergence&rdquo; first</strong> if you want any divergence alerts to fire &mdash; this is the most common configuration mistake.</li>
+    <li><strong>Secondary RSI</strong> is the backbone of the indicator: it provides directional bias context and acts as a filter for three independent signal modules.</li>
+    <li><strong>Fast vs Standard pivot mode</strong> is a timing tradeoff: Fast gives signals (Right Bars &minus; 1) bars earlier at the cost of slightly more false pivots; Standard is more precise but signals arrive later.</li>
+    <li><strong>Dual RSI Divergence</strong> is a timeframe-disagreement signal, not a price-disagreement signal &mdash; it fires when both the main and secondary RSI diverge in the same direction simultaneously.</li>
+    <li><strong>Price-RSI Divergence</strong> is the classic divergence concept, hardened by requiring consecutive qualifying pivots (n=2 or 3) and optionally gated by the Secondary RSI filter.</li>
+    <li><strong>W/M patterns</strong> are the strictest signals in the indicator &mdash; dual-confirmed across two timeframes simultaneously. Treat them as high-priority alerts, not standalone entries.</li>
+    <li><strong>OB/OS zone placement</strong> of divergence pivots meaningfully improves signal quality &mdash; always check where the pivot landed before acting.</li>
+    <li>Start with Setup 1 (Secondary RSI bias) before layering in divergence and patterns. Adding all modules at once without a filter framework turns signal density into noise.</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="divergence-trading-rsi-hidden-regular.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+                            <h3 class="feature-title">Divergence Trading: Regular vs Hidden RSI Signals</h3>
+                            <p class="feature-description">A deep dive into regular and hidden divergence mechanics, how to draw them correctly, and which types produce the highest R:R.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="rsi-trading-strategies-masterclass.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">RSI Trading Strategies Masterclass</h3>
+                            <p class="feature-description">From basic OB/OS to advanced multi-timeframe RSI setups &mdash; a comprehensive strategy guide for discretionary and systematic traders.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="banker-momentum-institutional-flow.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bank"></i></div>
+                            <h3 class="feature-title">Banker vs Retailer Momentum: Reading Institutional Flow</h3>
+                            <p class="feature-description">How the three-tier RSI system in AIO Banker Momentum separates institutional moves from retail noise on any timeframe.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

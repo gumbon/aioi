@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to configure AIO Time Separators to mark sessions, weekly opens, and ICT quarterly pivots on any TradingView chart. Step-by-step setups for day traders and swing traders." />
+    <meta name="keywords" content="AIO Time Separators, session markers, ICT quarterly theory, weekly open, daily open, TradingView session lines, time separator indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Time Separators: Session Markers, Weekly Pivots &amp; ICT Time Concepts | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Time Separators: Session Markers, Weekly Pivots &amp; ICT Time Concepts" />
+    <meta property="og:description" content="Configure AIO Time Separators for day trading sessions, ICT quarterly pivots, and weekly/daily open reference levels on TradingView." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-time-separators.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-time-separators.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Time Separators: Session Markers, Weekly Pivots &amp; ICT Time Concepts" />
+    <meta name="twitter:description" content="Learn how to configure AIO Time Separators to mark sessions, weekly opens, and ICT quarterly pivots on any TradingView chart." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Time Separators: Session Markers, Weekly Pivots & ICT Time Concepts",
+      "description": "Learn how to configure AIO Time Separators to mark sessions, weekly opens, and ICT quarterly pivots on any TradingView chart. Step-by-step setups for day traders and swing traders.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-time-separators.html",
+      "datePublished": "2026-04-30",
+      "dateModified": "2026-04-30",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-time-separators.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT8M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Time Separators", "item": "https://aioindicator.com/blog/how-to-use-aio-time-separators.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Time Separators: Session Markers, Weekly Pivots &amp; ICT Time Concepts</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 30, 2026</span>
+            <span><i class="bi bi-clock"></i> 8 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Why Time Separators Matter More Than You Think</h2>
+<p>Most traders treat chart time separators as cosmetic &mdash; a nice-to-have that keeps the chart tidy. That is a mistake. Time is the single most underrated variable in technical analysis. Every major liquidity event, institutional accumulation window, and price manipulation sequence is anchored to a specific time of day, a specific day of the week, or a specific point in the quarterly cycle.</p>
+
+<p>The <strong>AIO Time Separators</strong> indicator goes well beyond a simple &ldquo;draw a line at midnight&rdquo; utility. It gives you a configurable, timezone-aware visual framework that separates your chart by day, week, month, quarter, and custom anchor times &mdash; each with its own color-coded identity. Once you understand what each separator represents, you stop looking at price alone and start seeing price <em>in context of time</em>.</p>
+
+<h2>The Timezone Foundation: Why GMT-5 Is the Default</h2>
+<p>The indicator&rsquo;s first setting is <strong>Time Zone (GMT)</strong>, defaulting to <code>GMT-5</code> &mdash; New York time (Eastern Standard Time). This is not arbitrary. New York is the world&rsquo;s dominant forex and equity trading center. Most of the high-probability price action windows that institutional traders, ICT practitioners, and macro traders reference are defined in New York time:</p>
+<ul>
+    <li><strong>08:30 NY</strong> &mdash; Pre-market economic releases (CPI, NFP, FOMC minutes)</li>
+    <li><strong>09:30 NY</strong> &mdash; NYSE/NASDAQ open, highest volatility period</li>
+    <li><strong>10:00 NY</strong> &mdash; Common reversal or continuation confirmation window</li>
+    <li><strong>13:00&ndash;14:00 NY</strong> &mdash; London close, second liquidity peak</li>
+</ul>
+<p>If you trade crypto, European equities, or Asian forex pairs, you can change the timezone to match the dominant session for your instrument. Setting it to <code>GMT+0</code> for London-session pairs or leaving it blank to use the symbol&rsquo;s native timezone are both valid approaches. The key is consistency &mdash; pick one reference frame and stick with it across your entire chart setup.</p>
+
+<h3>Market Time vs. Time Zone for Day Separators</h3>
+<p>The 1D Separator Vertical Line has a subtle but important option: <strong>&ldquo;Use Market Time&rdquo;</strong> versus <strong>&ldquo;Use Time Zone&rdquo;</strong>. This distinction matters when your instrument trades in extended hours or across sessions.</p>
+<ul>
+    <li><strong>Use Market Time:</strong> The vertical line appears at the actual new trading session open for the symbol &mdash; the moment the exchange considers a new day to have started. For US equities, this is 09:30 NY. For 24-hour forex or crypto, it defaults to the broker&rsquo;s session definition.</li>
+    <li><strong>Use Time Zone:</strong> The vertical line appears at 00:00 in your specified timezone regardless of the symbol&rsquo;s session. This is the correct choice for forex and crypto traders who want to reference the New York midnight open, a key ICT concept.</li>
+</ul>
+<p>Day traders on US equities should typically use &ldquo;Use Market Time.&rdquo; Forex and crypto traders following ICT methodology should use &ldquo;Use Time Zone&rdquo; with GMT-5 to mark the New York midnight candle, which is where many daily candle manipulation patterns originate.</p>
+
+<h2>The Five Separator Types: What Each One Tells You</h2>
+
+<h3>1. Day Separator (Bottom Characters + Vertical Line)</h3>
+<p>The day separator has two complementary components working together. The <strong>bottom character markers</strong> (the <code>═</code> symbols at the base of your chart) are color-coded by day of the week:</p>
+<ul>
+    <li><span style="color:#ff4444;font-weight:600;">Monday &mdash; Red</span></li>
+    <li><span style="color:#4488ff;font-weight:600;">Tuesday &mdash; Blue</span></li>
+    <li><span style="color:#44cc44;font-weight:600;">Wednesday &mdash; Green</span></li>
+    <li><span style="color:#44dddd;font-weight:600;">Thursday &mdash; Cyan</span></li>
+    <li><span style="color:#ff8800;font-weight:600;">Friday &mdash; Orange</span></li>
+    <li><span style="color:#ff44ff;font-weight:600;">Saturday &mdash; Fuchsia</span></li>
+    <li><span style="color:#888844;font-weight:600;">Sunday &mdash; Olive</span></li>
+</ul>
+<p>This color system is one of the most overlooked pattern recognition tools available. Once you have a few months of data visible on a 1H chart, behavioral tendencies become visually obvious: you can see that Monday red bars frequently reverse by Wednesday green, that Friday orange sessions often close near the week&rsquo;s midpoint as positions are squared, or that your instrument tends to establish its weekly extreme on a specific day. Alongside the color bands, a text label showing the day abbreviation (Mon, Tue, Wed, etc.) appears at 11:00 local time each day so you can instantly read day context without counting bars.</p>
+<p>The companion <strong>vertical gray line</strong> marks the actual day boundary, giving you a clean visual &ldquo;reset&rdquo; that separates each daily candle&rsquo;s story.</p>
+
+<h3>2. Weekly Separator (Aqua)</h3>
+<p>The weekly separator draws an <strong>aqua vertical line</strong> at each week boundary. In practical terms, this marks the <strong>Weekly Open</strong> &mdash; the price at which the new week starts. This is not a trivial line. In ICT methodology and smart money concepts, the weekly open is a key bias reference: price trading above the weekly open by mid-week suggests bullish continuation; price that opens above the prior week&rsquo;s high and fails is a classic liquidity sweep setup.</p>
+<p>On a daily chart, the weekly separator helps you count impulsive vs. corrective weeks and identify accumulation ranges that span multiple weeks. On a 4H or 1H chart, it lets you see clearly which leg of the weekly narrative you are in.</p>
+
+<h3>3. Monthly Separator (Blue, Off by Default)</h3>
+<p>The monthly separator is disabled by default because it adds visual noise on intraday charts where most users operate. Enable it when you are doing <strong>structural analysis on daily charts</strong> &mdash; for example, counting monthly swing highs and lows, identifying monthly opening gaps, or aligning your weekly bias with the monthly trend direction. The blue color is intentionally muted to distinguish it from the more actionable weekly (aqua) and quarterly (orange) separators.</p>
+
+<h3>4. Quarterly Separator (Orange)</h3>
+<p>The quarterly separator is one of the most institutionally meaningful lines on your chart. It marks the opening of Q1 (January), Q2 (April), Q3 (July), and Q4 (October). Unlike day and week separators, the quarterly line is visible on daily and weekly charts as well as intraday, because quarterly pivots are relevant across all timeframes.</p>
+<p>In ICT&rsquo;s <strong>Quarterly Theory</strong>, each quarter is subdivided into three phases:</p>
+<ol>
+    <li><strong>Accumulation</strong> (Month 1 of the quarter): Smart money builds positions, range-bound behavior, false breakouts</li>
+    <li><strong>Manipulation</strong> (Month 2): A liquidity sweep in the opposite direction of the intended move, trapping retail traders</li>
+    <li><strong>Distribution</strong> (Month 3): The actual directional move that delivers price to the quarterly target</li>
+</ol>
+<p>Whether you follow ICT concepts directly or not, the observable fact is that many institutional funds, CTAs, and macro funds operate on quarterly performance cycles. Quarter-end rebalancing, quarterly earnings, and macro policy cycles all converge to make Q1/Q2/Q3/Q4 boundaries high-significance price levels. The orange quarterly separator makes these boundaries impossible to miss.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h3>5. Anchor Times 1 &amp; 2 (Custom Session Markers)</h3>
+<p>The two anchor time separators give you fully configurable vertical lines at any hour:minute combination within the day. Their defaults are:</p>
+<ul>
+    <li><strong>Anchor Time 1:</strong> Disabled by default, configured at 00:00 (teal color) &mdash; New York midnight open</li>
+    <li><strong>Anchor Time 2:</strong> Enabled by default at <strong>08:30</strong> (fuchsia color) &mdash; the pre-market economic release window</li>
+</ul>
+<p>The 08:30 default for Anchor Time 2 is deliberate. This is when high-impact US economic data releases (CPI, NFP, PPI, retail sales) hit the market. Price frequently spikes and reverses at this time, creating false breakouts before the real move develops at 09:30. Having a visible fuchsia line at 08:30 on your intraday chart makes it easy to identify these pre-market traps in real time.</p>
+<p>The <strong>&ldquo;Show Past Anchor Time&rdquo;</strong> toggle (off by default) controls whether anchor lines are drawn historically or only on the current day going forward. For live trading, keeping this off reduces chart clutter while still showing the current session&rsquo;s anchor. Enable it when doing historical back-analysis to review how price behaved at the anchor time over prior sessions.</p>
+<p>Anchor times only appear on intraday charts with timeframe multipliers below 60 minutes, which is the correct behavior &mdash; on a 4H chart, an 08:30 line would often fall inside a candle body and add no useful information.</p>
+
+<h2>Three Practical Configurations</h2>
+
+<h3>Setup 1: Day Trader (US Equities / Forex New York Session)</h3>
+<p>This configuration is designed for 1H, 15-minute, or 5-minute chart analysis during the New York trading session:</p>
+<ul>
+    <li><strong>Time Zone:</strong> GMT-5</li>
+    <li><strong>1D Separator:</strong> On, With Text</li>
+    <li><strong>1D Vertical Line:</strong> On, Use Market Time (equities) or Use Time Zone (forex/crypto)</li>
+    <li><strong>Weekly Separator:</strong> On</li>
+    <li><strong>Monthly Separator:</strong> Off</li>
+    <li><strong>Quarterly Separator:</strong> On</li>
+    <li><strong>Anchor Time 1:</strong> Off (or 00:00 for ICT midnight open reference)</li>
+    <li><strong>Anchor Time 2:</strong> On, 08:30 (pre-market data releases)</li>
+    <li><strong>Show Past Anchor Time:</strong> Off</li>
+</ul>
+<p>With this setup, your 15-minute chart shows clear day boundaries (gray), the weekly reset (aqua), and the pre-market volatility window (fuchsia at 08:30). The day-of-week color coding at the bottom lets you quickly recognize where you are in the weekly cycle.</p>
+
+<h3>Setup 2: ICT Practitioner (Quarterly Theory + Daily Bias)</h3>
+<p>If you trade using ICT concepts &mdash; quarterly theory, weekly pivots, and the New York midnight open &mdash; configure the indicator as follows on a 1H or 4H chart:</p>
+<ul>
+    <li><strong>Time Zone:</strong> GMT-5</li>
+    <li><strong>1D Separator:</strong> On, With Text</li>
+    <li><strong>1D Vertical Line:</strong> On, Use Time Zone (midnight NY open = key ICT reference)</li>
+    <li><strong>Weekly Separator:</strong> On</li>
+    <li><strong>Monthly Separator:</strong> Off (enable on Daily chart for monthly swing analysis)</li>
+    <li><strong>Quarterly Separator:</strong> On</li>
+    <li><strong>Anchor Time 1:</strong> On, 00:00 (teal) &mdash; explicit NY midnight open line</li>
+    <li><strong>Anchor Time 2:</strong> On, 08:30 (fuchsia) &mdash; NY killzone open / data window</li>
+    <li><strong>Show Past Anchor Time:</strong> On (to review historical midnight-open reactions)</li>
+</ul>
+<p>In this setup you get full institutional time structure: quarterly pivots define the macro phase, weekly separators show the weekly narrative reset, daily separators mark the session open, and the two anchor times highlight the New York midnight and 08:30 killzone. Pair this with <strong>AIO Price Levels</strong> to overlay PDH/PDL/NWOG/NDOG directly on the same chart and you have the complete ICT time + level framework in a single view.</p>
+
+<h3>Setup 3: Swing Trader / Multi-Timeframe Analyst</h3>
+<p>For daily and weekly chart analysis where intraday separators are irrelevant:</p>
+<ul>
+    <li><strong>Time Zone:</strong> GMT-5 (or blank for symbol default)</li>
+    <li><strong>1D Separator:</strong> Off (at daily TF, day separators are every bar &mdash; redundant)</li>
+    <li><strong>1D Vertical Line:</strong> Off</li>
+    <li><strong>Weekly Separator:</strong> On (shows weekly boundaries on daily chart)</li>
+    <li><strong>Monthly Separator:</strong> On (shows monthly opens &mdash; major swing reference)</li>
+    <li><strong>Quarterly Separator:</strong> On</li>
+    <li><strong>Anchor Times:</strong> Both Off (below-60min only &mdash; not applicable)</li>
+</ul>
+<p>On a daily chart, the weekly (aqua) and monthly (blue) separators create a natural &ldquo;chapter&rdquo; structure that makes it straightforward to count how many bullish weeks vs. bearish weeks occurred within a monthly swing. The quarterly orange separator marks the most significant institutional boundary.</p>
+
+<h2>The Day-of-Week Color System: Pattern Recognition in Practice</h2>
+<p>The bottom character color system deserves its own section because it is genuinely useful once you spend time with it. Markets have documented day-of-week tendencies that are driven by institutional behavior and structural mechanics:</p>
+<ul>
+    <li><strong>Monday (Red):</strong> Frequently used for range establishment or liquidity sweeps of the prior week&rsquo;s high or low. A Monday that sweeps the prior weekly extreme and reverses by close is one of the cleaner setups in smart money trading. Do not blindly enter breakouts on Monday red zones.</li>
+    <li><strong>Tuesday&ndash;Wednesday (Blue/Green):</strong> The highest-probability directional days for equity and forex markets. Weekly trends that are going to develop typically start moving with purpose during the blue-green sequence. A strong Tuesday-Wednesday sequence often telegraphs the week&rsquo;s direction.</li>
+    <li><strong>Thursday (Cyan):</strong> Often the day of maximum extension if a trend was established Monday&ndash;Wednesday. Thursday highs and lows frequently become the weekly high/low. Watch for exhaustion signals on cyan bars during extended runs.</li>
+    <li><strong>Friday (Orange):</strong> Position squaring and risk reduction ahead of the weekend. Trend continuation is less reliable on Fridays. The orange color serves as a subtle reminder to tighten stops or reduce size on Friday sessions.</li>
+</ul>
+<p>These are tendencies, not rules. But having the color-coded day structure visible on your chart turns vague intuitions about &ldquo;Monday feels different&rdquo; into something you can actually observe and back-test systematically.</p>
+
+<h2>Combining AIO Time Separators With Other AIO Tools</h2>
+<p>Time separators are most powerful as a <em>context layer</em> beneath signal-generating indicators. Two natural pairings stand out:</p>
+<p><strong>AIO Session STD</strong> projects statistical standard deviation bands for the current trading session. When you overlay AIO Time Separators with AIO Session STD, the session start (marked by your anchor time or day separator) becomes the reference anchor for the session band projections. You can instantly see whether price is trading within or outside the expected session range at any anchor time.</p>
+<p><strong>AIO Price Levels</strong> plots PDH (Previous Day High), PDL (Previous Day Low), NWOG (New Week Opening Gap), and NDOG (New Day Opening Gap). With AIO Time Separators active alongside, the day and week boundary lines show you <em>exactly</em> where each reference level reset. The combination gives you both the institutional <em>time</em> reference and the institutional <em>price</em> reference on the same canvas.</p>
+
+<h2>Line Style and Width Settings</h2>
+<p>The indicator offers three line styles &mdash; Solid, Dotted, and Dashed &mdash; with widths from 1 to 4 pixels. The default (Solid, width 1) works well for most intraday charts. A few practical notes:</p>
+<ul>
+    <li>On dense 5-minute charts with many bars visible, <strong>Dotted style at width 1</strong> keeps separators readable without overwhelming the price action</li>
+    <li>If you use a dark background theme, consider bumping width to 2 for weekly and quarterly separators so they remain visible at a glance</li>
+    <li>The line limit is capped at 20 lines per separator type, which means on very long chart histories some of the oldest separators are removed automatically &mdash; this is a TradingView platform constraint, not a bug</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Time Separators on Your Chart</h3>
+    <p>Timezone-aware session markers, ICT quarterly pivots, and day-of-week color coding &mdash; all in one overlay.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li><strong>GMT-5 is the default</strong> because New York time governs the highest-volume equity and forex sessions &mdash; adjust only when your primary instrument is anchored to a different market center</li>
+    <li>The <strong>day-of-week color coding</strong> (Mon=red through Sun=olive) transforms abstract bar sequences into recognizable weekly behavioral patterns</li>
+    <li><strong>&ldquo;Use Market Time&rdquo;</strong> aligns day separators with the exchange session open; <strong>&ldquo;Use Time Zone&rdquo;</strong> marks the midnight open &mdash; use the latter for ICT midnight candle analysis</li>
+    <li>The <strong>quarterly separator (orange)</strong> marks Q1/Q2/Q3/Q4 openings &mdash; the highest-significance institutional time boundaries on any chart</li>
+    <li><strong>Anchor Time 2 at 08:30</strong> is enabled by default to mark pre-market US data releases, a prime zone for false breakouts before the real session move</li>
+    <li><strong>&ldquo;Show Past Anchor Time&rdquo; off</strong> keeps intraday charts clean; enable it only for historical review sessions</li>
+    <li>Pairs most naturally with <strong>AIO Price Levels</strong> (PDH/PDL/weekly open reference) and <strong>AIO Session STD</strong> (session range projections)</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="ict-trading-setup-sessions-price-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                            <h3 class="feature-title">ICT Sessions, PDH/PDL &amp; Price Levels: The Time-Based Framework</h3>
+                            <p class="feature-description">How ICT concepts use session opens, previous day highs/lows, and opening gaps as institutional reference levels for bias and entry.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="multi-timeframe-analysis-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">Multi-Timeframe Analysis: Aligning Bias Across Quarterly, Weekly &amp; Daily Charts</h3>
+                            <p class="feature-description">A structured approach to reading quarterly, weekly, and daily context before dropping to intraday for entries.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

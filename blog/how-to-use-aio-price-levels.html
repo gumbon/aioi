@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="How to use AIO Price Levels on TradingView: PDH, PDL, PDC, weekly levels, ADR targets, equilibrium zones, and session open references for day and swing traders." />
+    <meta name="keywords" content="AIO Price Levels, PDH PDL PDC, previous day high low, ADR levels, NWOG, TradingView price levels, ICT key levels, day trading levels" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines" />
+    <meta property="og:description" content="Set up PDH, PDL, PDC, ADR targets and NWOG levels in seconds. The complete guide for day traders and ICT traders." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-price-levels.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-price-levels.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines" />
+    <meta name="twitter:description" content="How to use AIO Price Levels on TradingView: PDH, PDL, PDC, weekly levels, ADR targets, equilibrium zones, and session open references for day and swing traders." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines",
+      "description": "How to use AIO Price Levels on TradingView: PDH, PDL, PDC, weekly levels, ADR targets, equilibrium zones, and session open references for day and swing traders.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-price-levels.html",
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-price-levels.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT9M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Price Levels", "item": "https://aioindicator.com/blog/how-to-use-aio-price-levels.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 1, 2026</span>
+            <span><i class="bi bi-clock"></i> 9 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Why Previous Period Levels Are the Market&rsquo;s Hidden Scaffolding</h2>
+<p>Before you draw a single trendline or fire up an RSI, there are a handful of horizontal price levels that institutions, algorithms, and market makers already have programmed in. The previous day&rsquo;s high, low, and close. The prior week&rsquo;s range boundaries. The average daily range projection for today. These are not obscure concepts &mdash; they are the literal price coordinates that systematic traders, HFT desks, and ICT-based discretionary traders reference every single session.</p>
+<p>The problem is that manually drawing and updating these levels every morning is tedious, error-prone, and inconsistent across timeframes. <strong>AIO Price Levels</strong> automates the entire process: it pulls previous period OHLC data across five timeframes (1H, 4H, Daily, Weekly, Monthly), calculates ADR projections, marks session open prices at user-defined times, and plots NWOG (New Week Opening Gap) boxes &mdash; all as clean horizontal lines that extend across the current session.</p>
+<p>This guide walks through every level type, explains the logic behind each, and gives you three ready-to-use setups depending on your trading style.</p>
+
+<h2>The Complete Level Hierarchy</h2>
+<p>AIO Price Levels organizes its output into a clear hierarchy. All levels are disabled by default except <strong>Previous 1D Close</strong> and <strong>Previous 1W Close</strong>, which are on by default. You build your own configuration by enabling only what is relevant to your session. Here is what each group provides:</p>
+
+<h3>Previous 1H H/L (Purple-Blue, #7F7FFF)</h3>
+<p>The prior hourly candle&rsquo;s high and low. On a 5-minute or 15-minute chart, these act as micro-structural reference points &mdash; short-term support and resistance that scalpers and intraday momentum traders use to define their trading range for the current hour. The optional <strong>P1hEQ</strong> midpoint is the &ldquo;fair value&rdquo; of the last hour, useful for mean-reversion setups when price extends far from it. The <strong>P1hC</strong> (previous 1H close) adds a fourth reference that often acts as a decision level between the H and L.</p>
+
+<h3>Previous 4H H/L (Olive)</h3>
+<p>Four-hour levels carry substantially more weight than hourly levels because they represent the price range over a full trading session block. The labels <strong>P4hH</strong> and <strong>P4hL</strong> mark where buyers and sellers established dominance during the prior 4H candle. Many algorithmic systems trigger orders at these levels at the open of the next 4H bar. The optional <strong>P4hEQ</strong> at the midpoint of the 4H range is particularly useful when the new 4H candle opens in the middle of the prior range &mdash; price often rotates toward the 4H midpoint before committing to a direction.</p>
+
+<h3>Previous 1D H/L &amp; Close (Orange / Teal)</h3>
+<p>The daily levels are where most of the meaningful price action concentrates for intraday traders. <strong>PDH</strong> (Previous Day High) and <strong>PDL</strong> (Previous Day Low) in orange define the prior session&rsquo;s full range. The <strong>PDC</strong> (Previous Day Close) in teal is enabled by default for good reason &mdash; it is the single most important level on the chart for the vast majority of day traders (more on this below). The optional <strong>PDEQ</strong> marks the midpoint of PDH and PDL, which represents fair value for the entire prior session.</p>
+
+<h3>Previous 1W H/L &amp; Close (Red / Aqua)</h3>
+<p>Weekly levels define the broader trading range that covers five sessions. <strong>PWH</strong> and <strong>PWL</strong> in red create the weekly premium and discount boundaries. The <strong>PWC</strong> (Previous Week Close) in aqua is enabled by default &mdash; it becomes the first reference point Monday morning and often acts as the week&rsquo;s directional anchor. If the current week opens above PWC, the weekly bias is bullish. Below PWC, the bias is bearish until proven otherwise.</p>
+
+<h3>Previous 1M H/L (Purple-Blue, #7F7FFF)</h3>
+<p>Monthly levels carry the highest timeframe significance in this indicator. <strong>PMH</strong> and <strong>PML</strong> define the prior month&rsquo;s full range. These levels are rarely tested intraday but become critical at swing highs and lows. When price approaches PMH, expect institutional selling interest. When price approaches PML, expect institutional buying interest. The <strong>PMEQ</strong> monthly midpoint is particularly useful for identifying whether the current month is in a premium or discount relative to the prior month&rsquo;s range.</p>
+
+<h2>PDC: The #1 Level for Day Traders</h2>
+<p>If you could only keep one level on your chart, it would be <strong>PDC &mdash; the Previous Day Close</strong>. Here is why.</p>
+<p>The previous day&rsquo;s close is the last price at which every overnight trader, position holder, and market maker settled their books. When the next day&rsquo;s session opens, all of that inventory is priced relative to PDC. Institutional algorithms frequently use PDC as the trigger for the day&rsquo;s directional bias: open above PDC and hold = bullish day structure. Open below PDC and hold = bearish day structure. A gap above or below PDC that immediately reverses back through it is a classic &ldquo;failed breakout&rdquo; pattern that often results in a sharp move in the opposite direction.</p>
+<p>In practical terms:</p>
+<ul>
+    <li><strong>Price opens above PDC and pulls back to it</strong> &rarr; potential long entry with the PDC acting as dynamic support</li>
+    <li><strong>Price opens below PDC and rallies to it</strong> &rarr; potential short entry with PDC acting as resistance</li>
+    <li><strong>Price consolidates around PDC</strong> &rarr; market is undecided; wait for a decisive move away from it before committing</li>
+    <li><strong>Price gaps far from PDC</strong> &rarr; watch for a &ldquo;PDC fill&rdquo; move, especially in the first 30&ndash;60 minutes of the session</li>
+</ul>
+<p>AIO Price Levels draws PDC as a teal dotted line, making it immediately distinguishable from the orange PDH/PDL lines.</p>
+
+<h2>EQ (Equilibrium): Why Price Returns to the Midpoint</h2>
+<p>Every price range in AIO Price Levels can optionally display its <strong>EQ</strong> &mdash; the equilibrium level, calculated as the exact midpoint between the period&rsquo;s high and low. This is not a gimmick; it is rooted in how markets reach consensus.</p>
+<p>A range by definition has buyers at the low end and sellers at the high end. The midpoint is the price at which neither side has a clear edge &mdash; &ldquo;fair value.&rdquo; When price moves significantly away from EQ, it creates an imbalance: either too many buyers are trapped near the top of the range (likely to sell and push price back toward EQ) or too many sellers are trapped near the bottom (likely to cover and push price back up). This is why you will routinely see intraday price &ldquo;mean revert&rdquo; to PDH/PDL midpoints, 4H EQ levels, and weekly midpoints.</p>
+<p>In ICT methodology, this concept is known as the <strong>Consequent Encroachment (CE)</strong> &mdash; the 50% level of any imbalance or range that price tends to fill. AIO Price Levels implements this directly for NWOG (New Week Opening Gap) boxes, where a CE toggle shows the 50% level of the gap.</p>
+<p>A practical application: if PDH = 4,150 and PDL = 4,100, then PDEQ = 4,125. When price opens above PDH and then sells off, the first magnet it will likely reach is the PDEQ at 4,125, not immediately PDL. Knowing this prevents premature exits on counter-trend pullbacks.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>ADR H/L: Dynamic Intraday Targets</h2>
+<p>The <strong>ADR (Average Daily Range)</strong> levels project where today&rsquo;s price is likely to reach based on historical volatility. With a default period of 5 days, the indicator calculates the average high-minus-low range over the prior 5 sessions, then projects that range above and below the current day&rsquo;s opening price to give you <strong>ADRH</strong> (ADR High) and <strong>ADRL</strong> (ADR Low).</p>
+<p>The critical insight: the ADR tells you how much price typically moves in a day. Once price has covered 70&ndash;80% of the ADR in one direction, the probability of a reversal increases substantially. This is not a guarantee &mdash; trending days can exceed ADR by 150% or more &mdash; but it is a powerful contextual filter for trade targets.</p>
+<p>Practical applications:</p>
+<ul>
+    <li><strong>Use ADRH as a profit target when long from PDL or ADRL</strong> &mdash; do not hold a long position through ADRH expecting continuation on an average-volatility day</li>
+    <li><strong>If price has already reached ADRH by 10 AM</strong>, the session has consumed its typical daily move; subsequent longs carry reduced reward-to-risk</li>
+    <li><strong>On low-ADR days</strong> (tight ranges, pre-event sessions), the ADRH and ADRL will be tight; this is not a day for range expansion strategies</li>
+    <li><strong>Gap days</strong>: if price gaps above ADRH at the open, the entire day&rsquo;s range is already extended; fade entries near the gap are higher probability than chasing the move</li>
+</ul>
+<p>The ADR period of 5 is the default and covers a standard trading week. Some traders prefer 10 or 20 for a smoother average that reduces single-day outlier effects, but 5 keeps the ADR responsive to recent volatility regime changes.</p>
+
+<h2>At Time 2 (8:30): Session Open Price Reference</h2>
+<p>The <strong>At Time 2</strong> feature captures the price at any user-defined time and draws it as a horizontal reference line for the remainder of the session. The default is set to <strong>08:30</strong> (8 hours, 30 minutes in the GMT-4 timezone), which corresponds to the <strong>NY Pre-Market Open</strong> &mdash; the most important session open for US equities, index futures, and many crypto markets.</p>
+<p>The open price at 8:30 (labeled &ldquo;NYO&rdquo; on the chart) serves as a session anchor:</p>
+<ul>
+    <li><strong>Price holds above NYO throughout the morning</strong> &rarr; bullish intraday structure, longs have edge</li>
+    <li><strong>Price breaks below NYO and retests it from below</strong> &rarr; NYO becomes resistance; classic short setup for the NY session</li>
+    <li><strong>Price oscillates around NYO</strong> &rarr; indecision; wait for 15-minute acceptance above or below before directional trades</li>
+</ul>
+<p>The complementary <strong>At Time 1</strong> (default 00:00, labeled &ldquo;NYMO&rdquo; for NY Midnight Open) captures the price at the start of the day or any other session you define. For forex traders, setting Time 1 to the London open (02:00 or 03:00 ET) and Time 2 to the NY open (08:30 ET) gives you both major session reference prices on a single chart.</p>
+<p>Both time-based levels use the <strong>open price</strong> by default but can be changed to any source (high, low, close, OHLC4, etc.) depending on your reference preference.</p>
+
+<h2>NWOG: New Week Opening Gap</h2>
+<p>The <strong>NWOG (New Week Opening Gap)</strong> feature draws a box between the prior week&rsquo;s Friday close and the current week&rsquo;s Monday open whenever these two prices differ &mdash; which is essentially every week in futures and crypto markets. The indicator shows up to 3 historical NWOGs by default (configurable from 1 to 5), and all NWOGs can be extended to the current bar to see whether they remain unfilled.</p>
+<p>The logic: a gap is an imbalance. Price on Monday opened at a price that was never traded during the previous week&rsquo;s final session. Algorithms &ldquo;know&rdquo; this gap exists, and there is a statistical tendency for price to revisit and fill these gaps at some point. Enabling the <strong>C.E.</strong> toggle adds the 50% midpoint of each NWOG box &mdash; the Consequent Encroachment level that markets frequently target before continuing in the gap direction or reversing through it.</p>
+
+<h2>Three Setup Profiles</h2>
+<p>Rather than enabling every level at once (which creates chart noise), configure AIO Price Levels for your specific trading style:</p>
+
+<h3>Day Trader Setup</h3>
+<p>Focus on the levels that are most actionable within a single session. Enable:</p>
+<ol>
+    <li><strong>Previous 1D H/L</strong> &rarr; on, with <strong>Close</strong> on (PDH orange, PDL orange, PDC teal)</li>
+    <li><strong>Previous 1D EQ</strong> &rarr; on (PDEQ orange dotted)</li>
+    <li><strong>Previous 4H H/L</strong> &rarr; on, Close optional (P4hH/P4hL olive)</li>
+    <li><strong>ADR H/L</strong> &rarr; on, Period = 5 (ADRH/ADRL gray)</li>
+    <li><strong>At Time 2</strong> &rarr; on, set to 08:30 (NYO fuchsia)</li>
+    <li><strong>NWOG</strong> &rarr; on, 3 NWOGs, Extend = true, C.E. = true</li>
+</ol>
+<p>Leave 1H, Weekly, and Monthly levels off. The result is a clean chart with exactly the levels that matter for the current session. The ADR levels tell you your range target; PDC tells you your directional anchor; NYO tells you how the NY session opened relative to that anchor.</p>
+
+<h3>Swing Trader Setup</h3>
+<p>Swing traders need broader context and fewer intraday distractions. Enable:</p>
+<ol>
+    <li><strong>Previous 1W H/L</strong> &rarr; on, with <strong>Close</strong> on (PWH/PWL red, PWC aqua)</li>
+    <li><strong>Previous 1W EQ</strong> &rarr; on (PWEQ red dotted)</li>
+    <li><strong>Previous 1D H/L</strong> &rarr; on, Close on (PDH/PDL orange, PDC teal)</li>
+    <li><strong>Previous 1M H/L</strong> &rarr; on (PMH/PML purple)</li>
+    <li><strong>NWOG</strong> &rarr; on, 5 NWOGs, Extend = true</li>
+</ol>
+<p>Leave 1H, 4H, and ADR off. The weekly levels define your weekly range; PDH/PDL define your daily trading range within that weekly structure. Monthly levels act as long-term support and resistance that you watch for potential reversal signals. NWOG gaps extended to the present reveal unfilled imbalances that price may still chase.</p>
+
+<h3>ICT Setup</h3>
+<p>For traders using ICT (Inner Circle Trader) methodology, AIO Price Levels provides exactly the reference points that ICT teaches as institutional reference levels:</p>
+<ol>
+    <li><strong>Previous 1D H/L</strong> &rarr; on, Close on, <strong>EQ on</strong> &mdash; PDH/PDL/PDC/PDEQ are the ICT &ldquo;old highs/lows&rdquo; and fair value references</li>
+    <li><strong>Previous 1W H/L</strong> &rarr; on, Close on, EQ on &mdash; weekly range and fair value</li>
+    <li><strong>At Time 2</strong> &rarr; set to 08:30 for NY Open (NYO fuchsia) &mdash; a primary ICT session open reference</li>
+    <li><strong>At Time 1</strong> &rarr; enable and set to 00:00 for NY Midnight Open (NYMO teal) &mdash; ICT frequently references the midnight open as the origin for daily bias</li>
+    <li><strong>NWOG</strong> &rarr; on, C.E. = true &mdash; gap fills and 50% levels are core ICT concepts</li>
+    <li><strong>ADR H/L</strong> &rarr; on &mdash; ICT calls this the daily range projection; knowing when 70&ndash;100% of ADR is consumed prevents chasing</li>
+</ol>
+<p>The combination of NYO + NYMO gives you two session open anchors. Price above both = strongest bullish context. Price between both = mixed. Price below both = bearish session context. Add PDC as the third anchor and you have the full ICT session bias framework in three horizontal lines.</p>
+
+<h2>Pairing with AIO Session STD and AIO Time Separators</h2>
+<p>AIO Price Levels works particularly well in combination with two other AIO indicators. The <strong>AIO Session STD</strong> draws session-based standard deviation projection bands &mdash; think of it as the &ldquo;expected range&rdquo; for the current session, plotted as bands around the session VWAP. When ADRH or PDH sits near the upper Session STD band, the resistance confluence is strong. When ADRL or PDL aligns with the lower STD band, the support is reinforced by two independent statistical methods.</p>
+<p>The <strong>AIO Time Separators</strong> marks session boundaries with vertical lines, making it visually clear when a new 1H or 4H period begins and which horizontal levels become &ldquo;previous&rdquo; at that transition. Without session separators, it can be ambiguous whether a line refers to the current 4H or the previous one &mdash; especially on lower timeframe charts where multiple 4H periods appear simultaneously. Using Time Separators alongside Price Levels eliminates this ambiguity entirely.</p>
+<p>For complete day trading context, the three-indicator stack of <strong>AIO Price Levels + AIO Session STD + AIO Time Separators</strong> gives you: horizontal reference levels, expected session range projection, and clear session boundaries &mdash; all without cluttering the chart with trend indicators or oscillators that belong below the chart.</p>
+
+<h2>Common Configuration Notes</h2>
+<p>A few settings worth knowing before you start:</p>
+<ul>
+    <li><strong>Time Zone:</strong> The default is GMT-4 (US Eastern Daylight Time). If your chart is set to UTC or a different exchange timezone, the &ldquo;At Time&rdquo; levels will fire at the wrong hour. Set this to match the timezone of the session you trade. Leave it blank to use the symbol&rsquo;s default timezone.</li>
+    <li><strong>Line Style &amp; Width:</strong> Dotted style at width 2 is the default for all price levels. EQ lines use dotted at width 1, making them visually thinner and easier to distinguish from the main H/L lines. You can switch to Solid or Dashed if you prefer more prominent lines.</li>
+    <li><strong>Line Extending Size:</strong> Default is 5 bars. This controls how far to the right each line extends beyond the current bar. Increase this if you want levels to project further into the future on lower timeframes.</li>
+    <li><strong>Labels Size:</strong> Default is Small. On 1-minute charts where label collisions are common, switch to Tiny. On daily charts, Normal or Large is easier to read at a glance.</li>
+    <li><strong>Show Labels:</strong> The global label toggle is on by default. Individual labels can be hidden by clearing the text in the label input field for that specific level.</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li><strong>PDC (Previous Day Close)</strong> is the #1 intraday reference level &mdash; it anchors the day&rsquo;s directional bias and acts as the first magnet for price after any gap</li>
+    <li><strong>PDH and PDL</strong> define the prior session&rsquo;s range boundaries &mdash; breakouts above PDH are bullish; failures at PDH are high-probability shorts</li>
+    <li><strong>EQ (equilibrium)</strong> is the midpoint of any period&rsquo;s range &mdash; price gravitates toward it when away from it, making it a reliable mean-reversion target</li>
+    <li><strong>ADR H/L</strong> gives you daily range projection targets &mdash; once 70&ndash;80% of ADR is consumed, the risk/reward of continuation trades deteriorates</li>
+    <li><strong>NYO (At Time 2, 8:30)</strong> captures the session open price &mdash; its relationship to PDC determines the intraday trend bias for the NY session</li>
+    <li><strong>NWOG boxes</strong> mark weekly gap imbalances &mdash; the CE (50%) level of each gap is a high-probability draw-on-liquidity target</li>
+    <li>Match your enabled levels to your trading style: Day traders need PDH/PDL/PDC + ADR + NYO; swing traders need weekly and monthly levels with minimal intraday noise</li>
+    <li>Pair with <strong>AIO Session STD</strong> for confluence between statistical range projection and static price levels, and with <strong>AIO Time Separators</strong> for clear session boundary context</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Price Levels in Action</h3>
+    <p>Auto-plotted PDH, PDL, PDC, ADR, NWOG, and session open levels &mdash; no manual drawing ever again.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="ict-trading-setup-sessions-price-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layout-three-columns"></i></div>
+                            <h3 class="feature-title">ICT Trading Setup: Sessions, PDH/PDL &amp; Key Price Levels</h3>
+                            <p class="feature-description">How ICT-based traders use previous day highs, lows, session opens, and liquidity sweeps to build a complete day trading framework.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="premium-discount-lookback-zones.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-distribute-vertical"></i></div>
+                            <h3 class="feature-title">Premium &amp; Discount Lookback Zones: Where to Buy and Sell</h3>
+                            <p class="feature-description">Using multi-range lookback windows to identify premium and discount areas for high-probability entries aligned with the bigger picture.</p>
+                            <span class="feature-description small">10 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

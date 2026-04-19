@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Complete guide to AIO Session STD: configure session boxes, master the Dealing Range concept, use STD bands for mean reversion, and set up Asian range sweep trades." />
+    <meta name="keywords" content="AIO Session STD, Dealing Range, session boxes, Asian range, standard deviation bands, VWAP STD, TradingView session indicator, ICT sessions" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Session STD: Session Ranges, Dealing Range &amp; Statistical Deviation | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Session STD: Session Ranges, Dealing Range &amp; Statistical Deviation" />
+    <meta property="og:description" content="Configure session boxes, master the Dealing Range concept, and use STD bands for mean reversion with AIO Session STD." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-session-std.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-session-std.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Session STD: Session Ranges, Dealing Range &amp; Statistical Deviation" />
+    <meta name="twitter:description" content="Configure session boxes, master the Dealing Range concept, and use STD bands for mean reversion with AIO Session STD." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Session STD: Session Ranges, Dealing Range &amp; Statistical Deviation",
+      "description": "Complete guide to AIO Session STD: configure session boxes, master the Dealing Range concept, use STD bands for mean reversion, and set up Asian range sweep trades.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-session-std.html",
+      "datePublished": "2026-05-02",
+      "dateModified": "2026-05-02",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-session-std.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT10M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Session STD", "item": "https://aioindicator.com/blog/how-to-use-aio-session-std.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Session STD: Session Ranges, Dealing Range &amp; Statistical Deviation</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 2, 2026</span>
+            <span><i class="bi bi-clock"></i> 10 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Why Session Context Changes Everything</h2>
+<p>Most traders look at price as a continuous stream of candles. Professional intraday traders look at it as a series of distinct sessions &mdash; each with its own volatility profile, institutional participants, and reference levels that carry meaning for the rest of the day. The Asian session produces a range. London raids it. New York often extends or reverses what London started. The first 30 minutes of New York forms the Dealing Range &mdash; the most important structural reference for US equity and forex traders.</p>
+
+<p>The <strong>AIO Session STD</strong> indicator puts all of this directly on your chart. It draws up to six configurable session boxes with their highs, lows, and equilibrium levels &mdash; and adds a statistical standard deviation layer that shows exactly how stretched price is relative to its session anchor. This guide walks through everything: initial setup, the six default sessions, the DR concept, EQ settings, the STD bands, and three concrete trade setups.</p>
+
+<h2>Initial Setup: Timezone and Display</h2>
+<p>The very first thing to configure is the <strong>Time Zone</strong> input under the Common settings group. The default is <code>GMT-5</code> (New York time), which is correct for US equity and forex traders during standard time. During daylight saving time (EDT), New York is GMT-4 &mdash; adjust accordingly. If you trade crypto and want to anchor sessions to UTC, set this to <code>UTC+0</code>.</p>
+
+<p>The indicator is designed for intraday timeframes. It is visible only on charts with a timeframe of 60 minutes or shorter (or seconds charts up to 5 minutes). If you open it on a daily chart, the session boxes will not display &mdash; this is intentional, not a bug.</p>
+
+<p>The <strong>Labels Size</strong> input controls the text size of the session label (the tag in the upper-left corner of each box). &ldquo;Small&rdquo; is the default and works well on most monitors. Use &ldquo;Tiny&rdquo; if you have many sessions active and the labels are overlapping.</p>
+
+<h2>The Six Sessions: Default Configuration</h2>
+<p>Each session slot has identical controls: a Show toggle, a session time range (in <code>HHMM-HHMM</code> format), a Lines Close setting, an EQ setting, a label, and color controls. The defaults map to a classic ICT/SMC session framework:</p>
+
+<h3>Session 1 &mdash; Asian (19:00&ndash;00:00 NY)</h3>
+<p>Covers the overnight/Asian session from 7 PM to midnight New York time. This is the low-volatility consolidation window where price forms its overnight range. The high and low of this range become the primary liquidity targets for London and New York &mdash; stops are clustered above and below this range, and both sessions routinely sweep one side before moving in the genuine direction.</p>
+
+<h3>Session 2 &mdash; London Open (01:00&ndash;05:00 NY)</h3>
+<p>London Open runs 1 AM to 5 AM New York time. This is when European institutional flow enters the market. It frequently sets the directional bias for the day by breaking either the Asian High or Asian Low and then continuing in that direction. The London Open session box gives you an immediate read on whether the move was impulsive (wide range) or tentative (narrow range).</p>
+
+<h3>Session 3 &mdash; NY Open (07:00&ndash;11:00 NY)</h3>
+<p>The New York Open session (7 AM&ndash;11 AM) is the highest-volume overlap period for forex. For US equities and index futures, this is the core trading window. The NYO box shows where the bulk of directional movement typically occurs. The equilibrium of this box is a powerful intraday magnet &mdash; if price runs hard from the open, it will frequently retrace to the NYO midpoint before continuing or reversing.</p>
+
+<h3>Session 4 &mdash; Dealing Range / DR (09:30&ndash;10:30 NY) &mdash; The Most Important Session</h3>
+<p>The Dealing Range is the first 60 minutes of the official New York equity session (the default time is 09:30&ndash;10:30). This is the single most important session box for anyone trading US equities, S&amp;P 500 futures, or NQ. The DR is configured differently from the other sessions by default &mdash; <strong>Lines Close is set to ON</strong>, meaning the DR high and low lines extend across the rest of the day even after the session ends. This is intentional: the DR high and low are reference levels for the entire trading day, not just during their formation window.</p>
+
+<p>The DR EQ is set to <strong>ON-Close</strong> by default, which means the equilibrium is calculated between the opens of bars within the session (body midpoint) rather than the absolute high and low. This gives you a cleaner &ldquo;fair value&rdquo; reference that reflects where price actually traded, not just intraday wick extremes.</p>
+
+<h3>Sessions 5 &amp; 6 &mdash; ODR and ADR (Hidden by Default)</h3>
+<p>Session 5 (ODR &mdash; Overnight Dealing Range, 03:00&ndash;04:00) and Session 6 (ADR &mdash; Asian Dealing Range, 19:30&ndash;20:30) are disabled by default. Enable them if you trade forex during the London pre-open or if you want a tighter overnight reference range separate from the full Asian session box.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Understanding EQ: ON vs ON-Close</h2>
+<p>The EQ (Equilibrium) line is a dashed horizontal line drawn at the midpoint of each session box. This is not cosmetic &mdash; it is one of the most reliable intraday magnets on the chart. Price gravitates toward session equilibrium for a simple reason: it represents the &ldquo;fair value&rdquo; of the session, and when price moves away from it, both sides of the market have an incentive to bring it back.</p>
+
+<p>The EQ setting has three options:</p>
+<ul>
+    <li><strong>ON:</strong> The equilibrium is plotted at exactly <code>(Session High + Session Low) / 2</code> &mdash; the midpoint of the absolute wick-to-wick range. Use this when you want to see the raw mathematical center of the session&rsquo;s price action, including all intraday wicks.</li>
+    <li><strong>ON-Close:</strong> The equilibrium is calculated from the body range &mdash; specifically the highest close/open and lowest close/open within the session. This filters out wick noise and shows where the majority of closed bars agreed on price. This is the preferred setting for the DR session, which is why it&rsquo;s the default for Session 4.</li>
+    <li><strong>OFF:</strong> No equilibrium line is drawn. Use this for sessions where you only care about the outer range boundaries and don&rsquo;t need the midpoint reference.</li>
+</ul>
+
+<p>In practice: for the Asian session box, <strong>EQ ON</strong> works well because the overnight range tends to be clean and the midpoint is genuinely useful. For the DR, <strong>EQ ON-Close</strong> is superior because the first 30&ndash;60 minutes of the NY open can have aggressive wicks as price searches for direction.</p>
+
+<h2>Lines Close: ON vs OFF</h2>
+<p>This setting controls whether the session&rsquo;s High and Low lines extend to the right after the session ends, or disappear as soon as the session closes.</p>
+
+<ul>
+    <li><strong>OFF (default for Sessions 1&ndash;3):</strong> The box and lines are drawn only during the session. When the session ends, everything disappears. This keeps the chart clean and is appropriate for reference sessions where you only need the visual context during the session itself.</li>
+    <li><strong>ON (default for Session 4 / DR):</strong> After the session ends, the High and Low lines continue extending to the right across the chart. This is critical for the DR because those levels are active decision points for the rest of the day &mdash; breaks above the DR High and below the DR Low are the primary trade triggers in DR-based strategies.</li>
+</ul>
+
+<p>A practical rule: enable <strong>Lines Close ON</strong> for any session whose boundaries you want to trade as support/resistance for the remainder of the session. For purely contextual sessions (Asian, London), <strong>OFF</strong> reduces visual clutter without losing meaningful information.</p>
+
+<h2>STD Bands: Statistical Extremes Within a Session</h2>
+<p>The Standard Deviation (STD) module is the second major layer of the indicator. Rather than showing where price <em>has been</em> (which the session boxes do), the STD bands show how <em>statistically extended</em> price is relative to a session anchor.</p>
+
+<h3>How the STD Is Calculated</h3>
+<p>By default, the STD is anchored to the <strong>4th Session (DR)</strong>. Within the session, the indicator tracks the running high and low (or close range, depending on the Price setting) and computes a session standard deviation range. The range rate multiplier defaults to <strong>0.5</strong>, which the tooltip explicitly recommends for DR/IDR concepts. If you are using the STD for the Asian Range (ICT-style), switch the range rate to <strong>1.0</strong>.</p>
+
+<p>You can configure up to <strong>three independent STD anchors</strong> simultaneously &mdash; each pointing at a different session. This lets you overlay, for example, a DR STD and an Asian Range STD on the same chart without needing to add the indicator twice.</p>
+
+<h3>Number of Levels</h3>
+<p>The <code>No. Levels</code> input controls how many standard deviation bands are drawn above and below the session midpoint. The default is 3, which gives you 1&sigma;, 2&sigma;, and 3&sigma; levels on both sides. You can go up to 5 levels, but 3 is sufficient for most strategies.</p>
+
+<h3>Adjust Range</h3>
+<p>The <code>Adjust Range</code> option (default: No) lets you widen or tighten the effective STD range by a multiplier between 0.0 and 1.0. This is useful if you find the default bands are too tight or too wide for the specific instrument you trade. Leave it at No until you have at least 2 weeks of observation on your specific market.</p>
+
+<h2>Session Configuration for Different Markets</h2>
+
+<h3>Traditional Forex Setup</h3>
+<p>For forex pairs (EUR/USD, GBP/USD, etc.), the default configuration works well as-is. The three major sessions &mdash; Asian, London Open, NY Open &mdash; directly correspond to the periods of highest liquidity and directional movement. Keep Sessions 1&ndash;3 active, enable Session 5 (ODR) if you trade the London pre-open kill zone (03:00&ndash;04:00 NY), and leave Session 4 (DR) on for the NY open reference.</p>
+
+<h3>Crypto 24/7 Setup</h3>
+<p>Crypto markets never close, which means &ldquo;sessions&rdquo; are less rigidly defined by exchange hours. However, volume and volatility still follow time-of-day patterns aligned with New York and London. A practical crypto configuration:</p>
+<ul>
+    <li><strong>Session 1 (Asian):</strong> Keep default 19:00&ndash;00:00 &mdash; this captures the actual low-volatility Asian accumulation window for BTC/ETH</li>
+    <li><strong>Session 2 (London):</strong> Keep 01:00&ndash;05:00 &mdash; London crypto volume spike is real</li>
+    <li><strong>Session 3 (NY Open):</strong> Adjust to 09:30&ndash;12:00 to capture the US equity open volatility that spills into crypto</li>
+    <li><strong>Session 4:</strong> For crypto, consider using the full 09:30&ndash;16:00 NY session as your &ldquo;US Trading Day&rdquo; reference, with Lines Close ON and STD anchored here</li>
+</ul>
+<p>For crypto, the STD range rate is better set to <strong>1.0</strong> rather than 0.5, because crypto volatility is significantly higher than forex, and the tighter 0.5 rate will cause price to constantly appear at extreme bands.</p>
+
+<h3>US Equity and Index Futures Setup</h3>
+<p>For ES (S&amp;P 500 futures), NQ, or individual equities, the DR (Session 4) is the primary focus. Reduce Sessions 1 and 2 to informational-only (Lines Close OFF, EQ OFF) and rely on Sessions 3 and 4 as your primary structure references. The DR 09:30&ndash;10:30 range is the core reference level for the entire US trading day.</p>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Session STD in Action</h3>
+    <p>Session boxes, DR levels, and STD bands &mdash; all automated on your chart.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Three Trade Setups Using AIO Session STD</h2>
+
+<h3>Setup 1: Dealing Range Break</h3>
+<p>The DR break is the cleanest mechanical setup this indicator enables. The logic is simple: the market forms its initial range in the first 30&ndash;60 minutes of the NY session. When one side is broken convincingly, institutional order flow typically continues in that direction.</p>
+<ol>
+    <li>Enable Session 4 (DR) with Lines Close ON, EQ ON-Close, color green</li>
+    <li>After 10:30 AM NY time, note the DR High and DR Low &mdash; these lines now extend to the right</li>
+    <li>Wait for a <strong>clean close above the DR High</strong> (not just a wick) on a 5-minute or 15-minute chart</li>
+    <li>Enter long on the first pullback to the DR High (now support)</li>
+    <li>Stop: below the DR EQ (midpoint)</li>
+    <li>Target 1: the previous day&rsquo;s high or next key resistance; Target 2: STD 2&sigma; band above the DR midpoint</li>
+</ol>
+<p>The inverse applies for DR Low breaks. The single most important filter: <strong>do not trade DR breaks that happen within the first 5 minutes of 9:30</strong>. Allow the DR to form before acting on it. Pre-market gaps that gap above the DR High on the open are not DR breaks &mdash; they are gap trades, which have different mechanics.</p>
+
+<h3>Setup 2: Asian Range Sweep and Reversal</h3>
+<p>This is the classic ICT &ldquo;liquidity raid&rdquo; setup, visualized directly by the Session 1 Asian box. The sequence:</p>
+<ol>
+    <li>Identify the Asian session High and Low from Session 1 box (formed during the overnight session)</li>
+    <li>Watch during London Open (Session 2 box forming) for a <strong>wick or brief close beyond the Asian High or Low</strong></li>
+    <li>Confirm the move fails to hold &mdash; price closes back inside the Asian range within 2&ndash;3 candles (15-minute chart)</li>
+    <li>This is the liquidity sweep signal: stops above the Asian High (or below the Asian Low) have been taken</li>
+    <li>Enter in the <em>opposite</em> direction of the sweep with a stop just beyond the swept extreme</li>
+    <li>Target: the opposite boundary of the Asian range (Asian High swept &rarr; target Asian Low), or the Asian EQ as a partial exit</li>
+</ol>
+<p>The reliability of this setup depends heavily on whether the Asian range was tight (less than 0.3 &times; ATR). Wide Asian ranges produce less clean sweeps. Pair this setup with the <strong>AIO Price Levels</strong> indicator, which adds PDH/PDL reference lines, to avoid fading a sweep that is aligned with a strong previous-day breakout.</p>
+
+<h3>Setup 3: STD Extreme Mean Reversion</h3>
+<p>When price reaches the 2&sigma; or 3&sigma; boundary of the STD bands anchored to the DR session, it is statistically extended relative to the session&rsquo;s typical range. This is not a guarantee of reversal &mdash; trending days will push through 2&sigma; cleanly &mdash; but on ranging or consolidating days it identifies high-probability fade zones.</p>
+<ol>
+    <li>Enable the STD module anchored to Session 4 (DR), No. Levels = 3, Range Rate = 0.5</li>
+    <li>Wait for price to touch or close beyond the <strong>2&sigma; band</strong> above or below the DR midpoint</li>
+    <li>Look for a rejection candle (pin bar, engulfing, or inside bar on the 5-minute chart)</li>
+    <li>Enter against the move with a stop at the 3&sigma; band</li>
+    <li>Target: the DR midpoint (EQ line) for a full mean reversion, or the 1&sigma; band as a partial</li>
+</ol>
+<p>This setup works best during the 11 AM&ndash;2 PM NY lull period, when volume drops and the market tends to oscillate around the day&rsquo;s equilibrium. Avoid using it in the first 30 minutes after the NY open, when trending moves through 2&sigma; are common.</p>
+
+<h2>Pairing AIO Session STD with Other Tools</h2>
+<p>This indicator is intentionally designed as a session context layer, not a standalone signal generator. Its natural partners in the AIO suite are:</p>
+<ul>
+    <li><strong>AIO Time Separators:</strong> Adds vertical lines at session transitions. When used alongside Session STD, you get horizontal range context (the boxes) and vertical time markers simultaneously &mdash; making it immediately obvious when a new session is forming and how it relates to the prior one.</li>
+    <li><strong>AIO Price Levels:</strong> Adds PDH (Previous Day High), PDL (Previous Day Low), NWOG (New Week Opening Gap), and NDOG (New Day Opening Gap). The combination is a complete ICT-style session reference system: the AIO Session STD shows intraday session boxes while AIO Price Levels anchors those boxes to prior-day structural levels.</li>
+    <li><strong>AIO Key Volume:</strong> The VWAP bands from AIO Key Volume and the STD bands from AIO Session STD anchor to the same session but from different mathematical perspectives (volume-weighted vs range-based). When both agree that price is extended, the confluence strengthens the mean reversion case.</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>Set your timezone correctly first &mdash; wrong timezone makes every session box meaningless</li>
+    <li>The DR (Session 4) is the most critical session: keep Lines Close ON so its H/L extend for the rest of the day</li>
+    <li>EQ ON-Close gives cleaner body-based midpoints; EQ ON gives wick-inclusive midpoints &mdash; match the setting to your strategy</li>
+    <li>Lines Close ON = levels persist for reference all day; Lines Close OFF = box disappears after session ends</li>
+    <li>STD range rate 0.5 for DR/IDR concept; 1.0 for Asian Range (ICT-style) concept</li>
+    <li>The three core setups &mdash; DR break, Asian sweep reversal, STD extreme fade &mdash; each use different sessions but all read from the same indicator</li>
+    <li>Crypto traders: adjust timezone to UTC+0, range rate to 1.0, and widen Session 3 to cover the full US equity open window</li>
+    <li>The indicator only displays on intraday timeframes (60 minutes or lower); use it on 5-minute or 15-minute charts for best session box detail</li>
+</ul>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="ict-trading-setup-sessions-price-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                            <h3 class="feature-title">ICT Sessions &amp; Price Levels: A Practical Setup Guide</h3>
+                            <p class="feature-description">How ICT session theory structures intraday setups around kill zones, PDH/PDL, and opening gap levels.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-use-aio-price-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">How to Use AIO Price Levels</h3>
+                            <p class="feature-description">Configure PDH, PDL, NWOG, NDOG, and session reference prices for a complete ICT-style key levels system.</p>
+                            <span class="feature-description small">9 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-use-aio-key-volume.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">How to Use AIO Key Volume</h3>
+                            <p class="feature-description">POC, VWAP with standard deviation bands, and HTF volume anchoring for confluence-based entries.</p>
+                            <span class="feature-description small">9 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

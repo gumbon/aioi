@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how AIO Key Volume's dual-timeframe POC, balanced volume scoring, and Rolling VWAP create powerful price magnets for high-probability trade setups." />
+    <meta name="keywords" content="AIO Key Volume, Point of Control, POC trading, volume profile TradingView, VWAP indicator, dual timeframe POC, volume trading, TradingView indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Key Volume: Point of Control, VWAP &amp; Dynamic Price Magnets | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Key Volume: Point of Control, VWAP &amp; Dynamic Price Magnets" />
+    <meta property="og:description" content="Dual-timeframe POC lines, balanced volume scoring, and Rolling VWAP — how AIO Key Volume turns volume data into actionable price magnets." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-key-volume.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-key-volume.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Key Volume: Point of Control, VWAP &amp; Dynamic Price Magnets" />
+    <meta name="twitter:description" content="Learn how AIO Key Volume's dual-timeframe POC, balanced volume scoring, and Rolling VWAP create powerful price magnets for high-probability trade setups." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Key Volume: Point of Control, VWAP & Dynamic Price Magnets",
+      "description": "Learn how AIO Key Volume's dual-timeframe POC, balanced volume scoring, and Rolling VWAP create powerful price magnets for high-probability trade setups.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-key-volume.html",
+      "datePublished": "2026-04-29",
+      "dateModified": "2026-04-29",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-key-volume.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT9M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Key Volume: Point of Control, VWAP & Dynamic Price Magnets", "item": "https://aioindicator.com/blog/how-to-use-aio-key-volume.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Key Volume: Point of Control, VWAP &amp; Dynamic Price Magnets</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 29, 2026</span>
+            <span><i class="bi bi-clock"></i> 9 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Volume Has a Center of Gravity</h2>
+<p>Most traders treat volume as a flat number at the bottom of their chart &mdash; a bar that goes up on big moves and shrinks on slow sessions. That framing misses the most actionable insight volume has to offer: <strong>where the bulk of trading activity actually occurred within a price range</strong>. That specific level &mdash; the Point of Control &mdash; behaves like a gravitational center. Price orbits around it, returns to it after extended moves, and respects it as support or resistance far more consistently than most hand-drawn levels.</p>
+
+<p>A full Volume Profile panel is powerful, but it clutters the chart and requires a separate pane or a complex setup. <strong>AIO Key Volume</strong> distills the most important output of a Volume Profile &mdash; the POC line &mdash; into a clean overlay format, adds a second higher-timeframe POC for confluence, and optionally overlays VWAP and a reference moving average. The result is a minimal, information-dense tool that integrates directly into any chart without restructuring your layout.</p>
+
+<h2>What the POC Algorithm Actually Does</h2>
+<p>Understanding the mechanics behind the POC calculation separates traders who use it intelligently from those who treat it as a magic line. The <strong>f_poc</strong> function in AIO Key Volume runs a simplified Volume Profile calculation on each new bar using the following steps:</p>
+
+<h3>Step 1 &mdash; Define the Range</h3>
+<p>Over the last <code>Key Vol Length</code> bars (default 20), the algorithm finds the highest high and the lowest low, establishing the full price range being analyzed. This is a <em>rolling</em> window &mdash; as each new bar closes, the oldest bar drops out and the window shifts forward.</p>
+
+<h3>Step 2 &mdash; Divide Into Bins</h3>
+<p>The price range is divided into <code>Key Vol Size</code> equal-height bins (default 25 rows). Each bin represents a small price increment of <code>(highest - lowest) / 25</code>. This is conceptually identical to how a standard Volume Profile panel divides its horizontal rows.</p>
+
+<h3>Step 3 &mdash; Accumulate Volume and Touches</h3>
+<p>For each of the 20 bars in the lookback, the algorithm checks which bin(s) the bar&rsquo;s high-to-low range covers and adds two things to matching bins:</p>
+<ul>
+    <li><strong>Volume:</strong> The actual traded volume for that bar</li>
+    <li><strong>Touch count:</strong> A count increment of 1, regardless of bar size</li>
+</ul>
+
+<h3>Step 4 &mdash; Score and Find the Winner</h3>
+<p>Each bin receives a combined score: <code>(Volume Score &times; 0.5) + (Touch Score &times; 0.5)</code>. Both scores are normalized to a 0&ndash;1 scale relative to the maximum in the window. The bin with the highest combined score is the POC &mdash; and its midpoint price is plotted as the POC line.</p>
+
+<h2>Why &ldquo;Balanced&rdquo; Priority Produces Better Levels</h2>
+<p>The default &ldquo;Balanced&rdquo; weighting (50% volume, 50% touches) is a deliberate design choice worth understanding. A <strong>pure volume POC</strong> can be skewed by a single institutional order that floods one price level with volume during a brief period of aggressive buying or selling. That extreme bar inflates the score of its bin even if price never revisited that level.</p>
+
+<p>A <strong>touch-weighted POC</strong> has the opposite bias: it favors levels where price repeatedly traded, even if each visit was low-volume. These are often just consolidation zones with thin participation.</p>
+
+<p>The balanced approach finds levels that were <em>both</em> heavily traded and repeatedly tested &mdash; which is the closest approximation to where real market consensus exists. In practice, these balanced POC levels hold up as support and resistance more consistently than either pure-volume or pure-touch alternatives.</p>
+
+<h2>Two POC Lines: Current TF and Higher TF</h2>
+<p>AIO Key Volume plots two POC lines simultaneously:</p>
+<ul>
+    <li><strong>Main POC</strong> (pink/magenta, thin line): Calculated from the current chart timeframe. Sensitive to recent price action, updates frequently.</li>
+    <li><strong>HTF POC</strong> (blue, thicker line): Calculated from the higher timeframe &mdash; default 1H. More stable, slower to move, reflects institutional activity over a wider window.</li>
+</ul>
+
+<p>The HTF POC is the more structurally important level. When the 1H POC sits at a price, it means that over the last 20 one-hour bars (roughly three trading days), the most significant concentration of activity was at that price. That&rsquo;s the level institutions are watching and defending.</p>
+
+<h3>Dual-TF Confluence: The High-Value Zone</h3>
+<p>When the main TF POC and the HTF POC are <strong>close together or converging</strong>, you have dual-timeframe confirmation that a specific price represents genuine market value. Treat this zone the same way you&rsquo;d treat a confluence of a daily level and a 4H level &mdash; it carries more weight than either line alone.</p>
+
+<p>Conversely, a <strong>wide gap between the two POC lines</strong> signals a potential imbalance. If the HTF POC is far below current price while the main TF POC has moved up, it suggests the market has traded away from its recent value area &mdash; a situation where reversion back toward the HTF POC is a reasonable thesis.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Three Core Trading Setups</h2>
+
+<h3>Setup 1: POC Bounce (Mean Reversion)</h3>
+<p>The most straightforward application. After a directional move away from the POC, price often returns to &ldquo;retest&rdquo; the value area before continuing. This is the <strong>POC Bounce</strong> &mdash; a high-probability reversion entry.</p>
+<ol>
+    <li>Identify the HTF POC (blue line) as the key level</li>
+    <li>Wait for price to move at least 0.5&times; ATR away from the POC, then begin returning</li>
+    <li>Look for a reaction candle (pin bar, engulfing, or inside bar) as price touches or just beneath the POC</li>
+    <li>Enter in the direction of the return move with a stop 0.3&times; ATR beyond the POC</li>
+    <li>Target: the next structural level in the direction of the bounce (prior high/low, resistance zone)</li>
+</ol>
+<p><em>Where this fails:</em> When the POC itself is being broken by a trend continuation. If price breaks through the POC on a strong candle with expanding volume, that&rsquo;s not a bounce setup &mdash; it&rsquo;s a breakout. Wait for the next POC to form at the new value area.</p>
+
+<h3>Setup 2: POC as Trend Filter (Directional Bias)</h3>
+<p>The POC acts as a dynamic line dividing &ldquo;above value&rdquo; from &ldquo;below value.&rdquo; This is conceptually similar to using the VWAP as a trend filter, but the POC is anchored to actual volume distribution rather than a time-weighted average.</p>
+<ul>
+    <li><strong>Price consistently above the HTF POC:</strong> Bullish bias. Take long setups, avoid shorts unless there is a clear structural reason to fade.</li>
+    <li><strong>Price consistently below the HTF POC:</strong> Bearish bias. Take short setups. POC acts as resistance overhead.</li>
+    <li><strong>Price cycling through the POC:</strong> Market is in value discovery / equilibrium. Reduce position size, widen stops, or stand aside until a directional conviction forms.</li>
+</ul>
+<p>On a 15-minute BTC/USDT chart, for example, if the 1H POC sits at $96,400 and price has been trading above it for three hours with higher lows, every pullback toward $96,400 is a potential long entry point &mdash; not a warning sign.</p>
+
+<h3>Setup 3: Dual-TF POC Confluence Zone</h3>
+<p>When the main TF POC and HTF POC converge within 0.1&ndash;0.2% of each other, the resulting zone is one of the strongest support/resistance areas on the chart. This is the setup to allocate higher conviction to.</p>
+<ol>
+    <li>Observe both POC lines. If they are within a tight range, treat that range as a &ldquo;POC Zone&rdquo; rather than two separate lines</li>
+    <li>Wait for price to reach the upper or lower boundary of the POC Zone</li>
+    <li>Look for confirmation: a momentum candle, an AIO Market Structure BOS in the expected direction, or Banker momentum turning in your favor</li>
+    <li>Enter at the boundary of the POC Zone with a tight stop just outside the zone</li>
+    <li>R:R target should be at least 2:1 to the next key level</li>
+</ol>
+
+<h2>VWAP: When to Enable It</h2>
+<p>VWAP is off by default in AIO Key Volume &mdash; a sensible choice, because adding it on top of two POC lines and an MA creates visual noise. Enable it selectively based on your session and instrument:</p>
+
+<h3>Anchored VWAP (Best for Intraday)</h3>
+<p>The Anchored VWAP resets daily at the session open. It&rsquo;s the reference price that intraday market makers and algorithms use to gauge whether they are buying or selling at a discount or premium. On equities and equity futures (ES, NQ), the daily Anchored VWAP is arguably the most-watched line in the market.</p>
+<p>Enable Anchored VWAP when:</p>
+<ul>
+    <li>You trade intraday on 1m&ndash;15m charts where the daily session reset is meaningful</li>
+    <li>You want a session-specific reference alongside the multi-day POC</li>
+    <li>You&rsquo;re trading instruments where institutional flow is strongly VWAP-anchored (ES, NQ, large-cap stocks)</li>
+</ul>
+
+<h3>Rolling VWAP (Best for Crypto and Swing)</h3>
+<p>The Rolling VWAP doesn&rsquo;t reset on a daily basis &mdash; it uses a time-based rolling window that <strong>automatically adapts to your chart timeframe</strong>:</p>
+<ul>
+    <li>1-minute chart &rarr; 1-hour window</li>
+    <li>5-minute chart &rarr; 4-hour window</li>
+    <li>1-hour chart &rarr; 1-day window</li>
+    <li>4-hour chart &rarr; 3-day window</li>
+    <li>Daily chart &rarr; 1-month window</li>
+    <li>Weekly chart &rarr; 3-month window</li>
+</ul>
+<p>This auto-adaptation makes the Rolling VWAP immediately usable on any timeframe without reconfiguration. For crypto, where there is no session open, Rolling VWAP is generally the more useful mode.</p>
+
+<h3>Three Standard Deviation Bands</h3>
+<p>When VWAP is enabled, three deviation bands are plotted at ±1.000, ±2.168, and ±2.786 standard deviations. These values are not arbitrary:</p>
+<ul>
+    <li><strong>±1.0&sigma;:</strong> Normal value range &mdash; roughly 68% of price action stays within this band in a trending market</li>
+    <li><strong>±2.168&sigma;:</strong> Extended range &mdash; institutional sell/buy programs often trigger near this level</li>
+    <li><strong>±2.786&sigma;:</strong> Statistical extreme &mdash; price at this deviation is genuinely stretched; high probability of reversion unless a fundamentally new catalyst is driving the move</li>
+</ul>
+<p>In combination with the POC, a price touching the 2.786&sigma; band while simultaneously returning to the HTF POC is a statistically unusual confluence &mdash; one worth noting as a potential high-probability reversal zone.</p>
+
+<h2>The MA 89: Fibonacci Reference for Institutional Trends</h2>
+<p>The moving average in AIO Key Volume defaults to an <strong>EMA of length 89</strong> &mdash; a Fibonacci number sitting between the widely-watched 50 and 100 EMA levels. This is a deliberate choice. The 89 EMA is long enough to filter daily noise while being responsive enough to define medium-term trend direction on 4H and daily charts.</p>
+
+<p>On the 4H chart, the 89 EMA often acts as the first meaningful defense line during pullbacks in a strong trend. Institutional algorithms that monitor EMA-based momentum signals are calibrated to Fibonacci periods &mdash; 8, 13, 21, 34, 55, 89, 144. The 89 is particularly useful because it&rsquo;s not a round number like the 100 EMA, meaning less &ldquo;obvious&rdquo; stop-hunting around it while still being a valid dynamic S/R reference.</p>
+
+<p>Enable the MA when you want a quick trend bias filter alongside your POC levels:</p>
+<ul>
+    <li>Price above EMA 89 + price above HTF POC = strong bullish bias</li>
+    <li>Price below EMA 89 + price below HTF POC = strong bearish bias</li>
+    <li>Price between EMA 89 and POC = mixed signal &mdash; wait for resolution</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Key Volume in Action</h3>
+    <p>Dual-timeframe POC, Rolling VWAP, and MA 89 &mdash; all in one clean overlay.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Recommended Configuration by Use Case</h2>
+
+<h3>Intraday Scalping (1m&ndash;5m)</h3>
+<ul>
+    <li><strong>Key Vol Length:</strong> 20 (default) &mdash; covers roughly 20 recent bars for a tight, responsive POC</li>
+    <li><strong>Key Vol Higher TF:</strong> 15 or 30 minutes (adjust from default 60 if your session is fast-moving)</li>
+    <li><strong>VWAP:</strong> On, Anchored mode &mdash; session VWAP is the dominant institutional reference at this timeframe</li>
+    <li><strong>MA:</strong> Off &mdash; EMA 89 is too slow to be actionable at 1&ndash;5m granularity</li>
+</ul>
+
+<h3>Swing Trading (1H&ndash;4H)</h3>
+<ul>
+    <li><strong>Key Vol Length:</strong> 30&ndash;40 bars for a wider, more structurally relevant lookback</li>
+    <li><strong>Key Vol Higher TF:</strong> Keep default 60m (1H) or change to 240 (4H) if your main chart is 1H</li>
+    <li><strong>VWAP:</strong> On, Rolling mode &mdash; Rolling VWAP adapts to a 1-day or 3-day window automatically</li>
+    <li><strong>MA:</strong> On, EMA 89 &mdash; critical for defining medium-term trend direction</li>
+</ul>
+
+<h3>Position / Crypto Daily</h3>
+<ul>
+    <li><strong>Key Vol Length:</strong> 20 (default) &mdash; 20 daily bars is one month of trading history</li>
+    <li><strong>Key Vol Higher TF:</strong> &ldquo;W&rdquo; (Weekly) &mdash; weekly POC is a major institutional reference level</li>
+    <li><strong>VWAP:</strong> On, Rolling mode &mdash; 1-month window auto-adapts correctly at this timeframe</li>
+    <li><strong>MA:</strong> On, EMA 89 &mdash; the monthly EMA 89 is a significant trend filter for major crypto cycles</li>
+</ul>
+
+<h2>Important Limitation: This Is Not a Full Volume Profile</h2>
+<p>AIO Key Volume uses a <strong>simplified volume profile</strong> approach &mdash; a fixed 25-bin grid over a rolling lookback window. This is an intentional tradeoff: a full Volume Profile with hundreds of rows, visible histogram bars, and value area boundaries would consume the entire chart pane and cannot function as an overlay.</p>
+
+<p>What you gain with the simplified approach:</p>
+<ul>
+    <li>Clean overlay that co-exists with price action tools</li>
+    <li>Real-time updating without manual repositioning</li>
+    <li>Dual-timeframe analysis in a single indicator</li>
+    <li>No separate panel or chart restructuring needed</li>
+</ul>
+
+<p>What you give up compared to a full Volume Profile:</p>
+<ul>
+    <li>No visible volume histogram (you see the output line, not the full distribution)</li>
+    <li>No Value Area High / Value Area Low (70% value area boundaries)</li>
+    <li>Less granularity on thin vs. thick value areas</li>
+</ul>
+
+<p>For most overlay-based trading workflows, the POC line alone provides the most actionable information. The full histogram is useful for research but adds visual clutter in live trading. AIO Key Volume strikes a pragmatic balance &mdash; if you need the full distribution, pair it with a separate Volume Profile study anchored to a key pivot.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>The POC represents the most-traded price level over a rolling 20-bar window, updated on every new bar</li>
+    <li>&ldquo;Balanced&rdquo; weighting (50% volume + 50% touches) produces more robust levels than pure-volume alternatives</li>
+    <li>The HTF POC (blue, default 1H) is the structurally more important level &mdash; it moves slower and reflects institutional consensus</li>
+    <li>Dual-TF POC confluence creates the highest-quality support/resistance zones in the indicator</li>
+    <li>Rolling VWAP auto-adapts its window to your chart timeframe &mdash; no reconfiguration needed as you change timeframes</li>
+    <li>EMA 89 defaults to a Fibonacci period that provides meaningful dynamic S/R without being the obvious &ldquo;round number&rdquo; that attracts stop hunts</li>
+    <li>This is a simplified overlay POC, not a full Volume Profile &mdash; understand the tradeoffs and use it accordingly</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="volume-profile-poc-key-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Volume Profile &amp; POC: The Most Important Levels on Any Chart</h3>
+                            <p class="feature-description">Deep dive into Volume Profile mechanics, Value Area, and how POC levels predict price behavior in trending and ranging markets.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="volume-trading-secrets-order-flow.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">Volume Trading Secrets: Relative Volume &amp; Order Flow</h3>
+                            <p class="feature-description">How to read relative volume, intrastructural volume patterns, and order flow to identify institutional participation before price moves.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

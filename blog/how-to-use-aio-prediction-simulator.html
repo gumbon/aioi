@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to use AIO Prediction Market Simulator: read Bull/Bear probability output, configure Monte Carlo settings, apply Kelly Criterion for position sizing, and interpret Brier Score calibration." />
+    <meta name="keywords" content="AIO Prediction Market Simulator, Monte Carlo simulation, Kelly Criterion, binary probability, particle filter, Brier score, TradingView indicator, prediction market" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Prediction Market Simulator: Monte Carlo, Kelly Criterion &amp; Binary Probability | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Prediction Market Simulator: Monte Carlo, Kelly Criterion &amp; Binary Probability" />
+    <meta property="og:description" content="Read Bull/Bear probability, apply Kelly Criterion sizing, and understand Particle Filter volatility estimation with the AIO Prediction Market Simulator." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-prediction-simulator.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-prediction-simulator.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Prediction Market Simulator: Monte Carlo, Kelly Criterion &amp; Binary Probability" />
+    <meta name="twitter:description" content="Learn how to read Bull/Bear probability, apply Kelly Criterion sizing, and interpret Brier Score calibration with AIO Prediction Market Simulator." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Prediction Market Simulator: Monte Carlo, Kelly Criterion & Binary Probability",
+      "description": "Learn how to use AIO Prediction Market Simulator: read Bull/Bear probability output, configure Monte Carlo settings, apply Kelly Criterion for position sizing, and interpret Brier Score calibration.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-prediction-simulator.html",
+      "datePublished": "2026-04-28",
+      "dateModified": "2026-04-28",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-prediction-simulator.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT13M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Prediction Market Simulator", "item": "https://aioindicator.com/blog/how-to-use-aio-prediction-simulator.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Prediction Market Simulator: Monte Carlo, Kelly Criterion &amp; Binary Probability</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 28, 2026</span>
+            <span><i class="bi bi-clock"></i> 13 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What Problem Does This Indicator Solve?</h2>
+<p>Most TradingView indicators tell you <em>direction</em> &mdash; buy, sell, or wait. They don&rsquo;t tell you <em>how likely</em> that outcome is, or <em>how much capital</em> to risk on it. The <strong>AIO Prediction Market Simulator</strong> is built to answer a different question: given current volatility and the distance to your target, what is the statistical probability of price reaching it before a set expiry? And if you&rsquo;re willing to bet on that outcome, how large should your position be?</p>
+
+<p>This is the logic behind prediction markets like Polymarket or Kalshi &mdash; binary contracts where you buy a YES/NO outcome and the price reflects the crowd&rsquo;s probability estimate. The AIO Prediction Market Simulator replicates that framework on your TradingView chart using quantitative methods: Monte Carlo simulation, Black-Scholes analytical pricing, a Particle Filter for dynamic volatility estimation, and Kelly Criterion for bet sizing.</p>
+
+<p>The result is not a crystal ball. It is a <strong>calibrated probability engine</strong> &mdash; one that tells you &ldquo;the math says 62% chance price reaches +2% before expiry&rdquo; alongside a recommended position size that accounts for your edge and drawdown limits. Whether you trade spot crypto, futures, or actual prediction market contracts, this framework forces you to think in probabilities rather than certainties.</p>
+
+<h2>The Core Output: Reading the Info Table</h2>
+<p>Everything the indicator computes surfaces in a compact table displayed in the chart corner (default: Top Right). Understanding each row is the first practical step.</p>
+
+<h3>Bull Probability and Bear Probability</h3>
+<p>These are the headline numbers. <strong>Bull Prob</strong> is the estimated probability that price will touch or exceed the Bull Strike (default: current close &times; 1.02, i.e., +2%) before expiry. <strong>Bear Prob</strong> is the corresponding probability for the Bear Strike (close &times; 0.98, i.e., &minus;2%).</p>
+
+<p>A reading of <strong>Bull 64% / Bear 38%</strong> does not mean the market is guaranteed to move up. It means: across 1,500 simulated price paths generated from current volatility, 64% of them touched the bull target before the bear target expired. The remaining 36% of paths either hit the bear level first or expired without reaching either target. This is a fundamentally different mental model than a directional signal &mdash; it acknowledges uncertainty explicitly.</p>
+
+<p>The decision threshold is conservative by design: the indicator requires <strong>Bull Prob &gt; 55%</strong> (not just 50%) before issuing a BUY state, giving you a meaningful edge buffer above the breakeven coin-flip. Similarly for Bear Prob &gt; 55% for a SHORT state.</p>
+
+<h3>Expected Value (EV)</h3>
+<p>EV combines probability with payout. If a prediction market is offering 1.8&times; payout on a Bull bet you estimate at 64% probability, your EV = (0.64 &times; 1.8) &minus; (0.36 &times; 1.0) = +0.79. Positive EV means the bet has mathematical edge. The indicator shows this as a signed value &mdash; positive = edge in that direction, negative = negative expectancy. <strong>Never take a position with negative EV</strong>, regardless of what other confluences say.</p>
+
+<h3>Kelly Position Size</h3>
+<p>This is where probability translates into actual position sizing. The Kelly recommendation shown in the table is already adjusted by the Fractional Kelly setting (default 0.15 = 15% of full Kelly). It represents what percentage of your current capital to allocate to this specific bet. A value of 2.3% means: risk 2.3% of capital on this trade. If Kelly shows 0%, either EV is negative or the model has insufficient confidence to size a position.</p>
+
+<h3>Estimated Volatility</h3>
+<p>This row shows the Particle Filter&rsquo;s current estimate of realized annual volatility (expressed as a decimal &mdash; 0.72 = 72% annualized). This is the volatility figure used inside the Monte Carlo simulation. If it reads significantly higher than your intuition for the current market regime, it is worth checking whether a recent extreme candle has inflated the lookback window. Conversely, if it reads lower than expected during a quiet pre-news period, the model may be underestimating upcoming volatility.</p>
+
+<h3>Brier Score</h3>
+<p>The Brier Score is the model&rsquo;s self-assessment. It measures over the last N bars (default 20) whether the indicator&rsquo;s probability forecasts were accurate. A score near <strong>0.0 = excellent calibration</strong>; near <strong>0.25 = equivalent to random guessing</strong>; near <strong>0.50+ = the model is systematically miscalibrated</strong>. If Brier is climbing above 0.20, treat all probability readings with extra skepticism until it stabilizes.</p>
+
+<h3>Risk Status and Drawdown</h3>
+<p>The table tracks a running drawdown against the initial capital setting. Once drawdown exceeds the Max Drawdown Limit (default 15%), the indicator switches to <strong>AVOID</strong> state and will not issue new position sizes. This is a circuit-breaker &mdash; it reflects the Kelly Criterion&rsquo;s theoretical requirement that you must stop betting when your bankroll has been sufficiently impaired to make further bets unprofitable in expectation.</p>
+
+<h2>How Monte Carlo Simulation Works (Plain Language)</h2>
+<p>The indicator runs 1,500 simulated price paths (configurable from 100 to 10,000). Each path is a sequence of random price moves from the current bar forward to the expiry date, generated using the current volatility estimate. The random moves follow a log-normal distribution &mdash; the same statistical model that Black-Scholes uses &mdash; with one key difference: this implementation uses a <strong>hash-based random number generator</strong> that produces unique paths per bar, not a sequential stream that could repeat or correlate across calls.</p>
+
+<p>For each simulated path, the indicator checks: did this path touch the Bull Strike before the Bear Strike? Did it hit the Bear Strike first? Did it expire without touching either? Counting those outcomes across 1,500 paths gives the probability estimates. The higher the simulation count, the lower the statistical noise &mdash; but at 1,500 sims, the standard error is already below 1.3 percentage points, which is sufficient for trading decisions.</p>
+
+<h3>Variance Reduction: Why It Matters</h3>
+<p>Running raw Monte Carlo at 1,500 paths produces a noisier estimate than the same compute budget can achieve with variance reduction techniques. Three methods are available:</p>
+<ul>
+    <li><strong>Antithetic Variates (default ON):</strong> For every random path, the indicator also runs its mirror image &mdash; if path A uses random numbers +0.3, +0.7, &minus;0.2, path B uses &minus;0.3, &minus;0.7, +0.2. The average of paired paths cancels symmetric variance, roughly halving the effective Monte Carlo error. This is the highest-impact variance reduction method and should always be left enabled.</li>
+    <li><strong>Control Variates / Black-Scholes (default ON):</strong> The Black-Scholes analytical formula provides an exact closed-form probability for a vanilla European option. Using that BS price as a &ldquo;control variable&rdquo; &mdash; adjusting the Monte Carlo estimate by how much it deviates from BS on a known benchmark &mdash; further reduces variance. The two methods cross-check each other: if MC and BS probabilities diverge by more than the market-specific tolerance (8 percentage points for crypto, 5 for indices), the table flags a model divergence warning.</li>
+    <li><strong>Stratified Sampling (default OFF):</strong> Divides the normal distribution into equal-probability strata and samples one path per stratum, ensuring better coverage of the distribution tails. Useful when running low simulation counts (&lt; 500) but adds overhead that becomes unnecessary above 1,000 paths.</li>
+</ul>
+
+<h3>Importance Sampling for Tail Risk</h3>
+<p>Standard Monte Carlo undersamples rare events because it draws from the center of the distribution. Importance Sampling deliberately oversamples the tails (crash and spike scenarios) and then mathematically corrects for the sampling bias. When enabled (default ON), the indicator also outputs a <strong>Crash Probability</strong> &mdash; the estimated likelihood of a sudden sharp decline (threshold calibrated per market: 5% for BTC intraday, 2% for SPX intraday, 1.2% for forex pairs). If crash probability exceeds the alert threshold, the indicator switches to AVOID state regardless of Bull probability.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>The Particle Filter: Smarter Volatility Estimation</h2>
+<p>The most important input to any Monte Carlo simulation is the volatility assumption. If you use a fixed or naively calculated historical volatility, you are effectively assuming that the current regime is identical to the recent past &mdash; a reasonable approximation during calm markets, but dangerously wrong during regime transitions, news events, or after a period of unusually low volatility that precedes an expansion.</p>
+
+<p>The AIO Prediction Market Simulator uses a <strong>Particle Filter</strong> &mdash; a Bayesian sequential estimation algorithm &mdash; to maintain a probability distribution over &ldquo;hidden&rdquo; volatility states. Rather than asking &ldquo;what was volatility over the last 100 bars?&rdquo;, it asks: &ldquo;given everything I&rsquo;ve observed, what volatility state is most consistent with current price behavior?&rdquo;</p>
+
+<h3>How It Works in Practice</h3>
+<p>The filter maintains 200 &ldquo;particles&rdquo; (default) &mdash; each particle is a hypothesis about the current volatility regime. On each bar, each particle predicts what return it would expect given its volatility hypothesis. The observed actual return is then used to weight each particle: particles whose predictions matched actual price behavior better receive higher weight. High-weight particles are then resampled, and a small amount of process noise is added to each particle to allow the distribution to evolve. The weighted mean of all particle volatility estimates becomes the current effective volatility fed into Monte Carlo.</p>
+
+<p>The practical effect is that the Particle Filter reacts to volatility regime changes faster than a simple rolling-window standard deviation, while still being smoother than a per-bar estimate. For BTC intraday (Crypto + Intraday mode), the process volatility is set to 0.25 &mdash; high enough to allow rapid regime changes. For a forex pair like EUR/USD, the corresponding value scales down to 0.0625 (25% &times; 0.25 multiplier), reflecting that forex volatility regimes change far more slowly.</p>
+
+<h2>Setup Guide: BTC Intraday (Recommended Configuration)</h2>
+<p>This is the most common use case &mdash; trading BTC on the 15-minute or 1-hour chart and wanting a quantitative probability estimate for short-term directional bets.</p>
+
+<h3>Step 1: Apply the Indicator and Set Trade Mode</h3>
+<ol>
+    <li>Add <strong>AIO Prediction Market Simulator</strong> to a BTC/USDT chart on the 15m or 1H timeframe</li>
+    <li>Set <strong>Trade Type = Intraday</strong> &mdash; this auto-configures: expiry = 1 day, lookback base = 60 bars &times; 2 (crypto multiplier) = 120 effective bars, Kelly fraction = 0.10 (tighter for faster markets), max bet = 3%</li>
+    <li>Set <strong>Market Type = Crypto</strong> &mdash; this scales Particle Filter noise to 1.0&times; baseline, sets crash threshold to 5%, and uses the 8 percentage-point BS/MC convergence tolerance appropriate for BTC&rsquo;s fat-tailed distribution</li>
+</ol>
+
+<h3>Step 2: Verify the Strike Offsets</h3>
+<p>In Intraday + Crypto mode, the strike offsets are auto-set to 2% (current close &plusmn;2%). On a $65,000 BTC chart, this means Bull Strike = $66,300 and Bear Strike = $63,700. Assess whether 2% is a realistic target within 1 day on current BTC volatility. If the ATR on your 1H chart is running below 0.5%, the targets may be unreachable in normal conditions &mdash; consider reducing to 1% manually. If ATR is 2%+ per bar, the default 2% target is probably too tight.</p>
+
+<h3>Step 3: Read the Table</h3>
+<p>Once the indicator initializes (takes a few bars to build the particle distribution and historical lookback), the table will show something like:</p>
+<ul>
+    <li><strong>State: BUY / SHORT / WAIT / AVOID</strong> &mdash; the top-line decision. BUY requires Bull Prob &gt; 55%, positive EV, positive Kelly, and crash probability below threshold. AVOID means drawdown circuit-breaker has triggered or crash probability is elevated.</li>
+    <li><strong>Bull Prob: 61.3%</strong> &mdash; statistically meaningful edge on the bull side</li>
+    <li><strong>Bear Prob: 41.7%</strong> &mdash; the probabilities do not need to sum to 100%, because some paths expire without touching either strike</li>
+    <li><strong>EV Bull: +0.18</strong> &mdash; positive edge per unit bet</li>
+    <li><strong>Kelly: 2.1%</strong> &mdash; risk 2.1% of capital on this position</li>
+    <li><strong>Volatility: 0.68</strong> &mdash; Particle Filter estimate of 68% annualized vol</li>
+    <li><strong>Brier: 0.12</strong> &mdash; model is well-calibrated</li>
+</ul>
+
+<h3>Step 4: Act on the Signal</h3>
+<p>A BUY state with Bull Prob &gt; 60%, positive EV, and Brier below 0.20 is the full confluence. Take the trade, size it at the Kelly % shown (or less &mdash; never more), and set your stop approximately at the Bear Strike level. Exit when price reaches the Bull Strike, when the state flips to AVOID, or when your time-based expiry arrives.</p>
+
+<h2>Kelly Criterion: Why 15% Fractional is the Right Default</h2>
+<p>The full Kelly formula sizes a bet at <code>f* = (p &times; b &minus; q) / b</code>, where <em>p</em> is win probability, <em>q</em> is loss probability (1 &minus; p), and <em>b</em> is the odds multiple (net payout per unit bet). For a binary bet at 63% probability with 1:1 payout, full Kelly recommends risking 26% of capital on that single bet. That is mathematically optimal for maximizing geometric growth &mdash; but it assumes your probability estimate is perfectly accurate and that you will not need liquidity for other opportunities.</p>
+
+<p>In practice, probability estimates from any model &mdash; including this one &mdash; carry estimation error. The Particle Filter can be slow to react to sudden volatility spikes. Black-Scholes assumes log-normal returns; crypto markets frequently produce fat-tailed moves that make the BS analytical price optimistic. Brier scores below 0.20 are good, but they are not zero. <strong>Fractional Kelly at 0.15</strong> (15% of full Kelly) reduces the recommended size from 26% to 3.9% in the above example &mdash; far more appropriate for a market where a single tweet can override all statistical models.</p>
+
+<p>The trade-type presets apply different Kelly fractions:</p>
+<ul>
+    <li><strong>Intraday:</strong> 0.10 (10%) &mdash; smallest, because intraday volatility makes probability estimates least reliable</li>
+    <li><strong>Day:</strong> 0.15 (15%) &mdash; moderate, balanced for 3-day horizon</li>
+    <li><strong>Swing:</strong> 0.20 (20%) &mdash; slightly more aggressive, because longer lookback windows produce more stable probability estimates</li>
+</ul>
+
+<p>The Max Bet % cap (3% intraday, 5% day, 8% swing) acts as a hard ceiling above Kelly, preventing any single bet from exceeding that fraction of capital even if Kelly recommends more. The effective position size is always <code>min(Kelly recommendation, Max Bet Cap)</code>.</p>
+
+<h2>Brier Score: Is the Model Actually Working?</h2>
+<p>The Brier Score is the calibration metric that separates a properly tuned indicator from an overfit one. Every N bars (default 20), the indicator records its current Bull or Bear probability estimate along with current price. N bars later, it checks the actual outcome: did price reach the predicted target? The Brier score is computed as the mean squared error between the predicted probability and the binary outcome (1 = target reached, 0 = not reached).</p>
+
+<h3>Interpreting the Score</h3>
+<ul>
+    <li><strong>0.00 &ndash; 0.10:</strong> Excellent calibration. Model probabilities are closely tracking actual outcomes. High confidence in Kelly sizing recommendations.</li>
+    <li><strong>0.10 &ndash; 0.20:</strong> Good calibration. Normal operating range for a model working in a consistent market regime. Proceed with standard settings.</li>
+    <li><strong>0.20 &ndash; 0.25:</strong> Degrading calibration. The model is experiencing regime mismatch &mdash; possibly a transition from trending to ranging, or after a volatility spike. Consider reducing position sizes below the Kelly recommendation until Brier stabilizes.</li>
+    <li><strong>0.25+:</strong> Poor calibration &mdash; approaching random. The model&rsquo;s probability estimates are unreliable in the current regime. Do not use Kelly sizing. WAIT for Brier to recover or investigate parameter settings.</li>
+</ul>
+
+<p>A persistently high Brier Score is most commonly caused by either a lookback period that is too short (insufficient history to estimate vol) or a strike offset that is too wide (making &ldquo;hits&rdquo; rare and probability estimates near zero, which score badly). If Brier is chronically above 0.20, try reducing the strike offset by 0.5% or increasing the lookback by 20&ndash;30 bars.</p>
+
+<h2>Multi-Asset Correlation Module</h2>
+<p>When trading correlated assets simultaneously &mdash; BTC and ETH, for example, or ES and NQ futures &mdash; treating each position independently overstates your diversification. The correlation module (disabled by default) allows you to input a second symbol and compute a joint probability that incorporates the realized correlation between the two assets over the past N bars (default 60).</p>
+
+<p>When enabled with <code>BINANCE:ETHUSDT</code> as the second symbol on a BTC chart, the indicator shows a combined probability estimate that penalizes simultaneous BTC + ETH bull bets during high-correlation regimes (when they tend to move together, doubling up is equivalent to 2&times; single-asset exposure). This is an advanced feature &mdash; leave it disabled unless you are specifically managing a multi-asset book where correlation risk is material.</p>
+
+<h2>Display Options and Alerts</h2>
+<p>The table ships in two modes: <strong>Compact</strong> (key metrics: state, probabilities, EV, Kelly, Brier, volatility) and <strong>Full</strong> (adds crash probability, convergence signal, drawdown details, and correlation metrics if enabled). For most traders, Compact is sufficient on a live trading chart. Full mode is more useful during backtesting or model review.</p>
+
+<p>The indicator can also overlay visual elements on the chart:</p>
+<ul>
+    <li><strong>Strike Up/Down lines:</strong> Horizontal lines showing the Bull and Bear targets &mdash; useful for visually confirming strike placement relative to nearby structure</li>
+    <li><strong>CI Upper/Lower bands:</strong> Confidence interval bands showing the 1-sigma expected price range to expiry &mdash; the band width gives an intuitive sense of how wide the probability distribution is</li>
+    <li><strong>State Marker (Top):</strong> A colored dot at the top of each bar &mdash; green = BUY, red = SHORT, orange = WAIT, dark red = AVOID &mdash; so you can scroll back and review historical state transitions at a glance</li>
+</ul>
+
+<p>For alerts, the most actionable setting is <strong>&ldquo;Wait/Avoid &rarr; Buy/Short&rdquo;</strong> (enabled by default) &mdash; this fires when the model upgrades from a low-conviction or circuit-breaker state to a tradeable signal. The High Confidence alert fires when Bull or Bear Prob exceeds 65% (configurable) while Brier is below 0.20 &mdash; the strictest signal the indicator produces.</p>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Prediction Market Simulator in Action</h3>
+    <p>Monte Carlo probability engine with Kelly position sizing on your TradingView chart.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<h2>Limitations and When Not to Trust the Output</h2>
+<p>This indicator is a quantitative probability model, not a market oracle. Several conditions systematically impair its output quality:</p>
+
+<ul>
+    <li><strong>Regime breaks:</strong> The Particle Filter adapts to volatility changes, but it requires several bars of data to update. During the first few bars after a major news event, the volatility estimate lags reality. Probability outputs immediately after a significant move should be treated cautiously until the Particle Filter has had at least 5&ndash;10 bars to recalibrate.</li>
+    <li><strong>Thin markets:</strong> On very low-volume instruments or outside primary trading sessions, the realized volatility from the lookback window may be based on artificially compressed price action. The subsequent session open can invalidate the vol estimate completely.</li>
+    <li><strong>The log-normal assumption:</strong> Both Monte Carlo paths and the Black-Scholes cross-check assume returns follow a log-normal distribution. Crypto markets in particular exhibit &ldquo;fat tails&rdquo; &mdash; extreme moves occur more frequently than log-normal predicts. The 8 percentage-point convergence tolerance and the importance sampling module partially compensate for this, but they cannot fully account for true black swan events.</li>
+    <li><strong>Fixed expiry vs. barrier options:</strong> The indicator uses a touch-based barrier model &mdash; it asks whether price will touch the strike at any point before expiry. This is a more bullish model than a pure end-of-expiry check. If your actual prediction market contract settles on closing price rather than any-touch, you should treat the indicator&rsquo;s probabilities as modestly optimistic.</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>The output is a <strong>probability, not a signal</strong> &mdash; Bull Prob 62% means 38% chance of being wrong. Always use Kelly sizing rather than fixed lot sizes.</li>
+    <li><strong>Read State first</strong> (BUY/SHORT/WAIT/AVOID), then confirm with EV &gt; 0 and Brier &lt; 0.20 before acting.</li>
+    <li>For BTC intraday, use <strong>Crypto + Intraday mode</strong> &mdash; it auto-calibrates all parameters for 24/7 high-volatility regimes.</li>
+    <li><strong>Fractional Kelly 0.15</strong> is not timid &mdash; it is mathematically correct for a model with imperfect calibration. Never override to higher fractions in crypto.</li>
+    <li>The <strong>Brier Score is your quality control</strong>: if it exceeds 0.20, reduce size or stand aside until it recovers.</li>
+    <li>Antithetic Variates and Control Variates should always remain enabled &mdash; they reduce Monte Carlo noise at no meaningful cost.</li>
+    <li>The <strong>Particle Filter</strong> is more accurate than a rolling standard deviation in trending volatility regimes &mdash; it is the core reason this model&rsquo;s probability estimates can remain well-calibrated across different market conditions.</li>
+</ul>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="monte-carlo-simulation-trading.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-diagram-3"></i></div>
+                            <h3 class="feature-title">Monte Carlo Simulation in Trading: What It Is and How to Use It</h3>
+                            <p class="feature-description">Understand how Monte Carlo simulation models price path distributions and why it produces more realistic probability estimates than deterministic indicators.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="risk-management-probability-kelly-criterion.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-check"></i></div>
+                            <h3 class="feature-title">Risk Management, Probability &amp; the Kelly Criterion</h3>
+                            <p class="feature-description">A deep dive into the mathematics of position sizing, Kelly fractions, and why optimal bet sizing is the most durable edge in systematic trading.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="open-interest-cvd-crypto-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Open Interest &amp; CVD in Crypto Futures</h3>
+                            <p class="feature-description">How to read OI and Cumulative Volume Delta to detect institutional positioning and distinguish genuine breakouts from stop hunts.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

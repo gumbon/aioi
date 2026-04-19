@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Complete guide to AIO Dow Theory: market phases, structure labels, scoring engine, dashboard rows, MTF alignment, and step-by-step entry setups for trend and reversal trades." />
+    <meta name="keywords" content="AIO Dow Theory, Dow Theory indicator, market phases accumulation distribution, BOS CHoCH structure, TradingView indicator, swing structure, MTF analysis" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Dow Theory: Market Phases, Structure &amp; Entry Signals | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Dow Theory: Market Phases, Structure &amp; Entry Signals" />
+    <meta property="og:description" content="Read the phases, decode the dashboard, and set up high-confidence trade entries with AIO Dow Theory on any timeframe." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-dow-theory.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-dow-theory.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Dow Theory: Market Phases, Structure &amp; Entry Signals" />
+    <meta name="twitter:description" content="Complete guide to AIO Dow Theory: market phases, structure labels, scoring engine, dashboard rows, MTF alignment, and step-by-step entry setups." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Dow Theory: Market Phases, Structure & Entry Signals",
+      "description": "Complete guide to AIO Dow Theory: market phases, structure labels, scoring engine, dashboard rows, MTF alignment, and step-by-step entry setups for trend and reversal trades.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-dow-theory.html",
+      "datePublished": "2026-04-21",
+      "dateModified": "2026-04-21",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-dow-theory.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Dow Theory: Market Phases, Structure & Entry Signals", "item": "https://aioindicator.com/blog/how-to-use-aio-dow-theory.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Dow Theory: Market Phases, Structure &amp; Entry Signals</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 21, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What AIO Dow Theory Does</h2>
+<p>Most traders apply Dow Theory as a conceptual framework&mdash;they manually count swing highs and lows, eyeball whether price is making higher highs, and broadly label phases like &ldquo;accumulation&rdquo; or &ldquo;distribution.&rdquo; The problem is that manual classification is slow, inconsistent, and highly subject to recency bias. You see what you want to see.</p>
+
+<p><strong>AIO Dow Theory</strong> automates the entire process. It detects close-based swings, classifies market structure in real time, identifies Dow phases from higher timeframe context, scores trade conditions on a 0&ndash;100 confidence scale, and surfaces a clear Decision signal only when multiple factors align. The result is a single overlay that replaces a stack of manual chart work&mdash;without removing your judgment from the equation.</p>
+
+<p>This guide walks through every layer of the indicator in the order you&rsquo;d actually encounter them on a live chart: visual structure first, then phases, then scoring and signals, and finally the Dashboard and alert workflow.</p>
+
+<h2>Layer 1: Swing Structure Labels (HH / HL / LH / LL)</h2>
+<p>The foundation of the indicator is a <strong>close-based pivot detector</strong> with a configurable lookback (default 7 bars each side). Using close prices&mdash;not wicks&mdash;eliminates the noise of intraday stop-hunts from the swing definition. A pivot only counts when 7 bars on each side confirm it as the local extreme close.</p>
+
+<h3>What the Labels Mean</h3>
+<p>Every confirmed swing point is labeled immediately below (lows) or above (highs) the bar:</p>
+<ul>
+    <li><strong>HH (Higher High):</strong> The latest swing high closed above the previous swing high. <span style="color:#009688">Teal</span> &mdash; bullish structure.</li>
+    <li><strong>HL (Higher Low):</strong> The latest swing low closed above the previous swing low. <span style="color:#4db6ac">Light teal</span> &mdash; pullback stayed shallow, trend intact.</li>
+    <li><strong>LH (Lower High):</strong> The latest swing high failed to exceed the prior one. <span style="color:#ef9a9a">Light red</span> &mdash; bearish pressure entering.</li>
+    <li><strong>LL (Lower Low):</strong> The latest swing low undercut the previous one. <span style="color:#f44336">Red</span> &mdash; bearish structure confirmed.</li>
+</ul>
+
+<p>A clean bull trend reads: HH &rarr; HL &rarr; HH &rarr; HL. The moment you see an LH appear in a previously bullish sequence, that is the first warning that trend momentum is softening&mdash;not necessarily a reversal, but a signal to tighten your attention. Structure breaks (displacement) build on this foundation, discussed in Layer 3.</p>
+
+<h3>Configuring Swing Lookback</h3>
+<p>The default of 7 bars each side works well for intraday charts (15-minute, 1-hour). On Daily charts, increase to 10&ndash;14 to avoid labeling minor waves as structural swings. Decrease to 3&ndash;5 only for very fast scalping setups, and expect more noise. The Swing Lookback setting determines the resolution of everything else in the indicator&mdash;phase detection, scoring, and the Fib zone all derive from these same pivots.</p>
+
+<h2>Layer 2: Phase Detection and Background Shading</h2>
+<p>Dow Theory defines three market phases: Accumulation (smart money building positions quietly), Participation (the broad trending move), and Distribution (smart money distributing into retail buying). AIO Dow Theory detects these phases using two quantitative conditions applied to the <strong>higher timeframe 2 context</strong> (default Daily).</p>
+
+<h3>How Phase Is Detected</h3>
+<p>The indicator measures two things over a configurable lookback window (default 50 bars):</p>
+<ol>
+    <li><strong>Range tightness:</strong> If the high-to-low range of closes is less than 3.0&times; ATR(14), the market is considered &ldquo;tight&rdquo;&mdash;consolidating rather than trending.</li>
+    <li><strong>Prior trend context:</strong> Over the prior 60 bars, was price generally declining (suggesting smart money is done selling) or advancing (suggesting smart money is reaching distribution)?</li>
+</ol>
+
+<p>The combination produces four states:</p>
+<ul>
+    <li><strong>Accumulation</strong> (dark blue background): Tight range + prior downtrend. Smart money is quietly buying into weak hands selling.</li>
+    <li><strong>Distribution</strong> (purple background): Tight range + prior uptrend. Smart money is quietly offloading into retail FOMO buyers.</li>
+    <li><strong>Bull Participation</strong> (dark green background): Price is in a trending structure with HH/HL pattern active. The markup phase is underway.</li>
+    <li><strong>Bear Participation</strong> (dark red background): Trending structure with LH/LL pattern active. The markdown phase is underway.</li>
+</ul>
+
+<p>These background colors give you an immediate read on where in the cycle price currently sits according to the Daily timeframe. Accumulation backgrounds are where the indicator will eventually generate its best long-side entries once the breakout begins. Distribution backgrounds are where short setups become high-probability on the first confirmed LH.</p>
+
+<h3>Important: Phases Come from HTF2 (Daily by Default)</h3>
+<p>The phase shading you see on a 1-hour chart reflects <em>Daily-level</em> phase classification. This is intentional. Intraday charts cycle through mini-accumulation and mini-distribution dozens of times per week; shading them all would produce a flashing rainbow. What matters is whether the daily context is accumulating, participating, or distributing&mdash;because that determines which directional trades carry the highest probability.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Dow Theory automates phases, structure, and scoring &mdash; no manual work needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Layer 3: Liquidity Sweeps and Structure Breaks</h2>
+<p>Beyond labeling swing points, the indicator tracks two high-conviction price events that institutional traders deliberately engineer.</p>
+
+<h3>Liquidity Sweeps (Yellow)</h3>
+<p>A liquidity sweep fires when price wicks through a recent swing high or low but the <em>close</em> holds on the other side. The wick printed below a swing low, triggered retail stop-losses and breakout shorts&mdash;then closed back above. The yellow &ldquo;LS&uarr;&rdquo; or &ldquo;LS&darr;&rdquo; label marks this event. In a bullish context, a liquidity sweep below a swing low followed by a bullish close is one of the most reliable entry triggers in smart money trading. It confirms that weak hands have been cleared and the path of least resistance is up.</p>
+
+<h3>Structure Breaks / Displacement (Fuchsia)</h3>
+<p>A structure break requires a two-bar confirmation sequence, not just a single candle closing through a swing level:</p>
+<ol>
+    <li>A strong displacement candle (body-to-range ratio &ge; 0.6) closes through the swing high or low.</li>
+    <li>The <em>following</em> bar also closes in the same direction (follow-through confirmation).</li>
+</ol>
+<p>This two-step filter prevents labeling every false breakout candle as a structure break. A confirmed bullish structure break (&ldquo;SB&uarr;&rdquo;) means the prior swing high was taken out with conviction and confirmed&mdash;the downtrend is likely ending. A bearish structure break (&ldquo;SB&darr;&rdquo;) is the mirror image.</p>
+
+<p>The scoring engine imposes a <strong>&minus;20 point penalty</strong> on the opposite direction whenever a structure break is confirmed or pending. This is why you rarely see a LONG signal immediately after a bearish structure break, even if price briefly rebounds.</p>
+
+<h2>Layer 4: Warning Signs (Orange)</h2>
+<p>Three specific patterns indicate that a trend is weakening&mdash;not necessarily reversing, but becoming fragile enough to warrant tighter stops or reduced position size.</p>
+
+<h3>Diminishing Impulse (&ldquo;⚠ Dim. Impulse&rdquo;)</h3>
+<p>The indicator measures the size of each impulse leg (swing high minus the preceding swing low) over the last 3 legs by default. If each successive leg is smaller than the one before it, buying pressure is waning. In a bull trend: leg 1 = 200 pips, leg 2 = 140 pips, leg 3 = 90 pips &mdash; that pattern tells you institutions are scaling back. The trend may continue, but it is running on thinner conviction.</p>
+
+<h3>Deep Correction (&ldquo;⚠ Deep Corr.&rdquo;)</h3>
+<p>If the current pullback retraces more than 50% (configurable) of the prior impulse leg, the correction is too deep for a healthy trend. Healthy trends pull back 38&ndash;50%. A 60%+ retracement suggests the trend is exhausted and a reversal setup may be forming rather than a continuation entry.</p>
+
+<h3>Failed Breakout (orange &times; mark)</h3>
+<p>When price wicks through a swing high or low on a large candle but closes <em>inside</em> the prior range with a strong opposite body, the breakout has failed. This is displayed as a small orange &times; above or below the bar. Unlike a liquidity sweep, a failed breakout involves a larger displacement candle that cannot follow through&mdash;signaling immediate rejection rather than a sweep-and-reverse.</p>
+
+<p>Warning signs apply a &minus;10 point penalty to the direction of the failing trend in the scoring engine. Two warnings active simultaneously (diminishing impulse + deep correction) effectively prevent a Decision signal from firing in that direction until conditions reset.</p>
+
+<h2>Layer 5: The Secondary Reaction (Fibonacci) Zone</h2>
+<p>Once the two most recent swing high and swing low are confirmed, the indicator draws a <strong>Fibonacci 38.2&ndash;61.8% retracement zone</strong> between them as a shaded purple box. Dow Theory calls this the &ldquo;secondary reaction&rdquo;&mdash;the normal corrective move within a primary trend that institutions use to re-enter at better prices.</p>
+
+<p>The box extends 5 bars to the right of the current bar, so it always represents the <em>current</em> reaction zone rather than a historical level. The orientation adapts automatically:</p>
+<ul>
+    <li>If the most recent swing <em>high</em> was formed after the most recent swing low (uptrend): the zone is drawn in the upper 38&ndash;62% area, representing pullback support.</li>
+    <li>If the most recent swing <em>low</em> was formed after the most recent swing high (downtrend): the zone is in the lower 38&ndash;62%, representing rally resistance for shorts.</li>
+</ul>
+
+<p>When price enters this zone while a Decision signal is active, the alert system fires the higher-priority <strong>&ldquo;Entry Setup&rdquo;</strong> alert (Decision + Fib zone simultaneously). This combination is the indicator&rsquo;s highest-quality signal&mdash;direction confirmed by scoring, price at optimal re-entry depth.</p>
+
+<h2>The Scoring Engine: How Confidence Is Calculated</h2>
+<p>Every bar, the indicator calculates a LONG score and a SHORT score from 0 to 100. A Decision signal fires when either score crosses the configured threshold (default 70) and stays above it, subject to a 24-bar cooldown. Here is the complete breakdown of what adds and subtracts from each score:</p>
+
+<h3>Bullish Score Contributors (LONG)</h3>
+<ul>
+    <li><strong>Weekly trend bullish:</strong> +25 pts &mdash; the largest single factor. If the weekly timeframe shows an uptrend, you have institutional tailwinds.</li>
+    <li><strong>Daily trend bullish:</strong> +20 pts &mdash; intermediate trend alignment.</li>
+    <li><strong>Current structure bullish (HH/HL):</strong> +15 pts &mdash; confirmed by close-based swings on your working timeframe.</li>
+    <li><strong>Bull Participation phase on Daily:</strong> +15 pts. Accumulation phase: +5 pts (potential, not confirmed yet).</li>
+    <li><strong>Volume confirmed bull bar:</strong> +10 pts &mdash; up-close candle with volume above the 20-bar MA.</li>
+    <li><strong>Strong EMA slope (&gt;0.3 ATR units per 10 bars):</strong> +10 pts.</li>
+    <li><strong>Price inside Fib zone while bullish structure active:</strong> +5 pts.</li>
+    <li><strong>Reversal confirmation patterns (candle, exhaustion, retest, trap):</strong> up to +23 pts total across four conditions.</li>
+</ul>
+
+<h3>Penalties Applied to LONG Score</h3>
+<ul>
+    <li><strong>Bearish structure break confirmed or pending:</strong> &minus;20 pts.</li>
+    <li><strong>Diminishing impulse warning active:</strong> &minus;10 pts.</li>
+    <li><strong>Deep correction warning active:</strong> &minus;10 pts.</li>
+</ul>
+
+<p>The SHORT score uses the exact mirror set of conditions. Maximum theoretical score is around 95 (with all conditions firing and no penalties). In practice, a clean 70&ndash;80 score on a well-structured chart means Weekly + Daily trending in one direction, current structure in alignment, volume confirming, and no active warnings&mdash;that is a genuinely high-quality setup context, not a random indicator crossing.</p>
+
+<h3>Tuning the Threshold</h3>
+<ul>
+    <li><strong>60 (Aggressive):</strong> Fires earlier, catches more moves, but also more false signals. Use on liquid, trending markets where you can manage risk tightly.</li>
+    <li><strong>70 (Balanced, default):</strong> Requires at least three major factors aligning. Most traders should start here.</li>
+    <li><strong>80 (Conservative):</strong> Requires near-perfect alignment&mdash;fewer signals, but very high-context entries. Useful on Daily charts or for swing traders who want only the cleanest setups.</li>
+</ul>
+
+<h2>Reading the Dashboard</h2>
+<p>The Dashboard table (default: top-right corner) is a real-time summary of every condition the scoring engine evaluates. In Full mode it shows 18 rows across two columns. Here is what each section tells you:</p>
+
+<h3>Timeframe Rows (Rows 1&ndash;3 of the Checklist)</h3>
+<p>The first three data rows display Trend and Phase for each timeframe: Weekly (HTF1), Daily (HTF2), and your current chart timeframe. Each cell shows a direction icon (BULL &uarr;, BEAR &darr;, MIX &loz;) and the phase label (Accum, Dist, Partic). The background color matches the trend: teal for bull, red for bear, gray for mixed. <strong>When all three rows show BULL, you have full-stack alignment&mdash;the highest-probability long environment.</strong></p>
+
+<h3>Checklist Rows</h3>
+<ul>
+    <li><strong>Phase:</strong> Current Daily phase with a checkmark (Participation = trade-ready) or a caution icon (Accumulation = wait for breakout, Distribution = avoid longs).</li>
+    <li><strong>Volume:</strong> Whether the current bar has volume-confirmed directional flow or weak/neutral volume.</li>
+    <li><strong>Warnings:</strong> Green checkmark if no active warnings; orange text identifies any active warning conditions (Diminishing Impulse, Deep Correction).</li>
+    <li><strong>Struct Break:</strong> Shows whether structure is intact (&ldquo;✓ Intact&rdquo;), a break is pending confirmation, or a break has been confirmed in either direction. A pending bearish break turning red here is worth noting before you press buy.</li>
+    <li><strong>Fib Zone:</strong> &ldquo;✓ In Zone 38&ndash;62%&rdquo; (yellow) when price is inside the secondary reaction zone. This is the &ldquo;wait for this&rdquo; condition for the highest-quality entries.</li>
+    <li><strong>Slope:</strong> EMA(20) slope expressed as ATR multiples. Values above 0.3 or below &minus;0.3 indicate a strong enough slope to add +10 pts to the score.</li>
+    <li><strong>Exit Cond:</strong> Shows whether any exit conditions are active (bearish structure break, bear MTF trend, double warning). If this reads &ldquo;✓ Clear&rdquo; while a LONG signal is active, the position is justified to hold.</li>
+</ul>
+
+<h3>Confidence and Decision Rows</h3>
+<p>The <strong>Confidence row</strong> shows LONG% and SHORT% scores side by side. Watch this when the score is hovering near your threshold&mdash;you can see exactly how close you are to a Decision firing without waiting for it. The <strong>Decision row</strong> is the bottom line: LONG (teal), SHORT (red), or WAIT (gray) with the current score. Below it, the <strong>Entry Signal row</strong> tells you whether price is in the optimal entry zone right now (Fib zone or Liquidity Sweep) or whether you should wait for a pullback.</p>
+
+<h3>RC Signals Row</h3>
+<p>Reversal Confirmation signals active on the current bar are listed here: CNDL (pin bar, doji, or engulfing), EXH (exhaustion candle exceeding 1.5&times; ATR with close in the upper half), RET (price retesting the swing level within 0.5% tolerance), and TRAP (wick-through sweep with favorable close). These are bonus score contributors&mdash;their presence on the same bar as a Fib zone entry is the signal worth acting on most aggressively.</p>
+
+<h2>Multi-Timeframe Alignment: Why It Matters</h2>
+<p>The Weekly trend contributes 25 points to the score&mdash;the single largest factor. This design reflects a core principle: trading against a weekly trend is inherently a lower-probability activity, regardless of how clean the intraday setup looks. The Daily trend contributes 20 points. Combined, HTF alignment accounts for 45 of the possible 100 points. A score of 70 is essentially impossible without at least one higher timeframe agreeing with your direction.</p>
+
+<p>The indicator calculates HTF trends using a scaled threshold: it compares the current HTF close to the close 60 bars ago and requires a move of at least 0.3&times; ATR &times; sqrt(60/14) before declaring a directional trend. This prevents a sideways Weekly candle from being classified as bull or bear&mdash;it must show <em>clear directional displacement</em> to add score weight.</p>
+
+<p>Practical implication: when the Weekly is flat (MIX) and the Daily is bullish, you can still get a Decision LONG signal if the current structure, volume, slope, and phase are all aligned. But the maximum score in that scenario is capped around 75&ndash;80. If you set your threshold at 80+, you will naturally filter out those lower-conviction setups and only trade when the full MTF stack agrees.</p>
+
+<h2>Step-by-Step Trade Setups</h2>
+
+<h3>Setup 1: Trend Following Entry Using the Decision Signal</h3>
+<p>This is the primary use case&mdash;entering a confirmed trend at an optimal pullback level.</p>
+<ol>
+    <li><strong>Confirm the macro context:</strong> Open the Dashboard. All three timeframe rows (Weekly, Daily, Current) should show BULL (teal) with a Phase of &ldquo;Partic&rdquo; on at least Daily and your chart timeframe. Exit Cond should read &ldquo;✓ Clear.&rdquo;</li>
+    <li><strong>Wait for the Decision signal:</strong> The Decision row shows &ldquo;▲ LONG [score]%.&rdquo; The score should be at or above your threshold (default 70). Enable the &ldquo;Decision Signal&rdquo; alert so you do not have to watch the chart continuously.</li>
+    <li><strong>Wait for price to enter the Fib zone:</strong> Watch for the Fib Zone row in the Dashboard to switch to &ldquo;✓ In Zone 38&ndash;62%&rdquo; (yellow). At this point the &ldquo;Entry Setup&rdquo; alert fires. This is the buy zone.</li>
+    <li><strong>Confirm with volume and RC signals:</strong> The best entries have a volume-confirmed green bar inside the Fib zone, ideally with an RC signal (hammer, engulfing, or bull trap). The RC Signals row will show CNDL, RET, or TRAP.</li>
+    <li><strong>Entry:</strong> Enter long on the close of the confirming candle inside the Fib zone, or on a break of that candle&rsquo;s high on the next bar.</li>
+    <li><strong>Stop-loss:</strong> Below the recent swing low (visible on the chart as the HL label). The alert message also provides the exact swing low price.</li>
+    <li><strong>Exit:</strong> Monitor the Dashboard&rsquo;s Exit Cond row. When it shows &ldquo;✗ Exit Long,&rdquo; a structure break has confirmed or the Daily flipped bearish&mdash;close the position. Do not wait for price to come back.</li>
+</ol>
+
+<h3>Setup 2: Reversal Entry Using Fib Zone + Warning Signs</h3>
+<p>This is the harder and higher-reward setup&mdash;catching a trend reversal as early as possible using warning signs as preparation and structure break as confirmation.</p>
+<ol>
+    <li><strong>Identify a weakening uptrend:</strong> Price has been making HH/HL but warning signs are now active. The Dashboard shows &ldquo;✗ Dim. Impulse&rdquo; or &ldquo;✗ Deep Corr&rdquo; in the Warnings row. You are not shorting yet&mdash;you are preparing.</li>
+    <li><strong>Wait for a failed breakout or liquidity sweep:</strong> Price makes a new high (wick), triggering buy orders&mdash;then closes below the prior swing high. The orange &times; or yellow &ldquo;LS&darr;&rdquo; label appears above the bar. This is smart money distributing into late longs.</li>
+    <li><strong>Confirm the structure break:</strong> A strong displacement candle (body ratio &ge;0.6) closes below the most recent swing low. Then the <em>next</em> bar also closes below with a bearish body. The &ldquo;SB&darr;&rdquo; (Struct Break Down, fuchsia) label appears. The SHORT score jumps due to the &minus;20 penalty being removed from SHORT and applied to LONG instead.</li>
+    <li><strong>Wait for the counter-rally into the new Fib zone:</strong> After the structure break, price often retests the broken swing level or the 38&ndash;61.8% Fib of the new swing range. This is now a Fib zone short entry. The Fib Zone row in the Dashboard will turn yellow when price re-enters.</li>
+    <li><strong>Enter short:</strong> On a bearish RC signal inside the Fib zone&mdash;ideally a shooting star, doji, or bear engulfing with above-average volume. The RC Signals row will show CNDL or EXH.</li>
+    <li><strong>Stop-loss:</strong> Above the most recent swing high that was swept. The alert message provides this level as &ldquo;SL above: [price].&rdquo;</li>
+    <li><strong>Target:</strong> The next major swing low below, or the prior Accumulation zone if visible from the phase background history.</li>
+</ol>
+
+<h2>Alert Configuration</h2>
+<p>The indicator offers six alert types. Here is how to prioritize them:</p>
+<ul>
+    <li><strong>Entry Setup (Fib zone + Decision) &mdash; Enable first.</strong> This is the compound alert that fires only when a Decision signal is active <em>and</em> price has just entered the Fib zone simultaneously. These are the highest-conviction entries and low-frequency by design. Treat each one as a serious candidate.</li>
+    <li><strong>Decision Signal (LONG/SHORT) &mdash; Enable second.</strong> Fires when the score first crosses your threshold. Use this as a heads-up that you should start watching the Fib zone. The alert message includes the exact Fib zone range, phase, and MTF trend summary&mdash;everything you need to evaluate the setup without opening the chart.</li>
+    <li><strong>Structure Break &mdash; Enable for trend reversal monitoring.</strong> Useful for identifying early trend change. Combine with manual review rather than auto-entry.</li>
+    <li><strong>Liquidity Sweep &mdash; Optional.</strong> High frequency on volatile markets. Enable only if you are specifically trading sweep-and-reverse setups.</li>
+    <li><strong>Phase Change &mdash; Optional.</strong> Low frequency, useful for higher-timeframe context shifts. Worth enabling on Daily charts for swing traders.</li>
+    <li><strong>Warning Signs &mdash; Optional.</strong> Enable as a risk management tool if you hold multi-day positions&mdash;it will notify you when existing holdings are at risk.</li>
+</ul>
+
+<h2>Recommended Settings for Different Trading Styles</h2>
+<h3>Intraday (15-minute or 1-hour)</h3>
+<ul>
+    <li>Swing Lookback: 7 (default)</li>
+    <li>Decision Threshold: 70</li>
+    <li>Signal Cooldown: 24 bars (one trading day on 1H)</li>
+    <li>HTF1: Daily, HTF2: 4H (change from Weekly/Daily defaults)</li>
+    <li>Dashboard Mode: Compact (less screen space)</li>
+    <li>Phase Background: On</li>
+</ul>
+
+<h3>Swing Trading (4-hour or Daily)</h3>
+<ul>
+    <li>Swing Lookback: 10&ndash;14</li>
+    <li>Decision Threshold: 75&ndash;80</li>
+    <li>Signal Cooldown: 5&ndash;10 bars</li>
+    <li>HTF1: Weekly, HTF2: Daily (keep defaults)</li>
+    <li>Structure Labels: Full</li>
+    <li>Liquidity Sweep Labels: Full</li>
+    <li>Warning Signs: Full</li>
+</ul>
+
+<h3>Position Trading (Daily or Weekly)</h3>
+<ul>
+    <li>Swing Lookback: 14&ndash;20</li>
+    <li>Decision Threshold: 80&ndash;85</li>
+    <li>HTF1: Monthly (change from Weekly), HTF2: Weekly</li>
+    <li>Range Lookback: 80&ndash;100 bars</li>
+    <li>Prior-Trend Lookback: 100&ndash;120 bars</li>
+</ul>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li>AIO Dow Theory automates close-based swing detection, Dow phase classification, multi-factor scoring, and Decision signals in one overlay.</li>
+    <li>Phase detection uses Daily-timeframe context&mdash;background shading tells you whether you are in Accumulation, Participation, or Distribution at the macro level.</li>
+    <li>The scoring engine requires at least one HTF timeframe in alignment for a Decision signal to reach the 70-point default threshold.</li>
+    <li>Warning signs (Diminishing Impulse, Deep Correction, Failed Breakout) apply score penalties and provide early notice that a trend is weakening.</li>
+    <li>The highest-quality entry is triggered by the <strong>Entry Setup alert</strong>: Decision signal score &ge; threshold with price simultaneously inside the Fib 38&ndash;61.8% zone.</li>
+    <li>The Dashboard reads from top to bottom: MTF alignment &rarr; checklist conditions &rarr; score &rarr; Decision &rarr; entry signal. If the top three rows are all green and the Decision row is LONG, the trade context is as good as it gets.</li>
+    <li>Use the Exit Cond row actively&mdash;it catches structure breaks and MTF reversals as they confirm, not three bars later.</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>See AIO Dow Theory in Action</h3>
+    <p>Market phases, structure, scoring, and Decision signals &mdash; all in one overlay.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="dow-theory-trading-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Dow Theory Phases: The Institutional Trading Blueprint</h3>
+                            <p class="feature-description">Deep dive into Accumulation, Participation, and Distribution phases and how institutions move through them.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="market-structure-bos-choch-explained.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-diagram-3"></i></div>
+                            <h3 class="feature-title">Market Structure: BOS and CHoCH Explained</h3>
+                            <p class="feature-description">How Break of Structure and Change of Character form the backbone of smart money entry models.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="multi-timeframe-analysis-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">Multi-Timeframe Analysis: Aligning Bias Across Timeframes</h3>
+                            <p class="feature-description">How to read Weekly, Daily, and intraday context together to find the highest-probability trade direction.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

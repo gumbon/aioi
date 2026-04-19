@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how AIO Trendlines with Liquidity auto-draws trendlines, scores breakout quality, and generates non-repainting retest entries with the Up Buy / Down Sell system." />
+    <meta name="keywords" content="AIO Trendlines with Liquidity, trendline breakout, B Up B Down, Up Buy Down Sell, liquidity lines, breakout quality scoring, TradingView indicator, auto trendlines" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Trendlines with Liquidity: Auto Trendlines, Breakouts &amp; Retest Entries | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Trendlines with Liquidity: Auto Trendlines, Breakouts &amp; Retest Entries" />
+    <meta property="og:description" content="Auto trendlines, 4-signal breakout system, and liquidity pool detection — all scored and non-repainting." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-trendlines-liquidity.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-trendlines-liquidity.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Trendlines with Liquidity: Auto Trendlines, Breakouts &amp; Retest Entries" />
+    <meta name="twitter:description" content="Learn how AIO Trendlines with Liquidity auto-draws trendlines, scores breakout quality, and generates non-repainting retest entries with the Up Buy / Down Sell system." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Trendlines with Liquidity: Auto Trendlines, Breakouts & Retest Entries",
+      "description": "Learn how AIO Trendlines with Liquidity auto-draws trendlines, scores breakout quality, and generates non-repainting retest entries with the Up Buy / Down Sell system.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-trendlines-liquidity.html",
+      "datePublished": "2026-04-26",
+      "dateModified": "2026-04-26",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-trendlines-liquidity.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Trendlines with Liquidity", "item": "https://aioindicator.com/blog/how-to-use-aio-trendlines-liquidity.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Trendlines with Liquidity: Auto Trendlines, Breakouts &amp; Retest Entries</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 26, 2026</span>
+            <span><i class="bi bi-clock"></i> 11 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Problem with Manual Trendlines</h2>
+<p>Ask ten traders to draw a trendline on the same chart and you&rsquo;ll get ten different lines. Some anchor to wicks, others to closes. Some require only two touches, others insist on three. The result is a tool that is theoretically powerful but practically inconsistent &mdash; different traders drawing different trendlines, getting different signals, and drawing different conclusions from identical price data.</p>
+
+<p>Automated trendline tools typically solve the consistency problem but create new ones: they flood the chart with noise, draw flat lines that masquerade as trendlines, or trigger breakout signals the moment price touches the line rather than after a genuine structural break. The <strong>AIO Trendlines with Liquidity</strong> indicator was built to address all of these at once.</p>
+
+<p>It automatically identifies valid pivot highs and lows, connects them into true descending resistance and ascending support trendlines, validates them through a minimum touch count, and then applies a four-signal system &mdash; two for initial breakouts, two for retest entries &mdash; each scored for quality on a ★ to ★★★ scale. Critically, <strong>all signals are non-repainting</strong>: what you see on bar close is what you get.</p>
+
+<h2>How Trendlines Are Drawn Automatically</h2>
+<p>The algorithm works from pivot detection outward. With the default <strong>Pivot Length of 3</strong>, a pivot high is confirmed when there are 3 bars of lower highs on each side. A pivot low requires 3 bars of higher lows on each side. Using high/low by default (not close), this captures genuine structural extremes including wick liquidity sweeps.</p>
+
+<h3>Validation Filters That Keep the Chart Clean</h3>
+<p>Three parameters determine whether a trendline is worth drawing at all:</p>
+<ul>
+    <li><strong>Trendline Strength (default 14):</strong> The minimum number of touches required to validate a trendline. A line connecting two pivot highs that no subsequent bar has respected is not a trendline &mdash; it&rsquo;s a coincidence. The default of 14 ensures the indicator only highlights levels the market has repeatedly acknowledged.</li>
+    <li><strong>Min Slope % (default 0.3%):</strong> Filters out near-horizontal trendlines. If the slope of a line connecting two pivot highs represents less than 0.3% of price change per bar, it is discarded. This eliminates the common false positive of a &ldquo;descending resistance&rdquo; that is effectively flat &mdash; which should instead be treated as horizontal support/resistance.</li>
+    <li><strong>Min Distance % Between Pivots (default 1.0%):</strong> Two consecutive pivot highs must be at least 1% apart in price. Without this, a volatile sideways chop creates dozens of nearly identical pivots and the algorithm connects noise. The 1% gap ensures each pivot represents a meaningful structural point.</li>
+</ul>
+
+<p>The result on a 1H ETH/USDT chart, for example: a clean descending red resistance line connecting three to five significant swing highs over the past 50&ndash;100 bars, and a rising green support line beneath. History lines (shown at 50% opacity) show prior trendlines that have already been broken, giving visual context without cluttering the active analysis.</p>
+
+<h3>Touch Tolerance and High/Low vs Close</h3>
+<p>The <strong>Touch Tolerance of 0.5%</strong> defines how close price must come to a trendline to count as a &ldquo;touch.&rdquo; In liquid markets like BTC or NQ futures, 0.5% is typically appropriate. In lower-volatility instruments like EUR/USD, you may want to reduce this to 0.2&ndash;0.3% to avoid false touches. By default the indicator uses high/low pricing rather than close, so a wick that sweeps a trendline and closes back inside counts as a touch &mdash; which is the correct structural interpretation.</p>
+
+<h2>The Four Signals: What Each One Means</h2>
+<p>AIO Trendlines with Liquidity generates four distinct signal types. Understanding the difference between them is essential to using the indicator correctly.</p>
+
+<h3>B Up ★&ndash;★★★ (Breakout Up)</h3>
+<p>A <strong>B Up</strong> fires when price closes above a validated descending resistance trendline. The green label appears directly above the breakout candle. This is the initial structural break &mdash; the first moment the indicator confirms the trendline has been penetrated with a closed candle. The star rating quantifies <em>how good</em> that break was across five dimensions:</p>
+<ul>
+    <li><strong>Slope angle:</strong> A steeper trendline that has been under compression for longer produces more explosive breaks</li>
+    <li><strong>Number of touches:</strong> A line that has been respected 8 times before breaking is more significant than one touched 3 times</li>
+    <li><strong>Volume spike at break:</strong> Default threshold is 1.5&times; the average volume. Volume expansion confirms genuine institutional participation, not just a thin liquidity sweep</li>
+    <li><strong>Body vs wick dominance:</strong> A large-bodied candle closing cleanly above the line is scored higher than a wick poke with a small close</li>
+    <li><strong>HTF alignment:</strong> Whether the 4H EMA (34-period by default) is pointing in the same direction as the break</li>
+</ul>
+<p>A ★★★ B Up means all five factors aligned: steep trendline, many touches, volume spike, strong close, HTF trend agreement. A ★ B Up means the break happened but most factors were weak &mdash; treat it with caution and wait for confirmation.</p>
+
+<h3>B Down ★&ndash;★★★ (Breakout Down)</h3>
+<p>The mirror signal: price closes below an ascending support trendline. The red label fires at the break bar. The same five-factor scoring applies. A ★★★ B Down with heavy volume on a downward-trending HTF is a high-conviction signal to watch for short entries on the retest.</p>
+
+<h3>Up Buy ★ (Retest Long Entry)</h3>
+<p>This is where the indicator&rsquo;s real edge lies. After a B Up signal, price often pulls back to re-test the broken trendline from above &mdash; old resistance becomes new support. <strong>Up Buy fires when two conditions are met:</strong> price has broken the trendline high (TPH), then retraced approximately 50% of that breakout candle&rsquo;s range. The retracement requirement acts as a filter against chasing momentum. The volume confirmation threshold is 1.3&times; average &mdash; slightly lower than the breakout threshold since retests naturally have calmer volume.</p>
+
+<h3>Down Sell ★ (Retest Short Entry)</h3>
+<p>The mirror of Up Buy. After a B Down, price re-tests the broken support trendline from below (old support = new resistance). Down Sell fires when price bounces into the broken trendline and begins to fade. This is the preferred short entry mechanism &mdash; you&rsquo;re selling into a failed support test rather than chasing the initial breakdown.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Why the Retest (Up Buy) Is Often Safer Than the Breakout (B Up)</h2>
+<p>This is the single most important concept to internalize when using this indicator. A B Up signal is immediate confirmation of a structural break &mdash; useful for aggressive traders who want to capture the initial momentum. But consider the risk dynamics:</p>
+
+<ul>
+    <li><strong>At B Up:</strong> You&rsquo;re entering as price has already moved away from the trendline. Your stop must be placed below the trendline (now support), which may be 1&ndash;2 ATRs below entry. The risk is wide.</li>
+    <li><strong>At Up Buy:</strong> You&rsquo;re entering on the retest, with price sitting right on the converted support trendline. Your stop goes just below that line &mdash; the tightest technically valid stop available. R:R improves dramatically.</li>
+</ul>
+
+<p>There is one caveat: not every B Up is followed by an Up Buy. In very strong breakouts, price simply gaps and continues without a meaningful retest. In those cases, the ★★★ B Up entry is the only opportunity available. The discipline is to <em>always look for the Up Buy first</em>, and only take the B Up directly if it&rsquo;s rated ★★★ and you have a clear defined stop.</p>
+
+<h2>Liquidity Lines: Where the Stops Are Clustered</h2>
+<p>A trendline is not just a technical pattern &mdash; it is a map of where traders have placed their stops. Every time price touches and rejects a resistance trendline, traders sell the touch and place buy stops just above it. The more touches, the larger the stop cluster accumulating above that line.</p>
+
+<p>When the line finally breaks upward, those stops get triggered in sequence. This is not simply &ldquo;breakout buying&rdquo; &mdash; it is a mechanical liquidity sweep where the price engine is fueled by forced buy orders from trapped sellers. AIO Trendlines with Liquidity marks these <strong>Liquidity Lines</strong> as horizontal markers extending to the right from significant swing highs and lows. They represent price levels with known stop concentrations.</p>
+
+<p>Practical application: a B Up through a trendline that sits just below a cluster of Liquidity Lines has a ready-made fuel source for continuation. Target the next liquidity level above. Conversely, a B Down that breaks through accumulated support liquidity will often accelerate as sell stops trigger sequentially.</p>
+
+<h2>Signal Mode: Trendline, MA, or All</h2>
+<p>The indicator offers three signal modes controlled by the <strong>Signal Mode</strong> input:</p>
+
+<h3>Trendline Mode</h3>
+<p>Only trendline-based signals appear (B Up, B Down, Up Buy, Down Sell). This is the cleanest setup for traders focused purely on structural trendline breaks. Recommended for swing traders on 4H and daily charts where trendlines represent multi-week structures.</p>
+
+<h3>MA Mode</h3>
+<p>Only MA Support/Resistance signals appear. The MA system uses a configurable moving average (default EMA 50) and detects when price has been consistently above or below it, then pulls back to touch it. The <strong>Min Bars Above/Below MA (default 15)</strong> ensures you&rsquo;re trading a genuine trend MA retest, not a whipsaw through a flat MA.</p>
+
+<h3>All Mode</h3>
+<p>Both signal types are combined. The <strong>Min Bars Between Same Signal Type (default 10)</strong> parameter prevents a cluster of MA S/R signals in quick succession from cluttering the chart. When two valid signals of the same type fire within 10 bars, only the better-quality one is shown. This mode is most useful on shorter timeframes (15M&ndash;1H) where both trendlines and MA levels are active simultaneously.</p>
+
+<h2>Step-by-Step Trading Setups</h2>
+
+<h3>Setup 1: Breakout Trade (B Up ★★★)</h3>
+<ol>
+    <li>Wait for a <strong>B Up ★★★</strong> signal &mdash; all five quality factors confirmed</li>
+    <li>Verify the HTF MA Filter is aligned (4H trend pointing up)</li>
+    <li>Enter on the close of the breakout candle, or at the open of the next bar</li>
+    <li>Place stop below the trendline (now converted support) &mdash; typically 0.5&ndash;1 ATR below the line</li>
+    <li>First target: the next Liquidity Line above. Second target: next structural resistance</li>
+    <li>If price stalls or consolidates, watch for an Up Buy signal to add to the position on the retest</li>
+</ol>
+<p><em>Risk note:</em> Even ★★★ breakouts fail roughly 30&ndash;40% of the time. The value of the rating is not certainty &mdash; it is a higher probability setup compared to ★ breakouts. Always use a stop.</p>
+
+<h3>Setup 2: Retest Entry (Up Buy after B Up)</h3>
+<ol>
+    <li>A B Up has already fired (any star rating). Mark the broken trendline as potential support</li>
+    <li>Watch for price to pull back toward that trendline</li>
+    <li>When an <strong>Up Buy</strong> label appears, the retracement to ~50% of the breakout has completed with volume confirmation</li>
+    <li>Enter long at the Up Buy signal candle close</li>
+    <li>Stop: just below the converted trendline support. This is the tightest, highest-quality stop in the setup</li>
+    <li>Target: the prior swing high that was penetrated on the B Up, then Liquidity Lines above</li>
+</ol>
+<p>This is the preferred high-R:R setup. Entries at the retest typically offer 2:1 to 4:1 R:R depending on the distance to target. The retest also gives you market confirmation that the trendline has held as support on a re-test &mdash; the strongest possible validation.</p>
+
+<h3>Setup 3: Using Liquidity Lines as Targets</h3>
+<ol>
+    <li>After entering on an Up Buy, identify the next Liquidity Line above the entry</li>
+    <li>If the Liquidity Line is within 1&ndash;2 ATR of entry, consider it a minor obstacle &mdash; price may stall briefly before continuing</li>
+    <li>If the Liquidity Line is 3+ ATR above entry, it is a natural profit-taking zone &mdash; partial exit or full target</li>
+    <li>Watch Banker Momentum (if using the full AIO stack) for institutional momentum confirmation as price approaches the liquidity level</li>
+    <li>A Liquidity Line that gets swept cleanly (wicked through then closed back below) becomes a warning sign: the level was defended. Consider reducing position size or exiting</li>
+</ol>
+
+<h2>Key Settings to Adjust for Your Market</h2>
+<p>The defaults are calibrated for mid-cap crypto and equity index futures on 1H&ndash;4H timeframes. If you trade in different conditions:</p>
+
+<ul>
+    <li><strong>Forex (EUR/USD, GBP/USD):</strong> Set Market Type to &ldquo;Forex&rdquo; in the Liquidity Lines group. Reduce Touch Tolerance to 0.2&ndash;0.3% to match tighter spreads and cleaner price action. Reduce Min Slope to 0.1&ndash;0.2% since forex trends are often slower.</li>
+    <li><strong>Crypto (BTC, ETH):</strong> Default settings work well. Consider raising Breakout Volume Threshold to 1.8&times; on daily charts where false breakouts on moderate volume are common.</li>
+    <li><strong>Stocks (individual equities):</strong> Set Market Type to &ldquo;Stocks.&rdquo; Pivot Length of 5 on daily charts gives cleaner swing points. Trendline Strength of 10&ndash;12 is appropriate since individual stocks respect fewer touches than index futures.</li>
+    <li><strong>Star Filter:</strong> If you prefer only the highest-quality signals, set the B Up/B Down Star Filter to &ldquo;Only 3 Stars.&rdquo; You&rsquo;ll see fewer signals but each one has all quality factors confirmed. The default &ldquo;2+ Stars&rdquo; is a reasonable balance between frequency and quality.</li>
+</ul>
+
+<h2>What the HTF MA Filter Does</h2>
+<p>The <strong>HTF MA Filter</strong> uses the 4H EMA (34-period by default) to determine the higher-timeframe trend direction. With <strong>HTF Confirmation Bars set to 15</strong>, price must have been above or below that HTF EMA for at least 15 bars before a signal qualifies as trend-aligned.</p>
+
+<p>In practice: on a 15-minute chart, if the 4H EMA 34 is pointing up and price has been above it for at least 15 4H bars, Up Buy signals are considered HTF-aligned &mdash; which contributes positively to the star rating. Counter-trend signals (Up Buy while below the 4H EMA) still fire but will score lower because the HTF alignment factor reduces their rating. You can disable the HTF filter entirely if you trade mean reversion or range-bound strategies where trend alignment is less relevant.</p>
+
+<h2>Key Takeaways</h2>
+<ul>
+    <li><strong>All signals are non-repainting</strong> &mdash; what prints on bar close stays. This is a hard requirement for any automated signal system used in real trading.</li>
+    <li>The <strong>Min Slope % filter</strong> is one of the most important settings: without it, horizontal lines masquerade as trendlines and generate false breakouts constantly.</li>
+    <li>A <strong>B Up ★★★</strong> is worth paying attention to immediately; a <strong>B Up ★</strong> should almost always be ignored until an Up Buy confirms.</li>
+    <li>The <strong>Up Buy</strong> and <strong>Down Sell</strong> setups consistently offer better R:R than chasing the initial B Up/B Down because you enter with the trendline directly beneath you as support.</li>
+    <li><strong>Liquidity Lines</strong> are not just decoration &mdash; they represent where the next wave of orders is clustered. Use them as targets on breakout trades and as caution zones on counter-trend ideas.</li>
+    <li>In <strong>All Mode</strong>, the Min Bars Between Same Signal Type prevents signal spam &mdash; adjust it down to 5 on higher timeframes where signals are naturally spaced further apart.</li>
+    <li>Combine with <strong>AIO Banker Momentum Volatility</strong> for signal confirmation: a ★★★ B Up with a Banker momentum cross simultaneously is a genuinely high-conviction setup.</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>Try AIO Trendlines with Liquidity</h3>
+    <p>Auto-drawn trendlines, 4-signal breakout system, and liquidity pool detection &mdash; all non-repainting.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/u/tranholenguyen/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite including Trendlines with Liquidity, Banker Momentum, Magic Bands, and more. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="trendline-breakout-liquidity-detection.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">Trendline Breakouts &amp; Liquidity Detection</h3>
+                            <p class="feature-description">How to identify high-probability trendline breakouts using liquidity pool analysis and structural confirmation.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="liquidity-sweeps-stop-hunts-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-droplet-fill"></i></div>
+                            <h3 class="feature-title">Liquidity Sweeps &amp; Stop Hunts: The Complete Guide</h3>
+                            <p class="feature-description">Understand how institutions engineer liquidity events and how to position on the right side of stop hunts.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Complete how-to guide for AIO Magic Bands: understand every band level, set up pullback entries, detect trend reversals, and configure alerts on TradingView." />
+    <meta name="keywords" content="AIO Magic Bands, how to use Magic Bands, ATR SuperTrend indicator, Fibonacci pullback entry, trend reversal alert, TradingView indicator guide" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO Magic Bands: Complete Guide to Trend Bands &amp; Pullback Entries | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO Magic Bands: Complete Guide to Trend Bands &amp; Pullback Entries" />
+    <meta property="og:description" content="Step-by-step guide to reading every AIO Magic Bands level, trading pullbacks to the 61.8% zone, and using the Band Level 3 break for trend reversal entries." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-magic-bands.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-magic-bands.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO Magic Bands: Complete Guide to Trend Bands &amp; Pullback Entries" />
+    <meta name="twitter:description" content="Complete how-to guide for AIO Magic Bands: understand every band level, set up pullback entries, detect trend reversals, and configure alerts on TradingView." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO Magic Bands: Complete Guide to Trend Bands & Pullback Entries",
+      "description": "Complete how-to guide for AIO Magic Bands: understand every band level, set up pullback entries, detect trend reversals, and configure alerts on TradingView.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-magic-bands.html",
+      "datePublished": "2026-04-20",
+      "dateModified": "2026-04-20",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-magic-bands.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT9M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO Magic Bands", "item": "https://aioindicator.com/blog/how-to-use-aio-magic-bands.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="../"><img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2"><span>AIO Indicator</span></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav ms-auto"><li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span>Home</span></a></li><li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span>Blog</span></a></li><li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span>Indicators</span></a></li><li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span>Pricing</span></a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-globe lang-globe-icon"></i><span class="lang-switcher-current">🇬🇧&nbsp;EN</span></a><ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end"><li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li><li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li><li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li></ul></li></ul></div></div></nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO Magic Bands: Complete Guide to Trend Bands &amp; Pullback Entries</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 20, 2026</span>
+            <span><i class="bi bi-clock"></i> 9 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>What You See on the Chart</h2>
+<p>When you add AIO Magic Bands to a TradingView chart, the first thing you notice is a set of colored bands that trail below price during an uptrend and above price during a downtrend. The bands shift from <strong>green to red</strong> (or red to green) the moment the trail stop is broken &mdash; that color flip is the primary trend signal.</p>
+<p>There are four visible price levels forming three shaded zones:</p>
+<ul>
+    <li><strong>Band 1 (61.8%):</strong> Outer boundary &mdash; the lightest fill (85% transparency)</li>
+    <li><strong>Band 2 (78.6%):</strong> Middle zone &mdash; medium fill (70% transparency)</li>
+    <li><strong>Band 3 (88.6%):</strong> Inner boundary &mdash; darkest fill (60% transparency)</li>
+    <li><strong>Trail Stop (100%):</strong> The trend line itself &mdash; if price closes beyond this, the trend flips</li>
+</ul>
+<p>The color gradient is intentional: the darker the zone, the more &ldquo;danger&rdquo; you are in &mdash; either deep in a pullback during a healthy trend, or approaching a genuine reversal. An optional set of <strong>sub-bands</strong> (-16.8%, -26.8%, -38.2%) plots extension targets on the opposite side of the trail stop, shown in gray.</p>
+
+<h2>Reading the Trend State</h2>
+<p>AIO Magic Bands uses a simple binary state: <strong>long</strong> or <strong>short</strong>. The rule is equally simple:</p>
+<ul>
+    <li>If the closing price is <em>above</em> the trail stop, state = <strong>long</strong> &rarr; bands render in green</li>
+    <li>If the closing price is <em>below</em> the trail stop, state = <strong>short</strong> &rarr; bands render in red</li>
+</ul>
+<p>The trail stop itself ratchets in trend direction &mdash; in a long state it only moves up, never down. This means the band zones expand as price extends and contract as the trend matures and price consolidates. A narrow band cluster signals a trending move losing momentum; a wide cluster signals a fresh, volatile trend.</p>
+
+<h3>What the Extreme Level Represents</h3>
+<p>The Fibonacci calculations anchor to a dynamic extreme: the highest high during the current long state, or the lowest low during the current short state. Every time price extends to a new high (in a long trend), the entire band cluster recalculates from that new extreme down to the trail stop. This is why the bands widen with strong impulsive moves and tighten during consolidation &mdash; they are always measuring the <em>current</em> trend range, not a fixed historical range.</p>
+
+<h2>The Four Band Levels in Practice</h2>
+
+<h3>Band 1 &mdash; 61.8%: The Primary Entry Zone</h3>
+<p>This is where most pullback entries trigger. A healthy trend pulls back to the 61.8% retracement of the current trend range, finds support (in a long) or resistance (in a short), and resumes. The alert system calls this the <strong>Buy/Sell Zone touch</strong>. The default configuration requires a green candle (close &gt; open) to confirm a buy zone touch and a red candle to confirm a sell zone touch &mdash; a basic but effective filter that eliminates touches where the market is still actively selling through the zone.</p>
+
+<h3>Band 2 &mdash; 78.6%: The Deep Pullback Zone</h3>
+<p>A touch here means price has retraced more than three-quarters of the current trend range. This is still tradable in a strong trend, but you should treat it as a warning. On a 1H BTC/USDT chart in a strong uptrend, a 78.6% pullback often coincides with a fear spike, a news event, or a liquidity sweep below recent lows. The fill color is visibly darker here &mdash; your eye should register &ldquo;this pullback is getting extended.&rdquo;</p>
+
+<h3>Band 3 &mdash; 88.6%: Last Defense</h3>
+<p>If price reaches Band 3, you are one step from a trend reversal signal. Professional use: if you entered at Band 1 or Band 2 and price has pulled through to Band 3 without reversing, your stop should ideally be at or just below the trail stop. A close through Band 3 into the trail stop area is the highest-probability warning that the trend is failing &mdash; not just pulling back.</p>
+
+<h3>Trail Stop &mdash; 100%: The Flip Level</h3>
+<p>A confirmed close on the wrong side of the trail stop triggers the <strong>Band Level 3 Break</strong> alert and flips the indicator state. The bands immediately repaint in the opposite color. This is the highest-conviction signal AIO Magic Bands produces. It does not mean &ldquo;enter immediately in the opposite direction&rdquo; &mdash; it means the prior trend is structurally broken and the indicator is now tracking a new potential trend in the other direction.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Setup 1: Pullback Entry</h2>
+<p>This is the primary use case for most traders. The logic is straightforward: the trend is established, price pulls back into the band cluster, and you enter in the direction of the trend. Here is the exact process:</p>
+
+<ol>
+    <li><strong>Confirm trend state:</strong> Bands are green (long) or red (short). Do not take pullback entries against the band color.</li>
+    <li><strong>Wait for a pullback:</strong> Price retraces from the extreme and moves toward Band 1 (61.8%). You are not entering during the impulse leg &mdash; you are waiting for the market to come to you.</li>
+    <li><strong>Watch for Band 1 touch:</strong> The low (in a long) dips into the Band 1 zone. If the &ldquo;Pullback Alert: Match Candle Color&rdquo; setting is enabled, you need a green candle closing above the open at or near the band. This filters out situations where the market is actively selling through the zone rather than just testing it.</li>
+    <li><strong>Enter on candle close:</strong> Enter long (or short) at the close of the confirming candle. This avoids chasing a wick that reverses before the bar closes.</li>
+    <li><strong>Place stop below the trail stop:</strong> Your hard stop goes below the 100% trail stop level. Some traders use Band 3 (88.6%) as an initial stop if they want a tighter entry, accepting the risk of being stopped out before the band fully rejects.</li>
+    <li><strong>Target the prior extreme or sub-band extensions:</strong> In a long, target either the prior swing high (the prior extreme) or the sub-band extension levels (-16.8%, -26.8%, -38.2%) if enabled. The sub-bands project how far the next impulse leg might extend beyond the current extreme.</li>
+</ol>
+
+<p><strong>Pullback Cooldown:</strong> The built-in alert has a 5-bar cooldown between successive pullback alerts. This prevents alert spam during choppy consolidation at the band level, where price may cross Band 1 multiple times in a short period. If you are watching manually rather than relying on alerts, apply the same mental filter &mdash; the first clean touch is the highest-quality entry.</p>
+
+<h2>Setup 2: Trend Reversal Entry</h2>
+<p>This setup captures the moment a trend changes direction. It is lower-frequency than the pullback setup but can deliver a better risk/reward when executed correctly, because you are entering near the beginning of a new trend leg rather than mid-trend.</p>
+
+<ol>
+    <li><strong>Wait for the Band Level 3 Break alert:</strong> The trail stop is breached on a confirmed bar close. The indicator flips state &mdash; green bands turn red (or vice versa).</li>
+    <li><strong>Do not chase the break candle:</strong> The break candle itself is often an extended move. Entering at market on the break bar is a common mistake &mdash; your stop is far away and you are buying/selling into momentum.</li>
+    <li><strong>Wait for the first pullback to Band 1 in the new direction:</strong> After the flip, the new trail stop is now on the other side of price. Wait for price to pull back to Band 1 (61.8%) in the new trend direction. This gives you a defined entry with the trail stop as your reference for stop placement.</li>
+    <li><strong>Confirm with candle color:</strong> As with the standard pullback entry, look for a confirming candle color at Band 1.</li>
+    <li><strong>Stop below the new trail stop:</strong> Your stop is just beyond the 100% level of the new trend direction.</li>
+    <li><strong>Target: previous structure high/low opposite the trend flip:</strong> In the first leg after a reversal, a realistic target is the prior swing extreme from the previous trend. This is often a clean 2:1 or 3:1 R:R on the initial reversal trade.</li>
+</ol>
+
+<p>One nuance worth noting: not every Band Level 3 break results in a sustained reversal. In choppy, range-bound markets the indicator can flip back and forth within a few bars. The best reversal trades occur after an extended trend &mdash; when the prior trend has run for many bars and the extreme has stopped making new highs/lows. That exhaustion context is what separates a genuine reversal from noise.</p>
+
+<h2>How to Set Up Alerts</h2>
+<p>AIO Magic Bands has two alert conditions. Here is how to activate them in TradingView:</p>
+
+<ol>
+    <li>Open the indicator settings and navigate to the <strong>Alerts</strong> section.</li>
+    <li>Enable <strong>Break Band Level 3 Alert</strong> &mdash; this is on by default. It fires on a confirmed bar close through the trail stop in either direction.</li>
+    <li>Enable <strong>Touch Buy/Sell Zone Alert</strong> &mdash; off by default. Turn this on if you want to be notified of pullback entries without watching the chart.</li>
+    <li>Set <strong>Pullback Alert Cooldown</strong> to your preferred number of bars (default: 5). Increase this on lower timeframes where the band is touched frequently.</li>
+    <li>Decide whether to keep <strong>Match Candle Color</strong> enabled (recommended). Disabling it increases alert frequency but reduces signal quality.</li>
+    <li>In TradingView&rsquo;s alert dialog, select <strong>AIO Magic Bands</strong> as the condition and choose &ldquo;alert() function calls only&rdquo; to receive both alert types from a single alert rule.</li>
+</ol>
+
+<p>Alert messages include the price at trigger time: for example, <code>Break Band Level 3 UP - Trend Reversal to Long! Price: 67420.50</code> or <code>Pullback Touch - Buy Zone! Price: 65890.00</code>. This lets you triage alerts quickly from a notification panel without opening the chart.</p>
+
+<h2>Settings Reference</h2>
+<p>The indicator has a minimal settings footprint by design:</p>
+
+<ul>
+    <li><strong>Period (default: 34):</strong> The ATR smoothing period for Wilder&rsquo;s MA. Lower values make the trail stop more reactive; higher values make it more stable. For most markets, 34 is well-calibrated &mdash; adjust only if you have specific volatility regime requirements.</li>
+    <li><strong>Show Sub-Band (default: off):</strong> Enables the extension target zones below the trail stop (&minus;16.8%, &minus;26.8%, &minus;38.2%). Useful if you are using Magic Bands as a standalone system and want built-in profit targets. The sub-bands render in gray to distinguish them from the primary colored bands.</li>
+    <li><strong>Break Band Level 3 Alert (default: on):</strong> Trend reversal notification.</li>
+    <li><strong>Touch Buy/Sell Zone Alert (default: off):</strong> Pullback entry notification.</li>
+    <li><strong>Pullback Alert Cooldown (default: 5 bars):</strong> Anti-spam filter between consecutive pullback alerts.</li>
+    <li><strong>Match Candle Color (default: on):</strong> Requires candle direction to align with zone direction before a pullback alert fires.</li>
+</ul>
+
+<p>The ATR Factor is fixed at 6 and is not user-configurable. This is intentional &mdash; a factor of 6 keeps the trail stop wide enough to survive normal market noise across all asset classes (equities, crypto, forex, futures) without requiring per-market calibration.</p>
+
+<h2>AIO Magic Bands as a Foundation Indicator</h2>
+<p>Understanding how to use Magic Bands standalone matters, but its deeper importance in the AIO suite is as a <strong>foundation layer</strong>. Several other indicators use the Magic Bands engine internally:</p>
+
+<ul>
+    <li><strong>AIO Banker Momentum Volatility:</strong> Overlays the three-tier RSI system on top of Magic Band state. A Banker RSI signal that aligns with a Magic Band pullback touch is considered the highest-confluence entry in the entire AIO suite &mdash; institutional momentum confirming the directional band.</li>
+    <li><strong>AIO Advanced Market Structure:</strong> Uses Magic Band direction as one component in the trend alignment factor of its BOS/CHoCH quality scoring. A BOS in a trending market (confirmed by Magic Band direction) scores higher than a BOS in a counter-trend direction.</li>
+    <li><strong>AIO Market Structure:</strong> Filters pullback labels so that only pullbacks in the Magic Band direction are shown, reducing noise from counter-trend signals on lower timeframes.</li>
+    <li><strong>All In One Indicator:</strong> Includes the full Magic Bands system (including sub-bands) as one of its built-in modules.</li>
+</ul>
+
+<p>This means that if you are already using any of those indicators, the Magic Bands algorithm is already running on your chart &mdash; just embedded rather than visible. Adding AIO Magic Bands as a standalone gives you direct visibility into the trend state that those indicators are already using internally.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<ul>
+    <li><strong>Entering against the band color:</strong> Taking long trades when bands are red is fading the trend, not trading with it. Magic Bands is a trend-following tool; using it as a counter-trend indicator requires additional confluence that the indicator does not provide on its own.</li>
+    <li><strong>Treating every Band 1 touch as an entry:</strong> In strong trending markets, price can slice through Band 1 and Band 2 before reversing at Band 3 or even the trail stop. The candle color filter exists precisely to reduce premature entries during momentum-driven band breaks.</li>
+    <li><strong>Over-reacting to the trail stop flip in choppy markets:</strong> If the asset is range-bound (10&ndash;15 ATR range for multiple sessions), the indicator will flip direction frequently. In those conditions, either increase the Period setting to reduce sensitivity or wait for a directional impulse before using Magic Bands entries.</li>
+    <li><strong>Ignoring the sub-bands:</strong> If you enable sub-bands but do not have a plan for them, they become visual clutter. Use them specifically as profit target levels and disable them if you are using external target logic (structural levels, HTF zones, etc.).</li>
+</ul>
+
+<div class="indicator-cta-box">
+    <h3>Try AIO Magic Bands on TradingView</h3>
+    <p>Add it to your chart and see the band levels, trend state, and alerts in real time.</p>
+    <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/MiEQk8vL-AIO-Magic-Bands/" target="_blank">
+        <i class="bi bi-arrow-up-right"></i> View on TradingView
+    </a>
+</div>
+
+<div class="indicator-cta-box" style="margin-top: 1.5rem;">
+    <h3>Try All AIO Indicators Free for 5 Days</h3>
+    <p>Full access to the entire suite. No credit card required.</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+</div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="banker-momentum-institutional-flow.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-up-right"></i></div>
+                            <h3 class="feature-title">Banker vs Retailer Momentum: How to Read Institutional Flow</h3>
+                            <p class="feature-description">Discover how to separate institutional Banker momentum from retail noise using RSI decomposition and KDJ signals.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="aio-trading-stack-combination-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-stack"></i></div>
+                            <h3 class="feature-title">The Full AIO Trading Stack: How to Combine All Indicators</h3>
+                            <p class="feature-description">5 institutional-grade trading systems built from combining AIO indicators with entry, exit, and confirmation rules.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>
