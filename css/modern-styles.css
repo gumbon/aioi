@@ -816,6 +816,14 @@ body {
     transform: translateX(4px);
 }
 
+/* First card in VIP tab row: centered alone on its own row */
+#vip .row > .col-lg-4:first-child {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-left: calc(33.333% + 0.75rem);
+    padding-right: calc(33.333% + 0.75rem);
+}
+
 /* Modal Styling */
 .modal-backdrop {
     background-color: rgba(5, 8, 18, 0.9);
