@@ -111,9 +111,9 @@
 <h2>The Nine Scoring Factors</h2>
 <p>Each factor contributes a specific number of points toward the final confidence score, which is capped at 100. The weighting reflects how predictive each condition is in practice &mdash; not an arbitrary assignment.</p>
 
-<h3>Factor 1: Exhaustion (15 points)</h3>
+<h3>Factor 1: Exhaustion (14 points)</h3>
 <p>Exhaustion is detected when the current candle&rsquo;s range exceeds <code>ATR(14) &times; 1.5</code> (the <em>atrMult</em> parameter, default 1.5&times;) AND the candle closes against the direction of the prior swing. A bearish exhaustion candle at a swing high has a wide range but closes in the lower half &mdash; indicating that the extended move has consumed its momentum. A bullish exhaustion candle at a swing low closes in the upper half of a wide bar after a sell-off.</p>
-<p>This is the physical manifestation of a market that has moved too far too fast and is now reversing within the same bar. It is worth 15 points because it is the most direct evidence of exhaustion, but it requires the other factors to confirm that the exhaustion is at a meaningful structural level.</p>
+<p>This is the physical manifestation of a market that has moved too far too fast and is now reversing within the same bar. It is worth 14 points because it is the most direct evidence of exhaustion, but it requires the other factors to confirm that the exhaustion is at a meaningful structural level.</p>
 
 <h3>Factor 2: BOS / MSS (20 or 25 points &mdash; the mandatory gate)</h3>
 <p>This is the only mandatory factor. No signal fires unless a Break of Structure (BOS) or Market Structure Shift (MSS) is present.</p>
@@ -130,9 +130,9 @@
 <p>Bull and bear traps are among the most powerful reversal setups because they trigger stops and create forced positioning changes. The indicator flags a <strong>bear trap at a top</strong> when the candle wick exceeds the swing high but the close falls back below it &mdash; and the upper wick accounts for at least 30% of the candle&rsquo;s total range (<code>trapPct=0.3</code>). The reverse logic applies for bull traps at bottoms.</p>
 <p>When this fires alongside BOS, you have the classic &ldquo;stop hunt then reversal&rdquo; pattern that institutional traders deliberately create to accumulate or distribute at superior prices.</p>
 
-<h3>Factor 5: HTF Alignment (15 points)</h3>
+<h3>Factor 5: HTF Alignment (14 points)</h3>
 <p>HTF alignment checks whether the 4H EMA(50) (configurable via <code>htfTF</code> and <code>htfEmaLen</code>) is supporting the reversal direction. For a TOP, the 4H close must be <em>below</em> the 4H EMA(50) &mdash; meaning the higher-timeframe trend is already rolling over. For a BOT, the 4H close must be <em>above</em> the EMA(50) &mdash; meaning the larger trend context is supportive of a recovery.</p>
-<p>This factor is worth 15 points because higher-timeframe trend alignment is one of the strongest filters available. A reversal that fights the 4H trend has a substantially lower probability of holding. When the HTF is already confirming the reversal direction, you are trading <em>with</em> institutional position changes rather than against them.</p>
+<p>This factor is worth 14 points because higher-timeframe trend alignment is one of the strongest filters available. A reversal that fights the 4H trend has a substantially lower probability of holding. When the HTF is already confirming the reversal direction, you are trading <em>with</em> institutional position changes rather than against them.</p>
 <p>You can disable HTF alignment entirely (<code>htfEnabled = false</code>) if you are trading markets where the 4H timeframe is less relevant, such as very short-term scalping. However, for swing and day trades on crypto or forex, leaving it on is strongly recommended.</p>
 
 <h3>Factor 6: Arc Pattern &mdash; Rounded Tops and Bottoms (10 points)</h3>
