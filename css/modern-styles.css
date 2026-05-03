@@ -820,8 +820,16 @@ body {
 #vip .row > .col-lg-4:first-child {
     flex: 0 0 100%;
     max-width: 100%;
-    padding-left: calc(33.333% + 0.75rem);
-    padding-right: calc(33.333% + 0.75rem);
+    display: flex;
+    justify-content: center;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+@media (min-width: 992px) {
+    #vip .row > .col-lg-4:first-child > .indicator-card {
+        width: 33.3333%;
+    }
 }
 
 /* Modal Styling */
