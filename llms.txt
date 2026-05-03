@@ -22,6 +22,7 @@
 ## Indicator Suite (28 total: 9 VIP + 14 Premium + 5 Free)
 
 ### VIP Indicators
+- **AIO Top/Bottom Strategy** — A Strategy version of AIO Top/Bottom Confidence
 - **AIO Supply & Demand Zones** — Automatically identifies supply/demand zones from price pivots with a 0-9 composite quality score, zone flip (role reversal) tracking, and next-touch prediction
 - **AIO Top/Bottom Confidence** — Multi-factor reversal detection combining nine independent evidence layers (structure, momentum, volume, candle shape, HTF alignment) into a single confidence score
 - **AIO Dow Theory** — Rigorous implementation of Dow’s original theory using closing prices only; detects three institutional phases with displacement validation and multi-timeframe framework
