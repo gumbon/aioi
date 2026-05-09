@@ -19,6 +19,13 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://aioindicator.com/blog/how-to-use-aio-top-bottom-strategy.html</loc>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+  <url>
     <loc>https://aioindicator.com/blog/market-structure-bos-choch-explained.html</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
