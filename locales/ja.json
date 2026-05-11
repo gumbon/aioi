@@ -125,7 +125,7 @@
       "q1": "AIO Indicatorとは何ですか？どのように機能しますか？",
       "a1": "AIO（All In One）Indicatorは、時間と価格分析ツールを組み合わせた包括的なTradingViewプライスアクションインジケーターです。マーケット構造検出、セッション＆STD、価格レベル、マジックバー、トレンドライン、ブレイクアウト予測など多くの機能を含みます。外国為替、株式、暗号貨幣、商品、指数などすべてのTradingView市場で機能します。",
       "q2": "VIPとPremiumプランの違いは何ですか？",
-      "a2": "<strong>Premiumプラン</strong>には、14の強力なツールと無料インジケーターを含むコアAIO Price Actionインジケーターが含まれています。プライスアクションと時間分析に集中したトレーダーに最適です。<br><br><strong>VIPプラン</strong>にはPremiumのすべてに加えて9つの高度な機関投資家グレードインジケーターが含まれます：Top Bottom Confidence、TPO Liquidity付きAdvanced Trendlines、Smart Money Detection付きAdvanced Market Structure、Banker Momentum Volatility、Prediction Market Simulator、Perps Flow Positioning（AIO PFP）、Supply & Demand Zones、Seesaw Trailing Strategy。",
+      "a2": "<strong>Premiumプラン</strong>には、14の強力なツールと無料インジケーターを含むコアAIO Price Actionインジケーターが含まれています。プライスアクションと時間分析に集中したトレーダーに最適です。<br><br><strong>VIPプラン</strong>にはPremiumのすべてに加えて11つの高度な機関投資家グレードインジケーターが含まれます：Top Bottom Strategy、Supply &amp; Demand Zones、Top Bottom Confidence、Dow Theory、TPO Liquidity付きAdvanced Trendlines、Smart Money Detection付きAdvanced Market Structure、Banker Momentum Volatility、Prediction Market Simulator、Perps Flow Positioning（AIO PFP）、Seesaw Trailing Strategy、Key Volume Pro。",
       "q3": "インジケーターはリペイントしますか？",
       "a3": "いいえ、AIOインジケーターはリペイントしません。すべてのシグナルとレベルはリアルタイムで計算され、形成後は固定されます。これは信頼性の高いバックテストとライブ取引に不可欠です。チャートに表示されるシグナルを信頼できます。",
       "q4": "1分や5分のような低いタイムフレームでこれらのインジケーターを使用できますか？",
