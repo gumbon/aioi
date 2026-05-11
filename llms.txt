@@ -23,6 +23,7 @@
 
 ### VIP Indicators
 - **AIO Top/Bottom Strategy** — A Strategy version of AIO Top/Bottom Confidence
+- **AIO Top/Bottom Strategy** — A Strategy version of AIO Top/Bottom Confidence
 - **AIO Supply & Demand Zones** — Automatically identifies supply/demand zones from price pivots with a 0-9 composite quality score, zone flip (role reversal) tracking, and next-touch prediction
 - **AIO Top/Bottom Confidence** — Multi-factor reversal detection combining nine independent evidence layers (structure, momentum, volume, candle shape, HTF alignment) into a single confidence score
 - **AIO Dow Theory** — Rigorous implementation of Dow’s original theory using closing prices only; detects three institutional phases with displacement validation and multi-timeframe framework
@@ -32,6 +33,7 @@
 - **AIO Prediction Market Simulator** — Professional-grade quantitative indicator using Monte Carlo methods, Particle Filtering, and Importance Sampling for probability estimates
 - **AIO Perps Flow Positioning & Setup Signals** — Perpetual futures analytics combining OI dynamics, liquidation proxy detection, CVD divergence filters, and 6-type setup engine with strength scoring
 - **AIO Seesaw Trailing Strategy** — High win-rate trailing strategy with no-repaint signals and proven back-test results
+- **AIO Key Volume Pro** — 4-TF POC convergence engine with state detection, zone pool, and anchored VWAP for institutional-grade volume analysis
 
 ### Premium Indicators
 - **AIO Price Action All In One** — Complete price action and time analysis toolkit combining market structure, sessions, STD, price levels, magic bars, trendlines, and breakout predictions
