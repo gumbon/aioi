@@ -817,7 +817,13 @@ body {
 }
 
 /* First card in VIP tab row: centered alone on its own row */
-#vip .row > .col-lg-4:first-child {
+/* -----------------------------------------------------------------------
+ * Indicator Featured Highlight
+ * Add class "col-indicator-featured" to any col-lg-4 col-md-6 wrapper
+ * to center and visually spotlight that indicator card.
+ * Remove the class to revert to normal equal-width grid behaviour.
+ * ----------------------------------------------------------------------- */
+.col-indicator-featured {
     flex: 0 0 100%;
     max-width: 100%;
     display: flex;
@@ -827,9 +833,14 @@ body {
 }
 
 @media (min-width: 992px) {
-    #vip .row > .col-lg-4:first-child > .indicator-card {
+    .col-indicator-featured > .indicator-card {
         width: 33.3333%;
     }
+}
+
+.col-indicator-featured > .indicator-card {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px var(--accent-primary), var(--card-shadow);
 }
 
 /* Modal Styling */
