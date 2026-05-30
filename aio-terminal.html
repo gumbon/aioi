@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Terminal — Web-based Binance USDT-M Futures trading dashboard. One-click Long/Short, Smart TP/SL, Trailing Stop, Close All. No installation. Works on any browser. Included with VIP plan." />
+    <meta name="keywords" content="AIO Terminal, Binance futures trading tool, one-click trading, Binance order management, smart TP SL, trailing stop, futures trading software, crypto trading terminal, Binance USDT-M futures" />
+    <meta name="author" content="AIO Indicator" />
+    <title>AIO Terminal — Professional Binance Futures Trading Tool | AIO Indicator</title>
+
+    <meta property="og:title" content="AIO Terminal — Trade Binance Futures Like a Pro" />
+    <meta property="og:description" content="One-click Long/Short orders, Smart TP/SL monitor, Trailing Stop, one-click Close All. Execute trades 10× faster than the Binance native interface." />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content="https://aioindicator.com/aio-terminal.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="AIO Terminal — Professional Binance Futures Trading Tool" />
+    <meta name="twitter:description" content="One-click Long/Short, Smart TP/SL, Trailing Stop, Close All. Execute faster, pay less in fees. Free with VIP plan." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.png" />
+
+    <link rel="canonical" href="https://aioindicator.com/aio-terminal.html" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/modern-styles.css" rel="stylesheet" />
+    <link href="css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "AIO Terminal",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "description": "Professional Binance USDT-M Futures trading terminal with one-click orders, Smart TP/SL, Trailing Stop, and one-click Close All. Included with AIO Indicator VIP plan.",
+      "url": "https://aioindicator.com/aio-terminal.html",
+      "screenshot": "https://aioindicator.com/assets/terminal/aio-terminal-hp.png",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Included free with AIO Indicator VIP Plan ($34.99/month)"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/"
+      },
+      "featureList": [
+        "One-click Long/Short orders with limit at last price",
+        "Smart TP/SL monitor with breakeven SL",
+        "Trailing Stop with auto-activation",
+        "One-click Close All / Cancel All orders",
+        "TP/SL in Price, Range, or PCT modes",
+        "Drag-and-drop tab layout",
+        "API-connected — no password sharing"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "AIO Terminal", "item": "https://aioindicator.com/aio-terminal.html" }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Terminal page custom styles */
+        .terminal-hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .terminal-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 60% 30%, rgba(0,212,255,0.08) 0%, transparent 70%),
+                        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(99,102,241,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .terminal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,212,255,0.12);
+            border: 1px solid rgba(0,212,255,0.3);
+            color: var(--accent-primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+        }
+        .terminal-hero-img {
+            border-radius: 16px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+            width: 100%;
+            transition: transform 0.4s ease;
+        }
+        .terminal-hero-img:hover {
+            transform: translateY(-4px);
+        }
+        .terminal-mobile-img {
+            border-radius: 12px;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            width: 28%;
+            border: 2px solid rgba(255,255,255,0.08);
+        }
+        .pain-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-top: 2px solid rgba(231,76,60,0.4);
+            border-radius: 16px;
+            padding: 28px 24px;
+            height: 100%;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .pain-card:hover {
+            border-color: #e74c3c55;
+            border-top-color: rgba(231,76,60,0.7);
+            transform: translateY(-3px);
+        }
+        .pain-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(231,76,60,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #e74c3c;
+            margin-bottom: 16px;
+        }
+        .solution-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(0,212,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: var(--accent-primary);
+            margin-bottom: 16px;
+        }
+        .tab-screenshot-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+        .tab-screenshot-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .tab-screenshot-btn:hover,
+        .tab-screenshot-btn.active {
+            background: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: #fff;
+        }
+        .screenshot-display {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.06);
+            line-height: 0;
+        }
+        .screenshot-display img {
+            width: 100%;
+            display: block;
+            transition: opacity 0.3s;
+        }
+        .terminal-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+        .terminal-feature-item:last-child { border-bottom: none; }
+        .terminal-feature-icon {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 10px;
+            background: rgba(0,212,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-primary);
+            font-size: 18px;
+        }
+        .vip-included-banner {
+            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(99,102,241,0.1));
+            border: 1px solid rgba(0,212,255,0.25);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+        .terminal-faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .terminal-faq-question {
+            padding: 18px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.2s;
+        }
+        .terminal-faq-question:hover { background: rgba(255,255,255,0.04); }
+        .terminal-faq-answer {
+            padding: 0 24px 18px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        .compare-table {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+        .compare-table table {
+            width: 100%;
+            margin: 0;
+        }
+        .compare-table th {
+            background: rgba(255,255,255,0.04);
+            color: var(--text-primary);
+            padding: 14px 20px;
+            font-weight: 700;
+        }
+        .compare-table td {
+            padding: 12px 20px;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+        }
+        .compare-table tr:hover td { background: rgba(255,255,255,0.02); }
+        .check-yes { color: #2ecc71; font-weight: 700; }
+        .check-no  { color: #e74c3c; }
+        @media (max-width: 768px) {
+            .terminal-hero { padding: 100px 0 60px; }
+            .terminal-mobile-img { display: none; }
+            .vip-included-banner { padding: 28px 20px; }
+        }
+
+        /* ── Device mockup frames ── */
+        .hero-devices-glow {
+            position: absolute;
+            inset: -40px 0;
+            background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(102,126,234,0.18) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .browser-chrome {
+            position: relative;
+            z-index: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #0a0e27;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08), 0 0 80px rgba(102,126,234,0.1);
+            transition: transform 0.4s ease;
+        }
+        .browser-chrome:hover { transform: translateY(-4px); }
+        .browser-chrome .terminal-hero-img {
+            border-radius: 0;
+            box-shadow: none;
+            transition: none;
+            margin-bottom: -4px;
+        }
+        .browser-chrome .terminal-hero-img:hover { transform: none; }
+        .browser-chrome-bar {
+            background: rgba(255,255,255,0.03);
+            padding: 9px 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .browser-dots {
+            font-size: 7px;
+            color: rgba(255,255,255,0.22);
+            letter-spacing: 4px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+        .browser-url {
+            font-size: 10px;
+            color: rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 5px;
+            padding: 3px 10px;
+            flex: 1;
+            max-width: 220px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .phone-frame-wrapper {
+            position: absolute;
+            bottom: -16px;
+            right: -20px;
+            z-index: 3;
+            width: 25%;
+        }
+        .phone-glow {
+            position: absolute;
+            inset: -24px;
+            background: radial-gradient(ellipse at center, rgba(102,126,234,0.28) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .phone-frame {
+            border-radius: 28px;
+            border: 2px solid rgba(255,255,255,0.12);
+            background: #0a0e27;
+            padding: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(102,126,234,0.2);
+            animation: floatPhone 4s ease-in-out infinite;
+            position: relative;
+        }
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 3px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .phone-frame img {
+            width: 100%;
+            display: block;
+            border-radius: 20px;
+        }
+        @keyframes floatPhone {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        @media (max-width: 575px) {
+            .phone-frame-wrapper { display: none; }
+            .browser-url { display: none; }
+        }
+        /* ── Comparison table AIO header accent ── */
+        .compare-table th.aio-col {
+            background: linear-gradient(135deg, rgba(102,126,234,0.25) 0%, rgba(118,75,162,0.2) 100%);
+            color: var(--accent-primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="./">
+                <img src="assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+                <span>AIO Indicator</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="./#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="./#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog/"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="./#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <span data-i18n="nav.community">Community</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-lg-2 d-flex align-items-center">
+                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>
+                            <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe lang-globe-icon"></i>
+                            <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════
+         HERO SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="terminal-hero">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="terminal-badge">
+                        <i class="bi bi-terminal-fill"></i>
+                        <span data-i18n="terminal.badge_vip">Included FREE in VIP Plan</span>
+                    </div>
+                    <h1 class="hero-title mb-4" style="font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;">
+                        <span data-i18n="terminal.hero_title_line1">Trade Binance Futures</span><br>
+                        <span class="hero-title-accent" data-i18n="terminal.hero_title_line2">Like a Professional</span>
+                    </h1>
+                    <p class="text-secondary mb-4" style="font-size:1.1rem;line-height:1.7;" data-i18n="terminal.hero_subtitle">
+                        Stop wasting seconds on Binance's clunky interface. AIO Terminal gives you one-click Long/Short at last price, Smart TP/SL monitoring, Trailing Stop, and instant Close All — all in a single, customisable dashboard.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3 mb-5">
+                        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary">
+                            <i class="bi bi-lightning-charge-fill me-2"></i>
+                            <span data-i18n="terminal.cta_access">Get Terminal Access</span>
+                        </a>
+                        <a href="#terminal-features" class="btn btn-hero-secondary">
+                            <i class="bi bi-play-circle me-2"></i>
+                            <span data-i18n="terminal.cta_learn">See Features</span>
+                        </a>
+                    </div>
+                    <!-- Stats row -->
+                    <div class="d-flex flex-wrap gap-4">
+                        <div>
+                            <div class="h4 gradient-text fw-bold mb-0">7</div>
+                            <small class="text-secondary" data-i18n="terminal.stat_tabs">Order Tabs</small>
+                        </div>
+                        <div>
+                            <div class="h4 gradient-text fw-bold mb-0">3×</div>
+                            <small class="text-secondary" data-i18n="terminal.stat_speed">Faster Execution</small>
+                        </div>
+                        <div>
+                            <div class="h4 gradient-text fw-bold mb-0">~100%</div>
+                            <small class="text-secondary" data-i18n="terminal.stat_fill">Limit Fill Rate</small>
+                        </div>
+                        <div>
+                            <div class="h4 gradient-text fw-bold mb-0">API</div>
+                            <small class="text-secondary" data-i18n="terminal.stat_secure">Secure Connect</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 position-relative">
+                    <div class="hero-devices-glow"></div>
+                    <div class="browser-chrome">
+                        <div class="browser-chrome-bar">
+                            <span class="browser-dots">● ● ●</span>
+                            <span class="browser-url">terminal.aioindicator.com</span>
+                        </div>
+                        <img src="assets/terminal/aio-terminal-hp.png" alt="AIO Terminal — Binance Futures Trading Dashboard" class="terminal-hero-img" />
+                    </div>
+                    <div class="phone-frame-wrapper">
+                        <div class="phone-glow"></div>
+                        <div class="phone-frame">
+                            <img src="assets/terminal/aio-terminal-hp-mobile.png" alt="AIO Terminal Mobile View" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         PAIN POINTS SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="modern-features" style="padding-top:80px;padding-bottom:60px;">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h2 class="section-title" data-i18n="terminal.pain_title">Sound Familiar?</h2>
+                <p class="section-subtitle" data-i18n="terminal.pain_subtitle">Every trader using Binance natively has felt these frustrations. Here's why they cost you real money.</p>
+            </div>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card">
+                        <div class="pain-icon"><i class="bi bi-hourglass-split"></i></div>
+                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_1_title">10+ Clicks to Place One Trade</h5>
+                        <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_1_desc">Select symbol, choose side, set leverage, enter size, configure TP, configure SL, confirm — by the time you're done the price has moved 0.3%.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card">
+                        <div class="pain-icon"><i class="bi bi-door-closed"></i></div>
+                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_2_title">Session Timeouts Kill Your Flow</h5>
+                        <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_2_desc">Binance logs you out during live positions. Scrambling to re-authenticate while price is moving is a nightmare that has wiped traders' accounts.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card">
+                        <div class="pain-icon"><i class="bi bi-currency-dollar"></i></div>
+                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_3_title">Market Orders Bleed Fees</h5>
+                        <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_3_desc">MARKET taker fee = 0.05% vs LIMIT maker fee = 0.02%. On a $10,000 trade that's $4 vs $2 every single entry. Multiply by 10 trades a day = $20/day in extra fees.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card">
+                        <div class="pain-icon"><i class="bi bi-x-octagon"></i></div>
+                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_4_title">Closing All Positions Takes Forever</h5>
+                        <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_4_desc">When news hits and you need to flatten everything NOW, clicking through each position individually on Binance wastes critical seconds. Markets don't wait.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card">
+                        <div class="pain-icon"><i class="bi bi-sliders"></i></div>
+                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_5_title">TP/SL Settings Never Remembered</h5>
+                        <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_5_desc">Every new order means re-entering your risk parameters from scratch. No persistence, no templates. It breaks your workflow and invites costly input errors.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="pain-card" style="border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.05),rgba(99,102,241,0.05));">
+                        <div class="solution-icon"><i class="bi bi-terminal-fill"></i></div>
+                        <h5 style="color:var(--accent-primary);" data-i18n="terminal.pain_cta_title">AIO Terminal Solves All of This</h5>
+                        <p class="text-secondary mb-3" style="font-size:.9rem;" data-i18n="terminal.pain_cta_desc">Built by a trader who hit every one of these walls. One tool, one dashboard, everything remembered, one click to execute.</p>
+                        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm">
+                            <span data-i18n="terminal.cta_access">Get Terminal Access</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         FEATURES + SCREENSHOTS
+    ═══════════════════════════════════════════ -->
+    <section id="terminal-features" class="modern-features" style="padding-top:60px;">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h2 class="section-title" data-i18n="terminal.features_title">Everything You Need in One Terminal</h2>
+                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Seven specialised order tabs. Every setting saved automatically. Switch between any tab in one click.</p>
+            </div>
+
+            <div class="row g-5 align-items-start">
+                <!-- Left: Feature list -->
+                <div class="col-lg-5">
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-arrow-up-circle-fill"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_1_title">Long Order — Limit at Last Price</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_1_desc">Opens a LONG limit order at the current last price, achieving near-100% fill rate at maker fee (half the cost of market orders).</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-arrow-down-circle-fill"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_2_title">Short Order — Limit at Last Price</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_2_desc">Same speed advantage for shorts. One click, correct side, correct leverage, your persisted TP/SL settings applied instantly.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-bullseye"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_3_title">Smart TP/SL Monitor</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_3_desc">Background engine that monitors your positions and auto-moves SL to breakeven once TP1 is hit. Works while you trade other positions.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-activity"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_4_title">Trailing Stop with Auto-Activation</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_4_desc">Set a trailing stop that activates at a price trigger and trails dynamically. Lock in profits without manually moving stops.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-x-circle-fill"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_5_title">One-Click Close All / Cancel All</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_5_desc">Flatten all open positions or cancel all open orders in seconds — not minutes. Essential when news moves the market instantly.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-percent"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_6_title">TP/SL in Price, Range, or % Mode</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_6_desc">Set your exit by absolute price, fixed distance from entry, or percentage — whichever matches your trading style. Or set later with one click from the TP/SL tab.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon"><i class="bi bi-grid-1x2-fill"></i></div>
+                        <div>
+                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_7_title">Drag-and-Drop Layout + Persistent Settings</h6>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_7_desc">Arrange your tabs in any order. All your parameters — symbol, leverage, size, TP/SL — are remembered across sessions. Never re-enter your setup again.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Screenshot gallery -->
+                <div class="col-lg-7">
+                    <div class="tab-screenshot-nav">
+                        <button class="tab-screenshot-btn active" data-img="assets/terminal/terminal-long-order.png" data-i18n="terminal.tab_long">Long Order</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-short-order.png" data-i18n="terminal.tab_short">Short Order</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-smart-tpsl.png" data-i18n="terminal.tab_smart">Smart TP/SL</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-trailing-stop.png" data-i18n="terminal.tab_trail">Trailing Stop</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-close.png" data-i18n="terminal.tab_close">Close Position</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-tpsl.png" data-i18n="terminal.tab_tpsl">TP/SL Tab</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-cancel.png" data-i18n="terminal.tab_cancel">Cancel Orders</button>
+                    </div>
+                    <div class="screenshot-display">
+                        <img id="screenshotImg" src="assets/terminal/terminal-long-order.png" alt="AIO Terminal Long Order Tab" />
+                    </div>
+                    <p class="text-secondary small text-center mt-3" data-i18n="terminal.screenshot_hint">Click any tab above to preview that order panel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         COMPARISON TABLE
+    ═══════════════════════════════════════════ -->
+    <section class="modern-features" style="padding-top:60px;padding-bottom:60px;">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h2 class="section-title" data-i18n="terminal.compare_title">AIO Terminal vs Binance Native</h2>
+                <p class="section-subtitle" data-i18n="terminal.compare_subtitle">A side-by-side look at what changes when you switch</p>
+            </div>
+            <div class="compare-table">
+                <table class="table table-borderless mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width:45%;" data-i18n="terminal.compare_feature">Feature</th>
+                            <th style="width:27.5%;text-align:center;" class="aio-col">
+                                <span class="badge bg-warning text-dark px-3 py-2">AIO Terminal</span>
+                            </th>
+                            <th style="width:27.5%;text-align:center;" data-i18n="terminal.compare_binance">Binance Native</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-i18n="terminal.cmp_1">Clicks to place an order with TP &amp; SL</td>
+                            <td class="text-center check-yes">1 click</td>
+                            <td class="text-center check-no">8–12 clicks</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_2">Entry order type default</td>
+                            <td class="text-center check-yes" data-i18n="terminal.cmp_2_aio">Limit at last price</td>
+                            <td class="text-center check-no" data-i18n="terminal.cmp_2_bnb">Market (taker fee)</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_3">Session timeout / re-login required</td>
+                            <td class="text-center check-yes">✓ Never</td>
+                            <td class="text-center check-no">✗ Frequent</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_4">TP/SL input modes</td>
+                            <td class="text-center check-yes" data-i18n="terminal.cmp_4_aio">Price, Range, PCT</td>
+                            <td class="text-center check-no" data-i18n="terminal.cmp_4_bnb">Price only</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_5">Close all positions at once</td>
+                            <td class="text-center check-yes">✓ 1 click</td>
+                            <td class="text-center check-no" data-i18n="terminal.cmp_5_bnb">Each position manually</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_6">Smart TP/SL breakeven auto-move</td>
+                            <td class="text-center check-yes">✓ Background monitor</td>
+                            <td class="text-center check-no">✗ Manual</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_7">Settings remembered between sessions</td>
+                            <td class="text-center check-yes">✓ Always</td>
+                            <td class="text-center check-no">✗ Never</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_8">Tab layout customisation</td>
+                            <td class="text-center check-yes">✓ Drag &amp; drop</td>
+                            <td class="text-center check-no">✗ Fixed</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_9">API-only connection (no password sharing)</td>
+                            <td class="text-center check-yes">✓ API Key only</td>
+                            <td class="text-center" style="color:var(--text-secondary);">N/A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         VIP INCLUDED BANNER
+    ═══════════════════════════════════════════ -->
+    <section style="padding: 40px 0 80px;">
+        <div class="container">
+            <div class="vip-included-banner">
+                <div class="terminal-badge mx-auto mb-4" style="width:fit-content;">
+                    <i class="bi bi-star-fill text-warning"></i>
+                    <span data-i18n="terminal.badge_vip">Included FREE in VIP Plan</span>
+                </div>
+                <h2 class="section-title mb-3" data-i18n="terminal.vip_banner_title">Get AIO Terminal with Every VIP Subscription</h2>
+                <p class="text-secondary mb-4" style="max-width:600px;margin:0 auto 32px;" data-i18n="terminal.vip_banner_desc">
+                    AIO Terminal is bundled at no extra cost with every VIP plan. You get 25+ institutional-grade TradingView indicators AND the professional trading terminal — starting from $34.99/month.
+                </p>
+                <div class="d-flex flex-wrap justify-content-center gap-3">
+                    <a href="./#pricing" class="btn btn-hero-primary">
+                        <i class="bi bi-tags me-2"></i>
+                        <span data-i18n="terminal.vip_banner_cta_pricing">View VIP Pricing</span>
+                    </a>
+                    <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-secondary">
+                        <i class="bi bi-telegram me-2"></i>
+                        <span data-i18n="terminal.vip_banner_cta_trial">Get Terminal Access</span>
+                    </a>
+                </div>
+                <p class="text-secondary small mt-4" data-i18n="terminal.vip_banner_note">Included with every VIP plan &bull; Instant access via Telegram &bull; 24/7 support</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         FAQ SECTION
+    ═══════════════════════════════════════════ -->
+    <section class="modern-features" style="padding-top:60px;padding-bottom:80px;background:var(--darker-bg);">
+        <div class="container">
+            <div class="section-header mb-5">
+                <h2 class="section-title" data-i18n="terminal.faq_title">Frequently Asked Questions</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q1">What is AIO Terminal and how do I get access?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a1">AIO Terminal is a web-based order management dashboard for Binance USDT-M Futures, built for speed and simplicity. Access is included free with any VIP plan subscription. After subscribing, contact us on Telegram (@nguyenthl) to receive setup instructions.</div>
+                    </div>
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q2">Is my Binance API key safe? Does AIO Terminal store my password?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a2">AIO Terminal only uses your Binance API key — never your account password. Your credentials are encrypted and stored securely on our server — never in plain text, never exposed to third parties.</div>
+                    </div>
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q3">What Binance markets does it support?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a3">Currently AIO Terminal supports Binance USDT-M Perpetual Futures. Support for additional markets and exchanges (Spot, Binance Coin-M, other exchanges) is planned for future releases.</div>
+                    </div>
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q4">How is limit at last price different from a market order?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a4">AIO Terminal places a LIMIT order at the current last traded price. Because you're a maker not a taker, Binance charges 0.02% instead of 0.05%. The fill rate is near 100% because the order is placed at the market price — but you pay maker fees. On active symbols this fills virtually instantly, giving you the speed of a market order at half the fee cost.</div>
+                    </div>
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q5">What operating systems are supported?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a5">AIO Terminal is entirely web-based — no installation required. You can access it from any modern browser on any operating system: macOS, Windows, Linux, iOS, or Android. Simply log in at terminal.aioindicator.com and start trading.</div>
+                    </div>
+                    <div class="terminal-faq-item">
+                        <div class="terminal-faq-question" onclick="toggleFaq(this)">
+                            <span data-i18n="terminal.faq_q6">Is AIO Terminal available on testnet?</span>
+                            <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <div class="terminal-faq-answer" data-i18n="terminal.faq_a6">Yes! AIO Terminal supports Binance testnet. You can switch between testnet and mainnet directly within the Terminal settings. Testnet lets you test all order types — Long, Short, TP/SL, Trailing Stop — without risking real funds. Recommended before going live.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         BLOG CTA
+    ═══════════════════════════════════════════ -->
+    <section style="padding: 60px 0 80px; background: var(--card-bg); border-top: 1px solid var(--card-border);">
+        <div class="container text-center">
+            <h3 class="section-title mb-3" data-i18n="terminal.blog_cta_title">Learn How to Trade Faster</h3>
+            <p class="text-secondary mb-4" data-i18n="terminal.blog_cta_desc">Deep-dive articles on getting the most out of AIO Terminal and why exchange-native interfaces are costing you money.</p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="blog/why-binance-interface-slows-down-traders.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_1">Why Binance's Interface Costs You Trades →</a>
+                <a href="blog/aio-terminal-tp-sl-modes-price-range-pct.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_2">TP/SL Mastery: Price, Range &amp; PCT →</a>
+                <a href="blog/aio-terminal-vs-exchange-interface-comparison.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_3">AIO Terminal vs Binance Native →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <img src="assets/favicon.ico" height="36" alt="AIO Indicator" class="me-2">
+                        <span class="h5 mb-0">AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3" data-i18n="footer.tagline">The ultimate TradingView price action indicator suite for professional traders.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="footer-heading" data-i18n="footer.quick_links">Quick Links</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="./#features" data-i18n="footer.features">Features</a></li>
+                        <li><a href="./#indicators" data-i18n="footer.indicators">All Indicators</a></li>
+                        <li><a href="aio-terminal.html" data-i18n="nav.terminal">Terminal</a></li>
+                        <li><a href="blog/" data-i18n="footer.blog">Blog</a></li>
+                        <li><a href="./#pricing" data-i18n="footer.pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="footer-heading" data-i18n="footer.community">Community</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="https://t.me/aiotradehub" target="_blank">Telegram</a></li>
+                        <li><a href="https://medium.com/@tranholenguyen" target="_blank">Medium</a></li>
+                        <li><a href="https://twitter.com/gumbon/" target="_blank">Twitter / X</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <p class="text-secondary small" data-i18n="footer.disclaimer">Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose. AIO Indicator takes no responsibility for loss incurred as a result of your trading.</p>
+                    <p class="text-secondary small mt-2" data-i18n="footer.copyright">© 2026 AIO Indicator. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta d-lg-none">
+        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary w-100">
+            <i class="bi bi-lightning-charge-fill me-2"></i>
+            <span data-i18n="terminal.cta_access">Get Terminal Access</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script>
+        // Screenshot gallery switcher
+        document.querySelectorAll('.tab-screenshot-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-screenshot-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const img = document.getElementById('screenshotImg');
+                img.style.opacity = '0';
+                setTimeout(() => {
+                    img.src = this.dataset.img;
+                    img.alt = this.textContent.trim();
+                    img.style.opacity = '1';
+                }, 150);
+            });
+        });
+
+        // FAQ toggle
+        function toggleFaq(el) {
+            const answer = el.nextElementSibling;
+            const icon = el.querySelector('.bi');
+            const isOpen = answer.style.display === 'block';
+            answer.style.display = isOpen ? 'none' : 'block';
+            icon.className = isOpen ? 'bi bi-chevron-down' : 'bi bi-chevron-up';
+        }
+
+        // Navbar scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.modern-navbar');
+            if (navbar) navbar.style.boxShadow = window.scrollY > 30 ? '0 2px 30px rgba(0,0,0,0.3)' : 'none';
+        });
+    </script>
+</body>
+</html>

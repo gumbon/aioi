@@ -197,9 +197,8 @@
                     <li class="nav-item"><a class="nav-link" href="#home"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="blog/"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials"><i class="bi bi-chat-quote"></i><span data-i18n="nav.reviews">Reviews</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#faq"><i class="bi bi-question-circle"></i><span data-i18n="nav.faq">FAQ</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -212,6 +211,12 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item ms-lg-2 d-flex align-items-center">
+                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>
+                            <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                        </a>
                     </li>
                     <!-- Language Switcher -->
                     <li class="nav-item dropdown">
@@ -232,17 +237,17 @@
     </nav>
 
     <!-- Modern Hero Section -->
-    <section id="home" class="modern-hero">
+    <section id="home" class="modern-hero" style="position:relative;">
         <div class="hero-background-image"></div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-xl-8">
                     <div class="text-center hero-text">
-                        <!--<div class="hero-badge mb-4">
+                        <div class="hero-badge mb-4">
                             <span class="badge-icon">⚡</span>
-                            <span>Trusted by 500+ Traders on TradingView</span>
-                        </div>-->
+                            <span data-i18n="hero.badge">Trusted by Traders Worldwide</span>
+                        </div>
                         <h1 class="hero-title mb-4"><span data-i18n="hero.title1">Price Action</span><br/><span class="hero-title-accent" data-i18n="hero.title2">Smart Money Indicators</span></h1>
                         <p class="hero-subtitle mb-5" data-i18n-html="hero.subtitle">Align with institutional order flow and smart money movements. <span class="accent">Detect banker participation, liquidity patterns, and high-probability setups</span> before the next major move. Professional-grade tools designed for traders who think like institutions.</p>
                         <div class="hero-buttons">
@@ -272,7 +277,7 @@
                                 <div class="stat-label" data-i18n="hero.stat_rating">Rating</div>
                             </div>
                             <div class="stat-item">
-                                <div class="stat-number">0</div>
+                                <div class="stat-number">Zero</div>
                                 <div class="stat-label" data-i18n="hero.stat_repaints">Repaints</div>
                             </div>
                         </div>
@@ -280,6 +285,10 @@
                 </div>
             </div>
         </div>
+        <a href="#features" class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <i class="bi bi-chevron-down"></i>
+        </a>
     </section>
 
     <!-- Social Proof Bar -->
@@ -312,6 +321,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- Features Section -->
     <section id="features" class="modern-features">
@@ -378,6 +389,8 @@
             </div>
         </div>
     </section>
+
+    <div class="section-divider"></div>
 
     <!-- All Indicators Section -->
     <section id="indicators" class="modern-features">
@@ -846,6 +859,89 @@
         </div>
     </div>
 
+    <div class="section-divider"></div>
+
+    <!-- AIO Terminal Section -->
+    <section id="terminal" class="modern-features" style="padding-top:80px;padding-bottom:100px;background:linear-gradient(180deg,var(--darker-bg) 0%,var(--dark-bg) 100%)">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- Left: Content -->
+                <div class="col-lg-6">
+                    <div class="d-inline-flex align-items-center gap-2 mb-3" style="background:rgba(0,212,255,0.1);border:1px solid rgba(0,212,255,0.25);color:var(--accent-primary);padding:5px 14px;border-radius:50px;font-size:.82rem;font-weight:600;">
+                        <i class="bi bi-terminal-fill"></i>
+                        <span data-i18n="terminal.homepage_badge">NEW — Exclusive VIP Tool</span>
+                    </div>
+                    <h2 class="section-title text-start" data-i18n="terminal.homepage_title">AIO Terminal</h2>
+                    <p class="h5 gradient-text mb-4" data-i18n="terminal.homepage_tagline">Trade Binance Futures Like a Pro</p>
+                    <p class="text-secondary mb-5" style="line-height:1.8;" data-i18n="terminal.homepage_desc">
+                        Stop losing time (and money) wrestling with Binance's interface. AIO Terminal is your dedicated Binance USDT-M Futures command center — one-click orders at limit price, Smart TP/SL monitor, Trailing Stop, instant Close All, and every setting remembered automatically.
+                    </p>
+                    <div class="row g-3 mb-5">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div style="width:36px;height:36px;min-width:36px;background:rgba(0,212,255,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--accent-primary);"><i class="bi bi-lightning-charge-fill"></i></div>
+                                <div><strong style="color:var(--text-primary);font-size:.9rem;" data-i18n="terminal.hp_f1">1-Click Orders</strong><br><small class="text-secondary" data-i18n="terminal.hp_f1d">Long or short in one tap, limit at last price</small></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div style="width:36px;height:36px;min-width:36px;background:rgba(0,212,255,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--accent-primary);"><i class="bi bi-bullseye"></i></div>
+                                <div><strong style="color:var(--text-primary);font-size:.9rem;" data-i18n="terminal.hp_f2">Smart TP/SL</strong><br><small class="text-secondary" data-i18n="terminal.hp_f2d">Auto-breakeven monitor runs in background</small></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div style="width:36px;height:36px;min-width:36px;background:rgba(0,212,255,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--accent-primary);"><i class="bi bi-x-circle-fill"></i></div>
+                                <div><strong style="color:var(--text-primary);font-size:.9rem;" data-i18n="terminal.hp_f3">Instant Close All</strong><br><small class="text-secondary" data-i18n="terminal.hp_f3d">Flatten all positions or cancel all orders in seconds</small></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-start gap-3">
+                                <div style="width:36px;height:36px;min-width:36px;background:rgba(0,212,255,0.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--accent-primary);"><i class="bi bi-shield-lock-fill"></i></div>
+                                <div><strong style="color:var(--text-primary);font-size:.9rem;" data-i18n="terminal.hp_f4">API Secure</strong><br><small class="text-secondary" data-i18n="terminal.hp_f4d">API key only — never your password or personal data</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                        <a href="aio-terminal.html" class="btn btn-hero-primary">
+                            <i class="bi bi-terminal me-2"></i>
+                            <span data-i18n="terminal.hp_cta_learn">Learn More</span>
+                        </a>
+                        <span class="text-secondary small">
+                            <i class="bi bi-star-fill text-warning me-1"></i>
+                            <span data-i18n="terminal.hp_cta_note">Free with VIP Plan</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- Right: Screenshot -->
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="hero-devices-glow"></div>
+                        <div class="browser-chrome">
+                            <div class="browser-chrome-bar">
+                                <span class="browser-dots">● ● ●</span>
+                                <span class="browser-url">terminal.aioindicator.com</span>
+                            </div>
+                            <img src="assets/terminal/aio-terminal-hp.png"
+                                 alt="AIO Terminal Binance Futures Dashboard"
+                                 loading="lazy" />
+                        </div>
+                        <div class="phone-frame-wrapper">
+                            <div class="phone-glow"></div>
+                            <div class="phone-frame">
+                                <img src="assets/terminal/aio-terminal-hp-mobile.png"
+                                     alt="AIO Terminal Mobile"
+                                     loading="lazy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials-section">
         <div class="container">
@@ -1036,6 +1132,8 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Pricing Section -->
     <section id="pricing" class="modern-features">
         <div class="container">
@@ -1078,6 +1176,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.priority_support">Priority Support</span></li>
                         </ul>
                         <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI" target="_blank" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
@@ -1098,6 +1197,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 30% &mdash; $180/year</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_annually_vip">*Billed as $419.90 annually</li>
                         </ul>
@@ -1119,6 +1219,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 18% &mdash; $27/quarter</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_quarterly_vip">*Billed as $122.97 per 3 months</li>
                         </ul>

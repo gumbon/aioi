@@ -1166,3 +1166,167 @@ body {
     font-weight: 700;
     color: var(--text-primary);
 }
+
+/* ── Device mockup frames (Terminal sections) ── */
+.hero-devices-glow {
+    position: absolute;
+    inset: -40px 0;
+    background: radial-gradient(ellipse 80% 60% at 60% 50%, rgba(102,126,234,0.18) 0%, transparent 65%);
+    pointer-events: none;
+    z-index: 0;
+}
+.browser-chrome {
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0a0e27;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08), 0 0 80px rgba(102,126,234,0.1);
+    transition: transform 0.4s ease;
+}
+.browser-chrome:hover { transform: translateY(-4px); }
+.browser-chrome img {
+    width: 100%;
+    display: block;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transition: none !important;
+    margin-bottom: -4px;
+}
+.browser-chrome-bar {
+    background: rgba(255,255,255,0.03);
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.browser-dots {
+    font-size: 7px;
+    color: rgba(255,255,255,0.22);
+    letter-spacing: 4px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+.browser-url {
+    font-size: 10px;
+    color: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 5px;
+    padding: 3px 10px;
+    flex: 1;
+    max-width: 220px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.phone-frame-wrapper {
+    position: absolute;
+    bottom: -16px;
+    right: -20px;
+    z-index: 3;
+    width: 25%;
+}
+.phone-glow {
+    position: absolute;
+    inset: -24px;
+    background: radial-gradient(ellipse at center, rgba(102,126,234,0.28) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+.phone-frame {
+    border-radius: 28px;
+    border: 2px solid rgba(255,255,255,0.12);
+    background: #0a0e27;
+    padding: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 40px rgba(102,126,234,0.2);
+    animation: floatPhone 4s ease-in-out infinite;
+    position: relative;
+}
+.phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 3px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 2px;
+    z-index: 1;
+}
+.phone-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 20px !important;
+    box-shadow: none !important;
+}
+@keyframes floatPhone {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ── Hero scroll indicator ── */
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.3);
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: scrollBob 2s ease-in-out infinite;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 2;
+}
+.hero-scroll-indicator:hover { color: rgba(255,255,255,0.6); }
+.hero-scroll-indicator i { font-size: 20px; }
+@keyframes scrollBob {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Section visual separators ── */
+.section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 20%, rgba(102,126,234,0.15) 50%, rgba(255,255,255,0.07) 80%, transparent);
+    margin: 0;
+}
+
+/* ── Pain card top accent (aio-terminal.html) ── */
+.pain-card-accent {
+    border-top: 2px solid rgba(231,76,60,0.5) !important;
+}
+
+/* ── Navbar login button ── */
+.btn-terminal-login {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff !important;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.83rem;
+    font-weight: 600;
+    text-decoration: none !important;
+    transition: box-shadow 0.2s, transform 0.2s;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+.btn-terminal-login:hover {
+    box-shadow: 0 4px 16px rgba(102,126,234,0.45);
+    transform: translateY(-1px);
+    color: #fff !important;
+}
+.navbar-nav .nav-item {
+    padding: 0 2px;
+}

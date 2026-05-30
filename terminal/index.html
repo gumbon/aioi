@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIO Terminal — Loading...</title>
+    <!-- NOTE: Update the TERMINAL_APP_URL constant below with the actual hosted terminal URL before deployment -->
+    <script>
+        // ══════════════════════════════════════════════════════
+        // UPDATE THIS URL when the hosted terminal is deployed
+        var TERMINAL_APP_URL = 'https://terminal.aioindicator.com';
+        // ══════════════════════════════════════════════════════
+        // Redirect immediately via JS for speed
+        window.location.replace(TERMINAL_APP_URL);
+    </script>
+    <!-- HTML meta-refresh fallback (fires if JS is disabled) -->
+    <meta http-equiv="refresh" content="0; url=https://terminal.aioindicator.com" />
+    <link rel="canonical" href="https://aioindicator.com/aio-terminal.html" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a0d1a;
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #a0aec0;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .spinner {
+            width: 48px; height: 48px;
+            border: 3px solid rgba(0,212,255,0.2);
+            border-top-color: #00d4ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        h2 { color: #e2e8f0; font-size: 1.25rem; margin: 0; }
+        p  { margin: 0; font-size: 0.9rem; }
+        a  { color: #00d4ff; }
+    </style>
+</head>
+<body>
+    <div class="spinner"></div>
+    <h2>Launching AIO Terminal…</h2>
+    <p>If you are not redirected automatically, <a href="https://terminal.aioindicator.com">click here</a>.</p>
+    <p style="font-size:0.8rem;opacity:0.5;">Not yet a VIP member? <a href="../aio-terminal.html">Learn about AIO Terminal →</a></p>
+</body>
+</html>
