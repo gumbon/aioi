@@ -131,13 +131,13 @@
 <p>The order is submitted as a limit order, not a market order. This distinction has two major consequences.</p>
 
 <h3>Consequence 1: Maker Fee Instead of Taker Fee</h3>
-<p>On Binance USDT-M Futures, the fee structure as of 2026 charges 0.05% for taker orders (market orders that immediately cross the spread and take liquidity from the book) and 0.02% for maker orders (limit orders that rest on the book and provide liquidity). Limit orders placed at the last price land on the order book at a price where the market has just traded — meaning they are typically filled quickly by the next opposing market order, but as a maker, not a taker.</p>
+<p>On Binance USDⓈ-M Futures, the fee structure as of 2026 charges 0.05% for taker orders (market orders that immediately cross the spread and take liquidity from the book) and 0.02% for maker orders (limit orders that rest on the book and provide liquidity). Limit orders placed at the last price land on the order book at a price where the market has just traded — meaning they are typically filled quickly by the next opposing market order, but as a maker, not a taker.</p>
 <p>This fee difference of 0.02% sounds small. It is not small in practice. On a $10,000 position, you pay $4 (taker) vs $2 (maker). Ten trades at $10,000 each in one day: $40 vs $20 in fees. Twenty trading days per month: $800 vs $400. The fee savings compound to $4,800 per year on that single scenario — without changing a single aspect of your trading strategy or edge.</p>
 <p>Every active trader using market orders by default is paying this cost. It is not hidden, but it is easy to overlook when it is distributed across hundreds of small transactions. AIO Terminal makes maker fees your default, automatically, on every entry.</p>
 
 <h3>Consequence 2: Near-100% Fill Rate</h3>
 <p>The obvious concern about limit orders is fill rate. A limit order placed below the market (for a long) might not fill if price never comes back down. A limit order placed at the bid might be skipped if the order book moves before your order is processed.</p>
-<p>Placing a limit order at the <em>last-traded price</em> sidesteps this problem almost entirely. The last price is, by definition, where the market just traded. Placing a limit buy at that price means you are joining the queue at a price level that already has established buyer and seller interest. In liquid Binance USDT-M markets (BTC, ETH, SOL, and most major pairs), the spread is typically 1–2 ticks wide and orders at the last price fill within milliseconds during active market conditions.</p>
+<p>Placing a limit order at the <em>last-traded price</em> sidesteps this problem almost entirely. The last price is, by definition, where the market just traded. Placing a limit buy at that price means you are joining the queue at a price level that already has established buyer and seller interest. In liquid Binance USDⓈ-M markets (BTC, ETH, SOL, and most major pairs), the spread is typically 1–2 ticks wide and orders at the last price fill within milliseconds during active market conditions.</p>
 <p>In practice, fill rates on AIO Terminal's limit-at-last-price entries approach 100% during regular market hours and high-liquidity conditions. In very low-liquidity periods (deep overnight, extremely low-volume assets), the fill may be slightly delayed — but even then, the order is in the book at a valid price, not subject to market-order slippage.</p>
 
 <h2>Pre-Configured Settings: What "One Click" Actually Means</h2>
@@ -146,7 +146,7 @@
 <h3>What Gets Saved Per Tab</h3>
 <p>Each order tab in AIO Terminal saves its own complete state:</p>
 <ul>
-    <li><strong>Symbol</strong> — your chosen USDT-M perpetual pair</li>
+    <li><strong>Symbol</strong> — your chosen USDⓈ-M perpetual pair</li>
     <li><strong>Leverage</strong> — your selected multiplier</li>
     <li><strong>Order type</strong> — limit at last price, or specific price</li>
     <li><strong>Size</strong> — expressed as USDT amount or quantity</li>
@@ -165,7 +165,7 @@
     <li>Read current last price from Binance WebSocket feed (already streaming, near-zero latency)</li>
     <li>Apply symbol precision rules — round price to the tick size, round quantity to the step size (prevents Binance -1111 rejection errors)</li>
     <li>Submit LIMIT entry order at the last price with specified quantity and leverage</li>
-    <li>If TP is configured: submit a TAKE_PROFIT_MARKET order at the calculated TP price</li>
+    <li>If TP is configured: submit a TAKE_PROFIT order at the calculated TP price — as market or limit depending on your selected preference</li>
     <li>If SL is configured: submit a STOP_MARKET order at the calculated SL price</li>
     <li>Log the full order chain with timestamps for review</li>
 </ol>
@@ -186,9 +186,9 @@
 <p>When a significant resistance level breaks on the chart, the first few seconds of the move offer the best entry quality. Every second of delay in order submission means entering at a worse price. With AIO Terminal open and configured for the setup, you click at the moment of breakout confirmation rather than at the moment you finish navigating the order form.</p>
 
 <h3>Scaling Into Positions</h3>
-<p>For traders who scale into positions — adding to a winner as it develops — AIO Terminal lets you submit additional entries at the same speed as the initial entry. Each click submits a new limit order with the same precision and fee efficiency. There is no additional complexity as position layers increase.</p>
+<p>For traders who scale into positions — adding to a winner as it develops — AIO Terminal lets you submit additional entries at the same speed as the initial entry. Each click submits a new order (market or limit — your choice) with the same precision and fee efficiency. There is no additional complexity as position layers increase.</p>
 
-<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Experience one-click execution yourself.</strong> <span>Free with every VIP plan — 5-day trial, no credit card.</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Get Terminal Access</a></div></div>
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Experience faster execution yourself.</strong> <span>Included free with every VIP plan.</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Get Terminal Access</a></div></div>
 
 <h2>The Compound Effect of Faster Execution</h2>
 <p>Trading is largely about repeating a defined process consistently across many trades. Every time you introduce variability into that process — a different number of clicks, a different time-to-submission, a different probability of input error — you degrade the repeatability of your execution. Consistent execution is what allows you to measure and improve your edge.</p>

@@ -223,7 +223,7 @@
     "feat_3_desc": "Background engine that monitors your positions and auto-moves SL to breakeven once TP1 is hit. Works while you trade other positions.",
     "feat_4_title": "Trailing Stop with Auto-Activation",
     "feat_4_desc": "Set a trailing stop that activates at a price trigger and trails dynamically. Lock in profits without manually moving stops.",
-    "feat_5_title": "One-Click Close All / Cancel All",
+    "feat_5_title": "One-Click Close / Cancel All or Selected Positions",
     "feat_5_desc": "Flatten all open positions or cancel all open orders in seconds — not minutes. Essential when news moves the market instantly.",
     "feat_6_title": "TP/SL in Price, Range, or % Mode",
     "feat_6_desc": "Set your exit by absolute price, fixed distance from entry, or percentage — whichever matches your trading style. Or set later with one click from the TP/SL tab.",
