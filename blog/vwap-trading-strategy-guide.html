@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Complete VWAP trading guide: how VWAP is calculated, institutional use cases, rolling vs anchored VWAP, standard deviation band strategies, and stop placement rules." />
     <meta name="keywords" content="VWAP trading strategy, VWAP indicator, anchored VWAP, VWAP pullback, VWAP breakout, VWAP standard deviation bands, day trading VWAP, AIO Indicator, TradingView" />
@@ -91,7 +92,7 @@
             <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
             <span>AIO Indicator</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -107,15 +108,15 @@
                         <span data-i18n="nav.community">Community</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item ms-lg-2 d-flex align-items-center">
-                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
                         <i class="bi bi-box-arrow-in-right me-1"></i>
                         <span data-i18n="nav.login_terminal">Login to Terminal</span>
                     </a>
@@ -183,7 +184,7 @@
 <p>Correct stop placement requires a chart-based level below VWAP: the nearest swing low that preceded the VWAP pullback, a key price level from earlier in the session, or a horizontal support zone. This stop is further away in price terms, which means smaller position size to maintain the same absolute dollar risk. The trade-off is a worse risk-to-reward in R terms for a much higher fill rate on winning trades.</p>
 <p>Alternatively: place the stop a fixed ATR amount below VWAP (typically 0.5&ndash;1.0&times; the 14-period ATR). This creates a dynamic stop that respects the current session&rsquo;s volatility rather than an arbitrary price proximity to VWAP.</p>
 
-<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
 
 <h2>VWAP Standard Deviation Bands</h2>
 <p>Rolling VWAP with standard deviation bands adds a statistical layer to the basic VWAP: the first band (±1σ) contains price approximately 68% of the time in a normally distributed session; the second band (±2σ) contains price approximately 95% of the time. When price touches the outer bands, it is statistically unusual relative to the session&rsquo;s normal range.</p>

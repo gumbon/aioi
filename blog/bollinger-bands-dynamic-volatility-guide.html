@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Bollinger Bands strategies that actually work: squeezes, range reversals, trend pullbacks, and why ATR-based volatility systems outperform standard deviation bands in trending markets." />
     <meta name="keywords" content="Bollinger Bands strategy, Bollinger Bands squeeze, ATR volatility bands, dynamic volatility trading, Bollinger Bands vs ATR, AIO Indicator, TradingView indicator" />
@@ -91,7 +92,7 @@
             <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
             <span>AIO Indicator</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -107,15 +108,15 @@
                         <span data-i18n="nav.community">Community</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item ms-lg-2 d-flex align-items-center">
-                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
                         <i class="bi bi-box-arrow-in-right me-1"></i>
                         <span data-i18n="nav.login_terminal">Login to Terminal</span>
                     </a>
@@ -181,7 +182,7 @@
 <p>The squeeze signal: wait for the bands to reach the tightest point in the past 20&ndash;30 bars. Then watch for a directional expansion &mdash; when the upper band begins curling <em>upward</em> and the lower band begins curling <em>downward</em> simultaneously, the compression is releasing. The direction of the first strong candle after the hook often sets the tone for a large directional move.</p>
 <p>One note on the 3-sigma setting: widening the bands from 2 to 3 standard deviations reduces signal frequency significantly but increases reliability. A close above the upper 3-sigma band in a squeeze breakout represents a genuinely statistically unusual event &mdash; these are high-conviction momentum signals.</p>
 
-<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
 
 <h2>Where Standard Deviation Fails: The ATR Alternative</h2>
 <p>Standard deviation has a structural problem when applied to financial markets: it is calculated from the same price data it is being used to frame. During a rapid trend expansion, prices are far from the mean, which makes standard deviation expand rapidly &mdash; potentially expanding the bands so wide that they offer no practical guidance for stop placement or target identification.</p>

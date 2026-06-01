@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Complete guide to AIO Top/Bottom Strategy: 9-factor scoring, automated SL/TP/trailing stops, webhook alert setup for exchange automation, and backtest interpretation." />
     <meta name="keywords" content="AIO Top Bottom Strategy, TradingView strategy, automated trading, webhook alert, trailing stop, reversal strategy, BOS MSS, Pine Script strategy, backtesting" />
@@ -90,7 +91,7 @@
             <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
             <span>AIO Indicator</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -106,15 +107,15 @@
                         <span data-i18n="nav.community">Community</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark">
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-item ms-lg-2 d-flex align-items-center">
-                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
                         <i class="bi bi-box-arrow-in-right me-1"></i>
                         <span data-i18n="nav.login_terminal">Login to Terminal</span>
                     </a>
@@ -214,7 +215,7 @@
 <h3>Breakeven Stop (Optional)</h3>
 <p>The breakeven stop (<code>useBEStop</code>, disabled by default) moves the stop-loss to the entry price once price has moved <code>beTriggerR &times; initial risk</code> in your favor (default 1.0&times;). Enabling this reduces drawdown on winning trades that reverse before the trail activates. The trade-off is that it will close some trades at breakeven that would have eventually hit the take-profit. Whether to use it depends on your market: in crypto during volatile trend days, the BE stop frequently exits trades prematurely as price retraces before continuing. On more orderly instruments like index futures, it tends to improve the equity curve.</p>
 
-<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see this on a live chart?</strong> <span>AIO Indicator automates this &mdash; no manual drawing needed.</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
 
 <h2>Setting Up Webhook Alerts for Live Exchange Execution</h2>
 <p>The alert system is where the strategy transitions from a backtesting tool to a live trading system. The current version has separate, independently configurable messages for entry and exit &mdash; a significant improvement over the previous single-message system.</p>
