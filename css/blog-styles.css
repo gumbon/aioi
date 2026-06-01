@@ -314,3 +314,18 @@
         font-size: 1.4rem;
     }
 }
+
+/* Table of Contents */
+.toc-box{background:rgba(255,255,255,.04);border:1px solid var(--card-border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+.toc-box .toc-heading{width:100%;background:none;border:none;font-weight:700;color:var(--text-primary);font-size:.875rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.75rem;display:flex;align-items:center;gap:.4rem;cursor:pointer;padding:0;text-align:left}
+.toc-box.toc-collapsed .toc-heading{margin-bottom:0}
+.toc-box.toc-collapsed .toc-list{display:none}
+.toc-chevron{margin-left:auto;transition:transform .2s;font-style:normal}
+.toc-box.toc-collapsed .toc-chevron{transform:rotate(-90deg)}
+.toc-list{list-style:none;padding:0;margin:0}
+.toc-list li{margin:.28rem 0}
+.toc-list a{color:var(--text-secondary);text-decoration:none;font-size:.875rem;transition:color .2s}
+.toc-list a:hover{color:var(--accent-primary)}
+.toc-h2 a{font-weight:500;color:var(--text-primary)}
+.toc-h3{padding-left:1.1rem;font-size:.82rem}
+.toc-h3::before{content:"↳ ";color:var(--text-secondary);font-size:.78rem}

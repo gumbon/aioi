@@ -115,7 +115,7 @@ Key articles:
 - TP can be placed as market or limit (user's choice)
 - Trailing Stop with three activation modes: Price (absolute level), Range (distance from entry), or % (percentage from entry)
 - PH / PL buttons — one-click fetch of recent Pivot High or Pivot Low for structurally valid SL placement, per user-selected timeframe
-- One-Click Close / Cancel All or Selected Positions; or select specific positions from a list in every action tab
+- One-Click Close / Cancel or Selected Positions; or select specific positions from a list in every action tab
 - Close position at market or limit-at-market price for fee savings
 - TP/SL tab for adding TP/SL to open positions (to change existing: cancel first, then re-set)
 - Three TP/SL input modes: Price (absolute), Range (fixed distance), PCT (percentage) — TP and SL can use different modes
