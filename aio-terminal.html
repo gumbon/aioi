@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#0a0e27" />
     <meta name="description" content="AIO Terminal — Web-based Binance USDⓈ-M Futures trading dashboard. 1–2 click Long/Short with market or limit, Smart TP/SL, Trailing Stop, Close. No installation. Works on any browser. Included with VIP plan." />
     <meta name="keywords" content="AIO Terminal, Binance futures trading tool, one-click trading, Binance order management, smart TP SL, trailing stop, futures trading software, crypto trading terminal, Binance USDⓈ-M Futures" />
     <meta name="author" content="AIO Indicator" />
@@ -25,6 +26,7 @@
 
     <link rel="canonical" href="https://aioindicator.com/aio-terminal.html" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -400,7 +402,8 @@
                 <img src="assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
                 <span>AIO Indicator</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -416,15 +419,15 @@
                             <span data-i18n="nav.community">Community</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-lg-2 d-flex align-items-center">
-                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
                             <i class="bi bi-box-arrow-in-right me-1"></i>
                             <span data-i18n="nav.login_terminal">Login to Terminal</span>
                         </a>
@@ -465,7 +468,7 @@
                         Stop wasting seconds on Binance's clunky interface. AIO Terminal gives you one-click Long/Short at last price, Smart TP/SL monitoring, Trailing Stop, and instant Close — all in a single, customisable dashboard.
                     </p>
                     <div class="d-flex flex-wrap gap-3 mb-5">
-                        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary">
+                        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary">
                             <i class="bi bi-lightning-charge-fill me-2"></i>
                             <span data-i18n="terminal.cta_access">Get Terminal Access</span>
                         </a>
@@ -564,7 +567,7 @@
                         <div class="solution-icon"><i class="bi bi-terminal-fill"></i></div>
                         <h5 style="color:var(--accent-primary);" data-i18n="terminal.pain_cta_title">AIO Terminal Solves All of This</h5>
                         <p class="text-secondary mb-3" style="font-size:.9rem;" data-i18n="terminal.pain_cta_desc">Built by a trader who hit every one of these walls. One tool, one dashboard, everything remembered, 1–2 clicks to execute.</p>
-                        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary btn-sm">
+                        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm">
                             <span data-i18n="terminal.cta_access">Get Terminal Access</span>
                         </a>
                     </div>
@@ -759,7 +762,7 @@
                         <i class="bi bi-tags me-2"></i>
                         <span data-i18n="terminal.vip_banner_cta_pricing">View VIP Pricing</span>
                     </a>
-                    <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-secondary">
+                    <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary">
                         <i class="bi bi-telegram me-2"></i>
                         <span data-i18n="terminal.vip_banner_cta_trial">Get Terminal Access</span>
                     </a>
@@ -920,10 +923,10 @@
                 <div class="col-lg-4 mb-4">
                     <h5 class="mb-3" data-i18n="footer.community">Community</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li>
-                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" class="text-secondary text-decoration-none">Medium</a></li>
-                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter / X</a></li>
-                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" class="text-secondary text-decoration-none">Substack</a></li>
+                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Medium</a></li>
+                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Twitter / X</a></li>
+                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Substack</a></li>
                     </ul>
                 </div>
             </div>
@@ -939,14 +942,14 @@
 
     <!-- Sticky Mobile CTA -->
     <div class="sticky-cta d-lg-none">
-        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary w-100">
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary w-100">
             <i class="bi bi-lightning-charge-fill me-2"></i>
             <span data-i18n="terminal.cta_access">Get Terminal Access</span>
         </a>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/i18n.js" defer></script>
     <script>
         // Screenshot gallery switcher
         document.querySelectorAll('.tab-screenshot-btn').forEach(btn => {

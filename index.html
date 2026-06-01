@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="theme-color" content="#0a0e27" />
     <meta name="description" content="AIO Indicator — 25+ professional TradingView indicators for smart money trading. Detect BOS/CHoCH, liquidity sweeps, institutional order flow, and high-probability setups. No repaint. 5-day free trial." />
     <meta name="keywords" content="TradingView indicator, smart money indicator, price action indicator, BOS CHoCH, market structure, ICT indicator, no repaint indicator, institutional trading, liquidity sweep" />
     <meta name="author" content="AIO Indicator" />
@@ -159,6 +160,7 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="assets/hdbg.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Bootstrap CSS -->
@@ -190,7 +192,8 @@
                 <img src="assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
                 <span>AIO Indicator</span>
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -206,15 +209,15 @@
                             <span data-i18n="nav.community">Community</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" target="_blank" href="https://t.me/aiotradehub">Telegram</a></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://medium.com/@tranholenguyen">Medium</a></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://twitter.com/gumbon/">Twitter</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" target="_blank" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
                         </ul>
                     </li>
                     <li class="nav-item ms-lg-2 d-flex align-items-center">
-                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener" class="btn-terminal-login">
+                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
                             <i class="bi bi-box-arrow-in-right me-1"></i>
                             <span data-i18n="nav.login_terminal">Login to Terminal</span>
                         </a>
@@ -252,7 +255,7 @@
                         <h1 class="hero-title mb-4"><span data-i18n="hero.title1">Price Action</span><br/><span class="hero-title-accent" data-i18n="hero.title2">Smart Money Indicators</span></h1>
                         <p class="hero-subtitle mb-5" data-i18n-html="hero.subtitle">Align with institutional order flow and smart money movements. <span class="accent">Detect banker participation, liquidity patterns, and high-probability setups</span> before the next major move. Professional-grade tools designed for traders who think like institutions.</p>
                         <div class="hero-buttons">
-                            <a class="btn btn-hero-primary btn-glow" href="https://t.me/nguyenthl" target="_blank">
+                            <a class="btn btn-hero-primary btn-glow" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer">
                                 <i class="bi bi-lightning-charge-fill"></i>
                                 <span data-i18n="hero.cta_trial">Start 5-Day Free Trial</span>
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -847,11 +850,11 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img id="indicatorModalImage" src="" alt="" class="img-fluid rounded mb-3" style="width: 100%;">
+                    <img id="indicatorModalImage" src="" alt="" aria-hidden="true" class="img-fluid rounded mb-3" style="width: 100%;">
                     <p id="indicatorModalDescription" class="text-secondary"></p>
                 </div>
                 <div class="modal-footer" style="border-top: 1px solid var(--card-border);">
-                    <a id="indicatorModalLink" href="#" target="_blank" class="btn btn-hero-primary">
+                    <a id="indicatorModalLink" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary">
                         <span data-i18n="indicators.modal_btn">View on TradingView</span>
                         <i class="bi bi-box-arrow-up-right ms-2"></i>
                     </a>
@@ -925,6 +928,7 @@
                             </div>
                             <img src="assets/terminal/aio-terminal-hp.png"
                                  alt="AIO Terminal Binance Futures Dashboard"
+                                 width="1836" height="1059"
                                  loading="lazy" />
                         </div>
                         <div class="phone-frame-wrapper">
@@ -932,6 +936,7 @@
                             <div class="phone-frame">
                                 <img src="assets/terminal/aio-terminal-hp-mobile.png"
                                      alt="AIO Terminal Mobile"
+                                     width="431" height="935"
                                      loading="lazy" />
                             </div>
                         </div>
@@ -1151,7 +1156,7 @@
                         <h4 data-i18n="pricing.trial_title">Try Everything Free for 5 Days</h4>
                         <p data-i18n="pricing.trial_desc">No credit card required. Full access to all Premium + VIP indicators.</p>
                     </div>
-                    <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-trial">
+                    <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-trial">
                         <i class="bi bi-lightning-charge-fill me-2"></i><span data-i18n="pricing.trial_btn">Get Free Trial</span>
                     </a>
                 </div>
@@ -1180,7 +1185,7 @@
                             <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.priority_support">Priority Support</span></li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI" target="_blank" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -1202,7 +1207,7 @@
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 30% &mdash; $180/year</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_annually_vip">*Billed as $419.90 annually</li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0HX77090V2672522BNA5TX2Q" target="_blank" class="btn btn-hero-primary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-0HX77090V2672522BNA5TX2Q" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -1224,7 +1229,7 @@
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 18% &mdash; $27/quarter</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_quarterly_vip">*Billed as $122.97 per 3 months</li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5MV22615DV115624SNA5TW4I" target="_blank" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5MV22615DV115624SNA5TW4I" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
             </div>
@@ -1250,7 +1255,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.community">Community Access</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.support_247">24/7 Support</span></li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5YN90136M46076201MG2NGBQ" target="_blank" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-5YN90136M46076201MG2NGBQ" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -1271,7 +1276,7 @@
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 33% &mdash; $60/year</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_annually_prem">*Billed as $119.99 annually</li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7RE928638K7399923MJE2QLA" target="_blank" class="btn btn-hero-primary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-7RE928638K7399923MJE2QLA" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
@@ -1291,7 +1296,7 @@
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 13% &mdash; $6/quarter</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_quarterly_prem">*Billed as $38.99 per 3 months</li>
                         </ul>
-                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4NW71753S0407282GMJE2POQ" target="_blank" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
+                        <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-4NW71753S0407282GMJE2POQ" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
                     </div>
                 </div>
             </div>
@@ -1511,19 +1516,19 @@
                     <div class="feature-card">
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-hero-primary w-100">
+                                <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary w-100">
                                     <i class="bi bi-chat-dots me-2"></i>
                                     <span data-i18n="contact.chat">Chat / DM</span>
                                 </a>
                             </div>
                             <div class="col-md-6">
-                                <a href="https://t.me/aiotradehub" target="_blank" class="btn btn-hero-secondary w-100">
+                                <a href="https://t.me/aiotradehub" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100">
                                     <i class="bi bi-people-fill me-2"></i>
                                     <span data-i18n="contact.community">Join Community</span>
                                 </a>
                             </div>
                             <div class="col-md-6">
-                                <a href="https://x.com/gumbon" target="_blank" class="btn btn-hero-secondary w-100">
+                                <a href="https://x.com/gumbon" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100">
                                     <i class="bi bi-twitter-x me-2"></i>
                                     <span data-i18n="contact.follow_x">Follow on X</span>
                                 </a>
@@ -1562,10 +1567,10 @@
                 <div class="col-lg-4 mb-4">
                     <h5 class="mb-3" data-i18n="footer.community">Community</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" class="text-secondary text-decoration-none">Telegram</a></li>
-                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" class="text-secondary text-decoration-none">Medium</a></li>
-                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" class="text-secondary text-decoration-none">Twitter</a></li>
-                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" class="text-secondary text-decoration-none">Substack</a></li>
+                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Medium</a></li>
+                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Twitter</a></li>
+                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Substack</a></li>
                     </ul>
                 </div>
             </div>
@@ -1581,7 +1586,7 @@
 
     <!-- Sticky Mobile CTA -->
     <div class="sticky-cta">
-        <a href="https://t.me/nguyenthl" target="_blank" class="btn btn-sticky-trial">
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-sticky-trial">
             <i class="bi bi-lightning-charge-fill"></i>
             <span data-i18n="sticky_cta">Start Free Trial</span>
         </a>
