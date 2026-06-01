@@ -167,7 +167,11 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     
     <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
     
     <!-- Modern Styles -->
     <link href="css/modern-styles.css" rel="stylesheet" />
@@ -224,7 +228,7 @@
                     </li>
                     <!-- Language Switcher -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Select language">
                             <i class="bi bi-globe lang-globe-icon"></i>
                             <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
                         </a>
@@ -239,6 +243,7 @@
             </div>
         </div>
     </nav>
+    <main>
 
     <!-- Modern Hero Section -->
     <section id="home" class="modern-hero" style="position:relative;">
@@ -300,7 +305,7 @@
         <div class="container">
             <div class="proof-track">
                 <div class="proof-item">
-                    <img src="https://www.tradingview.com/static/images/logo-tradingview.svg" alt="TradingView" class="proof-logo" loading="lazy">
+                    <span class="proof-logo" style="font-weight:700;letter-spacing:-.03em;font-size:1rem;">TradingView</span>
                 </div>
                 <div class="proof-item">
                     <i class="bi bi-shield-check"></i>
@@ -408,17 +413,17 @@
             <!-- Tabs Navigation -->
             <ul class="nav nav-pills justify-content-center mb-5" id="indicatorTabs" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active indicator-tab" id="vip-tab" data-bs-toggle="pill" data-bs-target="#vip" type="button">
+                    <button class="nav-link active indicator-tab" id="vip-tab" data-bs-toggle="pill" data-bs-target="#vip" type="button" role="tab" aria-selected="true" aria-controls="vip">
                         <i class="bi bi-star-fill me-2"></i><span data-i18n="indicators.tabs.vip">VIP Indicators</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link indicator-tab" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button">
+                    <button class="nav-link indicator-tab" id="premium-tab" data-bs-toggle="pill" data-bs-target="#premium" type="button" role="tab" aria-selected="false" aria-controls="premium">
                         <i class="bi bi-star-half me-2"></i><span data-i18n="indicators.tabs.premium">Premium Indicators</span>
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link indicator-tab" id="free-tab" data-bs-toggle="pill" data-bs-target="#free" type="button">
+                    <button class="nav-link indicator-tab" id="free-tab" data-bs-toggle="pill" data-bs-target="#free" type="button" role="tab" aria-selected="false" aria-controls="free">
                         <i class="bi bi-gift me-2"></i><span data-i18n="indicators.tabs.free">Free Indicators</span>
                     </button>
                 </li>
@@ -436,7 +441,7 @@
                                  data-url="https://www.tradingview.com/script/cQtDEQLA-AIO-Key-Volume-Pro/"
                                  data-image="assets/aio-key-volume-pro.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Key Volume Pro</h5>
+                                <h3>Key Volume Pro</h3>
                                 <p>4-TF POC convergence engine with state detection, zone pool, and anchored VWAP for institutional-grade volume analysis</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -449,7 +454,7 @@
                                  data-url="https://www.tradingview.com/script/Nf4NWU52-AIO-Supply-Demand-Zones/"
                                  data-image="assets/aio-supply-demand.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Supply & Demand Zones</h5>
+                                <h3>Supply & Demand Zones</h3>
                                 <p>AIO Supply & Demand Zones automatically identifies supply/demand zones from price pivots with a 0-9 point composite quality score</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -462,7 +467,7 @@
                                  data-url="https://www.tradingview.com/script/uRjjn696-AIO-Top-Bottom-Confidence/"
                                  data-image="assets/aio-top-bottom.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Top Bottom Confidence</h5>
+                                <h3>Top Bottom Confidence</h3>
                                 <p>A multi-factor reversal detection indicator that identifies probable market tops and bottoms by combining nine independent evidence layers into a single confidence score</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -475,7 +480,7 @@
                                  data-url="https://www.tradingview.com/script/XYtK6Ck0-AIO-Dow-Theory/"
                                  data-image="assets/aio-dow.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Dow Theory</h5>
+                                <h3>Dow Theory</h3>
                                 <p>A professional indicator built on Charles Dow's original market theory — not adapted or approximated, but rigorously implemented.</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -488,7 +493,7 @@
                                  data-url="https://www.tradingview.com/script/z56LG7Pz-AIO-Advanced-Trendlines-with-TPO-inspired-Liquidity/"
                                  data-image="assets/aio-tpo.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Advanced Trendlines & TPO Liquidity</h5>
+                                <h3>Advanced Trendlines & TPO Liquidity</h3>
                                 <p>Professional trendline analysis with institutional liquidity levels</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -501,7 +506,7 @@
                                  data-url="https://www.tradingview.com/script/HRq5Y5Mb-AIO-Advanced-Market-Structure-with-Smart-Money-Detection/"
                                  data-image="assets/aio-ms-vip.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Advanced Market Structure</h5>
+                                <h3>Advanced Market Structure</h3>
                                 <p>Smart money detection with institutional order flow analysis</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -514,7 +519,7 @@
                                  data-url="https://www.tradingview.com/script/qHDJpagS-AIO-Banker-Momentum-Volatility/"
                                  data-image="assets/aio-banker.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Banker Momentum Volatility</h5>
+                                <h3>Banker Momentum Volatility</h3>
                                 <p>Track institutional participation and volatility expansion</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -527,7 +532,7 @@
                                  data-url="https://www.tradingview.com/script/sAfWIFZK-AIO-Prediction-Market-Simulator/"
                                  data-image="assets/aio-mc.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Prediction Market Simulator</h5>
+                                <h3>Prediction Market Simulator</h3>
                                 <p>Monte Carlo simulation for institutional-level probability estimates</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -540,7 +545,7 @@
                                  data-url="https://www.tradingview.com/script/sBl0qf2P-AIO-Perps-Flow-Positioning-Signals/"
                                  data-image="assets/aio-pfp.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Perps Flow Positioning</h5>
+                                <h3>Perps Flow Positioning</h3>
                                 <p>OI, CVD, liquidation flow, and setup signals for high-probability entries</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -553,7 +558,7 @@
                                  data-url="https://www.tradingview.com/script/OfpC9kXZ-AIO-Seesaw-Trailing-Strategy/"
                                  data-image="assets/aio-seesaw.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Seesaw Trailing Strategy</h5>
+                                <h3>Seesaw Trailing Strategy</h3>
                                 <p>A high win-rate strategy tuned for BTCUSDT 30m</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -567,10 +572,10 @@
                                  The strategy works on any instrument and timeframe but has been tuned and tested primarily on BTCUSDT perpetual futures.
                                  All backtest defaults include realistic execution costs of 0.05% commission per side and 0.03% slippage on market exits, 
                                 reflecting typical webhook latency and exchange depth when routing TradingView alerts to Exchange."
-                                 data-url="https://www.tradingview.com/script/UKq9ss77-AIO-Top-Bottom-Strategy//"
+                                 data-url="https://www.tradingview.com/script/UKq9ss77-AIO-Top-Bottom-Strategy/"
                                  data-image="assets/aio-top-bottom-strategy.avif">
                                 <div class="indicator-badge vip">VIP</div>
-                                <h5>Top & Bottom Strategy</h5>
+                                <h3>Top & Bottom Strategy</h3>
                                 <p>A strategy version of AIO Top & Bottom Indicator</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -590,7 +595,7 @@
                                  data-url="https://www.tradingview.com/script/HkQfaOpX-Price-Action-All-In-One-Indicator/"
                                  data-image="assets/hdbg.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Price Action All In One</h5>
+                                <h3>Price Action All In One</h3>
                                 <p>Complete price action and time analysis toolkit</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -603,7 +608,7 @@
                                  data-url="https://www.tradingview.com/script/MiEQk8vL-AIO-Magic-Bands/"
                                  data-image="assets/mgb.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Magic Bands</h5>
+                                <h3>Magic Bands</h3>
                                 <p>Dynamic trend bands for entries and exits</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -616,7 +621,7 @@
                                  data-url="https://www.tradingview.com/script/eR3GCd9S-AIO-Magic-Bars/"
                                 data-image="assets/magic-bars.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Magic Bars</h5>
+                                <h3>Magic Bars</h3>
                                 <p>Fractal, Imbalance, and Trend Bar analysis</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -629,7 +634,7 @@
                                  data-url="https://www.tradingview.com/script/TL6YOBMZ-AIO-Market-Structure/"
                                  data-image="assets/oldhl.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Market Structure</h5>
+                                <h3>Market Structure</h3>
                                 <p>BOS & CHoCH detection with protection levels</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -642,7 +647,7 @@
                                  data-url="https://www.tradingview.com/script/JixWzLj5-AIO-Breakout-Prediction/"
                                  data-image="assets/bop.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Breakout Prediction</h5>
+                                <h3>Breakout Prediction</h3>
                                 <p>Algorithmic predictions with win rate statistics</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -655,7 +660,7 @@
                                  data-url="https://www.tradingview.com/script/IjGE8hp9-AIO-Session-STD/"
                                  data-image="assets/sessionstd.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Session & STD</h5>
+                                <h3>Session & STD</h3>
                                 <p>7 sessions with Standard Deviation levels</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -668,7 +673,7 @@
                                  data-url="https://www.tradingview.com/script/UMIcyQ0E-AIO-Price-Levels/"
                                  data-image="assets/price-levels.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Price Levels</h5>
+                                <h3>Price Levels</h3>
                                 <p>Key price levels across all timeframes</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -681,7 +686,7 @@
                                  data-url="https://www.tradingview.com/script/4gg7qcnJ-AIO-SMT-Divergence/"
                                  data-image="assets/smt.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>SMT Divergence</h5>
+                                <h3>SMT Divergence</h3>
                                 <p>Track divergence between correlated markets</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -694,7 +699,7 @@
                                  data-url="https://www.tradingview.com/script/o5X8AiiP-AIO-Trendlines/"
                                  data-image="assets/trendlines.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Trendlines</h5>
+                                <h3>Trendlines</h3>
                                 <p>Automatic trendline detection and drawing</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -707,7 +712,7 @@
                                  data-url="https://www.tradingview.com/script/iw9NAL4J-AIO-Accumulation-Zone/"
                                  data-image="assets/acc-zone.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Accumulation Zone</h5>
+                                <h3>Accumulation Zone</h3>
                                 <p>Smart money accumulation and distribution zones</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -720,7 +725,7 @@
                                  data-url="https://www.tradingview.com/script/zTcGWdQH-AIO-Lookback/"
                                  data-image="assets/lookback.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Lookback</h5>
+                                <h3>Lookback</h3>
                                 <p>Historical data range analysis</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -733,7 +738,7 @@
                                  data-url="https://www.tradingview.com/script/YlAcXhzy-AIO-Time-Separators/"
                                  data-image="assets/time-sep.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Time Separators</h5>
+                                <h3>Time Separators</h3>
                                 <p>5 time period separators for timing</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -746,7 +751,7 @@
                                  data-url="https://www.tradingview.com/script/Xsd23Prr-AIO-Key-Volume/"
                                  data-image="assets/aio_key.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>Key Volume</h5>
+                                <h3>Key Volume</h3>
                                 <p>Most reacted volume-based price levels</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -759,8 +764,8 @@
                                  data-url="https://www.tradingview.com/script/eCVKHbLW-AIO-Relative-Strength-Index/"
                                  data-image="assets/aio-rsi.avif">
                                 <div class="indicator-badge premium">PREMIUM</div>
-                                <h5>AIO RSI</h5>
-                                <p>AIO RSI is a multi-layer RSI-based indicator  </p>
+                                <h3>AIO RSI</h3>
+                                <p>A multi-layer RSI indicator combining standard RSI, higher-timeframe secondary RSI, divergence detection, and W/M/V pattern recognition.</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
                         </div>
@@ -778,7 +783,7 @@
                                  data-url="https://www.tradingview.com/script/yS3fw9DB-AIO-Moving-Average/"
                                  data-image="assets/ma.avif">
                                 <div class="indicator-badge free">FREE</div>
-                                <h5>Moving Average</h5>
+                                <h3>Moving Average</h3>
                                 <p>4 customizable MAs with bands option</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -791,7 +796,7 @@
                                  data-url="https://www.tradingview.com/script/vxY25nDn-AIO-Zig-Zag/"
                                  data-image="assets/zigzag.avif">
                                 <div class="indicator-badge free">FREE</div>
-                                <h5>ZigZag</h5>
+                                <h3>ZigZag</h3>
                                 <p>Key level detection with ZigZag patterns</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -804,7 +809,7 @@
                                  data-url="https://www.tradingview.com/script/s9Qft0Ab-AIO-VWAP/"
                                  data-image="assets/vwap.avif">
                                 <div class="indicator-badge free">FREE</div>
-                                <h5>VWAP</h5>
+                                <h3>VWAP</h3>
                                 <p>Anchored & rolling VWAP options</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -817,7 +822,7 @@
                                  data-url="https://www.tradingview.com/script/E2PGDjUd-AIO-Watermark/"
                                  data-image="assets/hdbg.avif">
                                 <div class="indicator-badge free">FREE</div>
-                                <h5>Watermark</h5>
+                                <h3>Watermark</h3>
                                 <p>Protect your charts with custom watermark</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -830,7 +835,7 @@
                                  data-url="https://www.tradingview.com/script/0emXpAMv-AIO-Statistic-Panel/"
                                  data-image="assets/spanels.avif">
                                 <div class="indicator-badge free">FREE</div>
-                                <h5>Statistic Panel</h5>
+                                <h3>Statistic Panel</h3>
                                 <p>Session info and money management panel</p>
                                 <i class="bi bi-arrow-right-circle indicator-arrow"></i>
                             </div>
@@ -842,7 +847,7 @@
     </section>
 
     <!-- Modal for Indicator Details -->
-    <div class="modal fade" id="indicatorModal" tabindex="-1">
+    <div class="modal fade" id="indicatorModal" tabindex="-1" aria-labelledby="indicatorModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="background: var(--card-bg); border: 1px solid var(--card-border);">
                 <div class="modal-header" style="border-bottom: 1px solid var(--card-border);">
@@ -922,7 +927,7 @@
                     <div class="position-relative">
                         <div class="hero-devices-glow"></div>
                         <div class="browser-chrome">
-                            <div class="browser-chrome-bar">
+                            <div class="browser-chrome-bar" aria-hidden="true">
                                 <span class="browser-dots">● ● ●</span>
                                 <span class="browser-url">terminal.aioindicator.com</span>
                             </div>
@@ -1180,7 +1185,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
-                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:#4B5BD5;font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.priority_support">Priority Support</span></li>
                         </ul>
                         <a href="https://www.paypal.com/webapps/billing/plans/subscribe?plan_id=P-2GS36359YY712851JNA5TTRI" target="_blank" rel="noopener noreferrer" class="btn btn-hero-secondary w-100" data-i18n="pricing.choose_plan">Choose Plan</a>
@@ -1201,7 +1206,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
-                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:#4B5BD5;font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 30% &mdash; $180/year</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_annually_vip">*Billed as $419.90 annually</li>
                         </ul>
@@ -1223,7 +1228,7 @@
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.premium_indicators">AIO Premium Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.total_25">25+ Total Indicators</span></li>
                             <li class="mb-3"><i class="bi bi-check-circle-fill text-success me-2"></i><span data-i18n="pricing.features.institutional">Institutional Tools</span></li>
-                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:var(--accent-primary);font-size:.65rem;">NEW</span></li>
+                            <li class="mb-3"><i class="bi bi-terminal-fill text-info me-2"></i><span data-i18n="pricing.features.terminal_access">AIO Terminal Access</span> <span class="badge ms-1" style="background:#4B5BD5;font-size:.65rem;">NEW</span></li>
                             <li class="mb-3"><i class="bi bi-fire text-danger me-2"></i><strong class="text-success">SAVE 18% &mdash; $27/quarter</strong></li>
                             <li class="mb-3 text-secondary small" data-i18n="pricing.billed_quarterly_vip">*Billed as $122.97 per 3 months</li>
                         </ul>
@@ -1544,6 +1549,7 @@
         </div>
     </section>
 
+    </main>
     <!-- Footer -->
     <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);">
         <div class="container">
@@ -1662,21 +1668,6 @@
         const modalImage = indicatorModal.querySelector('#indicatorModalImage');
         
         // Handle modal show event (from Bootstrap modal trigger)
-        indicatorModal.addEventListener('show.bs.modal', function (event) {
-            const button = event.relatedTarget;
-            const title = button.getAttribute('data-title');
-            const description = button.getAttribute('data-description');
-            const url = button.getAttribute('data-url');
-            const image = button.getAttribute('data-image');
-            
-            modalTitle.textContent = title;
-            modalDescription.textContent = description;
-            modalLink.href = url;
-            modalLink.target = '_blank';
-            modalImage.src = image;
-            modalImage.alt = title;
-        });
-        
         // Handle indicator card clicks directly
         document.querySelectorAll('.indicator-card').forEach(function(card) {
             card.addEventListener('click', function(e) {

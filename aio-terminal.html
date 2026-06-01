@@ -11,9 +11,9 @@
 
     <meta property="og:title" content="AIO Terminal — Trade Binance Futures Like a Pro" />
     <meta property="og:description" content="One-click Long/Short orders, Smart TP/SL monitor, Trailing Stop, one-click Close. Execute trades 10× faster than the Binance native interface." />
-    <meta property="og:type" content="product" />
+    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://aioindicator.com/aio-terminal.html" />
-    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="AIO Indicator" />
@@ -22,7 +22,7 @@
     <meta name="twitter:site" content="@gumbon" />
     <meta name="twitter:title" content="AIO Terminal — Professional Binance Futures Trading Tool" />
     <meta name="twitter:description" content="One-click Long/Short, Smart TP/SL, Trailing Stop, Close. Execute faster, pay less in fees. Free with VIP plan." />
-    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
 
     <link rel="canonical" href="https://aioindicator.com/aio-terminal.html" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
@@ -31,7 +31,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
     <link href="css/modern-styles.css" rel="stylesheet" />
     <link href="css/i18n.css" rel="stylesheet" />
 
@@ -205,6 +209,27 @@
             width: 100%;
             display: block;
             transition: opacity 0.3s;
+        }
+        .terminal-feature-scroll {
+            max-height: 720px;
+            overflow-y: auto;
+            padding-right: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(102,126,234,0.4) transparent;
+        }
+        .terminal-feature-scroll::-webkit-scrollbar { width: 4px; }
+        .terminal-feature-scroll::-webkit-scrollbar-track { background: transparent; }
+        .terminal-feature-scroll::-webkit-scrollbar-thumb { background: rgba(102,126,234,0.4); border-radius: 4px; }
+        .terminal-feature-wrap {
+            position: relative;
+        }
+        .terminal-feature-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 8px;
+            height: 48px;
+            background: linear-gradient(to bottom, transparent, var(--dark-bg));
+            pointer-events: none;
         }
         .terminal-feature-item {
             display: flex;
@@ -413,7 +438,7 @@
                     <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="./#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="./#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="blog/"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="./#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
                     <li class="nav-item dropdown">
@@ -435,7 +460,7 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Select language">
                             <i class="bi bi-globe lang-globe-icon"></i>
                             <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
                         </a>
@@ -450,6 +475,7 @@
             </div>
         </div>
     </nav>
+    <main>
 
     <!-- ═══════════════════════════════════════════
          HERO SECTION
@@ -532,42 +558,42 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card">
                         <div class="pain-icon"><i class="bi bi-hourglass-split"></i></div>
-                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_1_title">10+ Clicks to Place One Trade</h5>
+                        <h3 style="color:var(--text-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_1_title">10+ Clicks to Place One Trade</h3>
                         <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_1_desc">Select symbol, choose side, set leverage, enter size, configure TP, configure SL, confirm — by the time you're done the price has moved 0.3%.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card">
                         <div class="pain-icon"><i class="bi bi-door-closed"></i></div>
-                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_2_title">Session Timeouts Kill Your Flow</h5>
+                        <h3 style="color:var(--text-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_2_title">Session Timeouts Kill Your Flow</h3>
                         <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_2_desc">Binance logs you out during live positions. Scrambling to re-authenticate while price is moving is a nightmare that has wiped traders' accounts.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card">
                         <div class="pain-icon"><i class="bi bi-currency-dollar"></i></div>
-                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_3_title">Market Orders Bleed Fees</h5>
+                        <h3 style="color:var(--text-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_3_title">Market Orders Bleed Fees</h3>
                         <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_3_desc">MARKET taker fee = 0.05% vs LIMIT maker fee = 0.02%. On a $10,000 trade that's $4 vs $2 every single entry. Multiply by 10 trades a day = $20/day in extra fees.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card">
                         <div class="pain-icon"><i class="bi bi-x-octagon"></i></div>
-                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_4_title">Closing All Positions Takes Forever</h5>
+                        <h3 style="color:var(--text-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_4_title">Closing All Positions Takes Forever</h3>
                         <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_4_desc">When news hits and you need to flatten everything NOW, clicking through each position individually on Binance wastes critical seconds. Markets don't wait.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card">
                         <div class="pain-icon"><i class="bi bi-sliders"></i></div>
-                        <h5 style="color:var(--text-primary);" data-i18n="terminal.pain_5_title">TP/SL Settings Never Remembered</h5>
+                        <h3 style="color:var(--text-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_5_title">TP/SL Settings Never Remembered</h3>
                         <p class="text-secondary mb-0" style="font-size:.9rem;" data-i18n="terminal.pain_5_desc">Every new order means re-entering your risk parameters from scratch. No persistence, no templates. It breaks your workflow and invites costly input errors.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="pain-card" style="border-color:rgba(0,212,255,0.3);background:linear-gradient(135deg,rgba(0,212,255,0.05),rgba(99,102,241,0.05));">
                         <div class="solution-icon"><i class="bi bi-terminal-fill"></i></div>
-                        <h5 style="color:var(--accent-primary);" data-i18n="terminal.pain_cta_title">AIO Terminal Solves All of This</h5>
+                        <h3 style="color:var(--accent-primary);font-size:1.25rem;font-weight:600;" data-i18n="terminal.pain_cta_title">AIO Terminal Solves All of This</h3>
                         <p class="text-secondary mb-3" style="font-size:.9rem;" data-i18n="terminal.pain_cta_desc">Built by a trader who hit every one of these walls. One tool, one dashboard, everything remembered, 1–2 clicks to execute.</p>
                         <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm">
                             <span data-i18n="terminal.cta_access">Get Terminal Access</span>
@@ -591,62 +617,66 @@
             <div class="row g-5 align-items-start">
                 <!-- Left: Feature list -->
                 <div class="col-lg-5">
+                    <div class="terminal-feature-wrap">
+                    <div class="terminal-feature-scroll">
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-arrow-up-circle-fill"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_1_title">Long Order — Limit at Last Price</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_1_title">Long Order — Limit at Last Price</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_1_desc">Place a LONG as market or limit with a single tap. Tap the "Last" button to sync the current market price into your limit field — near-100% fill rate at maker fee. Or choose market when speed is the priority.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-arrow-down-circle-fill"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_2_title">Short Order — Limit at Last Price</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_2_title">Short Order — Limit at Last Price</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_2_desc">Same for shorts — select market or limit, correct side, correct leverage, your persisted TP/SL settings applied instantly.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-bullseye"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_3_title">Smart TP/SL Monitor</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_3_title">Smart TP/SL Monitor</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_3_desc">Background engine that monitors your positions and auto-moves SL to BE+ once TP1 is hit — BE+ adds a configurable fee offset (e.g. 0.1%) so after exchange fees your remaining position is genuinely profitable, not just at zero. Works while you trade other positions.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-activity"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_4_title">Trailing Stop with Auto-Activation</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_4_title">Trailing Stop with Auto-Activation</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_4_desc">Set a trailing stop with three activation modes: Price (absolute trigger level), Range (distance from entry), or % (percentage from entry). The stop activates at your trigger and trails dynamically to lock in profits without manually moving stops.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-x-circle-fill"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_5_title">One-Click Close / Cancel — All or by Symbol</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_5_title">One-Click Close / Cancel — All or by Symbol</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_5_desc">Flatten all open positions in one click, or use the Cancel tab to select specific symbols via checkboxes and cancel only their open orders — without touching the rest. Essential when news moves the market and you need to act immediately without closing everything.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-percent"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_6_title">TP/SL in Price, Range, or % Mode</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_6_title">TP/SL in Price, Range, or % Mode</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_6_desc">Set your exit by absolute price, fixed distance from entry, or percentage — whichever matches your trading style. Or set later with one click from the TP/SL tab.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-grid-1x2-fill"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_7_title">Drag-and-Drop Layout + Persistent Settings</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_7_title">Drag-and-Drop Layout + Persistent Settings</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_7_desc">Arrange your tabs in any order. All your parameters — symbol, leverage, size, TP/SL — are remembered across sessions. Never re-enter your setup again.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-journal-text"></i></div>
                         <div>
-                            <h6 style="color:var(--text-primary);margin-bottom:4px;" data-i18n="terminal.feat_8_title">Activity Log</h6>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_8_title">Activity Log</h3>
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_8_desc">Every order action is timestamped and logged — entries, closes, TP/SL placements, errors. Collapse the log panel to keep your screen clean; expand to review your session history at any time. Timezone configurable across 12 zones so timestamps match your local trading session.</p>
                         </div>
                     </div>
+                    </div><!-- /.terminal-feature-scroll -->
+                    </div><!-- /.terminal-feature-wrap -->
                 </div>
 
                 <!-- Right: Screenshot gallery -->
@@ -904,6 +934,7 @@
         </div>
     </section>
 
+    </main>
     <!-- Footer -->
     <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);">
         <div class="container">

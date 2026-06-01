@@ -790,7 +790,7 @@ body {
     backdrop-filter: blur(6px);
 }
 
-.indicator-card h5 {
+.indicator-card h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin-bottom: 8px;
@@ -1059,7 +1059,7 @@ body {
 
 .price-original s {
     text-decoration: line-through;
-    opacity: 0.6;
+    color: #8fa3c7;
 }
 
 .price-perday {
@@ -1205,14 +1205,14 @@ body {
 }
 .browser-dots {
     font-size: 7px;
-    color: rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.55);
     letter-spacing: 4px;
     flex-shrink: 0;
     line-height: 1;
 }
 .browser-url {
     font-size: 10px;
-    color: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.60);
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 5px;
@@ -1331,4 +1331,12 @@ body {
 }
 .navbar-nav .nav-item {
     padding: 0 2px;
+}
+
+/* ===== Contrast & Bootstrap overrides (pricing section only, not footer) ===== */
+#pricing .text-secondary {
+    color: #a8b3cf !important;
+}
+.text-success {
+    color: #22c55e !important;
 }
