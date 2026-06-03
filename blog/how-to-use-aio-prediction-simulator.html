@@ -264,7 +264,7 @@
     <li><strong>0.00 &ndash; 0.10:</strong> Excellent calibration. Model probabilities are closely tracking actual outcomes. High confidence in Kelly sizing recommendations.</li>
     <li><strong>0.10 &ndash; 0.20:</strong> Good calibration. Normal operating range for a model working in a consistent market regime. Proceed with standard settings.</li>
     <li><strong>0.20 &ndash; 0.25:</strong> Degrading calibration. The model is experiencing regime mismatch &mdash; possibly a transition from trending to ranging, or after a volatility spike. Consider reducing position sizes below the Kelly recommendation until Brier stabilizes.</li>
-    <li><strong>0.25+:</strong> Poor calibration &mdash; approaching random. The model&rsquo;s probability estimates are unreliable in the current regime. Do not use Kelly sizing. WAIT for Brier to recover or investigate parameter settings.</li>
+    <li><strong>0.30+:</strong> Poor calibration &mdash; approaching random. The model&rsquo;s probability estimates are unreliable in the current regime. Do not use Kelly sizing. WAIT for Brier to recover or investigate parameter settings.</li>
 </ul>
 
 <p>A persistently high Brier Score is most commonly caused by either a lookback period that is too short (insufficient history to estimate vol) or a strike offset that is too wide (making &ldquo;hits&rdquo; rare and probability estimates near zero, which score badly). If Brier is chronically above 0.20, try reducing the strike offset by 0.5% or increasing the lookback by 20&ndash;30 bars.</p>

@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to use AIO SD Signal Pro — locked-direction supply and demand signal indicator with 5-point scoring, HTF trend filter, BoS zone creation, and non-repainting signals." />
+    <meta name="keywords" content="AIO SD Signal Pro, supply demand signal, BoS zones, HTF trend filter, supply demand indicator, TradingView supply demand, zone scoring, non-repainting, AIO Indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO SD Signal Pro: Locked S&amp;D Signals, Scoring &amp; HTF Filter | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO SD Signal Pro: Locked S&amp;D Signals, Scoring &amp; HTF Filter" />
+    <meta property="og:description" content="Complete guide to AIO SD Signal Pro — BoS-based zone creation, 5-point quality scoring, HTF EMA trend filter, one-active-signal system, and cooldown mechanics." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO SD Signal Pro: Locked S&amp;D Signals, Scoring &amp; HTF Filter" />
+    <meta name="twitter:description" content="Complete guide to AIO SD Signal Pro — BoS-based zone creation, 5-point quality scoring, HTF EMA trend filter, one-active-signal system, and cooldown mechanics." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO SD Signal Pro: Locked S&D Signals, Scoring & HTF Filter",
+      "description": "Complete guide to AIO SD Signal Pro — BoS-based zone creation, 5-point quality scoring, HTF EMA trend filter, one-active-signal system, and cooldown mechanics.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT13M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO SD Signal Pro", "item": "https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO SD Signal Pro: Locked S&amp;D Signals, Scoring &amp; HTF Filter</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+            <span><i class="bi bi-clock"></i> 13 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>The Problem with Most Supply/Demand Indicators</h2>
+<p>Most supply and demand indicators on TradingView fall into one of two failure modes. Either they draw too many zones and leave you paralyzed by choice, or they repaint &mdash; showing a signal in real time that vanishes or repositions on the next bar close. A repainting zone indicator is worse than no indicator at all: it creates false confidence in a signal that never actually existed.</p>
+<p><strong>AIO SD Signal Pro</strong> (shorttitle: <strong>AIO SD</strong>) was built around three design constraints that eliminate both failure modes:</p>
+<ol>
+    <li>Signal direction and quality score are locked permanently at zone creation. They cannot be modified by subsequent price action.</li>
+    <li>Only one active signal is displayed at a time. When an opposite signal activates, the current one closes automatically, keeping the chart clean.</li>
+    <li>All signals are confirmed on bar close, based on pivots confirmed by a fixed number of bars on each side. Nothing is plotted in real time based on unconfirmed structure.</li>
+</ol>
+<p>The result is an indicator whose historical signals match exactly what you would have seen in real time &mdash; no hindsight bias, no vanishing arrows, no zone repositioning after the fact.</p>
+
+<h2>How Zones Are Built: Break of Structure + Base Candle</h2>
+<p>Zone creation in AIO SD Signal Pro follows a two-step structural logic borrowed from institutional order flow analysis. First, a Break of Structure must occur. Second, the indicator finds the base candle that preceded and caused the break.</p>
+
+<h3>Step 1: Detecting a Break of Structure</h3>
+<p>A bullish BoS occurs when price closes above a prior confirmed swing high. A bearish BoS occurs when price closes below a prior confirmed swing low. Swing pivots are confirmed after a configurable number of bars on each side (Pivot Length, default: 3). The delay is necessary to prevent false pivots from triggering zone creation.</p>
+<p>The BoS confirmation is strictly bar-close based. An intrabar spike above a swing high does not trigger a BoS; only a confirmed close above it does. This is the core non-repainting guarantee: the moment a zone is created, it will never move because it is anchored to a confirmed bar close, not a real-time price excursion.</p>
+
+<h3>Step 2: Finding the Base Candle</h3>
+<p>Once a BoS is confirmed, the indicator walks backward from the BoS bar up to the Base Candle Lookback distance (default: 5 bars) to find the most recent <em>opposing</em> candle. For a bullish BoS, it looks for the most recent bearish candle (sellers were present, then buyers overpowered them). For a bearish BoS, it looks for the most recent bullish candle.</p>
+<p>The base candle must have a body of at least the Min Base Body threshold (default: 0.3 &times; ATR(14)). Doji candles and candles with negligible bodies &mdash; which do not represent meaningful order flow concentration &mdash; are rejected. If no qualifying base candle is found within the lookback range, no zone is created for that BoS.</p>
+<p>The zone box spans the body of the selected base candle: top is the higher of open and close, bottom is the lower. This defines a specific price range where the opposing order flow was concentrated before the structural break.</p>
+
+<h2>The 5-Point Scoring System</h2>
+<p>Every zone receives a composite score from 0 to 5 at the moment of creation. This score is locked permanently and cannot be updated. It represents the structural quality of the zone at the time the BoS was confirmed.</p>
+
+<h3>Score Criteria</h3>
+<p><strong>Impulse Body (+1):</strong> The BoS bar body is at least the Impulse Body multiplier (default: 0.8) times ATR(14). A large BoS candle confirms that institutional order flow drove the structural break decisively. Small, grinding BoS candles are less likely to represent genuine institutional participation and less likely to produce durable zones.</p>
+
+<p><strong>Volume Confirmation (+1):</strong> The BoS bar volume is at least the Volume Multiplier (default: 1.5) times the 20-bar SMA of volume. High relative volume on the BoS bar confirms that more participants than usual were active at the structural break. Without volume confirmation, a BoS may be a low-liquidity fake-out rather than a genuine institutional move.</p>
+
+<p><strong>Extreme Location (+1):</strong> The zone is positioned at or near a 20-bar price extreme. Demand zones score this point if they are in the lower half of the 20-bar range. Supply zones score it if they are in the upper half. Zones at extremes are more likely to represent genuine exhaustion points where one side ran out of counter-pressure, as opposed to mid-range zones where both buyers and sellers are actively contesting.</p>
+
+<p><strong>Fair Value Gap (+1):</strong> The BoS bar (and its surrounding bars) created a Fair Value Gap &mdash; a three-bar price imbalance. For a demand FVG: the low of the BoS bar is above the high of the bar two positions before it. For a supply FVG: the high of the BoS bar is below the low of the bar two positions before it. An FVG at departure means price moved so aggressively that it left a range entirely untouched, confirming exceptional institutional intent at that level.</p>
+
+<p><strong>Psychological Level (+1):</strong> The zone midpoint is within 30% of an ATR-adjusted round-number step. The step size adapts to the instrument&rsquo;s price magnitude automatically. Round numbers attract disproportionate stop-loss clustering, pending limit orders, and algorithmic triggers &mdash; a zone near a round number benefits from all of these additional order concentrations.</p>
+
+<h3>Score Interpretation</h3>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Score</th><th>Min Score Setting</th><th>What It Means</th></tr></thead>
+    <tbody>
+        <tr><td>0&ndash;1</td><td>&mdash;</td><td>Weak structural zone — typically not worth tracking</td></tr>
+        <tr><td>2</td><td>2 (default)</td><td>Minimum qualifying zone — basic structural significance</td></tr>
+        <tr><td>3</td><td>3</td><td>Moderate quality — impulse or volume confirmed</td></tr>
+        <tr><td>4</td><td>4</td><td>High quality — multiple confirming factors</td></tr>
+        <tr><td>5</td><td>5</td><td>Maximum quality — all criteria met simultaneously</td></tr>
+    </tbody>
+</table>
+<p>Zones below the Min Score to Activate setting are silently discarded at creation and never shown on chart. Increasing the minimum score reduces signal frequency and improves average quality. On trending timeframes (4H and above), a minimum score of 3 is a practical starting point. On faster timeframes, 2 produces a workable signal rate.</p>
+
+<h2>HTF Trend Filter: Only Trade with the Bigger Trend</h2>
+<p>The HTF Trend Filter is the most impactful single feature in AIO SD Signal Pro for reducing false signals. Without a trend filter, the indicator will generate long signals in falling markets and short signals in rising markets &mdash; structurally valid zones that are fighting a higher-timeframe current.</p>
+<p>When the HTF Trend Filter is enabled, the indicator calculates an EMA on the higher timeframe (determined by multiplying the current timeframe&rsquo;s multiplier by the HTF Multiplier, default: 16). Long signals are only created when the current close is above the HTF EMA. Short signals are only created when the current close is below it.</p>
+
+<h3>How the HTF Is Calculated</h3>
+<p>The HTF multiplier is applied to the current chart timeframe. On a 15-minute chart with HTF Multiplier of 16, the higher timeframe is 240 minutes (4H). On a 1-hour chart with the same setting, the HTF is 16 hours, which TradingView rounds to the nearest available resolution. The EMA length on the HTF (default: 50) provides a medium-term trend perspective on that higher timeframe.</p>
+<p>The filtering occurs at <strong>zone creation time</strong>, not at signal activation time. If a bullish BoS occurs while the close is below the HTF EMA, the zone is never created &mdash; it does not sit pending and later activate when price eventually rises above the HTF EMA. This prevents a common pattern where trend-filter-based indicators flood the chart with &ldquo;pending&rdquo; zones that activate weeks later in completely different market conditions.</p>
+<p>The optional HTF EMA plot overlays the calculated EMA directly on the price chart, letting you visually confirm whether the filter is above or below current price without calculating it manually.</p>
+
+<h2>Signal Activation: One Signal at a Time</h2>
+<p>Zones created by the indicator remain in a &ldquo;pending retest&rdquo; state until price returns to touch them. The activation rules are directional:</p>
+<ul>
+    <li><strong>Demand zone activates:</strong> When the bar&rsquo;s low drops to or below the zone&rsquo;s top boundary (low &le; zone top). A long triangle is plotted below that bar.</li>
+    <li><strong>Supply zone activates:</strong> When the bar&rsquo;s high rises to or above the zone&rsquo;s bottom boundary (high &ge; zone bottom). A short triangle is plotted above that bar.</li>
+</ul>
+<p>The activation check waits until the bar is confirmed (bar close), so a brief intrabar wick into the zone does not trigger the signal. Activation only happens when the bar has closed and the touch is confirmed by a completed candle.</p>
+
+<h3>One-Signal Architecture</h3>
+<p>Only one signal is active at any time. When a new opposite signal activates, the current active signal is automatically closed. This is a deliberate constraint: holding both long and short signals simultaneously would obscure whether the current market context is long or short. The one-signal architecture forces the indicator to always express a clear directional view, and makes it trivial to set up alerts without receiving conflicting notifications.</p>
+
+<h3>Cooldown and Expiry</h3>
+<p>Two additional filters prevent signal spam:</p>
+<p><strong>Cooldown:</strong> A minimum of 10 bars (configurable) must pass between consecutive signal activations. If price repeatedly bounces in and out of a zone on consecutive bars, only the first touch triggers the signal. The cooldown prevents the same zone from generating multiple signals in rapid succession.</p>
+<p><strong>Expiry:</strong> Pending zones (those created but not yet activated) expire after 100 bars by default. A zone that was structurally valid 100 bars ago but price has never returned to is likely no longer contextually relevant. Expired zones are removed silently.</p>
+
+<h2>Visual Display and Label System</h2>
+<p>Active signals display a filled box spanning the base candle body. The box extends 10 bars to the right of the current bar and updates each bar so it always reaches the visible right edge of the chart. This makes active zones immediately visible without requiring you to scroll right to find the label.</p>
+<p>A label at the right edge of each box shows the signal direction and locked score: &ldquo;LONG 4/5&rdquo; or &ldquo;SHORT 3/5&rdquo;. The score is the one calculated at zone creation &mdash; it does not change based on how many times price has touched the zone since.</p>
+<p>When <strong>Show Closed Signals</strong> is enabled, expired and flipped signals remain on chart in the same color but without the extending box. This is useful for reviewing how past signals played out. By default it is disabled to keep the chart clean.</p>
+<p>Color settings let you customize long and short zone colors independently. Zone Transparency controls the fill opacity of the box (higher number = more transparent). The default teal (demand) and red (supply) color scheme follows standard supply/demand visual conventions and works well on both dark and light chart backgrounds.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to see AIO SD Signal Pro live?</strong> <span>Get access with a free 5-day trial.</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>SD Signal Pro vs AIO Supply &amp; Demand Zones: Key Differences</h2>
+<p>AIO Indicator offers two supply and demand tools. Understanding the difference prevents confusion when choosing which to use:</p>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Feature</th><th>AIO SD Signal Pro</th><th>AIO Supply &amp; Demand Zones</th></tr></thead>
+    <tbody>
+        <tr><td>Zone count on chart</td><td>1 active signal at a time</td><td>Up to 5 per side (10 total)</td></tr>
+        <tr><td>Zone creation basis</td><td>Break of Structure + base candle</td><td>Confirmed pivot high/low box</td></tr>
+        <tr><td>Scoring system</td><td>5 points (BoS-specific criteria)</td><td>9 points (broader quality factors)</td></tr>
+        <tr><td>HTF trend filter</td><td>Yes &mdash; filters at creation</td><td>No</td></tr>
+        <tr><td>Use case</td><td>Signal/alert generation &mdash; one clear trade idea</td><td>Zone mapping &mdash; full context view</td></tr>
+        <tr><td>Recommended pairing</td><td>As entry signal, confirms with CVD or Banker</td><td>As structural map, trade with reversal confirmation</td></tr>
+    </tbody>
+</table>
+<p>The two indicators complement each other. AIO Supply &amp; Demand Zones gives you the full map of where institutional order flow has historically concentrated. AIO SD Signal Pro tells you which single zone on that map is currently generating an active, trend-aligned signal with a qualifying quality score.</p>
+
+<h2>Three Setups with AIO SD Signal Pro</h2>
+
+<h3>Setup 1: Trend-Aligned Zone Touch (Core Setup)</h3>
+<p>This is the highest-probability use case: a demand or supply zone forms following a strong BoS, the HTF trend filter is aligned, and price returns to retest the zone.</p>
+<p><strong>Demand example (long setup):</strong></p>
+<ol>
+    <li>A bullish BoS occurs on the chart timeframe. The HTF EMA is below current price &mdash; HTF trend is bullish. A demand zone is created.</li>
+    <li>Wait for the zone to activate: bar low touches or enters the zone. A long triangle appears.</li>
+    <li>Check for a candlestick confirmation at the zone (optional but recommended): pin bar, bullish engulfing, or strong close off the zone bottom.</li>
+    <li>Enter long. Stop below the zone bottom plus half an ATR buffer.</li>
+    <li>Target: the prior swing high that created the BoS, or the nearest supply zone on the indicator.</li>
+</ol>
+<p>When the score is 4 or 5 out of 5, the entry risk is structurally well-supported. When the score is 2 or 3, reduce position size or require a stricter candlestick confirmation before entering.</p>
+
+<h3>Setup 2: Signal Flip as a Trend Shift Marker</h3>
+<p>When an active long signal is closed by a new short signal activating, this &ldquo;flip&rdquo; is itself a meaningful event. It means a bearish BoS has confirmed, a supply zone has formed, price has retested it, and the HTF trend filter is bearish &mdash; all conditions for a genuine trend shift rather than a routine pullback.</p>
+<p>Trading the flip directly (entering short on the same bar the short signal activates) is a more aggressive approach suited to traders who prioritize early entries. The risk is that a single flip does not guarantee a full trend reversal &mdash; it is the start of potential new structure, not a confirmed multi-bar reversal pattern. Set a wider stop to accommodate potential re-test noise.</p>
+
+<h3>Setup 3: CVD Divergence at an Active Zone</h3>
+<p>AIO SD Signal Pro works most powerfully in combination with AIO CVD. When a supply zone activates (short signal prints) and simultaneously the CVD chart shows bearish divergence on the same or adjacent bar, the two independent analyses converge on the same conclusion from different data sources. Price has reached a structurally valid supply zone, and the volume delta analysis confirms that buying pressure at the new high was weaker than at the prior high.</p>
+<p>This convergence setup &mdash; price structure (SD Signal Pro) plus order flow quality (CVD divergence) &mdash; represents a high-conviction entry with clearly defined risk (stop above the supply zone) and a logical target (the prior swing low that created the BoS for the supply zone).</p>
+
+<h2>Alert Configuration</h2>
+<p>AIO SD Signal Pro has two alert conditions: Long Signal and Short Signal. Both fire once per bar close when the respective signal activates. To configure alerts:</p>
+<ol>
+    <li>Add the indicator to your chart</li>
+    <li>Right-click the indicator name in the pane and select &ldquo;Add alert&rdquo;</li>
+    <li>Under Condition, select &ldquo;AIO SD Signal&rdquo; and then &ldquo;Long Signal&rdquo; or &ldquo;Short Signal&rdquo;</li>
+    <li>Set Trigger to &ldquo;Once Per Bar Close&rdquo;</li>
+</ol>
+<p>The alert message includes the symbol, timeframe, direction, and the locked score (e.g., <em>AIO SD Pro | BTCUSDT | 60 | LONG | Score 4/5</em>). This format is suitable for routing to Telegram bots, webhook endpoints, or direct mobile notifications.</p>
+
+<h2>Settings Quick Reference</h2>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Setting</th><th>Default</th><th>Increase When</th><th>Decrease When</th></tr></thead>
+    <tbody>
+        <tr><td>Pivot Length</td><td>3</td><td>You want stronger, less frequent pivots</td><td>Faster timeframes need more signals</td></tr>
+        <tr><td>Base Candle Lookback</td><td>5</td><td>Zone base candles are far from the BoS</td><td>You want only the closest base candle</td></tr>
+        <tr><td>Min Base Body</td><td>0.3&times; ATR</td><td>Too many weak zone bases forming</td><td>Missing zones due to small base bodies</td></tr>
+        <tr><td>Impulse Body</td><td>0.8&times; ATR</td><td>Too many low-energy BoS events scoring +1</td><td>ATR is large relative to typical candle size</td></tr>
+        <tr><td>Volume Multiplier</td><td>1.5&times; SMA</td><td>Volume spikes are common on your instrument</td><td>Low-volume instruments rarely exceed 1.5&times;</td></tr>
+        <tr><td>Min Score</td><td>2</td><td>Too many low-quality signals activating</td><td>Signal rate is too low for your timeframe</td></tr>
+        <tr><td>Cooldown Bars</td><td>10</td><td>Repeated zone touches firing multiple signals</td><td>Zone signals are too infrequent</td></tr>
+        <tr><td>Max Zone Age</td><td>100</td><td>Old zones are cluttering pending state</td><td>Zones often take longer to be retested</td></tr>
+        <tr><td>HTF Multiplier</td><td>16</td><td>HTF is too close to chart TF (filter too tight)</td><td>HTF is too far from chart TF (filter too loose)</td></tr>
+        <tr><td>HTF EMA Length</td><td>50</td><td>HTF trend flips too frequently</td><td>HTF trend is too slow to adapt</td></tr>
+    </tbody>
+</table>
+
+    <div class="indicator-cta-box">
+        <h3>One Clean Signal. Locked Score. No Repainting.</h3>
+        <p>AIO SD Signal Pro delivers a single active S&amp;D signal at a time, with direction and quality locked at zone creation and a higher-timeframe trend filter to keep you aligned with the dominant flow.</p>
+        <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/0zNtujB0-AIO-Supply-Demand-Signal/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-arrow-up-right"></i> View on TradingView
+        </a>
+    </div>
+
+    <div class="indicator-cta-box" style="margin-top: 1.5rem;">
+        <h3>Try All AIO Indicators Free for 5 Days</h3>
+        <p>Full access to the entire suite. No credit card required.</p>
+        <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+    </div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-use-aio-supply-demand-zones.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">How to Use AIO Supply &amp; Demand Zones</h3>
+                            <p class="feature-description">9-point zone scoring, non-repainting pivots, zone freshness, FVG bonus, and the Zone Prediction module explained.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="market-structure-bos-choch-explained.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-diagram-3"></i></div>
+                            <h3 class="feature-title">Market Structure: BOS &amp; CHoCH Explained</h3>
+                            <p class="feature-description">How Break of Structure and Change of Character define institutional order flow, and how to trade each confirmation type.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-use-aio-cvd.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">How to Use AIO CVD: Cumulative Volume Delta</h3>
+                            <p class="feature-description">Confirm S&amp;D signal quality with CVD divergence, MA fill, and MTF confluence shading — the natural pairing for SD Signal Pro.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

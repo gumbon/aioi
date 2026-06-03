@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to use AIO CVD — Cumulative Volume Delta indicator for TradingView. Covers CVD candles, MA fill, Bollinger Band exhaustion zones, divergence detection, and MTF confluence." />
+    <meta name="keywords" content="AIO CVD, cumulative volume delta, CVD indicator, TradingView CVD, volume delta trading, CVD divergence, MTF confluence, order flow indicator, AIO Indicator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Use AIO CVD: Cumulative Volume Delta, Divergence &amp; MTF Confluence | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Use AIO CVD: Cumulative Volume Delta, Divergence &amp; MTF Confluence" />
+    <meta property="og:description" content="Complete guide to AIO CVD — rolling delta candles, MA fill, Bollinger Band exhaustion zones, divergence detection, and multi-timeframe confluence shading." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-use-aio-cvd.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-use-aio-cvd.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Use AIO CVD: Cumulative Volume Delta, Divergence &amp; MTF Confluence" />
+    <meta name="twitter:description" content="Complete guide to AIO CVD — rolling delta candles, MA fill, Bollinger Band exhaustion zones, divergence detection, and multi-timeframe confluence shading." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Use AIO CVD: Cumulative Volume Delta, Divergence & MTF Confluence",
+      "description": "Complete guide to AIO CVD — rolling delta candles, MA fill, Bollinger Band exhaustion zones, divergence detection, and multi-timeframe confluence shading.",
+      "url": "https://aioindicator.com/blog/how-to-use-aio-cvd.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-use-aio-cvd.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Use AIO CVD", "item": "https://aioindicator.com/blog/how-to-use-aio-cvd.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">How To Use</div>
+        <h1 class="article-title">How to Use AIO CVD: Cumulative Volume Delta, Divergence &amp; MTF Confluence</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body">
+
+<h2>Why CVD Tells You What Price Cannot</h2>
+<p>Price charts show where a market has been. Volume bars show how much was traded. But neither tells you which side &mdash; buyers or sellers &mdash; drove each candle. Cumulative Volume Delta fills that gap. It estimates the net balance of buying versus selling pressure over time and accumulates it into a running value, giving you a secondary &ldquo;chart within the chart&rdquo; that moves with price when the dominant side is in control and diverges when they are not.</p>
+<p><strong>AIO CVD</strong> (full name: AIO Cumulative Volume Delta) implements this calculation as a rolling window rather than a full-history accumulation. The default window of 200 bars keeps the scale bounded and comparable across different instruments and timeframes &mdash; a deliberate design choice that makes the value meaningful whether you are trading BTC or EUR/USD, on a 1-minute chart or a weekly chart.</p>
+<p>This guide covers how the delta calculation works, what each display module adds, and how to integrate CVD into your existing trading process.</p>
+
+<h2>How Delta Is Estimated from Candle Structure</h2>
+<p>Tick-level CVD requires raw trade data that is not available directly in TradingView for most instruments. AIO CVD uses a widely accepted candle-based approximation: it decomposes each bar into its upper wick, lower wick, and body, then uses the relative proportions of these components along with the bar&rsquo;s close direction to assign buying versus selling volume.</p>
+<p>For a bullish bar (close above open), a larger body relative to the wicks means most of the bar&rsquo;s volume is attributed to buyers. For a bearish bar, the inverse applies. The formula is continuous &mdash; not binary &mdash; so a doji with equal upper and lower wicks assigns roughly 50% to each side regardless of close direction. This produces smooth, realistic delta estimates that correlate well with tick-based delta on most instruments.</p>
+<p>The delta for each bar is then summed across the rolling window. When the sum rises, buyers have been more aggressive over that window. When it falls, sellers have been more aggressive. When it is flat while price moves significantly in one direction, the volume story and the price story are not aligned &mdash; which is exactly the divergence you want to know about.</p>
+
+<h2>CVD Candles vs CVD Line</h2>
+<p>The indicator supports two display modes, selectable via the Style input.</p>
+<p><strong>Candle mode</strong> plots CVD as OHLC candlesticks. The open of each bar is the previous bar&rsquo;s CVD close. The high and low reflect the intrabar CVD extremes. This format makes it easy to read the CVD chart with the same candlestick vocabulary you already use for price &mdash; a bullish engulfing on the CVD chart means buyers absorbed a larger delta than sellers in rapid succession. An optional Heikin Ashi smoothing mode filters out single-bar noise and makes the trend direction more visually obvious, at the cost of some precision on exact turning points.</p>
+<p><strong>Line mode</strong> plots CVD as a single continuous line. This is preferred when you want a clean directional read without the visual complexity of candlesticks. Moving averages are not plotted in Line mode because the MA calculation uses the candle close, which is only available in Candle mode.</p>
+
+<h2>Moving Averages and the MA Fill</h2>
+<p>Two independent moving averages (MA 1 and MA 2) can be enabled on the CVD series. Each has its own length, type (SMA, EMA, WMA, or RMA), and color. The most common configuration is a short-period MA1 (e.g., 50) for responsiveness and a long-period MA2 (e.g., 200) for the dominant trend direction. The default MA2 at length 200 gives a cycle-level perspective: CVD above the 200-period SMA means buyers have been consistently more aggressive over 200 bars of the rolling window.</p>
+<p>When both MAs are enabled, the <strong>MA Fill</strong> feature shades the area between the CVD line and the MA envelope. The fill color reflects the CVD position relative to both MAs simultaneously:</p>
+<ul>
+    <li><strong>Lime fill:</strong> CVD is above both MA1 and MA2 &mdash; bullish condition, buyers dominating across both short and long perspectives.</li>
+    <li><strong>Red fill:</strong> CVD is below both MA1 and MA2 &mdash; bearish condition, sellers dominating across both perspectives.</li>
+    <li><strong>No fill (transparent):</strong> CVD is between the two MAs &mdash; the indicator holds the previous color to avoid flicker during crossover transitions.</li>
+</ul>
+<p>This color-hold behavior during crossovers is intentional. It prevents the fill from switching colors every bar when CVD is oscillating near one of the MAs, which would produce visually confusing rapid alternations.</p>
+
+<h2>Bollinger Bands on CVD: Reading Exhaustion</h2>
+<p>Bollinger Bands applied to the CVD series serve a different purpose than Bollinger Bands on price. Price moving to the upper band means volatility is elevated. CVD moving to the upper band means buying pressure has been <em>unusually strong relative to its recent average</em> &mdash; a different interpretation entirely.</p>
+<p>When CVD is at or beyond the upper band, it means buying volume has accumulated so far above the 20-bar mean that a statistical reversion is likely. This is not a bearish signal per se, but it is a signal that the current pace of buying cannot be sustained indefinitely. The red background exhaustion zone highlights these bars to draw your attention. The teal background marks the opposite: selling has been excessive relative to the mean, and a recovery in buying is statistically overdue.</p>
+
+<h3>BB Return Signals</h3>
+<p>The more actionable signals come not from entering at the extreme, but from waiting for CVD to <em>return inside the bands</em> after an excursion. AIO CVD plots a downward triangle when CVD was above the upper band on the previous bar and drops back below it on the current bar. An upward triangle marks the inverse (returning from the lower band).</p>
+<p>The MA filter option makes these signals significantly more reliable. With the filter enabled:</p>
+<ul>
+    <li>Oversold recovery signals (upward triangle) only appear when CVD is above MA2. This filters out premature recovery signals in a downtrend where CVD repeatedly touches the lower band without a meaningful bounce.</li>
+    <li>Overbought rejection signals (downward triangle) only appear when CVD is below MA2 &mdash; confirming that the rejection is happening in a structurally bearish delta context.</li>
+</ul>
+<p>A cooldown of 5 bars (configurable) prevents back-to-back signals from firing when CVD is oscillating at a band boundary, which would generate repeated prints that add noise rather than clarity.</p>
+
+<h2>Divergence Between CVD and Price</h2>
+<p>CVD divergence is one of the most structurally sound signals in order-flow analysis. It works because price and volume delta are causally linked &mdash; but not perfectly. Prices can be driven up by thin-market momentum, algorithmic spoofing effects, or short-lived stop hunts without genuine large buyer participation. CVD captures whether the actual volume confirmed the move.</p>
+<p><strong>Bearish divergence:</strong> Price makes a higher high, but CVD makes a lower high at the same pivot. This means the new price high was achieved with <em>less</em> net buying pressure than the previous high. Sellers absorbed more of the buying at the new high than they did at the prior one &mdash; a structurally weak new high.</p>
+<p><strong>Bullish divergence:</strong> Price makes a lower low, but CVD makes a higher low. The new price low was established with <em>less</em> net selling pressure than the prior low. Buyers absorbed more of the selling &mdash; a structurally weak new low.</p>
+<p>AIO CVD confirms pivots using a configurable lookback (default: 5 bars on each side). This means divergence labels appear 5 bars after the actual pivot bar &mdash; a deliberate delay to prevent false signals from unconfirmed pivots. The signal is non-repainting: once a label is drawn, it never moves or disappears.</p>
+
+<h3>Hidden High/Low Guard</h3>
+<p>A common flaw in naive divergence detectors is drawing a line between two pivots when there was an even more extreme price or delta point between them. This produces visually clean lines that are technically invalid &mdash; the &ldquo;divergence&rdquo; would already have been invalidated by the intervening extreme. AIO CVD tracks the running maximum high and minimum low between each pair of pivots and only draws the divergence line if the new pivot is the genuine extremum since the reference point. This eliminates the most common false-positive in divergence detection.</p>
+
+<h2>Multi-Timeframe Confluence</h2>
+<p>The MTF Confluence module answers a simple question: is the current-timeframe delta trend aligned with the higher-timeframe delta trend? Two traders can look at the same chart and see opposite signals depending on which timeframe they are analyzing. MTF confluence forces both timeframes to agree before the background shading turns bullish or bearish.</p>
+<p>The module calculates CVD and a moving average on both the current timeframe and the higher timeframe (default: 60-minute). Three background states result:</p>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Background</th><th>LTF CVD vs MA</th><th>HTF CVD vs MA</th><th>Interpretation</th></tr></thead>
+    <tbody>
+        <tr><td style="color:#26a69a;font-weight:600;">Green</td><td>Above</td><td>Above</td><td>Both timeframes bullish &mdash; highest-conviction long bias</td></tr>
+        <tr><td style="color:#ef5350;font-weight:600;">Red</td><td>Below</td><td>Below</td><td>Both timeframes bearish &mdash; highest-conviction short bias</td></tr>
+        <tr><td style="color:#f0c040;font-weight:600;">Yellow</td><td>Opposite</td><td>Opposite</td><td>Mixed signal &mdash; avoid directional bias, reduce position size</td></tr>
+    </tbody>
+</table>
+<p>The yellow background is particularly useful as a <em>pause</em> signal. When LTF delta is bullish but HTF delta is bearish (or vice versa), the market is in disagreement across timeframes. This is typically when price chops, fakes breakouts, and reverses unexpectedly. Avoiding entries during yellow-background periods noticeably reduces the false-signal rate for most setups.</p>
+
+<h2>Candle Color Change Alerts</h2>
+<p>The candle color change alert system is designed for traders who want to be notified when CVD momentum shifts direction &mdash; not just when it crosses a fixed level. A green-to-red candle change means CVD was printing a bullish bar and is now printing a bearish bar; the reverse for red-to-green. These micro-shifts in delta direction are often the earliest signal that order flow is rotating before price has confirmed the move.</p>
+<p>The alert distinguishes between shifts occurring while CVD is above the reference MA (a potential trend reversal context) and shifts while CVD is below the reference MA (a potential continuation or recovery context). Four combinations are configurable per context: alert on green-to-red only, red-to-green only, both, or none.</p>
+<p>This granularity is useful for running AIO CVD as an alert engine while watching price charts in a separate window &mdash; you are notified the moment delta momentum rotates in the direction you care about.</p>
+
+<h2>Practical Integration into Your Trading Process</h2>
+<p>AIO CVD works best as a <strong>bias confirmation layer</strong> rather than a standalone entry signal generator. The indicator tells you the quality of the volume story behind a price move. Your entry trigger should come from price structure &mdash; a support/demand zone, a market structure break, a trendline retest. CVD confirms whether the volume story supports the price story at that moment.</p>
+
+<h3>Confluence Confirmation</h3>
+<p>When price reaches a demand zone and you are considering a long entry, check the CVD chart:</p>
+<ul>
+    <li>Is CVD above MA2? Buyers have been consistently stronger over the long rolling average &mdash; the demand zone is likely to hold.</li>
+    <li>Is CVD at the lower Bollinger Band and showing a recovery triangle? The selling exhaustion signal adds conviction to the zone bounce.</li>
+    <li>Is the MTF background green? Both LTF and HTF delta are bullish, reducing the risk that the zone bounce fails due to a higher-timeframe seller wall.</li>
+</ul>
+<p>When all three conditions align with a price structure signal, the convergence across three independent delta analyses (trend, exhaustion, and multi-timeframe) represents a high-quality entry setup.</p>
+
+<h3>Divergence as a Reversal Warning</h3>
+<p>CVD divergence is most useful as a <em>warning system</em> rather than a direct entry signal. When price is pushing to a new high and CVD divergence labels appear (Div &darr;), it means the structural quality of the new high is deteriorating. This does not mean price will reverse immediately &mdash; divergence can persist for multiple bars before the market reacts. But it does mean the risk of holding long positions increases, and new long entries at the high become structurally weak.</p>
+<p>The most reliable divergence trades occur when the divergence is detected near a high-quality supply zone (identified by a tool like AIO SD Signal Pro). The divergence provides the &ldquo;why&rdquo; for the reversal; the supply zone provides the &ldquo;where.&rdquo;</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to add CVD to your chart?</strong> <span>AIO CVD is included in every VIP plan.</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> Try Free 5 Days</a></div></div>
+
+<h2>Recommended Settings by Timeframe</h2>
+<table class="table table-dark table-bordered table-sm" style="font-size:0.9rem;margin-top:1rem;margin-bottom:1.5rem;">
+    <thead><tr><th>Timeframe</th><th>CVD Window</th><th>MA2 Length</th><th>BB Length</th><th>Pivot Lookback</th><th>HTF</th></tr></thead>
+    <tbody>
+        <tr><td>1M&ndash;5M</td><td>100</td><td>100</td><td>15</td><td>3</td><td>15&ndash;60</td></tr>
+        <tr><td>15M&ndash;1H</td><td>200 (default)</td><td>200 (default)</td><td>20 (default)</td><td>5 (default)</td><td>60&ndash;240</td></tr>
+        <tr><td>4H&ndash;Daily</td><td>300</td><td>200</td><td>20</td><td>7</td><td>Daily&ndash;Weekly</td></tr>
+    </tbody>
+</table>
+<p>On faster timeframes, reduce the CVD window and MA periods to keep the delta responsive. On slower timeframes, a longer window provides a smoother structural read and reduces single-bar noise. The HTF for confluence should be 4&times; to 8&times; the chart timeframe for the most meaningful structural separation.</p>
+
+<h2>Common Mistakes to Avoid</h2>
+<p><strong>Trading against a red MA fill:</strong> When the MA fill is red (CVD below both MAs), the cumulative order flow is structurally bearish. Entering long positions in this context, even at good price levels, means fighting the delta trend. Wait for the fill to turn lime or at minimum for CVD to break above MA2 before establishing long bias.</p>
+<p><strong>Treating Bollinger Band exhaustion as a reversal confirmation:</strong> CVD can stay overbought or oversold for extended periods in trending markets. The exhaustion zone background is a caution flag, not a reversal trigger. Require the return signal (triangle) to confirm that CVD has actually reversed from the extreme before acting.</p>
+<p><strong>Ignoring the yellow MTF background:</strong> Yellow background sessions &mdash; mixed LTF/HTF delta &mdash; produce a disproportionate share of false signals across all strategies. The yellow state is not a buy or sell signal; it is a signal to reduce size or stay out. Filtering out trades during yellow backgrounds is one of the highest-leverage improvements most traders can make to their CVD-based workflow.</p>
+<p><strong>Expecting immediate divergence reversals:</strong> Divergence confirms structural weakness. It does not predict timing. A bearish divergence label can appear on bar 1 of a 20-bar extension higher. Use divergence to tighten risk management on existing longs rather than as a direct short entry signal.</p>
+
+    <div class="indicator-cta-box">
+        <h3>Trade with a Volume Story Behind Every Entry</h3>
+        <p>AIO CVD gives you a full-featured delta analysis suite: rolling CVD candles, MA trend fill, BB exhaustion zones, divergence detection, and MTF confluence shading &mdash; all in one pane.</p>
+        <a class="btn btn-hero-primary" href="https://www.tradingview.com/script/8WClakut-AIO-Cumulative-Volume-Delta/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-arrow-up-right"></i> View on TradingView
+        </a>
+    </div>
+
+    <div class="indicator-cta-box" style="margin-top: 1.5rem;">
+        <h3>Try All AIO Indicators Free for 5 Days</h3>
+        <p>Full access to the entire suite. No credit card required.</p>
+        <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer"><i class="bi bi-lightning-charge-fill"></i> Start Free Trial</a>
+    </div>
+
+    </div></div></div></div></section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="open-interest-cvd-crypto-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">How to Read Open Interest &amp; CVD for Crypto Futures</h3>
+                            <p class="feature-description">OI z-score outliers, liquidation cascade detection, CVD divergence signals, and how to combine OI with delta for high-conviction setups.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="divergence-trading-rsi-hidden-regular.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+                            <h3 class="feature-title">Divergence Trading: Regular, Hidden &amp; Cross-Symbol</h3>
+                            <p class="feature-description">Which indicators to use for each divergence type, timeframe reliability rankings, and SMT cross-symbol divergence.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="volume-trading-secrets-order-flow.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Volume Trading Secrets: From VSA to Order Flow Analysis</h3>
+                            <p class="feature-description">Relative volume, VSA methodology, dark pool realities, and the four order flow tools that extend classical analysis into modern markets.</p>
+                            <span class="feature-description small">15 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>
