@@ -49,8 +49,8 @@
         "desc": "TPO-inspired liquidity levels, institutional momentum tracking, and Monte Carlo prediction markets for professional analysis."
       },
       "winrate": {
-        "title": "High Win Rate",
-        "desc": "Proven strategies with real back-test results. No repaint, reliable signals backed by data-driven approach."
+        "title": "Order Flow & Volume Delta",
+        "desc": "Understand who is actually buying and selling. CVD divergence, OI dynamics, liquidation flow, and delta exhaustion zones reveal the institutional footprint — before price confirms direction."
       },
       "customization": {
         "title": "Full Customization",
@@ -99,7 +99,7 @@
     "features": {
       "vip_indicators": "AIO VIP Indicators",
       "premium_indicators": "AIO Premium Indicators",
-      "total_25": "25+ Total Indicators",
+      "total_25": "30+ Total Indicators",
       "institutional": "Institutional Tools",
       "terminal_access": "AIO Terminal Access",
       "priority_support": "Priority Support",
@@ -177,7 +177,7 @@
     "read_min": "min",
     "back_home": "Home",
     "cta_title": "Ready to Trade with <span class=\"hero-title-accent\">Institutional Tools</span>?",
-    "cta_desc": "Try all 25+ AIO indicators free for 5 days. No credit card required.",
+    "cta_desc": "Try all 30+ AIO indicators free for 5 days. No credit card required.",
     "cta_btn": "Start 5-Day Free Trial",
     "article": {
       "home": "Home",
@@ -264,7 +264,7 @@
     "cmp_8": "Tab layout customisation",
     "cmp_9": "API-only connection (no password sharing)",
     "vip_banner_title": "Get AIO Terminal with Every VIP Subscription",
-    "vip_banner_desc": "AIO Terminal is bundled at no extra cost with every VIP plan. You get 25+ institutional-grade TradingView indicators AND the professional trading terminal — starting from $34.99/month.",
+    "vip_banner_desc": "AIO Terminal is bundled at no extra cost with every VIP plan. You get 30+ institutional-grade TradingView indicators AND the professional trading terminal — starting from $34.99/month.",
     "vip_banner_cta_pricing": "View VIP Pricing",
     "vip_banner_cta_trial": "Start 5-Day Free Trial",
     "vip_banner_note": "No credit card required for trial • Cancel anytime • 24/7 support",

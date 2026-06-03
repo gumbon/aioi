@@ -49,8 +49,8 @@
         "desc": "TPO에서 영감받은 유동성 레벨, 기관 모멘텀 추적, 전문 분석을 위한 몬테카를로 예측 시장."
       },
       "winrate": {
-        "title": "높은 승률",
-        "desc": "실제 백테스트 결과로 검증된 전략. 리페인트 없음, 데이터 기반 접근법으로 뒷받침한 신뢰할 수 있는 신호."
+        "title": "오더 플로우 & 볼륨 델타",
+        "desc": "실제로 누가 사고 파는지 파악하세요. CVD 다이버전스, OI 다이나믹스, 청산 플로우, 델타 소진 구간이 가격이 방향을 확인하기 전에 기관의 발자국을 드러냅니다."
       },
       "customization": {
         "title": "완전한 커스터마이즈",
@@ -99,7 +99,7 @@
     "features": {
       "vip_indicators": "AIO VIP 지표",
       "premium_indicators": "AIO 프리미엄 지표",
-      "total_25": "25+ 총 지표",
+      "total_25": "30+ 총 지표",
       "institutional": "기관 도구",
       "priority_support": "우선 지원",
       "tools_14": "14개 거래 도구",
@@ -177,7 +177,7 @@
     "read_min": "분",
     "back_home": "홈",
     "cta_title": "<span class=\"hero-title-accent\">기관급 도구</span>로 거래를 시작할 준비가 되셨나요？",
-    "cta_desc": "25+ AIO 지표를 모두 5일 무료로 시도해보세요. 신용카드 불필요.",
+    "cta_desc": "30+ AIO 지표를 모두 5일 무료로 시도해보세요. 신용카드 불필요.",
     "cta_btn": "5일 무료 체험 시작",
     "article": {
       "home": "홈",
@@ -260,7 +260,7 @@
     "cmp_8": "탭 레이아웃 커스터마이저",
     "cmp_9": "API 전용 연결 (비밀번호 공유 불필요)",
     "vip_banner_title": "모든 VIP 구독에 AIO Terminal 포함",
-    "vip_banner_desc": "AIO Terminal은 모든 VIP 플랜에 무료로 번들. TradingView 기관급 지표 25개 이상과 전문 거래 터미널을 $34.99/월부터.",
+    "vip_banner_desc": "AIO Terminal은 모든 VIP 플랜에 무료로 번들. TradingView 기관급 지표 30개 이상과 전문 거래 터미널을 $34.99/월부터.",
     "vip_banner_cta_pricing": "VIP 가격 보기",
     "vip_banner_cta_trial": "5일 무료 체험 시작",
     "vip_banner_note": "체험에 신용카드 불필요 • 언제든지 취소 • 24/7 지원",

@@ -49,8 +49,8 @@
         "desc": "TPOインスパイアードの流動性レベル、機関投資家のモメンタム追跡、プロ分析のためのモンテカルロ予測市場。"
       },
       "winrate": {
-        "title": "高勝率",
-        "desc": "実際のバックテスト結果を持つ実証済み戦略。リペイントなし、データ駆動型アプローチに裏付けられた信頼性の高いシグナル。"
+        "title": "オーダーフロー & ボリュームデルタ",
+        "desc": "実際に誰が買い、誰が売っているかを把握する。CVDダイバージェンス、OIダイナミクス、清算フロー、デルタ枯渇ゾーンが価格が方向を確認する前に機関投資家のフットプリントを明らかにします。"
       },
       "customization": {
         "title": "完全カスタマイズ",
@@ -99,7 +99,7 @@
     "features": {
       "vip_indicators": "AIO VIPインジケーター",
       "premium_indicators": "AIO Premiumインジケーター",
-      "total_25": "25+インジケーター合計",
+      "total_25": "30+インジケーター合計",
       "institutional": "機関投資家ツール",
       "priority_support": "優先サポート",
       "tools_14": "14取引ツール",
@@ -260,7 +260,7 @@
     "cmp_8": "タブレイアウトのカスタマイズ",
     "cmp_9": "APIのみの接続（パスワード共有不要）",
     "vip_banner_title": "全VIPサブスクリプションにAIO Terminalをバンドル",
-    "vip_banner_desc": "AIO TerminalはVIPプランに無料でバンドル。TradingViewの機関投資家級インジケーター25枚以上とプロの取引ターミナルを$34.99/月から。",
+    "vip_banner_desc": "AIO TerminalはVIPプランに無料でバンドル。TradingViewの機関投資家級インジケーター30枚以上とプロの取引ターミナルを$34.99/月から。",
     "vip_banner_cta_pricing": "VIP料金を見る",
     "vip_banner_cta_trial": "5日間無料トライアル開始",
     "vip_banner_note": "トライアルにクレジットカード不要 • いつでもキャンセル • 24/7サポート",

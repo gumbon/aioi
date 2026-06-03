@@ -49,8 +49,8 @@
         "desc": "Mức thanh khoản lấy cảm hứng từ TPO, theo dõi momentum tổ chức và thị trường dự đoán Monte Carlo cho phân tích chuyên nghiệp."
       },
       "winrate": {
-        "title": "Tỷ Lệ Thắng Cao",
-        "desc": "Chiến lược đã được kiểm chứng với kết quả backtest thực. Không repaint, tín hiệu đáng tin cậy được hỗ trợ bởi phương pháp dựa trên dữ liệu."
+        "title": "Order Flow & Volume Delta",
+        "desc": "Hiểu ai đang thực sự mua và bán. CVD divergence, biến động Open Interest, dòng thanh lý bắt buộc và vùng kiệt sức delta tiết lộ dấu chân tổ chức — trước khi giá xác nhận hướng đi."
       },
       "customization": {
         "title": "Tùy Chỉnh Toàn Diện",
@@ -99,7 +99,7 @@
     "features": {
       "vip_indicators": "Indicators AIO VIP",
       "premium_indicators": "Indicators AIO Premium",
-      "total_25": "25+ Indicators Tổng Cộng",
+      "total_25": "30+ Indicators Tổng Cộng",
       "institutional": "Công Cụ Tổ Chức",
       "priority_support": "Hỗ Trợ Ưu Tiên",
       "terminal_access": "Truy Cập AIO Terminal",
@@ -175,7 +175,7 @@
     "read_min": "phút",
     "back_home": "Trang Chủ",
     "cta_title": "Sẵn Sàng Giao Dịch với <span class=\"hero-title-accent\">Công Cụ Tổ Chức</span>?",
-    "cta_desc": "Dùng thử tất cả 25+ chỉ báo AIO miễn phí trong 5 ngày. Không cần thẻ tín dụng.",
+    "cta_desc": "Dùng thử tất cả 30+ chỉ báo AIO miễn phí trong 5 ngày. Không cần thẻ tín dụng.",
     "cta_btn": "Bắt Đầu Dùng Thử 5 Ngày",
     "article": {
       "home": "Trang Chủ",
@@ -262,7 +262,7 @@
     "cmp_8": "Tùy chỉnh bố cục tab",
     "cmp_9": "Kết nối API-only (không chia sẻ mật khẩu)",
     "vip_banner_title": "Nhận AIO Terminal Cùng Mỗi Gói VIP",
-    "vip_banner_desc": "AIO Terminal được tặng kèm miễn phí với mọi gói VIP. Bạn nhận 25+ indicators TradingView cấp tổ chức VÀ terminal giao dịch chuyên nghiệp — từ $34.99/tháng.",
+    "vip_banner_desc": "AIO Terminal được tặng kèm miễn phí với mọi gói VIP. Bạn nhận 30+ indicators TradingView cấp tổ chức VÀ terminal giao dịch chuyên nghiệp — từ $34.99/tháng.",
     "vip_banner_cta_pricing": "Xem Bảng Giá VIP",
     "vip_banner_cta_trial": "Dùng Thử Miễn Phí 5 Ngày",
     "vip_banner_note": "Không cần thẻ tín dụng để dùng thử • Hủy bất cứ lúc nào • Hỗ trợ 24/7",
