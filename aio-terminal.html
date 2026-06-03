@@ -508,7 +508,7 @@
                     <!-- Stats row -->
                     <div class="d-flex flex-wrap gap-4">
                         <div>
-                            <div class="h4 gradient-text fw-bold mb-0">7</div>
+                            <div class="h4 gradient-text fw-bold mb-0">8</div>
                             <small class="text-secondary" data-i18n="terminal.stat_tabs">Order Tabs</small>
                         </div>
                         <div>
@@ -611,7 +611,7 @@
         <div class="container">
             <div class="section-header mb-5">
                 <h2 class="section-title" data-i18n="terminal.features_title">Everything You Need in One Terminal</h2>
-                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Seven function-based order tabs — Long, Short, Close, Cancel, Smart TP/SL, TP/SL, and Trailing Stop. Every setting saved automatically. Switch between tabs instantly.</p>
+                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Eight function-based order tabs — including live Order Book. Every setting saved automatically. Switch between tabs instantly.</p>
             </div>
 
             <div class="row g-5 align-items-start">
@@ -662,6 +662,13 @@
                         </div>
                     </div>
                     <div class="terminal-feature-item">
+                        <div class="terminal-feature-icon" style="background:rgba(14,203,129,0.15);color:#0ecb81;"><i class="bi bi-bar-chart-steps"></i></div>
+                        <div>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_9_title">Order Book — Live Depth of Market</h3>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_9_desc">Real-time bid/ask bars overlaid directly on your chart and a cumulative depth panel below. Spot whale walls, thin liquidity zones, and support/resistance concentrations at a glance — updated every 100ms from Binance WebSocket. No more guessing where the big money sits.</p>
+                        </div>
+                    </div>
+                    <div class="terminal-feature-item">
                         <div class="terminal-feature-icon"><i class="bi bi-grid-1x2-fill"></i></div>
                         <div>
                             <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_7_title">Drag-and-Drop Layout + Persistent Settings</h3>
@@ -675,6 +682,7 @@
                             <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_8_desc">Every order action is timestamped and logged — entries, closes, TP/SL placements, errors. Collapse the log panel to keep your screen clean; expand to review your session history at any time. Timezone configurable across 12 zones so timestamps match your local trading session.</p>
                         </div>
                     </div>
+                    
                     </div><!-- /.terminal-feature-scroll -->
                     </div><!-- /.terminal-feature-wrap -->
                 </div>
@@ -689,6 +697,7 @@
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-close.avif" data-i18n="terminal.tab_close">Close Position</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-tpsl.avif" data-i18n="terminal.tab_tpsl">TP/SL Tab</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-cancel.avif" data-i18n="terminal.tab_cancel">Cancel Orders</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/aio-orderbook.avif" data-i18n="terminal.tab_orderbook">Order Book</button>
                     </div>
                     <div class="screenshot-display">
                         <img id="screenshotImg" src="assets/terminal/terminal-long-order.avif" alt="AIO Terminal Long Order Tab" />
@@ -766,6 +775,11 @@
                             <td data-i18n="terminal.cmp_9">API-only connection (no password sharing)</td>
                             <td class="text-center check-yes">✓ API Key only</td>
                             <td class="text-center" style="color:var(--text-secondary);">N/A</td>
+                        </tr>
+                        <tr>
+                            <td data-i18n="terminal.cmp_10">Live Order Book / DOM overlay on chart</td>
+                            <td class="text-center check-yes" data-i18n="terminal.cmp_10_aio">✓ Real-time WebSocket, 100ms</td>
+                            <td class="text-center check-no" data-i18n="terminal.cmp_10_bnb">✗ No chart overlay</td>
                         </tr>
                     </tbody>
                 </table>

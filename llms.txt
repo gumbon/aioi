@@ -99,6 +99,11 @@ Key articles:
 - https://aioindicator.com/blog/trendline-breakout-liquidity-detection.html
 - https://aioindicator.com/blog/premium-discount-lookback-zones.html
 - https://aioindicator.com/blog/bos-choch-quality-scoring-guide.html
+- https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html
+- https://aioindicator.com/blog/what-is-order-book-crypto-futures.html
+- https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html
+- https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html
+- https://aioindicator.com/blog/liquidity-heatmap-vs-volume-profile-crypto.html
 
 ## AIO Terminal — Binance Futures Trading Dashboard
 
@@ -119,7 +124,8 @@ Key articles:
 - Close position at market or limit-at-market price for fee savings
 - TP/SL tab for adding TP/SL to open positions (to change existing: cancel first, then re-set)
 - Three TP/SL input modes: Price (absolute), Range (fixed distance), PCT (percentage) — TP and SL can use different modes
-- Seven function-based tabs: Long, Short, Close, Cancel, Smart TP/SL, TP/SL, Trailing Stop
+- Eight function-based tabs: Long, Short, Close, Cancel, Smart TP/SL, TP/SL, Trailing Stop, Order Book (live DOM)
+- Order Book panel (Mode 8) — real-time bid/ask bars overlaid on TradingView Lightweight Charts, updated every 100ms from Binance WebSocket @depth stream; cumulative depth chart panel below showing bid/ask depth curves; auto tick-size aggregation per symbol price range; sequence-validated incremental diffs with REST snapshot seeding and automatic re-sync on gaps
 - Drag-and-drop tab reordering, persistent settings across sessions
 - Up to 2 Binance accounts simultaneously
 - Data sync every 5 seconds by default (configurable); manual sync button available
