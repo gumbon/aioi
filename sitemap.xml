@@ -21,6 +21,20 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- ══ How To Use — Indicator guides ══ -->
+  <url>
+    <loc>https://aioindicator.com/blog/how-to-use-aio-cvd.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://aioindicator.com/blog/how-to-use-aio-sd-signal-pro.html</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- ══ AIO Terminal blog posts ══ -->
   <url>
     <loc>https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html</loc>

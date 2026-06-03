@@ -3,8 +3,8 @@
 # understand what this website is about and how to cite it accurately.
 # Standard: https://llmstxt.org/
 
-> AIO Indicator is a professional suite of 25+ TradingView Pine Script indicators
-> (9 VIP + 14 Premium + 5 Free) designed to help traders detect smart money movements,
+> AIO Indicator is a professional suite of 30+ TradingView Pine Script indicators
+> (13 VIP + 14 Premium + 5 Free) designed to help traders detect smart money movements,
 > institutional order flow, and high-probability price action setups.
 > It covers market structure, liquidity, momentum, volume, perps flow, and probabilistic
 > trading tools. All paid indicators are no-repaint and available via a 5-day free trial.
@@ -19,7 +19,7 @@
 - **Language**: English
 - **Markets**: Crypto, Forex, Stocks, Futures, Indices
 
-## Indicator Suite (28 total: 9 VIP + 14 Premium + 5 Free)
+## Indicator Suite (32 total: 13 VIP + 14 Premium + 5 Free)
 
 ### VIP Indicators
 - **AIO Top/Bottom Strategy** — A Strategy version of AIO Top/Bottom Confidence
@@ -34,6 +34,8 @@
 - **AIO Perps Flow Positioning & Setup Signals** — Perpetual futures analytics combining OI dynamics, liquidation proxy detection, CVD divergence filters, and 6-type setup engine with strength scoring
 - **AIO Seesaw Trailing Strategy** — High win-rate trailing strategy with no-repaint signals and proven back-test results
 - **AIO Key Volume Pro** — 4-TF POC convergence engine with state detection, zone pool, and anchored VWAP for institutional-grade volume analysis
+- **AIO Cumulative Volume Delta** — Rolling CVD displayed as candlesticks or a line, with two MAs and a color-coded trend fill, Bollinger Band exhaustion zones and return signals, a divergence engine comparing price pivots to CVD pivots, and an MTF confluence module shading the background for bull/bear/mixed delta alignment
+- **AIO Supply & Demand Signal Pro** — Non-repainting S&D entry signals built on BoS-anchored zone creation, 5-point quality scoring (impulse body, volume, extreme location, FVG, psychological level), one-active-signal discipline, HTF EMA trend filter, and configurable cooldown/expiry logic
 
 ### Premium Indicators
 - **AIO Price Action All In One** — Complete price action and time analysis toolkit combining market structure, sessions, STD, price levels, magic bars, trendlines, and breakout predictions
