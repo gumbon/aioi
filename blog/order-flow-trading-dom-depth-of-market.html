@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Order flow trading uses DOM (Depth of Market) data to anticipate price moves before they happen. Learn absorption, exhaustion, stacked imbalances, and how professional traders read order flow in crypto futures." />
+    <meta name="keywords" content="order flow trading, DOM trading crypto, depth of market trading, order flow analysis, absorption trading, exhaustion signals, footprint chart, order book trading strategy" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Order Flow Trading: How to Use the DOM to Predict Price Moves | AIO Indicator</title>
+
+    <meta property="og:title" content="Order Flow Trading: How to Use the DOM to Predict Price Moves" />
+    <meta property="og:description" content="Master order flow trading with DOM analysis. Learn how to read absorption, exhaustion, and order imbalances to predict price direction before the candle closes." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Order Flow Trading: How to Use the DOM to Predict Price Moves" />
+    <meta name="twitter:description" content="Master order flow trading: absorption, exhaustion, and order imbalances to predict price direction before the candle closes." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Order Flow Trading: How to Use the DOM to Predict Price Moves",
+      "description": "Order flow trading uses DOM data to anticipate price moves before they happen. Learn absorption, exhaustion, stacked imbalances, and how professional traders read order flow in crypto futures.",
+      "url": "https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT16M",
+      "image": "https://aioindicator.com/assets/terminal/aio-orderbook.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Order Flow Trading DOM", "item": "https://aioindicator.com/blog/order-flow-trading-dom-depth-of-market.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Advanced</div>
+                    <h1 class="article-title">Order Flow Trading: How to Use the DOM to Predict Price Moves</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+                        <span><i class="bi bi-clock"></i> 16 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">Candlestick traders see the past. Order flow traders see the present — and sometimes the future. The DOM (Depth of Market) gives you real-time information about what buyers and sellers are doing right now, before that information gets encoded into a closed candle. That temporal advantage is the core edge of order flow trading.</p>
+
+<h2>What Is Order Flow Trading?</h2>
+<p>Order flow trading is the practice of making trading decisions based on the real-time activity visible in the order book — the DOM. Rather than waiting for a candlestick to close and analyzing the historical pattern, order flow traders watch the live interplay between resting limit orders (passive liquidity) and aggressive market orders (active liquidity) to infer directional intent.</p>
+<p>The fundamental insight: price moves because one side runs out of liquidity before the other. When buyers exhaust all the resting sell orders at the current ask price, price must move up to find more sellers. When sellers exhaust all the resting buy orders at the bid, price drops. Order flow trading is the practice of detecting these imbalances as they happen — not after the candle closes.</p>
+
+<h2>The DOM: Your Primary Data Source</h2>
+<p>The Depth of Market (DOM) is a real-time display of the order book. At minimum, it shows you the best bid and best ask plus some depth of orders behind them. Professional DOM tools show you many levels on each side, updated continuously as the market moves.</p>
+<p>Key DOM metrics to track:</p>
+<ul>
+    <li><strong>Bid/ask volume at each level:</strong> How many contracts/coins are resting at each price</li>
+    <li><strong>Total bid vs. ask depth:</strong> Which side has more committed volume near current price</li>
+    <li><strong>Rate of change:</strong> How fast are orders appearing and disappearing at each level</li>
+    <li><strong>Spread:</strong> How tight the market is — a widening spread indicates uncertainty</li>
+    <li><strong>Message rate:</strong> How many order book updates per second — high rate = high activity</li>
+</ul>
+
+<h2>Core Order Flow Concepts</h2>
+
+<h3>Absorption</h3>
+<p>Absorption occurs when a large resting order on one side of the book is being steadily consumed by aggressive orders from the other side, but price is not moving through the level. Example: there is a 500 BTC ask wall at $67,500. Market buy orders keep hitting it, reducing the wall's size from 500 to 400 to 300 to 200 BTC — but price stays pinned at $67,500. The ask is absorbing all the buying aggression.</p>
+<p>Two possible outcomes from absorption: either the absorption exhausts the aggressive buyers (they run out of capital) and price reverses, or the ask wall is completely consumed and price breaks through. The key is watching which side exhausts first. If buying aggression slows while the wall still has significant size, the reversal scenario is more likely. If buying aggression accelerates and the wall shrinks quickly, breakout is more likely.</p>
+
+<h3>Exhaustion</h3>
+<p>Exhaustion is the depletion of aggressive order flow on one side. It shows up as a slowing of the message rate on the aggressive side — fewer market orders are hitting the book. Exhaustion near a key level is often a precursor to reversal. If price has been running up aggressively and you see the buy-side aggression slow (fewer large market buys, bid queue stops shrinking), the move may be running out of fuel.</p>
+<p>Exhaustion is harder to read than absorption because you're detecting the absence of something (buyer aggression) rather than the presence of something (large orders). Combine exhaustion signals with price level context: exhaustion at a known resistance level carries much more weight than exhaustion in the middle of a trend.</p>
+
+<h3>Order Imbalance</h3>
+<p>Order imbalance is the ratio between buy-side and sell-side volume activity within a time window. When significantly more volume is transacting on the bid side than the ask side (sell imbalance), downward pressure is likely. When significantly more volume hits the ask side (buy imbalance), upward pressure is likely.</p>
+<p>Most professional DOM tools display a real-time imbalance indicator. A sustained imbalance in one direction, particularly on increasing volume, is one of the more reliable order flow signals. The key word is "sustained" — brief imbalances from individual large orders are noise. Persistent directional imbalance over 5–15 minutes indicates genuine directional intent.</p>
+
+<h3>Stacked Imbalances</h3>
+<p>Stacked imbalances occur when multiple consecutive price levels all show the same directional imbalance. If the ask side shows significantly more volume than the bid side across five consecutive price levels, this suggests a sustained institutional selling program. Stacked imbalances in a specific direction often precede strong trending moves in that direction.</p>
+<p>The concept comes from footprint charting, where each candle shows buy and sell volume at every tick. When you see multiple consecutive rows of large sell volume vs. small buy volume within a single candle, the candle's next move is likely downward — the sellers are systematically overwhelming buyers at every level.</p>
+
+<div class="mid-article-cta">
+    <h4>Real-Time DOM in AIO Terminal</h4>
+    <p>AIO Terminal's Order Book panel gives you live bid/ask visualization on your Binance Futures chart — updated 10 times per second. See imbalances and wall dynamics as they develop. Free with every VIP plan.</p>
+    <a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm">Get AIO Terminal &rarr;</a>
+</div>
+
+<h2>Reading the Tape: Order Book in Real Time</h2>
+<p>"Reading the tape" — a term from the era of ticker tapes — means watching order book activity in real time and interpreting its patterns. In crypto futures, it means watching the 100ms update stream from the exchange and tracking how orders appear, fill, and disappear.</p>
+
+<h3>Large Order Appearance Near Support</h3>
+<p>When a large bid order appears near a known support level — say, a $20 million bid at $65,000 when BTC has been respecting that level — this is significant information. Either an institutional participant is genuinely buying at that level, or they are placing an order to signal intent and may pull it before it fills. Both scenarios have implications. Genuine buying creates real support. A spoofed order creates temporary price stability while the spoofer positions themselves.</p>
+<p>With practice you learn to tell the difference: genuine large orders tend to stay at their level, absorb orders without immediately moving, and survive multiple tests. Spoofed orders often appear aggressively (large sudden appearance), sit for just long enough to attract attention, then disappear the moment price starts testing them.</p>
+
+<h3>Sequence of Events Pattern</h3>
+<p>The most reliable order flow signal isn't a single event but a sequence: large order appears → price tests the level → order absorbs tests → aggression on the testing side slows → price moves away in the direction the large order defends. This sequence plays out dozens of times per day on liquid symbols and represents genuine supply/demand dynamics being expressed in real time.</p>
+
+<h2>Order Flow and Price Action Confluence</h2>
+<p>Pure order flow traders — those who trade exclusively from DOM without referencing a chart — represent a tiny minority even among professional traders. Most practitioners use order flow as confluence with price action analysis. The workflow looks like this:</p>
+<ol>
+    <li>Identify a high-probability price action setup from your framework (HTF support, pattern completion, institutional level)</li>
+    <li>Drop to the DOM to check current order book structure at or near that level</li>
+    <li>Assess: Is there large bid volume defending the level right now? Is aggression from the opposing side slowing? Is the spread tight or wide?</li>
+    <li>Enter only when price action AND order flow align. Exit early if order flow contradicts your position (e.g., large bid you were relying on gets pulled)</li>
+</ol>
+<p>This combination approach filters out many low-quality setups. A price action support level with no order book confirmation is weaker than the same level with a thick, persistent bid wall actively absorbing sellers. You're not guessing whether the level will hold — you're seeing that it currently is being defended.</p>
+
+<h2>The Limits of Order Flow: What It Cannot Tell You</h2>
+<p>Order flow trading has real constraints. Understanding them prevents overconfidence:</p>
+<ul>
+    <li><strong>Speed advantage belongs to algorithms:</strong> HFT firms process order book data in nanoseconds. By the time you process a DOM signal, many algorithmic participants have already acted on it. Order flow gives human traders context and probability, not certainty or first-mover advantage.</li>
+    <li><strong>Spoofing is common:</strong> Large orders appearing and disappearing is a constant feature of order books. Without the ability to track individual order IDs (not possible on most retail platforms), distinguishing genuine large orders from spoof orders requires experience and pattern recognition over time.</li>
+    <li><strong>Single-exchange view:</strong> The DOM on Binance only shows Binance orders. A large institutional buyer might be splitting their order across five exchanges simultaneously. The Binance DOM shows only their Binance allocation.</li>
+    <li><strong>Off-exchange transactions:</strong> Block trades, OTC deals, and dark pool transactions don't appear in the order book at all. A massive position change can happen off-book and only affect the visible DOM indirectly.</li>
+</ul>
+
+<h2>Developing Order Flow Skills</h2>
+<p>Order flow proficiency is built through time spent watching the DOM, not through reading about it. The learning path:</p>
+<ol>
+    <li><strong>Passive observation (weeks 1–4):</strong> Watch the DOM for 1–2 hours daily on your primary symbol. Don't trade. Just watch. Learn to recognize the basic patterns: absorption, thin zones, wall persistence, spoofing sequences.</li>
+    <li><strong>Pattern identification (weeks 5–12):</strong> Begin keeping a log of patterns you observe. Note: large order appeared at level X, price tested it Y times, the order held/was pulled, price moved in direction Z. After 50+ observations, patterns emerge.</li>
+    <li><strong>Filtered trading (months 3–6):</strong> Apply order flow as a filter on your existing setups. Don't change your entry criteria — just add DOM confirmation as a requirement. Track whether your win rate and average reward improve.</li>
+    <li><strong>Integration:</strong> With enough practice, DOM reading becomes intuitive. You stop consciously analyzing each element and start feeling the market's intent — the way a skilled surfer reads a wave before it fully forms.</li>
+</ol>
+<p>This is not a fast skill to develop. Most traders who incorporate order flow seriously report needing 6–12 months before it meaningfully improves their trading. It is, however, one of the few genuine edges available to retail participants in modern markets — because it's information that's available to everyone but understood by very few.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Continue Reading</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="what-is-order-book-crypto-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-book"></i></div>
+                            <h3 class="feature-title">What Is an Order Book? Complete Guide</h3>
+                            <p class="feature-description">Start here — the fundamentals of bid/ask, spread, depth, and how order book data gives you a structural edge.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-read-order-book-heatmap-whale-activity.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-eye"></i></div>
+                            <h3 class="feature-title">How to Read an Order Book Heatmap</h3>
+                            <p class="feature-description">Visual interpretation of bid/ask bars, whale walls, and thin liquidity zones with practical trading strategies.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">AIO Terminal Order Book: Live DOM for Binance Futures</h3>
+                            <p class="feature-description">How to use the new Order Book panel in AIO Terminal for real-time DOM analysis alongside your trades.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

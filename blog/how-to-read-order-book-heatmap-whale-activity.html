@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Learn how to read an order book heatmap to spot whale walls, thin liquidity zones, and institutional order clusters. A practical guide for crypto futures traders using DOM visualization tools." />
+    <meta name="keywords" content="order book heatmap, whale wall detection, liquidity heatmap crypto, how to read order book, DOM visualization, spot whale orders, order book analysis crypto futures" />
+    <meta name="author" content="AIO Indicator" />
+    <title>How to Read an Order Book Heatmap to Spot Whale Walls | AIO Indicator</title>
+
+    <meta property="og:title" content="How to Read an Order Book Heatmap to Spot Whale Walls" />
+    <meta property="og:description" content="Visual guide to interpreting order book heatmaps: what bid/ask bars reveal, how to identify institutional order clusters, and trading strategies around key liquidity levels." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="How to Read an Order Book Heatmap to Spot Whale Walls" />
+    <meta name="twitter:description" content="Visual guide to interpreting order book heatmaps: identify institutional order clusters and trade around key liquidity levels." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to Read an Order Book Heatmap to Spot Whale Walls",
+      "description": "Learn how to read an order book heatmap to spot whale walls, thin liquidity zones, and institutional order clusters for crypto futures trading.",
+      "url": "https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT14M",
+      "image": "https://aioindicator.com/assets/terminal/aio-orderbook.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "How to Read Order Book Heatmap", "item": "https://aioindicator.com/blog/how-to-read-order-book-heatmap-whale-activity.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Advanced</div>
+                    <h1 class="article-title">How to Read an Order Book Heatmap to Spot Whale Walls</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">An order book heatmap turns the raw DOM (Depth of Market) data into a visual language. Green bars on the right side of your chart. Red bars above them. Thick ones, thin ones. If you can read what they're telling you, you can see where the big money is defending price — and where it isn't.</p>
+
+<h2>What Is an Order Book Heatmap?</h2>
+<p>A traditional order book displays price levels and quantities in a scrollable table — useful for precision, but hard to scan visually at speed. An order book heatmap converts this data into bars drawn directly on your price chart. Each bar represents the volume of resting limit orders at that price level. Thick bars = large volume. Thin bars = small volume. The position of the bar on the chart aligns with its price level on the Y-axis.</p>
+<p>The color convention is standardized across professional tools:</p>
+<ul>
+    <li><strong>Green bars = Bid orders (buy side)</strong> — resting at or below current price, representing demand</li>
+    <li><strong>Red bars = Ask orders (sell side)</strong> — resting above current price, representing supply</li>
+</ul>
+<p>In AIO Terminal's Order Book panel, bars are updated every 100 milliseconds from Binance's WebSocket depth stream. You see the live state of the order book, not a snapshot that's minutes old.</p>
+
+<h2>Reading the Bar Width: Volume at Each Level</h2>
+<p>The width of each bar in a normalized heatmap is proportional to the volume at that price level relative to the maximum volume visible across all levels. If the largest order on the visible chart has 500 BTC, a bar with 500 BTC would extend to full width. A bar with 250 BTC extends to half width. A bar with 10 BTC is almost invisible.</p>
+<p>This normalization is critical for visual interpretation. You are always comparing each level's volume against the maximum — not against some absolute number. A "thick" bar in a low-liquidity environment represents less absolute volume than a "thin" bar in a high-liquidity environment. Context matters.</p>
+<p>In practice: look at relative thickness across the visible price range. The thickest bars are where the most resting volume is concentrated. Those are the levels to watch.</p>
+
+<h2>Identifying a Whale Wall</h2>
+<p>A whale wall (also called a bid wall or ask wall) is a price level with a disproportionately large volume of resting limit orders compared to the surrounding levels. In the heatmap, it stands out clearly: a thick bar surrounded by thin ones.</p>
+
+<h3>Bid Wall (Support Wall)</h3>
+<p>A large green bar below current price indicates a significant concentration of buy orders. This level acts as potential support because incoming sell pressure must absorb all that volume before price can move lower. The thicker the bar, the more capital is deployed in defense of that level.</p>
+<p>When you see a thick green bar at, say, $66,500 while BTC is trading at $67,200, that $66,500 level has a high probability of providing support if price retraces. The larger the bid wall, the stronger the anticipated support. However — and this is critical — bid walls can be pulled. Never treat a visible wall as guaranteed support. Treat it as probable support that needs to be monitored.</p>
+
+<h3>Ask Wall (Resistance Wall)</h3>
+<p>A large red bar above current price indicates a significant concentration of sell orders. This acts as potential resistance. To move above that level, the market must absorb all that selling volume. Thick ask walls often cap rallies — price approaches the level, buyers start absorbing the sell orders, the rally stalls or reverses.</p>
+<p>A common pattern: price approaches a thick ask wall, consolidates as both sides fight, then either the wall is absorbed (breakout) or it holds and price reverses. Watching whether the bar gets thinner as price approaches (orders being absorbed) or thicker (new orders being added) gives you real-time information about the likely outcome.</p>
+
+<h2>The Cumulative Depth Chart</h2>
+<p>Below the main candlestick chart, the cumulative depth chart provides a different view of the same data. Instead of individual price levels, it shows total cumulative volume available up to each price from the current mid. The staircase shape of the curve tells a rich story:</p>
+<ul>
+    <li><strong>Steep curve near mid:</strong> Large volume concentrated close to the current price. The market is highly liquid near current levels. Price needs to move far to find thin areas.</li>
+    <li><strong>Flat curve near mid:</strong> Thin liquidity close to current price. Small market orders can move price significantly. Breakouts from this condition tend to be fast.</li>
+    <li><strong>Asymmetric curve:</strong> If the bid side is much deeper than the ask side (or vice versa), there is a supply/demand imbalance. A deeper bid curve suggests buyers have more capital deployed near price than sellers — bullish near-term pressure. The reverse is bearish.</li>
+    <li><strong>Cliff (sudden drop in the curve):</strong> A step where the curve flattens sharply represents a thin zone. If price enters this zone, the few resting orders there will be consumed quickly and price may gap to the next liquidity cluster.</li>
+</ul>
+
+<h2>Thin Liquidity Zones: Where Price Moves Fast</h2>
+<p>Professional traders often pay as much attention to where the order book is thin as where it is thick. In between the whale walls are zones with almost no resting orders. These are the highways — when price enters a thin zone, there is little resistance and it tends to travel quickly until it hits the next significant order cluster.</p>
+<p>Identifying thin zones gives you advance warning of potential fast-move areas. If you know there is a thin zone between $67,000 and $68,500, and you see a large ask wall being absorbed at $67,000, you can anticipate that a breakout above $67,000 may see price move rapidly to $68,500 without significant intermediate resistance. That changes your target and position management decisions.</p>
+
+<h2>Order Book Dynamics to Watch</h2>
+
+<h3>Wall Absorption</h3>
+<p>Watch what happens to a thick bar as price approaches it. If the bar gets progressively thinner (decreasing width) as price approaches from below (for bid walls) or from above (for ask walls), it means the wall is being absorbed — orders are being filled and removed from the book. Absorption of a wall typically precedes a move through that level.</p>
+
+<h3>Wall Strengthening</h3>
+<p>If a thick bar gets thicker as price approaches, new orders are being added at that level. This is a defense — someone is aggressively adding buy orders to prevent price from dropping below that level. Strong strengthening often correlates with price bouncing off that level.</p>
+
+<h3>Wall Pulling</h3>
+<p>If a thick bar suddenly disappears just as price approaches it, the order has been cancelled. This is a classic spoofing pattern — a large order placed to create the illusion of support or resistance, then pulled to let price run. Experienced order book traders learn to recognize the pattern: price approaches, wall is intact, then within 1–2 seconds the wall vanishes and price moves through. Multiple occurrences of this pattern on the same trader (usually identifiable by timing and size) signals a known spoofer.</p>
+
+<div class="mid-article-cta">
+    <h4>Live Order Book Heatmap in AIO Terminal</h4>
+    <p>AIO Terminal's Order Book panel gives you real-time green/red bars overlaid on your Binance Futures chart, updated every 100ms. Spot whale walls and thin zones without leaving your trading interface. Included free with every VIP plan.</p>
+    <a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm">See AIO Terminal Order Book &rarr;</a>
+</div>
+
+<h2>Practical Trading Strategies Using Heatmap Data</h2>
+
+<h3>Strategy 1: Fade the Wall (Contrarian)</h3>
+<p>When a thick bid wall has been holding for several minutes and price has bounced off it multiple times, the wall has proven itself. Enter long near the wall level, stop below it (below the bottom of the bid cluster), with a target at the nearest thin zone or the next thick ask wall above. Risk is well-defined; the wall gives your stop a structural anchor.</p>
+
+<h3>Strategy 2: Breakout After Absorption</h3>
+<p>Watch for a thick ask wall to be gradually absorbed as price consolidates below it. When the bar shrinks to near-zero width, the wall is almost fully consumed. This often precedes a fast breakout — all the sellers have been matched with buyers and there is no remaining resistance at that level. Enter on the breakout bar with a target at the next significant ask concentration above. Stop below the consolidation range.</p>
+
+<h3>Strategy 3: Thin Zone Momentum</h3>
+<p>Identify a thin zone in the order book. When price breaks into a thin zone with momentum, trade in the direction of that momentum toward the next thick cluster. The absence of resistance means momentum carries further than in a normal liquidity environment. This strategy works best when the breakout has volume confirmation and the thin zone is significant in size (multiple hundreds of ticks wide with minimal orders).</p>
+
+<h3>Strategy 4: Confluence with Price Action</h3>
+<p>The most consistent use of order book heatmap data is not as a standalone signal but as confluence with your existing price action framework. A HTF support level that has a thick bid wall in the current order book is a much higher-conviction long setup than a level without that confirmation. A resistance zone with a thick ask wall above it is a higher-conviction short zone. Always look for three-way confluence: price action level + order book confirmation + momentum context.</p>
+
+<h2>Common Mistakes Reading Order Book Heatmaps</h2>
+<ul>
+    <li><strong>Treating walls as guarantees:</strong> Walls can be pulled at any time. They are probabilities, not certainties.</li>
+    <li><strong>Ignoring bar persistence:</strong> A wall that has been sitting at the same level for 30 minutes is more meaningful than one that appeared 5 seconds ago.</li>
+    <li><strong>Confusing aggregation:</strong> A single "thick bar" in the heatmap might represent dozens of orders from different traders spread across a $10 price range. The apparent concentration may be less precise than it looks.</li>
+    <li><strong>Trading the first wall you see:</strong> Context matters. A wall in the middle of a strong trend with momentum against it is likely to be absorbed. A wall in a low-volatility, ranging environment is more likely to hold.</li>
+    <li><strong>Not watching both sides simultaneously:</strong> The ask side and bid side tell a complete story together. Looking at only one side is like reading only half a sentence.</li>
+</ul>
+
+<h2>Starting Your Order Book Heatmap Practice</h2>
+<p>The best way to develop heatmap reading skill is systematic observation before trading. Spend 30 minutes each day watching the order book on your primary symbol without placing trades. Ask yourself: Which levels have thick walls right now? Are those walls holding or being absorbed as price approaches? Where are the thin zones? What happens when price enters a thin zone? After two weeks of this observation practice, patterns will start to become intuitive.</p>
+<p>Once you're comfortable with what you're seeing, add heatmap observations as a filter for setups you identify through price action. Start with the simplest application: before entering a long, confirm there is no large ask wall immediately above your entry price in the order book. Before entering a short, confirm there is no large bid wall immediately below. Remove obvious structural obstacles. Add structural support. Over time, this alone meaningfully improves trade quality.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Continue Reading</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="what-is-order-book-crypto-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-book"></i></div>
+                            <h3 class="feature-title">What Is an Order Book? Complete Guide</h3>
+                            <p class="feature-description">The fundamentals: bid/ask, spread, depth, and why order book data gives you a structural edge over candlestick-only traders.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM to Predict Price Moves</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, and how to read order flow momentum before the candle closes.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="liquidity-heatmap-vs-volume-profile-crypto.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">Liquidity Heatmap vs Volume Profile: Which Tool Do You Need?</h3>
+                            <p class="feature-description">Two powerful liquidity tools — how they differ, when to use each, and why combining them gives you the full picture.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

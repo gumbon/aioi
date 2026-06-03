@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A complete guide to order books in crypto futures trading. Learn what bid/ask levels mean, how the DOM works, how to spot whale walls, and how professional traders use order book data to time entries." />
+    <meta name="keywords" content="order book crypto, what is order book, order book futures, DOM trading, depth of market, bid ask spread, crypto order book explained, order book heatmap" />
+    <meta name="author" content="AIO Indicator" />
+    <title>What Is an Order Book? Complete Guide for Crypto Futures Traders | AIO Indicator</title>
+
+    <meta property="og:title" content="What Is an Order Book? Complete Guide for Crypto Futures Traders" />
+    <meta property="og:description" content="Learn what order books reveal about market liquidity, how to read bid/ask levels, spot whale walls, and use real-time DOM data to improve your futures entries." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/what-is-order-book-crypto-futures.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="What Is an Order Book? Complete Guide for Crypto Futures Traders" />
+    <meta name="twitter:description" content="Learn what order books reveal about market liquidity, how to read bid/ask levels, spot whale walls, and use real-time DOM data to improve your futures entries." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/what-is-order-book-crypto-futures.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "What Is an Order Book? Complete Guide for Crypto Futures Traders",
+      "description": "A complete guide to order books in crypto futures trading. Learn what bid/ask levels mean, how the DOM works, how to spot whale walls, and how professional traders use order book data to time entries.",
+      "url": "https://aioindicator.com/blog/what-is-order-book-crypto-futures.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/what-is-order-book-crypto-futures.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M",
+      "image": "https://aioindicator.com/assets/terminal/aio-orderbook.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "What Is an Order Book?", "item": "https://aioindicator.com/blog/what-is-order-book-crypto-futures.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Advanced</div>
+                    <h1 class="article-title">What Is an Order Book? Complete Guide for Crypto Futures Traders</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">The order book is the most fundamental dataset in any exchange. It shows you exactly who wants to buy, who wants to sell, and at what prices — in real time. Most traders never look at it. The ones who do have a structural edge over those who don't.</p>
+
+<h2>What Is an Order Book?</h2>
+<p>An order book is a real-time, continuously updated list of all open buy and sell limit orders for a trading pair on an exchange. It is organized by price level. Every outstanding limit order — from the smallest retail trader to the largest institutional desk — sits in the order book until it is filled, cancelled, or expires.</p>
+<p>The order book has two sides:</p>
+<ul>
+    <li><strong>Bid side (buy orders):</strong> Traders who want to buy at a specific price. The highest bid price is called the "best bid."</li>
+    <li><strong>Ask side (sell orders):</strong> Traders who want to sell at a specific price. The lowest ask price is called the "best ask."</li>
+</ul>
+<p>The gap between the best bid and best ask is the <strong>spread</strong>. In liquid markets like BTC/USDT perpetuals on Binance, the spread is typically less than $1. In less liquid markets, the spread can be several percentage points.</p>
+<p>When a market order comes in, it hits the best available price on the opposite side — a market buy hits the best ask, a market sell hits the best bid. Each fill removes that volume from the order book. The book updates in real time as orders are placed, cancelled, and filled.</p>
+
+<h2>Order Book Terminology You Need to Know</h2>
+
+<h3>Bid and Ask</h3>
+<p>The <strong>bid</strong> is the highest price a buyer is currently willing to pay. The <strong>ask</strong> (or offer) is the lowest price a seller is currently willing to accept. If you want to buy immediately, you pay the ask. If you want to sell immediately, you hit the bid. Placing a limit order inside the spread means you are a maker — you add liquidity. Market orders are takers — they remove liquidity.</p>
+
+<h3>Depth</h3>
+<p>Depth refers to the total volume available at each price level and across the entire order book. A deep market has large orders stacked at many price levels — it can absorb large trades without moving the price significantly. A shallow market has thin liquidity; even moderate size orders can cause significant price movement.</p>
+
+<h3>Liquidity Wall (Whale Wall)</h3>
+<p>A liquidity wall — also called a whale wall or a bid/ask wall — is a price level with an unusually large volume of limit orders. These concentrations appear as thick bars in an order book visualization. Whale walls matter because they create potential price barriers. A massive bid wall tends to support price; a massive ask wall tends to cap upward moves. The market must absorb or avoid that concentrated liquidity to move through the level.</p>
+
+<h3>Mid Price</h3>
+<p>The mid price is the average of the best bid and best ask: (best bid + best ask) / 2. It represents the theoretical fair value between buyers and sellers and is used as a reference point in order book visualizations and spread calculations.</p>
+
+<h3>Spread</h3>
+<p>The bid-ask spread is the cost of immediately entering and exiting a position using market orders. It represents the market maker's compensation for providing liquidity. Tight spreads mean low transaction costs; wide spreads mean higher costs and lower liquidity. In BTC perpetual futures on Binance, the spread is typically $0.10–$1.00. During high-volatility periods, spreads can widen significantly.</p>
+
+<h2>How the Order Book Updates in Real Time</h2>
+<p>Modern exchanges like Binance push order book updates through WebSocket streams. Each update is a differential (diff) — a list of price levels that changed since the last update, not a complete snapshot. The update tells you: at price X, the quantity is now Y. If Y is 0, that level has been completely consumed or cancelled.</p>
+<p>Binance pushes depth updates every 100 milliseconds — ten updates per second. Professional traders use this stream directly. A single busy BTC perpetual symbol can generate thousands of individual order book changes per second at peak market activity.</p>
+<p>The order book you see on a charting platform is almost always delayed and aggregated. What you see as a single bar at $67,500 might represent dozens of individual limit orders from different traders, all sitting at or near that price level.</p>
+
+<h2>Reading an Order Book: What the Data Tells You</h2>
+
+<h3>Price Levels with Large Volume</h3>
+<p>Large concentrations of volume at specific price levels tell you where institutional participants and large traders have placed their orders. These are not random — they represent deliberate decision-making about fair value. A $50 million bid wall at $65,000 on BTCUSDT perpetuals means someone believes $65,000 is worth defending. Whether that wall actually holds depends on whether the trader maintains it or pulls it as price approaches.</p>
+
+<h3>Thin Liquidity Zones</h3>
+<p>Equally important are the gaps — price levels with very little volume. When price moves into a thin liquidity zone, it tends to move quickly because there are few resting orders to slow it down. Spotting these thin zones in advance gives you information about where price might accelerate if a key level breaks.</p>
+
+<h3>Imbalance Between Bid and Ask</h3>
+<p>When the bid side has significantly more volume than the ask side (or vice versa), it signals an imbalance in current supply and demand. A heavy bid side at current price suggests buyers are defending the level aggressively. A heavy ask side suggests sellers are more motivated. This imbalance, combined with price action, is one of the core inputs order flow traders use to make decisions.</p>
+
+<h3>Order Pulling and Spoofing</h3>
+<p>Not all orders in the book are genuine. Large traders sometimes place and quickly cancel orders to create the appearance of demand or supply — a practice called spoofing. A 100 BTC bid wall that disappears the moment price approaches it is a classic spoof. Over time, watching order book dynamics teaches you to distinguish between orders that hold and orders that evaporate. Tools that record historical order book state make this pattern recognition much more tractable.</p>
+
+<h2>The Cumulative Depth View</h2>
+<p>The standard order book ladder (list of price levels and quantities) is useful, but the cumulative depth chart is often more actionable. Instead of showing volume at each individual price, it shows total volume available up to a given price from the current mid. The cumulative bid depth at $67,000 means: if you placed a market sell order of that size, it would consume all bids down to $67,000.</p>
+<p>The cumulative depth chart has a characteristic shape: a curve that starts near the mid price and spreads outward. Steep curves mean concentrated liquidity close to market price. Flat curves mean liquidity is spread thin across a wide price range. The point where the curve flattens significantly indicates where liquidity starts to thin out — and where price might move more freely.</p>
+
+<div class="mid-article-cta">
+    <h4>See the Order Book Live in AIO Terminal</h4>
+    <p>AIO Terminal now includes a real-time Order Book panel — live bid/ask bars overlaid on your chart updated every 100ms from Binance WebSocket, plus a cumulative depth chart panel. Included free with every VIP plan.</p>
+    <a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm">Explore AIO Terminal &rarr;</a>
+</div>
+
+<h2>Order Book vs. Candlestick Charts</h2>
+<p>Candlestick charts show you what happened — the historical record of prices and (approximately) volume over time intervals. The order book shows you what is happening right now and what is queued to happen. These two data sources are complementary, not competing. The candlestick shows you the trend; the order book shows you the obstacles and support structures in the current moment.</p>
+<p>A candlestick-based trader might identify a support zone at $66,500 based on historical price action. An order book trader checks whether there is actually significant bid volume at that level right now. If the bid volume has been pulled and the level is thin, the "support" may be much weaker than the chart history implies.</p>
+
+<h2>Order Book in Crypto Futures vs. Spot</h2>
+<p>In crypto perpetual futures markets, the order book has some important differences from spot:</p>
+<ul>
+    <li><strong>Leverage:</strong> Futures traders are using leverage. This means large order book movements can trigger cascading liquidations, which removes positions from one side of the book and market-orders on the other. Liquidation events show up in order book data as sudden large market orders.</li>
+    <li><strong>Funding rate pressure:</strong> Open interest and funding rates influence where traders want their positions. A heavily negative funding rate incentivizes shorts to close and longs to open — this shows up as bid-side pressure in the order book.</li>
+    <li><strong>No delivery:</strong> Perpetual futures never settle. This allows much larger open positions to build up relative to the available liquidity at any given price, making the order book dynamics more dramatic than in spot markets.</li>
+</ul>
+
+<h2>Limitations of Order Book Analysis</h2>
+<p>Order book data is powerful but has real limitations you must understand to use it responsibly:</p>
+<ul>
+    <li><strong>It only shows one exchange:</strong> BTC trades across dozens of venues. A wall on Binance may be offset by thin liquidity elsewhere.</li>
+    <li><strong>Orders can be pulled instantly:</strong> A large order can be cancelled in milliseconds. What you see is the current state, not a guaranteed future state.</li>
+    <li><strong>Iceberg orders:</strong> Many institutional traders use algorithms that only show a small fraction of their total order size at a time. The visible order book may dramatically understate actual intentions.</li>
+    <li><strong>Latency:</strong> The data you see has a delay — even at 100ms update intervals, fast algorithmic traders have already acted on information that hasn't reached your screen yet.</li>
+</ul>
+<p>These limitations don't make order book analysis useless — they make context and combination with other tools essential. The best traders use order book data alongside price action, volume profile, funding rate, and open interest to build a complete picture.</p>
+
+<h2>How to Start Using Order Book Data</h2>
+<p>The first step is simply observation. Watch the order book on a liquid symbol like BTCUSDT for 30 minutes without trying to trade. Notice which levels have consistently large volume. Watch whether walls hold or get pulled as price approaches. Observe how quickly the spread widens and narrows during volatile moments. Observe the shape of the cumulative depth curve and how it changes over time.</p>
+<p>After observation, you can begin incorporating order book signals into your existing framework. Look for confluence: a price action support level that also has large bid volume in the order book is a much higher-conviction level than either signal alone. A candlestick resistance level with a large ask wall above it confirms the resistance. A thin zone above a key resistance level warns you that if price breaks through, it could move quickly.</p>
+<p>With practice, reading the order book becomes as natural as reading a candlestick chart — and gives you a real-time view of market structure that no candlestick alone can provide.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Continue Reading</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-read-order-book-heatmap-whale-activity.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-eye"></i></div>
+                            <h3 class="feature-title">How to Read an Order Book Heatmap to Spot Whale Walls</h3>
+                            <p class="feature-description">Visual interpretation guide: what green and red bars mean, how to identify institutional order clusters, and how to trade around them.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM to Predict Price Moves</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, iceberg orders, and how to read order flow momentum before price moves.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">AIO Terminal Order Book: Live DOM for Binance Futures</h3>
+                            <p class="feature-description">How the new Order Book panel in AIO Terminal works — real-time bars, depth chart, and how to use it alongside your trading.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

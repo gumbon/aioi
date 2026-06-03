@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Terminal now includes a real-time Order Book panel for Binance Futures — live bid/ask bars overlaid on your chart, updated every 100ms from Binance WebSocket, plus a cumulative depth chart. Here's a complete guide to the feature and how to use it." />
+    <meta name="keywords" content="AIO Terminal order book, Binance futures order book tool, live DOM Binance, order book overlay chart, real-time depth of market Binance, liquidity heatmap Binance futures" />
+    <meta name="author" content="AIO Indicator" />
+    <title>AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures | AIO Indicator</title>
+
+    <meta property="og:title" content="AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures" />
+    <meta property="og:description" content="AIO Terminal's new Order Book panel gives you live bid/ask bars on your chart and a cumulative depth view — updated 10× per second from Binance WebSocket. Here's how to use it." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures" />
+    <meta name="twitter:description" content="Live bid/ask bars on your chart, 100ms updates, cumulative depth view. The new Order Book panel in AIO Terminal explained." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-orderbook.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures",
+      "description": "AIO Terminal now includes a real-time Order Book panel for Binance Futures — live bid/ask bars overlaid on your chart, updated every 100ms from Binance WebSocket, plus a cumulative depth chart.",
+      "url": "https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html",
+      "datePublished": "2026-06-03",
+      "dateModified": "2026-06-03",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M",
+      "image": "https://aioindicator.com/assets/terminal/aio-orderbook.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "AIO Terminal Order Book", "item": "https://aioindicator.com/blog/aio-terminal-order-book-live-dom-binance-futures.html" }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(243,156,18,0.15);color:#f39c12;border-color:rgba(243,156,18,0.3);">Terminal</div>
+                    <h1 class="article-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 3, 2026</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">AIO Terminal just got its most significant update yet: a dedicated Order Book panel that brings live Depth of Market visualization directly into your trading interface. No third-party tools, no browser tab switching, no delayed data. The order book lives where your trades happen.</p>
+
+<h2>What's New: The Order Book Panel</h2>
+<p>The new Order Book feature in AIO Terminal is a full-screen Mode 8 panel that combines two complementary visualizations:</p>
+<ol>
+    <li><strong>Order Book Bars on Chart:</strong> Green and red bars drawn on the right edge of your candlestick chart, aligned with their price levels. Green = bids (buy demand), Red = asks (sell supply). Bar width is proportional to volume at each level, normalized against the maximum visible quantity. You can see the entire live order book structure alongside your candlestick chart simultaneously.</li>
+    <li><strong>Cumulative Depth Chart:</strong> A separate panel below the candlestick chart showing the cumulative order book depth as a staircase curve. The green area shows total cumulative bid volume from the mid price outward. The red area shows total cumulative ask volume. A mid-price dashed reference line separates the two sides.</li>
+</ol>
+<p>Both visualizations update in real time via Binance's WebSocket depth stream at 100ms intervals — ten refreshes per second. For context: on an active BTC/USDT perpetual symbol, this stream delivers thousands of individual order book changes per minute. AIO Terminal processes and renders all of it.</p>
+
+<h2>Why This Matters for Futures Trading</h2>
+<p>Most Binance Futures traders use TradingView for chart analysis and Binance's native interface for order execution. The problem: neither TradingView nor Binance shows you the live order book overlaid on your price chart. TradingView doesn't have access to Binance's real-time order book depth. Binance's native DOM display is a simple table disconnected from the chart.</p>
+<p>AIO Terminal's Order Book panel solves this by being purpose-built for this specific use case: live order book data, rendered directly on a price chart, in the same interface where you execute your trades. When you see a whale wall at $66,500 in the Order Book panel and your price action setup is confirming a long at that level, you don't need to switch tabs or mental contexts. The information is in one place.</p>
+
+<h2>The Order Book Bars: Reading the Chart</h2>
+
+<h3>Color and Position</h3>
+<p>Green bars extend from the right edge of the chart toward the center, positioned at their bid price level. They represent buy limit orders currently resting in the Binance order book. The higher up the chart, the closer to current price; the lower, the further from current price. Red bars sit above the mid price and represent sell limit orders. The pattern gives you an immediate visual sense of the supply/demand landscape around current price.</p>
+
+<h3>Bar Width = Volume Concentration</h3>
+<p>The width of each bar is normalized: the price level with the most volume across all visible levels gets full width; everything else scales proportionally. This means you immediately see the relative concentration of liquidity. A level with a very thick bar has dramatically more orders than surrounding levels — that is your whale wall, your support or resistance cluster, the level worth watching.</p>
+
+<h3>Tick Size Aggregation</h3>
+<p>Order book data has thousands of individual price levels — every $0.01 increment can have orders. AIO Terminal automatically aggregates nearby price levels into buckets based on the symbol's typical price range (e.g., $10 buckets for BTC above $50,000, $1 buckets for ETH above $1,000). This aggregation makes the visualization legible without losing meaningful information. Each bar represents a price band, not a single tick — which better reflects how real traders think about levels.</p>
+
+<h2>The Cumulative Depth Chart</h2>
+<p>The depth chart panel below the candlestick is particularly useful for understanding the big picture of current liquidity. The characteristic staircase shape — caused by the aggregation into tick buckets — shows you exactly where volume concentrates and where it thins out.</p>
+
+<h3>Reading the Curve</h3>
+<ul>
+    <li><strong>Steep section near mid:</strong> Large volume near current price. The market is liquid. Small orders won't move price far.</li>
+    <li><strong>Flat sections (the "cliff"):</strong> A zone where the cumulative curve barely increases. Very thin liquidity — price can move through this zone quickly once it enters.</li>
+    <li><strong>Sudden jumps in the curve:</strong> Large order clusters at specific levels. These are your whale walls — where the curve suddenly leaps upward due to a massive concentration of orders.</li>
+    <li><strong>Asymmetric left/right depth:</strong> When one side's curve rises much faster than the other, there is a supply/demand imbalance near current price. More depth on the green (bid) side means buyers are more committed near current price.</li>
+</ul>
+
+<h3>Mid Price Reference</h3>
+<p>A dashed vertical line marks the current mid price — the center point between best bid and best ask. The depth chart is symmetric around this reference: the green area extends left (lower prices), the red area extends right (higher prices). The horizontal axis shows price; the vertical axis shows cumulative quantity. Price labels at the bottom help you read exact levels.</p>
+
+<div class="mid-article-cta">
+    <h4>AIO Terminal: Order Book Included Free</h4>
+    <p>The Order Book panel is available to all AIO Terminal users — no additional subscription, no add-on purchase. If you have an active VIP plan, you have access. Contact us on Telegram to get your terminal credentials.</p>
+    <a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm">Get AIO Terminal Access &rarr;</a>
+</div>
+
+<h2>Panel Configuration</h2>
+<p>The Order Book panel offers several settings to tune the visualization to your preferences:</p>
+<ul>
+    <li><strong>Symbol:</strong> Any Binance USDⓈ-M Perpetual Futures symbol (BTCUSDT, ETHUSDT, SOLUSDT, etc.)</li>
+    <li><strong>Interval:</strong> Candlestick timeframe — 1m to 1d. The order book data is always real-time regardless of the candle interval.</li>
+    <li><strong>Show Order Book:</strong> Toggle the bid/ask bars on/off. Keep the depth chart only if you prefer a cleaner chart view.</li>
+    <li><strong>Order Book Width:</strong> Adjustable from 30px to 200px. Narrow if you want the bars to be a subtle overlay; wide if you want a prominent DOM view on your chart.</li>
+    <li><strong>Show Depth Chart:</strong> Toggle the cumulative depth panel on/off.</li>
+    <li><strong>Poll Interval:</strong> How often the REST API is checked for a full snapshot resync (500ms–10,000ms, default 2,000ms). The WebSocket handles all real-time updates; this is a safety fallback.</li>
+</ul>
+<p>All settings are saved automatically in localStorage. Your configuration persists between sessions.</p>
+
+<h2>Live Readout: What the Stats Mean</h2>
+<p>The Order Book panel shows a live readout of key statistics:</p>
+<ul>
+    <li><strong>Bid:</strong> Current best bid price — the highest price any buyer is currently willing to pay</li>
+    <li><strong>Ask:</strong> Current best ask price — the lowest price any seller is currently willing to accept</li>
+    <li><strong>Spread:</strong> Ask minus bid, in price units and percentage. A tight spread = liquid market</li>
+    <li><strong>Msg/s:</strong> Order book update messages per second arriving from Binance. During high-volatility events, this can spike significantly, indicating high market activity</li>
+    <li><strong>Buffer:</strong> Number of order book snapshots retained in memory. This supports the depth visualization smoothing</li>
+</ul>
+
+<h2>Practical Usage: How to Integrate It Into Your Trading</h2>
+
+<h3>Before Entering a Trade</h3>
+<p>Before placing a long entry, open the Order Book panel for your symbol. Check: Is there a large ask wall (thick red bar) immediately above my intended entry? If so, that wall is your immediate resistance. Do you have enough reason to believe buyers will absorb it, or is it large enough to reject your entry? This 10-second check prevents entering directly into significant supply.</p>
+<p>For shorts: Is there a large bid wall (thick green bar) just below your entry? A massive bid wall below a short entry means you're fighting an entrenched buyer who may absorb all your downside move before it develops. Consider either waiting for the wall to be consumed or adjusting your target accordingly.</p>
+
+<h3>Stop Placement Using Order Clusters</h3>
+<p>Large order clusters in the heatmap give you structural stop levels. For a long trade, placing your stop just below the largest visible bid cluster — rather than an arbitrary ATR multiple — means you're placing your stop where the market has said "below this level, the thesis is wrong." This is a more precise and structurally-anchored approach than fixed-distance stops.</p>
+
+<h3>Watching Wall Dynamics During a Trade</h3>
+<p>Once you're in a position, the Order Book panel lets you monitor whether the support you're relying on remains intact. Is the bid cluster below your position still thick, or is it being absorbed by sellers? If the bid wall supporting your long starts visibly shrinking, that's early warning that your support level is being tested and may not hold — you can tighten your stop or exit before the stop is actually hit.</p>
+
+<h3>Identifying Thin Zones for Target Extensions</h3>
+<p>When the depth chart shows a thin zone (flat section in the cumulative curve) between current price and a level well above it, this suggests price can move quickly through that zone if it enters. This gives you a target extension opportunity — if price breaks into the thin zone with momentum, your target might be the next thick cluster beyond it, not the nearest level.</p>
+
+<h2>Technical Data Quality: What Makes It Reliable</h2>
+<p>AIO Terminal's Order Book panel is built on a robust data pipeline specifically engineered for production trading use:</p>
+<ul>
+    <li><strong>WebSocket depth stream:</strong> Binance's official <code>@depth</code> stream delivers incremental order book updates at 100ms frequency</li>
+    <li><strong>REST snapshot seeding:</strong> On startup, a full REST snapshot initializes the book state before WebSocket diffs begin applying</li>
+    <li><strong>Sequence validation:</strong> Every WebSocket message includes sequence numbers (U/u/pu fields). AIO Terminal validates these — if a sequence gap is detected, an automatic re-sync triggers to prevent displaying stale or incorrect data</li>
+    <li><strong>Exponential backoff re-sync:</strong> If the connection drops, reconnection uses exponential backoff to avoid hammering the API</li>
+    <li><strong>Heartbeat monitoring:</strong> If no updates arrive for 60 seconds (indicating a stale stream), an automatic reconnect triggers</li>
+</ul>
+<p>This architecture means the data you see in the Order Book panel is as close to the true exchange state as possible for a browser-based client.</p>
+
+<h2>Getting Started with the Order Book Panel</h2>
+<p>If you're already an AIO Terminal user, the Order Book panel (Mode 8) is available in your dashboard immediately. Select Mode 8 from the navigation, choose your symbol and interval, and the live data begins streaming. No additional setup required.</p>
+<p>If you're not yet an AIO Terminal user, access is included free with any VIP plan. Contact us on Telegram (@nguyenthl) after subscribing to receive your terminal credentials. First-time setup takes approximately five minutes.</p>
+<p>The Order Book panel works alongside your existing workflow. Many traders open AIO Terminal in a browser window and TradingView in another, using Terminal for DOM analysis and execution while TradingView handles the broader chart analysis. The two tools complement each other precisely because they do different things well.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Learn More About Order Book Trading</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="what-is-order-book-crypto-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-book"></i></div>
+                            <h3 class="feature-title">What Is an Order Book? Complete Guide</h3>
+                            <p class="feature-description">The fundamentals of bid/ask, spread, depth, and how order book data gives you a structural edge in crypto futures trading.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-read-order-book-heatmap-whale-activity.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-eye"></i></div>
+                            <h3 class="feature-title">How to Read an Order Book Heatmap</h3>
+                            <p class="feature-description">Visual interpretation guide: what thick/thin bars reveal, whale wall patterns, and trading strategies around key liquidity levels.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, stacked imbalances, and how to read order flow momentum before price moves.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>
