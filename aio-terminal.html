@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="theme-color" content="#0a0e27" />
-    <meta name="description" content="AIO Terminal — Web-based Binance USDⓈ-M Futures trading dashboard. 1–2 click Long/Short with market or limit, Smart TP/SL, Trailing Stop, Close. No installation. Works on any browser. Included with VIP plan." />
+    <meta name="description" content="AIO Terminal — Web-based Binance USDⓈ-M Futures trading dashboard. 1–2 click Long/Short with market or limit, Smart TP/SL, Trailing Stop, Close, and a full Analytics panel with live Order Book heatmap, Smart Tape, Aggression Gauge, Spot/Perp CVD, Time Heatmap, and Risk Score. No installation. Works on any browser. Included with VIP plan." />
     <meta name="keywords" content="AIO Terminal, Binance futures trading tool, one-click trading, Binance order management, smart TP SL, trailing stop, futures trading software, crypto trading terminal, Binance USDⓈ-M Futures" />
     <meta name="author" content="AIO Indicator" />
     <title>AIO Terminal — Professional Binance Futures Trading Tool | AIO Indicator</title>
@@ -69,6 +69,7 @@
         "Trailing Stop with auto-activation",
         "One-Click Close / Cancel or Selected Positions orders",
         "TP/SL in Price, Range, or PCT modes",
+        "Market Analytics panel — live Order Book heatmap, Aggression Gauge, Smart Tape, Spot/Perp CVD, Liquidation Tape, Risk Score, Time Heatmap, Depth Chart",
         "Drag-and-drop tab layout",
         "API-connected — no password sharing"
       ]
@@ -611,7 +612,7 @@
         <div class="container">
             <div class="section-header mb-5">
                 <h2 class="section-title" data-i18n="terminal.features_title">Everything You Need in One Terminal</h2>
-                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Seven order execution tabs — Long, Short, Close, Cancel, Smart TP/SL, TP/SL, Trailing Stop — plus a live Order Book analysis panel. Every setting saved automatically.</p>
+                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Seven order execution tabs — Long, Short, Close, Cancel, Smart TP/SL, TP/SL, Trailing Stop — plus a full Market <strong>Analytics</strong> panel with live Order Book, Aggression Gauge, Smart Tape, Spot/Perp CVD, Time Heatmap, and Risk Score. Every setting saved automatically.</p>
             </div>
 
             <div class="row g-5 align-items-start">
@@ -662,10 +663,10 @@
                         </div>
                     </div>
                     <div class="terminal-feature-item">
-                        <div class="terminal-feature-icon" style="background:rgba(14,203,129,0.15);color:#0ecb81;"><i class="bi bi-bar-chart-steps"></i></div>
+                        <div class="terminal-feature-icon" style="background:rgba(14,203,129,0.15);color:#0ecb81;"><i class="bi bi-graph-up-arrow"></i></div>
                         <div>
-                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_9_title">Order Book — Live Depth of Market</h3>
-                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_9_desc">Real-time bid/ask bars overlaid directly on your chart and a cumulative depth panel below. Spot whale walls, thin liquidity zones, and support/resistance concentrations at a glance — updated every 100ms from Binance WebSocket. No more guessing where the big money sits.</p>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_9_title">Analytics — Market Microstructure Panel</h3>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_9_desc">A complete market analytics dashboard in one tab: live Order Book bars overlaid on chart + cumulative Depth Chart, Aggression Gauge (buy/sell pressure 0–100), Smart Tape (size-filtered large trades &amp; sweeps), Spot/Perp CVD divergence, Liquidation Tape, Risk Score (funding/OI/basis composite), and Bookmap-style Time Heatmap showing resting liquidity across price &amp; time — all updated live from Binance WebSocket.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
@@ -697,12 +698,96 @@
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-close.avif" data-i18n="terminal.tab_close">Close Position</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-tpsl.avif" data-i18n="terminal.tab_tpsl">TP/SL Tab</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-cancel.avif" data-i18n="terminal.tab_cancel">Cancel Orders</button>
-                        <button class="tab-screenshot-btn" data-img="assets/terminal/aio-orderbook.avif" data-i18n="terminal.tab_orderbook">Order Book</button>
+                        <button class="tab-screenshot-btn" data-img="assets/terminal/aio-analytics.avif" data-i18n="terminal.tab_orderbook">Analytics</button>
                     </div>
                     <div class="screenshot-display">
                         <img id="screenshotImg" src="assets/terminal/terminal-long-order.avif" alt="AIO Terminal Long Order Tab" />
                     </div>
                     <p class="text-secondary small text-center mt-3" data-i18n="terminal.screenshot_hint">Click any tab above to preview that order panel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ═══════════════════════════════════════════
+         ANALYTICS SHOWCASE
+    ═══════════════════════════════════════════ -->
+    <section id="analytics-showcase" class="modern-features" style="padding-top:60px;padding-bottom:70px;background:var(--darker-bg);">
+        <div class="container">
+            <div class="section-header mb-5">
+                <div class="d-inline-flex align-items-center gap-2 mb-3" style="background:rgba(14,203,129,0.1);border:1px solid rgba(14,203,129,0.25);color:#0ecb81;padding:5px 16px;border-radius:50px;font-size:.82rem;font-weight:600;">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <span>Market Analytics</span>
+                </div>
+                <h2 class="section-title">See the Full Picture — Analytics Tab</h2>
+                <p class="section-subtitle">One dedicated tab gives you every market microstructure signal you need: order book depth, trade flow, CVD divergence, resting liquidity heatmap, and composite risk score — all live from Binance WebSocket.</p>
+            </div>
+
+            <!-- Large hero screenshot -->
+            <div class="mb-5" style="text-align:center;">
+                <div style="display:inline-block;max-width:960px;width:100%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 48px rgba(0,0,0,0.5);">
+                    <img src="assets/terminal/aio-analytics.avif"
+                         alt="AIO Terminal Analytics Tab — full dashboard view"
+                         loading="lazy"
+                         style="width:100%;display:block;" />
+                </div>
+                <p class="text-secondary small mt-3">Analytics Tab — full dashboard: Order Book on chart, Smart Tape, Aggression Gauge, Spot/Perp CVD, Liquidation Tape, Risk Score, Time Heatmap &amp; Depth Chart</p>
+            </div>
+
+            <!-- 3-column feature screenshots -->
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;height:100%;">
+                        <div style="overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <img src="assets/terminal/aio-orderbook.avif"
+                                 alt="Order Book bars overlaid on TradingView chart"
+                                 loading="lazy"
+                                 style="width:100%;display:block;" />
+                        </div>
+                        <div style="padding:18px 20px;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-bar-chart-steps" style="color:#0ecb81;font-size:1.1rem;"></i>
+                                <strong style="color:var(--text-primary);font-size:.95rem;">Order Book on Chart</strong>
+                            </div>
+                            <p class="text-secondary mb-0" style="font-size:.85rem;line-height:1.6;">Live bid/ask bars overlaid on the right edge of your TradingView chart. Absolute-max normalisation — widest bar = most liquidity. Updated every 100ms. Spot whale walls and thin liquidity zones instantly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;height:100%;">
+                        <div style="overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <img src="assets/terminal/aio-smart-aggression-cvd-risk.avif"
+                                 alt="Smart Tape, Aggression Gauge, Spot/Perp CVD and Risk Score panels"
+                                 loading="lazy"
+                                 style="width:100%;display:block;" />
+                        </div>
+                        <div style="padding:18px 20px;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-activity" style="color:#f0b90b;font-size:1.1rem;"></i>
+                                <strong style="color:var(--text-primary);font-size:.95rem;">Smart Tape · Aggression · CVD · Risk</strong>
+                            </div>
+                            <p class="text-secondary mb-0" style="font-size:.85rem;line-height:1.6;">Smart Tape filters trades ≥50k USDT notional and flags institutional sweeps. Aggression Gauge shows buy/sell pressure 0–100. Spot/Perp CVD divergence reveals futures leading spot. Risk Score composite (funding, OI, basis) updates every 5 min.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;height:100%;">
+                        <div style="overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.06);">
+                            <img src="assets/terminal/aio-heatmap-depth.avif"
+                                 alt="Time Heatmap resting liquidity and Depth Chart"
+                                 loading="lazy"
+                                 style="width:100%;display:block;" />
+                        </div>
+                        <div style="padding:18px 20px;">
+                            <div class="d-flex align-items-center gap-2 mb-2">
+                                <i class="bi bi-grid-3x3-gap-fill" style="color:#7b61ff;font-size:1.1rem;"></i>
+                                <strong style="color:var(--text-primary);font-size:.95rem;">Time Heatmap · Depth Chart</strong>
+                            </div>
+                            <p class="text-secondary mb-0" style="font-size:.85rem;line-height:1.6;">Bookmap-style Time Heatmap visualises resting liquidity across price and time — see where limit orders cluster over the session. Cumulative Depth Chart shows total bid/ask volume at each price level for a macro view of market depth.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -780,6 +865,16 @@
                             <td data-i18n="terminal.cmp_10">Live Order Book / DOM overlay on chart</td>
                             <td class="text-center check-yes" data-i18n="terminal.cmp_10_aio">✓ Real-time WebSocket, 100ms</td>
                             <td class="text-center check-no" data-i18n="terminal.cmp_10_bnb">✗ No chart overlay</td>
+                        </tr>
+                        <tr>
+                            <td>Market Microstructure Analytics (Tape, Aggression, CVD, Risk Score)</td>
+                            <td class="text-center check-yes">✓ Full Analytics panel</td>
+                            <td class="text-center check-no">✗ None</td>
+                        </tr>
+                        <tr>
+                            <td>Time Heatmap — resting liquidity visualisation</td>
+                            <td class="text-center check-yes">✓ Bookmap-style built-in</td>
+                            <td class="text-center check-no">✗ None</td>
                         </tr>
                     </tbody>
                 </table>
