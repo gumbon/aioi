@@ -181,22 +181,22 @@
     <li>Notional size in USDT</li>
     <li>Timestamp</li>
 </ul>
-<p>The threshold is configurable in the sidebar. For BTC, 50k USDT is a reasonable floor — it eliminates most retail noise while still showing the significant trades. For lower-liquidity perpetuals (SOL, LINK, DOGE), consider lowering to 20–30k to see relevant flow for those asset sizes.</p>
+<p>The threshold is a dropdown in the sidebar with five presets: <strong>$25k / $50k / $100k / $200k / $500k</strong> (default: $50k). Your selection is saved automatically. For BTC, $50k is a solid floor — it eliminates most retail noise. For lower-liquidity perpetuals (SOL, LINK, DOGE), drop to $25k to see flows that are relevant at those asset sizes. For a cleaner view showing only large institutional clips, raise to $100k–$200k.</p>
 
 <h3>Sweep Detection: The Highest-Conviction Signal</h3>
-<p>The most valuable Smart Tape feature is sweep detection. When three or more large same-side trades occur within a 2-second window, the tape flags it as a sweep:</p>
+<p>The most valuable Smart Tape feature is sweep detection. When three or more large same-side trades occur within a 500ms window, the tape flags it as a sweep:</p>
 
 <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:24px 0;">
-    <p style="margin:0 0 10px;font-size:.9rem;color:var(--text-secondary);">Example sweep sequence:</p>
+    <p style="margin:0 0 10px;font-size:.9rem;color:var(--text-secondary);">Example sweep sequence (all 3 within 500ms):</p>
     <p style="margin:0;font-family:monospace;font-size:.85rem;">
         12:34:01.123 — BUY $210,000<br>
-        12:34:01.891 — BUY $180,000<br>
-        12:34:02.344 — BUY $290,000<br>
+        12:34:01.342 — BUY $180,000<br>
+        12:34:01.489 — BUY $290,000<br>
         <span style="color:#F0B90B;font-weight:bold;">⚡ BUY SWEEP detected</span>
     </p>
 </div>
 
-<p>A sweep means a participant was willing to pay up — hitting multiple price levels within two seconds rather than working a limit order and waiting. This is the signature of a large buyer or seller acting with urgency. The most common interpretations:</p>
+<p>A sweep means a participant was willing to pay up — hitting multiple price levels within half a second rather than working a limit order and waiting. This is the signature of a large buyer or seller acting with urgency. The most common interpretations:</p>
 <ul>
     <li><strong>BUY SWEEP at a consolidation breakout:</strong> The breakout is momentum-backed. The buyer is not waiting for pullbacks.</li>
     <li><strong>BUY SWEEP into resistance:</strong> Someone is testing whether the wall will absorb the pressure. Watch the Order Book bars — if the ask wall doesn't shrink, the buyer will be stopped out.</li>
@@ -245,12 +245,20 @@
 <p>Cumulative Volume Delta (CVD) is the running sum of aggressive buying minus aggressive selling, anchored to a reference point. When CVD is rising, buyers are consistently more aggressive than sellers. When CVD is falling, sellers are the dominant aggressive force. The absolute level of CVD is less important than its direction and rate of change.</p>
 <p>AIO Terminal calculates CVD separately for two markets: Binance USDⓈ-M Perpetual Futures (the perp) and Binance Spot. The divergence line is the difference: <em>Perp CVD − Spot CVD</em>.</p>
 
+<h3>Reading the Colors</h3>
+<p>The CVD panel displays two running lines and a divergence indicator. The color convention tells you the directional story at a glance:</p>
+<ul>
+    <li><strong>Green / rising divergence line:</strong> Perp CVD is outpacing Spot CVD — futures traders are accumulating faster than spot buyers. This is a positive divergence: bullish signal. The market's more leveraged, better-informed participants are leaning long.</li>
+    <li><strong>Red / falling divergence line:</strong> Perp CVD is falling faster than Spot CVD — futures traders are selling (or not buying) while spot holds steady. Negative divergence: bearish signal. Futures players may be distributing into retail spot strength.</li>
+    <li><strong>Flat / near-zero:</strong> Both markets moving in sync — no meaningful divergence. No directional edge from this signal alone.</li>
+</ul>
+
 <h3>Why Spot vs. Perp Divergence Matters</h3>
 <p>Spot and perpetual futures trade the same underlying asset, so in an efficient market, informed buying or selling should appear in both markets simultaneously. When they diverge, it tells you something about who is acting and in which market:</p>
 <ul>
-    <li><strong>Perp CVD rising faster than Spot CVD (positive divergence):</strong> Futures traders are accumulating aggressively while spot buyers are not yet positioned. This is typically bullish — futures traders are often more sophisticated and better-informed. They may be front-running a move that spot buyers will join later.</li>
+    <li><strong>Perp CVD rising faster than Spot CVD (green, positive divergence):</strong> Futures traders are accumulating aggressively while spot buyers are not yet positioned. This is typically bullish — futures traders are often more sophisticated and better-informed. They may be front-running a move that spot buyers will join later.</li>
     <li><strong>Spot CVD rising faster than Perp CVD:</strong> Retail and spot traders are buying, but futures professionals are not. This is often seen during retail-driven pumps that institutional futures traders are using to distribute into. Proceed with caution.</li>
-    <li><strong>Perp CVD falling while Spot holds steady (negative divergence):</strong> Futures traders are selling (or covering) while spot holders are not selling. This is a hedging or short-building pattern — futures players are positioning for a down move they believe is coming.</li>
+    <li><strong>Perp CVD falling while Spot holds steady (red, negative divergence):</strong> Futures traders are selling (or covering) while spot holders are not selling. This is a hedging or short-building pattern — futures players are positioning for a down move they believe is coming.</li>
     <li><strong>Both falling together:</strong> Across-the-board distribution. No divergence, but significant selling pressure in both markets.</li>
 </ul>
 
@@ -304,7 +312,7 @@
 
 <div class="mid-article-cta">
     <h4>AIO Terminal: Full Flow Analytics Included Free</h4>
-    <p>Smart Tape, Aggression Gauge, Spot/Perp CVD, Liquidation Tape, and Risk Score are all part of the Analytics tab — included free with every VIP plan. No additional subscriptions. No separate tools.</p>
+    <p>Smart Tape, Aggression Gauge, Spot/Perp CVD, and Risk Score are all part of the Analytics tab — included free with every VIP plan. No additional subscriptions. No separate tools.</p>
     <a href="../aio-terminal.html#analytics-showcase" class="btn btn-hero-primary btn-sm">Explore Analytics Tab &rarr;</a>
 </div>
 
@@ -335,7 +343,7 @@
                         <div class="feature-card h-100">
                             <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
                             <h3 class="feature-title">Analytics Tab: Complete Guide</h3>
-                            <p class="feature-description">All 8 Analytics panels explained: Order Book, Aggression, Smart Tape, CVD, Liquidation Tape, Risk Score, Time Heatmap, Depth Chart.</p>
+                            <p class="feature-description">All 7 Analytics panels explained: Order Book, Aggression, Smart Tape, CVD, Risk Score, Time Heatmap, Depth Chart.</p>
                             <span class="feature-description small">16 min read &rarr;</span>
                         </div>
                     </a>
