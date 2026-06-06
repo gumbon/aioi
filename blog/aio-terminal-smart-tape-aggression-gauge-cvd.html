@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A practical guide to reading institutional order flow in real time using AIO Terminal's Smart Tape, Aggression Gauge, and Spot/Perp CVD divergence — with specific setups for BTC futures trading." />
+    <meta name="keywords" content="smart tape trading, aggression gauge Binance, spot perp CVD divergence, institutional order flow, buy sweep crypto, cumulative volume delta futures, Binance futures analytics, AIO Terminal flow analysis" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time | AIO Indicator</title>
+
+    <meta property="og:title" content="Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time" />
+    <meta property="og:description" content="How to use AIO Terminal's Smart Tape (large trades + sweeps), Aggression Gauge (buy/sell pressure 0–100), and Spot/Perp CVD divergence to identify institutional activity before price moves." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time" />
+    <meta name="twitter:description" content="Practical guide to identifying institutional activity using large trade filtering, buy/sell pressure scoring, and futures-vs-spot CVD divergence in AIO Terminal." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Smart Tape, Aggression Gauge & CVD: Read Institutional Order Flow in Real Time",
+      "description": "A practical guide to reading institutional order flow in real time using AIO Terminal's Smart Tape, Aggression Gauge, and Spot/Perp CVD divergence — with specific setups for BTC futures trading.",
+      "url": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html",
+      "datePublished": "2026-06-06",
+      "dateModified": "2026-06-06",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html"
+      },
+      "image": "https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif",
+      "keywords": "smart tape, aggression gauge, CVD divergence, order flow, Binance futures, institutional trading"
+    }
+    </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top modern-navbar" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="../">
+            <img src="../assets/favicon.ico" height="32" alt="AIO Indicator logo" class="me-2">
+            AIO Indicator
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(240,185,11,0.15);color:#f0b90b;border-color:rgba(240,185,11,0.3);">Order Flow</div>
+                    <h1 class="article-title">Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 6, 2026</span>
+                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">Price action tells you where the market has been. Order flow tells you who is driving it and how urgently. AIO Terminal's Smart Tape, Aggression Gauge, and Spot/Perp CVD panels bring three of the most powerful real-time flow signals into your execution interface — so you can read institutional activity while your orders are still open.</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-smart-aggression-cvd-risk.avif" alt="Smart Tape, Aggression Gauge, Spot/Perp CVD and Risk Score panels" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Smart Tape, Aggression Gauge, Spot/Perp CVD, and Risk Score — all in the Analytics tab</p>
+</div>
+
+<h2>Why Most Retail Traders Can't See What's Actually Moving Price</h2>
+<p>The standard retail toolkit — RSI, MACD, moving averages, even volume bars — describes price history. None of these tools tell you whether the $50M market buy that just hit BTC was a hedge fund initiating a long, or an exchange liquidating an overleveraged retail trader's position. Those two events look identical on a candle chart but have very different implications for what happens next.</p>
+<p>Market microstructure closes that gap. The three flow tools in AIO Terminal's Analytics tab each answer a different question:</p>
+<ul>
+    <li><strong>Smart Tape:</strong> <em>Who just traded, and with how much urgency?</em></li>
+    <li><strong>Aggression Gauge:</strong> <em>Is the overall market balance tipping toward buyers or sellers right now?</em></li>
+    <li><strong>Spot/Perp CVD:</strong> <em>Are futures traders leading or lagging the spot market?</em></li>
+</ul>
+<p>Together, these three signals form a directional picture that price alone cannot provide.</p>
+
+<h2>Smart Tape: Filtering for What Actually Matters</h2>
+
+<h3>The Problem with a Raw Trade Feed</h3>
+<p>BTC futures on Binance can see 5,000–10,000 individual trades per minute during active sessions. A raw tape is noise. Most of those trades are retail orders — $200, $1,000, $5,000 positions that do not meaningfully move the order book. The traders who move markets execute in $100,000+ clips. Smart Tape filters out everything below your threshold and shows you only those that matter.</p>
+
+<h3>How Smart Tape Works</h3>
+<p>AIO Terminal connects to Binance's real-time trade stream and applies a notional filter (default: ≥ 50,000 USDT per trade). Each qualifying trade appears in the Smart Tape with:</p>
+<ul>
+    <li>Direction: BUY (aggressive buyer hitting asks) or SELL (aggressive seller hitting bids)</li>
+    <li>Notional size in USDT</li>
+    <li>Timestamp</li>
+</ul>
+<p>The threshold is configurable in the sidebar. For BTC, 50k USDT is a reasonable floor — it eliminates most retail noise while still showing the significant trades. For lower-liquidity perpetuals (SOL, LINK, DOGE), consider lowering to 20–30k to see relevant flow for those asset sizes.</p>
+
+<h3>Sweep Detection: The Highest-Conviction Signal</h3>
+<p>The most valuable Smart Tape feature is sweep detection. When three or more large same-side trades occur within a 2-second window, the tape flags it as a sweep:</p>
+
+<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:24px 0;">
+    <p style="margin:0 0 10px;font-size:.9rem;color:var(--text-secondary);">Example sweep sequence:</p>
+    <p style="margin:0;font-family:monospace;font-size:.85rem;">
+        12:34:01.123 — BUY $210,000<br>
+        12:34:01.891 — BUY $180,000<br>
+        12:34:02.344 — BUY $290,000<br>
+        <span style="color:#F0B90B;font-weight:bold;">⚡ BUY SWEEP detected</span>
+    </p>
+</div>
+
+<p>A sweep means a participant was willing to pay up — hitting multiple price levels within two seconds rather than working a limit order and waiting. This is the signature of a large buyer or seller acting with urgency. The most common interpretations:</p>
+<ul>
+    <li><strong>BUY SWEEP at a consolidation breakout:</strong> The breakout is momentum-backed. The buyer is not waiting for pullbacks.</li>
+    <li><strong>BUY SWEEP into resistance:</strong> Someone is testing whether the wall will absorb the pressure. Watch the Order Book bars — if the ask wall doesn't shrink, the buyer will be stopped out.</li>
+    <li><strong>SELL SWEEP into support:</strong> Aggressive liquidation. If this is a stop-hunt sweep that clears out retail stops and then reverses, the large seller may be establishing a long. If selling continues, the support is failing.</li>
+    <li><strong>Multiple sweeps in the same direction over 5–10 minutes:</strong> Institutional position building. This is one of the cleaner signals available in real-time flow — a persistent, aggressive buyer or seller is executing a large order over time.</li>
+</ul>
+
+<h3>What Smart Tape Does NOT Tell You</h3>
+<p>Smart Tape shows aggressive (market) orders. It does not show passive (limit) orders — those appear in the Order Book, not the tape. A large trade hitting the tape means someone was willing to pay market prices; the limit book shows where patient money is waiting. Reading both together gives you the full picture: who is aggressive and where the patient money sits.</p>
+
+<h2>Aggression Gauge: The Pressure Ratio</h2>
+
+<h3>What It Measures</h3>
+<p>The Aggression Gauge calculates the ratio of buy-side aggression to total aggression over a rolling 1-minute window, expressed as a 0–100 score. Every trade in the real-time feed is classified as buyer-initiated (hitting asks) or seller-initiated (hitting bids). The gauge is the proportion that is buyer-initiated.</p>
+<ul>
+    <li>Score of 50: Perfect balance — equal buy and sell aggression</li>
+    <li>Score of 65+: Sustained buy-side pressure — buyers are the more urgent side</li>
+    <li>Score of 35 or below: Sustained sell-side pressure</li>
+</ul>
+<p>The gauge updates every ~1 second. Unlike most indicators, it responds in real time — not on candle close. A 1-minute candle's close tells you nothing about whether the aggression at 12:00:15 was buying or selling. The Aggression Gauge tells you both the current state and the trajectory.</p>
+
+<h3>The 15-Minute Sparkline</h3>
+<p>Alongside the current score, the gauge displays a 15-minute sparkline — a small time series of the last 15 minutes of readings. This is critical context. A current reading of 68 means very different things depending on whether:</p>
+<ul>
+    <li>The sparkline shows the gauge climbing steadily from 50 → 68 over the last 10 minutes (building momentum)</li>
+    <li>The sparkline shows the gauge spiking from 45 → 68 in the last 30 seconds and trending back down (likely transient, may not sustain)</li>
+    <li>The sparkline shows the gauge oscillating between 65–72 for the entire 15 minutes (persistent institutional accumulation)</li>
+</ul>
+<p>Reading the sparkline prevents you from treating a single-second spike as a signal when the broader context shows it's noise.</p>
+
+<h3>Practical Aggression Gauge Setups</h3>
+
+<h4>Breakout Validation</h4>
+<p>A price breakout above a key resistance level with an Aggression Gauge reading below 55 is a weak breakout — there is no meaningful buy-side pressure backing it. This is how many false breakouts happen: price crosses the level on low volume or limit-order movement, retail traders chase it, and the lack of aggressive buying means the breakout cannot sustain.</p>
+<p>A breakout with Aggression above 65–70 and a sparkline showing sustained pressure for the previous 5–10 minutes is a legitimate momentum breakout. The buyer is committed.</p>
+
+<h4>Divergence with Price</h4>
+<p>When price makes a new local high but the Aggression Gauge makes a lower high — price is making new highs on declining buy-side pressure. The buyers needed to sustain the move are not as aggressive as they were at the prior high. This is a micro-level bearish divergence that often precedes short-term reversals or pullbacks.</p>
+
+<h4>The Exhaustion Spike</h4>
+<p>A sharp spike to 85–90 followed by an immediate drop back to 50–55 often marks selling exhaustion — aggressive buyers just cleared a large ask wall or triggered a cascade of short covering, and the move runs out of fuel. These are common at the highs of momentum moves. Rather than chasing the spike, the opportunity is often on the reversal once the gauge collapses back toward neutral.</p>
+
+<h2>Spot/Perp CVD Divergence: Who Is Leading?</h2>
+
+<h3>Understanding CVD</h3>
+<p>Cumulative Volume Delta (CVD) is the running sum of aggressive buying minus aggressive selling, anchored to a reference point. When CVD is rising, buyers are consistently more aggressive than sellers. When CVD is falling, sellers are the dominant aggressive force. The absolute level of CVD is less important than its direction and rate of change.</p>
+<p>AIO Terminal calculates CVD separately for two markets: Binance USDⓈ-M Perpetual Futures (the perp) and Binance Spot. The divergence line is the difference: <em>Perp CVD − Spot CVD</em>.</p>
+
+<h3>Why Spot vs. Perp Divergence Matters</h3>
+<p>Spot and perpetual futures trade the same underlying asset, so in an efficient market, informed buying or selling should appear in both markets simultaneously. When they diverge, it tells you something about who is acting and in which market:</p>
+<ul>
+    <li><strong>Perp CVD rising faster than Spot CVD (positive divergence):</strong> Futures traders are accumulating aggressively while spot buyers are not yet positioned. This is typically bullish — futures traders are often more sophisticated and better-informed. They may be front-running a move that spot buyers will join later.</li>
+    <li><strong>Spot CVD rising faster than Perp CVD:</strong> Retail and spot traders are buying, but futures professionals are not. This is often seen during retail-driven pumps that institutional futures traders are using to distribute into. Proceed with caution.</li>
+    <li><strong>Perp CVD falling while Spot holds steady (negative divergence):</strong> Futures traders are selling (or covering) while spot holders are not selling. This is a hedging or short-building pattern — futures players are positioning for a down move they believe is coming.</li>
+    <li><strong>Both falling together:</strong> Across-the-board distribution. No divergence, but significant selling pressure in both markets.</li>
+</ul>
+
+<h3>Session Anchoring</h3>
+<p>AIO Terminal anchors both CVD lines to the session start. This means the values reset at the beginning of each day and grow (or shrink) from zero. The absolute value at any point reflects the net directional pressure accumulated since the session open — making the readings consistent and comparable day to day without drift from historical data.</p>
+
+<h3>A Worked Example: CVD Divergence Before a Move</h3>
+<p>Consider this scenario during a BTC session:</p>
+<ol>
+    <li>Price is ranging between $65,000 and $65,800 for 3 hours. Neither side is breaking out.</li>
+    <li>Over the last 45 minutes, Perp CVD has been steadily rising — buyers are incrementally more aggressive in futures. Spot CVD is flat.</li>
+    <li>The divergence line is climbing — a positive and growing gap between perp buying and spot buying.</li>
+    <li>Smart Tape shows several $150k–$300k BUY trades in futures over this period, but nothing unusual in spot.</li>
+    <li>Aggression Gauge is holding at 58–62 — above neutral, but not spiked.</li>
+</ol>
+<p>This is a classic institutional accumulation pattern: a large buyer is building a futures position during a range, not yet willing to pay up aggressively (hence no sweeps and no Aggression spike), but consistently taking the offer over time. The divergence signals they are positioning for a move higher — which, when the range breaks, will be backed by genuine futures flow.</p>
+<p>The breakout, when it comes, will be one where you have pre-positioned context rather than reacting to the candle close. That is the edge these tools provide.</p>
+
+<h2>Combining All Three: A Complete Flow Reading</h2>
+<p>Each of these three tools answers a different question. The highest-conviction trade setups are when all three align:</p>
+
+<table class="table table-borderless" style="font-size:.875rem;margin:24px 0;">
+    <thead>
+        <tr style="color:var(--text-secondary);border-bottom:1px solid rgba(255,255,255,0.08);">
+            <th>Signal</th>
+            <th>Bullish Reading</th>
+            <th>Bearish Reading</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Smart Tape</strong></td>
+            <td>BUY trades &amp; BUY SWEEPS</td>
+            <td>SELL trades &amp; SELL SWEEPS</td>
+        </tr>
+        <tr>
+            <td><strong>Aggression Gauge</strong></td>
+            <td>Above 62, sparkline rising</td>
+            <td>Below 38, sparkline falling</td>
+        </tr>
+        <tr>
+            <td><strong>Spot/Perp CVD</strong></td>
+            <td>Perp CVD leading Spot CVD higher</td>
+            <td>Perp CVD falling faster than Spot</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>A bullish confluence: Smart Tape showing BUY SWEEPS, Aggression at 70+, and Perp CVD diverging upward from Spot CVD. This is as high a confidence real-time long signal as these tools can produce. A bearish confluence is the mirror image.</p>
+<p>Mixed signals — for example, Aggression is high but Perp CVD is flat or falling — indicate uncertainty. In those cases, the right response is often to reduce size or wait for clearer alignment rather than forcing a trade on partial confirmation.</p>
+
+<div class="mid-article-cta">
+    <h4>AIO Terminal: Full Flow Analytics Included Free</h4>
+    <p>Smart Tape, Aggression Gauge, Spot/Perp CVD, Liquidation Tape, and Risk Score are all part of the Analytics tab — included free with every VIP plan. No additional subscriptions. No separate tools.</p>
+    <a href="../aio-terminal.html#analytics-showcase" class="btn btn-hero-primary btn-sm">Explore Analytics Tab &rarr;</a>
+</div>
+
+<h2>Configuration for Your Trading Style</h2>
+<ul>
+    <li><strong>Scalpers (1m–5m):</strong> Set Smart Tape threshold lower (20–30k for most pairs) to catch medium-size flow that moves markets at your timeframe. Watch Aggression Gauge for 30-second swings.</li>
+    <li><strong>Intraday traders (15m–1h):</strong> Default settings work well. Focus on CVD divergence building over 30–60 minute periods. Look for Aggression confirmations on breakout candles.</li>
+    <li><strong>Swing traders (4h–daily):</strong> Use the tools primarily for entry timing within your daily structure. Don't over-weight 1-minute Aggression readings for a trade you plan to hold for days.</li>
+</ul>
+
+<h2>Getting Started</h2>
+<p>All three tools are in the Analytics tab (key 8 on your keyboard, or click the Analytics tab in the AIO Terminal navigation). Select your symbol — the data streams immediately from Binance WebSocket. All panel settings are auto-saved.</p>
+<p>If you're new to AIO Terminal, access is included free with any VIP plan. Contact us on Telegram (@nguyenthl) after subscribing to get your terminal credentials.</p>
+<p>For a complete overview of all 8 Analytics panels, including Order Book heatmap, Time Heatmap, and Risk Score, see the full Analytics tab guide.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Analytics Guides</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-analytics-tab-market-microstructure-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">Analytics Tab: Complete Guide</h3>
+                            <p class="feature-description">All 8 Analytics panels explained: Order Book, Aggression, Smart Tape, CVD, Liquidation Tape, Risk Score, Time Heatmap, Depth Chart.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Order Book Panel Deep Dive</h3>
+                            <p class="feature-description">Live DOM overlay, depth chart, whale wall detection, and stop placement using order book structure on Binance Futures.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, stacked imbalances, and how to read order flow momentum before price moves.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

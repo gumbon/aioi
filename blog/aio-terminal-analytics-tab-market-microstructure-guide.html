@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A complete guide to AIO Terminal's Analytics tab — 8 live market microstructure tools in one dashboard: Order Book heatmap, Aggression Gauge, Smart Tape, Spot/Perp CVD divergence, Liquidation Tape, Risk Score, Time Heatmap, and Depth Chart. All live from Binance WebSocket." />
+    <meta name="keywords" content="AIO Terminal analytics tab, market microstructure Binance futures, order book heatmap, aggression gauge, smart tape trading, CVD divergence, liquidation tape, time heatmap, Bookmap alternative, Binance futures analytics" />
+    <meta name="author" content="AIO Indicator" />
+    <title>AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide | AIO Indicator</title>
+
+    <meta property="og:title" content="AIO Terminal Analytics Tab: Your Complete Market Microstructure Dashboard" />
+    <meta property="og:description" content="Order Book heatmap, Aggression Gauge, Smart Tape, Spot/Perp CVD, Liquidation Tape, Risk Score, Time Heatmap, and Depth Chart — all in one Analytics tab, live from Binance WebSocket." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-analytics-tab-market-microstructure-guide.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-analytics.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide" />
+    <meta name="twitter:description" content="8 live analytics tools in one tab: Order Book, Aggression Gauge, Smart Tape, CVD, Liquidation Tape, Risk Score, Time Heatmap, Depth Chart." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-analytics.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-analytics-tab-market-microstructure-guide.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AIO Terminal Analytics Tab: Your Complete Market Microstructure Dashboard",
+      "description": "A complete guide to AIO Terminal's Analytics tab — 8 live market microstructure tools in one dashboard: Order Book heatmap, Aggression Gauge, Smart Tape, Spot/Perp CVD divergence, Liquidation Tape, Risk Score, Time Heatmap, and Depth Chart.",
+      "url": "https://aioindicator.com/blog/aio-terminal-analytics-tab-market-microstructure-guide.html",
+      "datePublished": "2026-06-06",
+      "dateModified": "2026-06-06",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-analytics-tab-market-microstructure-guide.html"
+      },
+      "image": "https://aioindicator.com/assets/terminal/aio-analytics.avif",
+      "keywords": "analytics tab, market microstructure, order book, aggression gauge, smart tape, CVD, liquidation tape, risk score, time heatmap, Binance futures"
+    }
+    </script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top modern-navbar" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="../">
+            <img src="../assets/favicon.ico" height="32" alt="AIO Indicator logo" class="me-2">
+            AIO Indicator
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login to Terminal</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(14,203,129,0.15);color:#0ecb81;border-color:rgba(14,203,129,0.3);">Analytics</div>
+                    <h1 class="article-title">AIO Terminal Analytics Tab: Your Complete Market Microstructure Dashboard</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 6, 2026</span>
+                        <span><i class="bi bi-clock"></i> 16 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body">
+
+<p class="lead">AIO Terminal's most comprehensive update yet: the old "Order Book" tab has evolved into a full-featured <strong>Analytics</strong> tab — a complete market microstructure dashboard with 8 live data panels, all streaming in real time from Binance WebSocket. This article walks you through every component, how to read it, and how to combine the signals in a practical trading workflow.</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-analytics.avif" alt="AIO Terminal Analytics Tab — full dashboard" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">AIO Terminal Analytics Tab — the complete live microstructure dashboard</p>
+</div>
+
+<h2>Why a Dedicated Analytics Tab?</h2>
+<p>Most futures traders make decisions using lagging indicators on a price chart alone — moving averages, RSI, MACD — tools that describe what already happened. Market microstructure tells you what's happening <em>right now</em>: where the liquidity sits, who is aggressive, whether futures players are leading spot, and what the risk environment looks like at the macro level.</p>
+<p>The Analytics tab was built to answer these questions without requiring multiple subscriptions, browser tabs, or specialized hardware. Everything you need is in one place, in the same interface where you execute.</p>
+
+<h2>The 8 Components: What Each One Does</h2>
+
+<h3>1. Chart + Order Book Bars</h3>
+<p>The Analytics tab opens with a full TradingView Lightweight Charts candlestick chart. On the right edge of this chart, live bid and ask bars are overlaid — each bar represents the total resting quantity at that price level. The normalisation is absolute-max: the widest bar on screen equals the highest liquidity level currently in the order book. All other bars are scaled relative to that maximum.</p>
+<p>This makes whale walls immediately visible. When one price level has a bar that's 3–4× wider than its neighbors, that concentration of resting orders is significant. The bars update every 100ms from Binance's official <code>@depth</code> WebSocket stream — faster than any TradingView indicator can refresh.</p>
+<ul>
+    <li><strong>Green bars (left of mid price):</strong> Bid orders — buyers waiting to buy below current price</li>
+    <li><strong>Red bars (right of mid price):</strong> Ask orders — sellers waiting to sell above current price</li>
+    <li><strong>Configurable width:</strong> Adjust from 30px to 200px depending on how prominent you want the overlay</li>
+</ul>
+
+<h3>2. Cumulative Depth Chart</h3>
+<p>Below the main chart, the Depth Chart panel shows the cumulative total of resting orders on each side. The green curve represents total bid volume at each price level and below; the red curve shows total ask volume at each price and above. Where the two curves converge at the center, that's current mid price.</p>
+<p>Reading the Depth Chart tells you the macro structure of liquidity rather than individual levels:</p>
+<ul>
+    <li><strong>Steep section near mid:</strong> Thick liquidity — small orders will not move price meaningfully</li>
+    <li><strong>Flat "cliff" zones:</strong> Very thin liquidity — price can gap quickly through these levels once entered</li>
+    <li><strong>Asymmetric sides:</strong> When the bid curve rises much faster than the ask curve, buyers are more committed near current price than sellers</li>
+</ul>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-orderbook.avif" alt="Order Book bars overlaid on chart with Depth Chart below" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Order Book bars on chart (right edge) + cumulative Depth Chart panel below</p>
+</div>
+
+<h3>3. Aggression Gauge</h3>
+<p>The Aggression Gauge shows the buy/sell pressure ratio over a rolling 1-minute window, expressed as a 0–100 score updated every ~1 second. A value of 50 indicates a perfectly neutral balance of buying and selling aggression. Values above 65 indicate sustained buy-side pressure; values below 35 indicate sell-side dominance.</p>
+<p>The gauge also displays a 15-minute sparkline — a small time-series chart of the last 15 minutes of aggression readings. This lets you see not just the current state but whether pressure has been building, fading, or oscillating. A gauge that climbs from 45 → 72 over 10 minutes tells a very different story than one that spikes to 72 for 30 seconds and drops back.</p>
+<p><strong>Practical use:</strong> Before entering a breakout trade, check whether aggression is already elevated on the breakout side. A breakout with aggression > 70 is momentum-backed. A breakout with aggression at 48 is likely a false break — there isn't genuine pressure behind it yet.</p>
+
+<h3>4. Smart Tape</h3>
+<p>Smart Tape filters the real-time trade stream and shows only trades above a configurable notional threshold (default: ≥ 50,000 USDT). This eliminates retail-size noise and surfaces the trades that move markets. Each entry shows: side (BUY/SELL), size in USDT, and timestamp.</p>
+<p>Critically, Smart Tape detects <strong>sweeps</strong> — three or more large same-side trades within a 2-second window — and flags them in yellow: <span style="color:#F0B90B;font-weight:bold;">⚡ BUY SWEEP</span> or <span style="color:#F0B90B;font-weight:bold;">SELL SWEEP</span>. A sweep means an institutional or algorithmic buyer/seller was aggressive enough to hit multiple price levels within seconds. This is one of the highest-conviction real-time signals available in market microstructure.</p>
+<ul>
+    <li>Single large trade (e.g., $250k BUY): Elevated interest, but could be a hedger or position builder — not conclusive alone</li>
+    <li>BUY SWEEP (3+ large buys in 2s): A participant is executing with urgency, willing to pay up. This is directional conviction</li>
+    <li>SELL SWEEP: Aggressive distribution — someone needs out now, not at the best possible price</li>
+</ul>
+
+<h3>5. Spot/Perp CVD Divergence</h3>
+<p>CVD (Cumulative Volume Delta) tracks the net difference between buy-side and sell-side volume, anchored to the session start. AIO Terminal calculates CVD for two markets simultaneously: USDⓈ-M Futures (perpetual) and Spot. The divergence line shows the difference: <em>Perp CVD − Spot CVD</em>.</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-smart-aggression-cvd-risk.avif" alt="Smart Tape, Aggression Gauge, Spot/Perp CVD and Risk Score panels" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Smart Tape (top left), Aggression Gauge (top right), Spot/Perp CVD (bottom left), Risk Score (bottom right)</p>
+</div>
+
+<p>When perp CVD is rising faster than spot CVD, futures traders are accumulating ahead of spot buyers — a historically bullish signal. When perp CVD diverges negatively from spot (futures selling while spot holds), futures traders may be distributing or hedging while retail spot buyers provide the liquidity for exits.</p>
+<p><strong>The key signal is divergence, not level.</strong> Both CVDs are session-anchored, so their absolute values reset each day. What matters is when the two lines separate: futures leading spot higher (institutional long buildup) or futures leading spot lower (institutional short buildup or distribution).</p>
+
+<h3>6. Liquidation Tape</h3>
+<p>The Liquidation Tape streams live Binance liquidation events for your active symbol. Each entry shows direction and size:</p>
+<ul>
+    <li><span style="color:#F6465D;font-weight:bold;">LIQ LONG</span> — A long position was force-closed (a forced market sell order hit the book)</li>
+    <li><span style="color:#0ECB81;font-weight:bold;">LIQ SHORT</span> — A short position was force-closed (a forced market buy order hit the book)</li>
+</ul>
+<p>Liquidation events are worth monitoring because they create real buying/selling pressure — the exchange is market-closing someone's position, which means aggressive market orders are hitting the book. A cascade of LIQ LONG entries during a down move means the sell pressure is partly mechanical, not purely conviction-driven. Once the cascade exhausts, prices can bounce sharply because the forced selling disappears. Note: Binance throttles liquidation data to the largest event per symbol per second.</p>
+
+<h3>7. Risk Score</h3>
+<p>The Risk Score is a 0–100 composite signal derived from four macro-level Binance data sources, updated every 5 minutes:</p>
+<ul>
+    <li><strong>Funding Rate:</strong> Extreme positive funding (longs paying shorts heavily) indicates overleveraged longs — elevated reversal risk</li>
+    <li><strong>Open Interest Delta:</strong> Whether OI is growing or shrinking relative to recent history</li>
+    <li><strong>Basis:</strong> The spread between futures price and spot price; a high positive basis signals elevated futures premium</li>
+    <li><strong>Long/Short Ratio:</strong> The proportion of accounts currently holding long vs. short positions</li>
+</ul>
+<p>A low Risk Score (0–30) suggests a relatively safe market structure for directional longs — funding is neutral, OI is reasonable, basis is tight. A high Risk Score (70–100) suggests elevated risk: crowded longs, high funding costs, stretched futures premium. This is when leveraged long positions are most vulnerable to a sharp flush.</p>
+<p><strong>Note:</strong> The Risk Score is advisory — it does not trigger any automated actions in AIO Terminal. It is a contextual signal to weight alongside your other analysis.</p>
+
+<h3>8. Time Heatmap</h3>
+<p>The Time Heatmap is a Bookmap-inspired visualisation of resting liquidity across both price and time. Rather than showing the order book at a single instant, the Time Heatmap accumulates snapshots over the session and renders them as a 2D heatmap — brighter/warmer cells indicate where large resting orders have been concentrated most consistently over time.</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-heatmap-depth.avif" alt="Time Heatmap and Depth Chart panels" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Time Heatmap (top) showing resting liquidity over time, and Depth Chart (bottom)</p>
+</div>
+
+<p>This solves a limitation of the real-time Order Book: a single snapshot can't tell you whether a large bid wall has been there for 20 minutes (structural, likely to absorb a test) or appeared 10 seconds ago (possibly a spoof). The Time Heatmap provides that history. Price levels where large orders have persisted across many snapshots are structurally significant. Levels where orders appear briefly and disappear are less reliable.</p>
+<p>The Time Heatmap window is configurable — you can adjust how many minutes of history are visualised.</p>
+
+<h2>How to Use the Analytics Tab: A Practical Workflow</h2>
+
+<h3>Pre-Trade Context Check (2–3 minutes before entry)</h3>
+<ol>
+    <li><strong>Risk Score:</strong> Is it above 70? If so, reduce leverage or skip longs entirely. High-risk environments flush leveraged positions without warning.</li>
+    <li><strong>Spot/Perp CVD:</strong> Is perp CVD trending the same direction as your intended trade? Confirmation from futures flow adds conviction.</li>
+    <li><strong>Time Heatmap:</strong> Identify persistent liquidity clusters near your entry and target. A thick wall near your intended stop suggests placing your stop beyond that level.</li>
+    <li><strong>Depth Chart:</strong> Is there a thin zone between current price and your target? Thin zones accelerate price movement — this supports a wider target.</li>
+</ol>
+
+<h3>Entry Timing (real-time, 30 seconds before)</h3>
+<ol>
+    <li><strong>Aggression Gauge:</strong> Is pressure building in your direction? A gauge rising above 60–65 on a breakout confirms real pressure is behind it.</li>
+    <li><strong>Smart Tape:</strong> Any large trades or sweeps confirming your side? A BUY SWEEP just before your intended long entry is validation.</li>
+    <li><strong>Liquidation Tape:</strong> Any liquidations on the opposite side? A cluster of LIQ SHORT entries during a down move suggests short liquidations are driving the selling — which will eventually exhaust and reverse.</li>
+</ol>
+
+<h3>During the Trade (monitoring)</h3>
+<ol>
+    <li>Watch the Order Book bars near your stop level. Is the bid cluster supporting your long still thick, or being absorbed?</li>
+    <li>Watch Aggression. If it starts dropping while you're in a long, buying pressure is fading — consider tightening your stop.</li>
+    <li>Watch Smart Tape for large SELL trades or SELL SWEEPS against your direction — institutional players distributing into your move.</li>
+</ol>
+
+<h2>Configuration Tips</h2>
+<ul>
+    <li><strong>Symbol &amp; Timeframe:</strong> Set to your primary trading pair and preferred candle interval. Order Book data streams regardless of candle interval.</li>
+    <li><strong>Smart Tape min size:</strong> The default 50k USDT works well for BTC. For lower-cap assets (SOL, LINK), consider lowering to 20–30k to see relevant flows.</li>
+    <li><strong>Time Heatmap window:</strong> A 30–60 minute window balances recency with enough history to identify persistent walls. Adjust shorter for scalping or wider for swing trading context.</li>
+    <li><strong>Show/Hide panels:</strong> Each panel (Order Book bars, Depth Chart, Time Heatmap) can be toggled independently. If screen space is limited, hide what you're not actively using.</li>
+</ul>
+<p>All settings are saved automatically in localStorage — your configuration persists across sessions.</p>
+
+<h2>How the Analytics Tab Compares to Dedicated Tools</h2>
+<p>Bookmap, Exocharts, and similar standalone tools offer deep microstructure visualisation — but they are separate subscriptions, separate windows, and separate execution interfaces. The workflow tax of switching between tools during a live trade is real: by the time you read the signal in one tool and act in another, the window may have closed.</p>
+<p>AIO Terminal's Analytics tab is not positioned as a replacement for professional microstructure tools at the same depth. It is positioned as the right tool for the job when you want <em>actionable microstructure context inside the same interface where you execute</em>. The signal that matters most is the one you can act on immediately — and that's what the co-location of Analytics and execution tabs enables.</p>
+
+<div class="mid-article-cta">
+    <h4>AIO Terminal: Analytics Tab Included Free</h4>
+    <p>The full Analytics tab — all 8 panels — is available to all AIO Terminal users at no additional cost. Access is included with every VIP plan. Contact us on Telegram to get your terminal credentials.</p>
+    <a href="../aio-terminal.html#analytics-showcase" class="btn btn-hero-primary btn-sm">See Analytics Tab Overview &rarr;</a>
+</div>
+
+<h2>Getting Started</h2>
+<p>If you're already an AIO Terminal user, press <strong>key 8</strong> (or click the Analytics tab) to open the Analytics panel. Select your symbol and interval — the data streams immediately. No additional setup required.</p>
+<p>If you're new to AIO Terminal: access is included free with any VIP plan. After subscribing, contact us on Telegram (@nguyenthl) to receive your terminal credentials. Setup takes approximately five minutes.</p>
+<p>For a deeper dive into specific Analytics components, see the related articles below.</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Dive Deeper into Market Microstructure</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-smart-tape-aggression-gauge-cvd.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Smart Tape, Aggression &amp; CVD Guide</h3>
+                            <p class="feature-description">Deep dive into reading institutional order flow in real time — sweeps, aggression signals, and CVD divergence explained for BTC trading.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Order Book Panel Deep Dive</h3>
+                            <p class="feature-description">Complete guide to the live DOM overlay, depth chart, whale wall detection, and stop placement using order book structure.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="how-to-read-order-book-heatmap-whale-activity.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-eye"></i></div>
+                            <h3 class="feature-title">How to Read an Order Book Heatmap</h3>
+                            <p class="feature-description">Visual interpretation guide: what thick/thin bars reveal, whale wall patterns, and trading strategies around key liquidity levels.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>
