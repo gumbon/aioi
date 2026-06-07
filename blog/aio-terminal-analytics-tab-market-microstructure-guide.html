@@ -197,8 +197,8 @@
 </div>
 
 <h3>3. Aggression Gauge</h3>
-<p>The Aggression Gauge shows the buy/sell pressure ratio over a rolling 1-minute window, expressed as a 0–100 score updated every ~1 second. A value of 50 indicates a perfectly neutral balance of buying and selling aggression. Values above 65 indicate sustained buy-side pressure; values below 35 indicate sell-side dominance.</p>
-<p>The gauge also displays a 15-minute sparkline — a small time-series chart of the last 15 minutes of aggression readings. This lets you see not just the current state but whether pressure has been building, fading, or oscillating. A gauge that climbs from 45 → 72 over 10 minutes tells a very different story than one that spikes to 72 for 30 seconds and drops back.</p>
+<p>The Aggression Gauge shows the buy/sell pressure ratio expressed as a 0–100 score, updated every ~1 second. A value of 50 indicates a perfectly neutral balance. Values above 65 indicate sustained buy-side pressure; values below 35 indicate sell-side dominance. The calculation window is configurable via a sidebar selector: <strong>1m</strong> (most reactive — captures instant momentum shifts), <strong>5m</strong> (balanced, good default), or <strong>15m</strong> (smoothed trend, less noise). Match the window to your trade timeframe.</p>
+<p>The gauge also displays a 15-minute sparkline alongside the current score. The sparkline always samples at 1-minute resolution regardless of which window you have selected — so it gives a consistent 15-minute historical reference no matter what. This lets you see whether pressure has been building, fading, or oscillating. A gauge that climbs from 45 → 72 over 10 minutes tells a very different story than one that spikes to 72 for 30 seconds and drops back.</p>
 <p><strong>Practical use:</strong> Before entering a breakout trade, check whether aggression is already elevated on the breakout side. A breakout with aggression > 70 is momentum-backed. A breakout with aggression at 48 is likely a false break — there isn't genuine pressure behind it yet.</p>
 
 <h3>4. Smart Tape</h3>
@@ -209,29 +209,57 @@
     <li>BUY SWEEP (3+ large buys within 500ms): A participant is executing with urgency, willing to pay up. This is directional conviction</li>
     <li>SELL SWEEP: Aggressive distribution — someone needs out now, not at the best possible price</li>
 </ul>
-<p>The min-size threshold is a sidebar dropdown with five presets: <strong>$25k / $50k / $100k / $200k / $500k</strong> (default: $50k). Your choice is saved automatically. Use $25k for lower-cap assets (SOL, LINK) where $50k+ trades are rare, or raise to $200k+ when you want to track only large institutional clips on BTC.</p>
+<p>The min-size threshold is a sidebar dropdown with five presets: <strong>$25k / $50k / $100k / $200k / $500k</strong> (default: $50k). Your choice is saved automatically. Use $25k for lower-cap assets (SOL, LINK) where $50k+ trades are rare, or raise to $200k+ when you want to track only large institutional clips on BTC. The tape displays a maximum of 60 rows, newest trade at the top — scroll down to see earlier entries within the session.</p>
 
 <h3>5. Spot/Perp CVD Divergence</h3>
-<p>CVD (Cumulative Volume Delta) tracks the net difference between buy-side and sell-side volume, anchored to the session start. AIO Terminal calculates CVD for two markets simultaneously: USDⓈ-M Futures (perpetual) and Spot. The divergence line shows the difference: <em>Perp CVD − Spot CVD</em>.</p>
+<p>CVD (Cumulative Volume Delta) tracks the net difference between buy-side and sell-side volume since the session anchor point. AIO Terminal calculates CVD for two markets simultaneously: USDⓈ-M Futures (perpetual) and Spot. The panel displays three live <strong>numbers</strong> — not chart lines — each with color-coded context: Perp CVD, Spot CVD, and the Divergence value (Perp CVD − Spot CVD).</p>
 
 <div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
     <img src="../assets/terminal/aio-smart-aggression-cvd-risk.avif" alt="Smart Tape, Aggression Gauge, Spot/Perp CVD and Risk Score panels" style="width:100%;display:block;" loading="lazy" />
     <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Smart Tape (top left), Aggression Gauge (top right), Spot/Perp CVD (bottom left), Risk Score (bottom right)</p>
 </div>
 
-<p>When perp CVD is rising faster than spot CVD, futures traders are accumulating ahead of spot buyers — a historically bullish signal. When perp CVD diverges negatively from spot (futures selling while spot holds), futures traders may be distributing or hedging while retail spot buyers provide the liquidity for exits.</p>
-<p><strong>The key signal is divergence, not level.</strong> Both CVDs are session-anchored, so their absolute values reset each day. What matters is when the two lines separate: futures leading spot higher (institutional long buildup) or futures leading spot lower (institutional short buildup or distribution).</p>
+<p>Perp CVD and Spot CVD each show green when positive (net buying) and red when negative (net selling). <strong>The Divergence color is reversed by design</strong> — it acts as a contrarian risk/opportunity indicator: a large positive divergence (perp buying much harder than spot) shows red as a caution flag that futures may be over-leveraged. A large negative divergence (perp selling much harder than spot) shows green as a potential opportunity — futures may be oversold relative to spot.</p>
+<p><strong>The key signal is divergence, not level.</strong> Both CVD values are session-anchored — they reset to zero each time the server restarts and accumulate from there. What matters is the relative movement within a session: perp running ahead of spot in either direction is a signal worth reading — but not always in the direction you'd first expect.</p>
 
 <h3>6. Risk Score</h3>
-<p>The Risk Score is a 0–100 composite signal derived from four macro-level Binance data sources, updated every 5 minutes:</p>
-<ul>
-    <li><strong>Funding Rate:</strong> Extreme positive funding (longs paying shorts heavily) indicates overleveraged longs — elevated reversal risk</li>
-    <li><strong>Open Interest Delta:</strong> Whether OI is growing or shrinking relative to recent history</li>
-    <li><strong>Basis:</strong> The spread between futures price and spot price; a high positive basis signals elevated futures premium</li>
-    <li><strong>Long/Short Ratio:</strong> The proportion of accounts currently holding long vs. short positions</li>
-</ul>
-<p>A low Risk Score (0–30) suggests a relatively safe market structure for directional longs — funding is neutral, OI is reasonable, basis is tight. A high Risk Score (70–100) suggests elevated risk: crowded longs, high funding costs, stretched futures premium. This is when leveraged long positions are most vulnerable to a sharp flush.</p>
-<p><strong>Note:</strong> The Risk Score is advisory — it does not trigger any automated actions in AIO Terminal. It is a contextual signal to weight alongside your other analysis.</p>
+<p>The Risk Score is a 0–100 composite signal derived from four macro-level Binance data sources, updated every 5 minutes. Each component contributes a weighted portion of the total:</p>
+<div style="overflow-x:auto;margin:16px 0 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);text-align:left;">Component</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);text-align:left;">Weight</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);text-align:left;">High score when…</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#e0e0e0;font-weight:600;">Funding Rate</td>
+            <td style="padding:10px 14px;color:#ccc;">30 pts</td>
+            <td style="padding:10px 14px;color:#ccc;">Funding &gt; 0.03% — longs paying heavily, squeeze risk elevated</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#e0e0e0;font-weight:600;">OI Growth</td>
+            <td style="padding:10px 14px;color:#ccc;">25 pts</td>
+            <td style="padding:10px 14px;color:#ccc;">OI grew &gt; 10% since session start — new leverage entering the market</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#e0e0e0;font-weight:600;">Long/Short Ratio</td>
+            <td style="padding:10px 14px;color:#ccc;">25 pts</td>
+            <td style="padding:10px 14px;color:#ccc;">L/S ratio &gt; 1.5 or &lt; 0.67 — positioning too crowded on one side</td>
+        </tr>
+        <tr>
+            <td style="padding:10px 14px;color:#e0e0e0;font-weight:600;">Basis</td>
+            <td style="padding:10px 14px;color:#ccc;">20 pts</td>
+            <td style="padding:10px 14px;color:#ccc;">|Basis%| &gt; 0.05% — futures premium vs. spot is stretched</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p>The panel also shows an auto-generated summary label identifying the dominant risk driver — for example: <em>"longs paying high funding"</em>, <em>"perp premium (bullish)"</em>, <em>"long-heavy positioning"</em>, or at extreme levels: <em>"⚠ extreme crowding — squeeze risk"</em>. These labels let you see why the score is elevated at a glance without doing mental arithmetic.</p>
+<p>A low score (0–40) suggests a relatively safe environment — funding neutral, OI growth modest, basis tight. Scores above 70 indicate a highly leveraged market where a single catalyst can trigger cascade liquidations. At extreme levels, edge belongs to risk management, not signal chasing.</p>
+<p><strong>Note:</strong> Risk Score is advisory and does not trigger automated actions. "Extremes persist" — a high score can stay elevated during a strong bull run. Always combine with price action and CVD to determine direction.</p>
 
 <h3>7. Time Heatmap</h3>
 <p>The Time Heatmap is a Bookmap-inspired visualisation of resting liquidity across both price and time. Rather than showing the order book at a single instant, the Time Heatmap accumulates snapshots over the session and renders them as a 2D heatmap — brighter/larger cells indicate where large resting orders have been concentrated most consistently over time.</p>
@@ -241,21 +269,61 @@
     <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Time Heatmap (top) showing resting liquidity over time, and Depth Chart (bottom)</p>
 </div>
 
+<h4>How to Navigate the Canvas</h4>
+<p>The heatmap canvas has two axes:</p>
+<ul>
+    <li><strong>Y-axis (price):</strong> Higher price = top, lower price = bottom. The canvas auto-scales to the full price range of the rolling window, so a white dotted line marks the <strong>current mid price</strong>. Don't worry about whether this line is near the top, middle, or bottom of the canvas — that just reflects where today's price sits within the last 15 minutes of range. Focus on the white line and what's immediately around it.</li>
+    <li><strong>X-axis (time):</strong> Left = older snapshots, right = most recent. Watching a wall from left to right shows whether it has been accumulating, thinning, or disappearing over time.</li>
+</ul>
+
 <h4>Reading the Colors</h4>
-<p>The Time Heatmap uses a two-color system directly from the order book:</p>
 <ul>
-    <li><strong>Green cells:</strong> Bid orders — resting buy limit orders waiting below the current price. Brighter/more intense green at a price level means larger total bid volume has been parked there. A persistent cluster of bright green below current price is structural support — real buyers have been holding that level.</li>
-    <li><strong>Red cells:</strong> Ask orders — resting sell limit orders sitting above the current price. Bright red concentrations above current price are resistance zones where sellers have been persistent.</li>
-    <li><strong>Intensity = relative volume:</strong> Brightness is normalised to the maximum volume in the current window. A brighter cell does not mean an absolute amount — it means the largest resting orders in the current session are concentrated there.</li>
+    <li><strong>Green cells = bid orders (buy limit orders)</strong> — they always appear below the white dotted line (below current price). Brighter/more intense = larger volume at that level relative to the session max.</li>
+    <li><strong>Red cells = ask orders (sell limit orders)</strong> — they always appear above the white dotted line (above current price). Brighter = larger resting sell volume.</li>
 </ul>
-<p>So yes: more and brighter green below current price = more resting buy limit demand at those levels. A thick green band that has held for 15–30 minutes is a structurally supported bid — the market has repeatedly placed orders there rather than letting it thin out.</p>
-<p>Practical reads from the Time Heatmap:</p>
+<p>The quick read: look at the white line and compare what's just below it (green) vs. just above it (red).</p>
+<div style="overflow-x:auto;margin:16px 0 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">What You See</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">What It Means</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#0ecb81;font-weight:600;">Thick bright green just below white line</td>
+            <td style="padding:10px 14px;color:#ccc;">Strong bid wall — buyers defending that level</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#f6465d;font-weight:600;">Thick bright red just above white line</td>
+            <td style="padding:10px 14px;color:#ccc;">Strong ask wall — sellers blocking that level</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#0ecb81;font-weight:600;">Green thicker than red around white line</td>
+            <td style="padding:10px 14px;color:#ccc;">Buy side defending more actively than sell side is blocking</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#ccc;">Bright column on left that disappears toward right</td>
+            <td style="padding:10px 14px;color:#ccc;">Wall was absorbed — price consumed those orders or they were cancelled (possible spoof)</td>
+        </tr>
+        <tr>
+            <td style="padding:10px 14px;color:#ccc;">Sparse, faint across the whole canvas</td>
+            <td style="padding:10px 14px;color:#ccc;">Thin liquidity — price can move fast with little resistance</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p>The heatmap window is configurable (15 or 30 minutes). Enabled via Settings → Show time heatmap (off by default, as it adds render cost).</p>
+
+<h2>Always-Visible Header: Basis, Funding Rate &amp; OI Δ</h2>
+<p>Separate from the 7 panels, the Analytics tab header always shows three live macro metrics that update in real time. These are raw values — not processed into a score — giving you direct market context at a glance:</p>
 <ul>
-    <li><strong>Persistent bright line (green or red):</strong> A "whale wall" — large resting orders that have been there consistently. Likely acts as support (green) or resistance (red) for short-term moves.</li>
-    <li><strong>Bright line that suddenly disappears:</strong> The wall was absorbed or cancelled. If green: buyers either filled against price or pulled their bids. If red: the ask wall was absorbed by aggressive buyers (bullish) or was pulled (possible spoof).</li>
-    <li><strong>Sparse, faint heatmap:</strong> Thin liquidity across the book — wider spreads, higher slippage risk, faster price movement through levels.</li>
+    <li><strong>Basis</strong> (Mark Price − Index Price): The premium or discount of futures versus spot. Positive basis (contango) = futures trading above spot, reflecting bullish sentiment. Negative basis (backwardation) = futures below spot, typically a fear or de-leveraging signal. When |Basis%| exceeds 0.05%, arbitrageurs typically act to compress the gap; above 0.1% is unusual.</li>
+    <li><strong>Funding Rate:</strong> The 8-hour cost transfer between longs and shorts (settled at 00:00, 08:00, 16:00 UTC). Positive = longs paying shorts — market is leaning long. Above +0.03%/8h means longs are absorbing significant carry cost and are more exposed to a forced unwind. Negative = shorts paying longs — heavy short positioning, potential short squeeze risk.</li>
+    <li><strong>OI Δ (Open Interest Delta):</strong> Change in total open positions since session start. Rising OI + rising price = new long positions being opened (trend confirmation). Rising OI + falling price = new shorts entering (bearish flow). Falling OI + price movement = existing positions closing — that's a squeeze or de-leverage, not fresh directional conviction.</li>
 </ul>
-<p>The heatmap window is configurable (15 or 30 minutes). Enabled via Settings → Show time heatmap (off by default).</p>
+<p>A quick scan of all three together gives you immediate macro framing: if funding is spiking, basis is stretched, and OI is surging simultaneously, the Risk Score will reflect it — and the CVD Divergence may already be showing a warning sign.</p>
 
 <h2>How to Use the Analytics Tab: A Practical Workflow</h2>
 
