@@ -276,7 +276,7 @@
     "faq_q5": "対応オペレーティングシステムは？",
     "faq_a5": "AIO Terminalは完全ブラウザベース — インストール不要。macOS・Windows・Linuxの任意のモダンブラウザで動作します。URLを開いてログインするだけで取引を開始できます。",
     "faq_q6": "テストネットで使えますか？",
-    "faq_a6": "はい！AIO TerminalはデフォルトでBinanceテストネットを使用するので、実際の資金をリスクにさらすことなく全機能をテストできます。",
+    "faq_a6": "はい！AIO TerminalはBinanceテストネットに対応しています。Terminal設定でテストネット/メインネットを切り替えられます。テストネットでは実際の資金リスクなく全注文タイプをテストできます。注意：Analyticsタブは設定に関わらず常にBinanceメインネットのライブデータをストリームします。",
     "blog_cta_title": "より速く取引する方法を学ぶ",
     "blog_cta_desc": "AIO Terminalの活用方法と取引所ネイティブインターフェースがお金を無駄にしている理由に関する深掘り記事。",
     "blog_link_1": "Binanceのインターフェースが取引機会を失わせる理由 →",
@@ -299,6 +299,6 @@
     "hp_cta_learn": "詳細を見る",
     "hp_cta_note": "VIPプランで無料",
     "feat_9_title": "Analytics — マーケットマイクロストラクチャーパネル",
-    "feat_9_desc": "1つのタブに完全な市場マイクロストラクチャーダッシュボード：チャートへのライブOrder Barsオーバーレイ＋Depth Chart、Aggression Gauge（売買圧力0–100）、Smart Tape（50k USDT以上のフィルタリング、スイープ検知）、Spot/Perp CVD乖離、清算テープ、Risk Score（資金調達率/OI/ベーシス複合）、BookmapスタイルTime Heatmap — すべてBinance WebSocketからリアルタイム更新。"
+    "feat_9_desc": "1つのタブで完全なマーケット分析ダッシュボード：チャート上のOrder Book bars + 累積Depth Chart、Aggression Gauge（買い/売り圧力0–100）、Smart Tape（5段階のサイズフィルター、500msウィンドウのスイープ検出）、Spot/Perp CVD乖離、Risk Score（funding/OI/basis総合）、Bookmap式のTime Heatmap — すべてBinance WebSocketからリアルタイム更新。"
   }
 }

@@ -276,7 +276,7 @@
     "faq_q5": "지원 운영 체제는?",
     "faq_a5": "AIO Terminal은 완전한 브라우저 기반 — 설치 불필요. macOS, Windows, Linux의 모든 최신 브라우저에서 작동합니다. 터미널 URL을 열고 로그인하면 즉시 거래를 시작할 수 있습니다.",
     "faq_q6": "AIO Terminal을 테스트넷에서 사용할 수 있나요?",
-    "faq_a6": "네! AIO Terminal은 기본적으로 Binance 테스트넷을 사용하므로 실제 자금 위험 없이 모든 기능을 테스트할 수 있습니다.",
+    "faq_a6": "네! AIO Terminal은 Binance 테스트넷을 지원합니다. Terminal 설정에서 테스트넷/메인넷을 전환할 수 있습니다. 테스트넷에서는 실제 자금 위험 없이 모든 주문 유형을 테스트할 수 있습니다. 참고: Analytics 탭은 설정에 관계없이 항상 Binance 메인넷의 실시간 데이터를 스트리밍합니다.",
     "blog_cta_title": "더 빠르게 거래하는 방법 배우기",
     "blog_cta_desc": "AIO Terminal 활용법과 거래소 기본 인터페이스가 돈을 낭비하는 이유에 관한 심층 기사들.",
     "blog_link_1": "Binance 인터페이스가 거래를 망치는 이유 →",
@@ -299,6 +299,6 @@
     "hp_cta_learn": "자세히 보기",
     "hp_cta_note": "VIP 플랜에 무료",
     "feat_9_title": "Analytics — 마켓 마이크로스트럭처 패널",
-    "feat_9_desc": "하나의 탭에서 완전한 시장 마이크로스트럭처 대시보드: 차트에 라이브 Order Book 바 오버레이 + Depth Chart, Aggression Gauge(매수/매도 압력 0–100), Smart Tape(50k USDT 이상 필터링, 스윕 감지), Spot/Perp CVD 다이버전스, 청산 테이프, Risk Score(펀딩율/OI/베이시스 복합), Bookmap 스타일 Time Heatmap — 모두 Binance WebSocket에서 실시간 업데이트."
+    "feat_9_desc": "하나의 탭에서 완전한 시장 분석 대시보드: 차트 위 Order Book bars + 누적 Depth Chart, Aggression Gauge (매수/매도 압력 0–100), Smart Tape (5단계 크기 필터, 500ms 윈도우 스윕 감지), Spot/Perp CVD 다이버전스, Risk Score (funding/OI/basis 종합), Bookmap식 Time Heatmap — 모두 Binance WebSocket에서 실시간 업데이트."
   }
 }
