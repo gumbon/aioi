@@ -509,7 +509,7 @@
                     <!-- Stats row -->
                     <div class="d-flex flex-wrap gap-4">
                         <div>
-                            <div class="h4 gradient-text fw-bold mb-0">8</div>
+                            <div class="h4 gradient-text fw-bold mb-0">6</div>
                             <small class="text-secondary" data-i18n="terminal.stat_tabs">Execution Tabs</small>
                         </div>
                         <div>
@@ -612,7 +612,7 @@
         <div class="container">
             <div class="section-header mb-5">
                 <h2 class="section-title" data-i18n="terminal.features_title">Everything You Need in One Terminal</h2>
-                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Seven order execution tabs — Long, Short, Close, Cancel, Smart TP/SL, TP/SL, Trailing Stop — plus a full Market <strong>Analytics</strong> panel with live Order Book, Aggression Gauge, Smart Tape, Spot/Perp CVD, Time Heatmap, and Risk Score. Every setting saved automatically.</p>
+                <p class="section-subtitle" data-i18n="terminal.features_subtitle">Five order execution tabs — Long, Short, Close, Cancel, TP/SL — plus a full Market <strong>Analytics</strong> panel with live Order Book, Aggression Gauge, Smart Tape, Spot/Perp CVD, Time Heatmap, and Risk Score. Every setting saved automatically.</p>
             </div>
 
             <div class="row g-5 align-items-start">
@@ -635,17 +635,10 @@
                         </div>
                     </div>
                     <div class="terminal-feature-item">
-                        <div class="terminal-feature-icon"><i class="bi bi-bullseye"></i></div>
+                        <div class="terminal-feature-icon"><i class="bi bi-crosshair2"></i></div>
                         <div>
-                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_3_title">Smart TP/SL Monitor</h3>
-                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_3_desc">Background engine that monitors your positions and auto-moves SL to BE+ once TP1 is hit — BE+ adds a configurable fee offset (e.g. 0.1%) so after exchange fees your remaining position is genuinely profitable, not just at zero. Works while you trade other positions.</p>
-                        </div>
-                    </div>
-                    <div class="terminal-feature-item">
-                        <div class="terminal-feature-icon"><i class="bi bi-activity"></i></div>
-                        <div>
-                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_4_title">Trailing Stop with Auto-Activation</h3>
-                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_4_desc">Set a trailing stop with three activation modes: Price (absolute trigger level), Range (distance from entry), or % (percentage from entry). The stop activates at your trigger and trails dynamically to lock in profits without manually moving stops.</p>
+                            <h3 style="color:var(--text-primary);margin-bottom:4px;font-size:1rem;font-weight:600;" data-i18n="terminal.feat_3_title">PH/PL Smart SL Placement</h3>
+                            <p class="text-secondary mb-0" style="font-size:.875rem;" data-i18n="terminal.feat_3_desc">One-click pivot fill for your SL — or TP — in any input mode (Price, Range, or %). Tap PH to fill the recent swing high; PL for the recent pivot low. The terminal auto-converts the pivot price to the correct range offset or percentage from entry, so structurally valid levels are always one tap away.</p>
                         </div>
                     </div>
                     <div class="terminal-feature-item">
@@ -693,8 +686,6 @@
                     <div class="tab-screenshot-nav">
                         <button class="tab-screenshot-btn active" data-img="assets/terminal/terminal-long-order.avif" data-i18n="terminal.tab_long">Long Order</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-short-order.avif" data-i18n="terminal.tab_short">Short Order</button>
-                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-smart-tpsl.avif" data-i18n="terminal.tab_smart">Smart TP/SL</button>
-                        <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-trailing-stop.avif" data-i18n="terminal.tab_trail">Trailing Stop</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-close.avif" data-i18n="terminal.tab_close">Close Position</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-tpsl.avif" data-i18n="terminal.tab_tpsl">TP/SL Tab</button>
                         <button class="tab-screenshot-btn" data-img="assets/terminal/terminal-cancel.avif" data-i18n="terminal.tab_cancel">Cancel Orders</button>
@@ -842,11 +833,6 @@
                             <td class="text-center check-no" data-i18n="terminal.cmp_5_bnb">Each position manually</td>
                         </tr>
                         <tr>
-                            <td data-i18n="terminal.cmp_6">Smart TP/SL breakeven auto-move</td>
-                            <td class="text-center check-yes">✓ Background monitor</td>
-                            <td class="text-center check-no">✗ Manual</td>
-                        </tr>
-                        <tr>
                             <td data-i18n="terminal.cmp_7">Settings remembered between sessions</td>
                             <td class="text-center check-yes">✓ Always</td>
                             <td class="text-center check-no">✗ Never</td>
@@ -965,7 +951,7 @@
                             <span data-i18n="terminal.faq_q6">Is AIO Terminal available on testnet?</span>
                             <i class="bi bi-chevron-down"></i>
                         </div>
-                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a6">Yes! AIO Terminal supports Binance testnet. Switch between testnet and mainnet directly in Terminal settings. Testnet lets you test all order types — Long, Short, TP/SL, Trailing Stop — without risking real funds. Note: the Analytics tab (Market Microstructure) always streams live data from Binance mainnet regardless of this setting — analytics data cannot be sourced from testnet.</div>
+                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a6">Yes! AIO Terminal supports Binance testnet. Switch between testnet and mainnet directly in Terminal settings. Testnet lets you test all order types — Long, Short, TP/SL — without risking real funds. Note: the Analytics tab (Market Microstructure) always streams live data from Binance mainnet regardless of this setting — analytics data cannot be sourced from testnet.</div>
                     </div>
                     <div class="terminal-faq-item">
                         <div class="terminal-faq-question" onclick="toggleFaq(this)">
@@ -979,28 +965,28 @@
                             <span data-i18n="terminal.faq_q8">Can I modify existing TP/SL orders?</span>
                             <i class="bi bi-chevron-down"></i>
                         </div>
-                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a8">Once TP/SL is set, it cannot be edited in place. To change your TP or SL level: use the Cancel tab to cancel the specific TP/SL order (or Cancel to clear everything), then re-set via the dedicated TP/SL tab. You can set TP/SL at the time you fire the order, or add them later from the TP/SL tab if you didn't set them at entry.</div>
+                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a8">To change your TP or SL, simply re-set them from the TP/SL tab. AIO Terminal automatically cancels any existing TP/SL orders for that position before placing the new ones — no manual cancel step required. You can update TP/SL as many times as needed. You can also set TP/SL at the time you fire the order, or add them later from the TP/SL tab if you didn't set them at entry.</div>
                     </div>
                     <div class="terminal-faq-item">
                         <div class="terminal-faq-question" onclick="toggleFaq(this)">
                             <span data-i18n="terminal.faq_q9">What are the PH and PL buttons next to the SL field?</span>
                             <i class="bi bi-chevron-down"></i>
                         </div>
-                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a9">PH (Pivot High) and PL (Pivot Low) buttons are one-click shortcuts to fetch the most recent swing high or swing low for your selected symbol and timeframe. Tap PL to instantly populate your SL field with the recent pivot low (for longs) or PH for the recent pivot high (for shorts). This eliminates manual chart-reading when setting structurally valid stop-loss levels — a common use case is placing your SL just beyond the most recent swing point.</div>
+                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a9">PH (Pivot High) and PL (Pivot Low) buttons are one-click shortcuts to fetch the most recent swing high or swing low for your selected symbol and timeframe. They work in all three input modes — Price, Range, and % — and auto-convert the pivot price to the correct format: in Price mode they fill the absolute price; in Range/% modes they compute the distance or percentage from your entry. Tap PL to set a structurally valid SL at the recent pivot low (for longs), or PH for the pivot high (for shorts). This eliminates manual chart-reading for every trade.</div>
                     </div>
                     <div class="terminal-faq-item">
                         <div class="terminal-faq-question" onclick="toggleFaq(this)">
                             <span data-i18n="terminal.faq_q10">Can I act on one specific position instead of all positions?</span>
                             <i class="bi bi-chevron-down"></i>
                         </div>
-                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a10">Yes. All action tabs — Close, Cancel, Smart TP/SL, TP/SL, and Trailing Stop — let you select a specific position from a list when you have multiple positions open simultaneously. You are never forced to affect all positions at once. "Close" and "Cancel" are convenient one-tap options for when you want to flatten everything, but you always retain the ability to act on individual positions.</div>
+                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a10">Yes. All action tabs — Close, Cancel, and TP/SL — let you select a specific position from a list when you have multiple positions open simultaneously. You are never forced to affect all positions at once. "Close" and "Cancel" are convenient one-tap options for when you want to flatten everything, but you always retain the ability to act on individual positions.</div>
                     </div>
                     <div class="terminal-faq-item">
                         <div class="terminal-faq-question" onclick="toggleFaq(this)">
-                            <span data-i18n="terminal.faq_q11">What is BE+ in Smart TP/SL and how is it different from regular breakeven?</span>
+                            <span data-i18n="terminal.faq_q11">Can I navigate tabs without clicking? Are there keyboard shortcuts?</span>
                             <i class="bi bi-chevron-down"></i>
                         </div>
-                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a11">Regular breakeven moves your SL to your entry price — which still results in a net loss once you account for exchange fees. BE+ adds a configurable fee offset (for example, 0.1%) to the breakeven level, so when TP1 is hit and your SL moves, the new SL is set at a price where your remaining position is guaranteed profitable after fees — not just at zero. This prevents the frustrating scenario of price reversing to "breakeven" but still losing money to fees.</div>
+                        <div class="terminal-faq-answer" style="display:none" data-i18n="terminal.faq_a11">Yes — every tab has a dedicated keyboard shortcut: 1=Long Order, 2=Short Order, 4=Close Position, 6=TP/SL, 7=Cancel Orders, 8=Analytics. Press the key and you jump directly to that tab. All shortcuts are remappable in Terminal Settings — reassign any key to any tab to match your personal workflow.</div>
                     </div>
                     <div class="terminal-faq-item">
                         <div class="terminal-faq-question" onclick="toggleFaq(this)">
@@ -1038,7 +1024,7 @@
             <div class="d-flex flex-wrap justify-content-center gap-3">
                 <a href="blog/why-binance-interface-slows-down-traders.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_1">Why Binance's Interface Costs You Trades →</a>
                 <a href="blog/aio-terminal-tp-sl-modes-price-range-pct.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_2">TP/SL Mastery: Price, Range &amp; PCT →</a>
-                <a href="blog/aio-terminal-advanced-features-guide.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_4">PH/PL, Smart BE+, Multi-Account &amp; More →</a>
+                <a href="blog/aio-terminal-advanced-features-guide.html" class="btn btn-hero-secondary btn-sm" data-i18n="terminal.blog_link_4">PH/PL, Keyboard Shortcuts, Multi-Account &amp; More →</a>
             </div>
         </div>
     </section>
