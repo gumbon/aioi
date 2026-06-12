@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta name="theme-color" content="#0a0e27" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="AIO Terminal advanced features: PH/PL pivot stop-loss buttons, Last price button for limit orders, Smart BE+ breakeven with fee offset, per-position selection, trailing stop modes (Price/Range/%), dual-account support, data sync settings, and password management." />
-    <meta name="keywords" content="AIO Terminal advanced features, pivot high pivot low stop loss, Smart BE plus breakeven, trailing stop activation modes, AIO Terminal multi-account, Binance futures tool tips, limit at last price button" />
+    <meta name="description" content="AIO Terminal advanced features: PH/PL pivot buttons in Price, Range, and % modes, Last price button for limit orders, keyboard shortcuts for tab navigation, per-position selection, dual-account support, data sync settings, and password management." />
+    <meta name="keywords" content="AIO Terminal advanced features, pivot high pivot low stop loss, PH PL range percent mode, AIO Terminal keyboard shortcuts, AIO Terminal multi-account, Binance futures tool tips, limit at last price button" />
     <meta name="author" content="AIO Indicator" />
-    <title>AIO Terminal Advanced Features: PH/PL Buttons, Smart BE+, Multi-Account &amp; More | AIO Indicator</title>
+    <title>AIO Terminal Advanced Features: PH/PL in Any Mode, Keyboard Shortcuts, Multi-Account &amp; More | AIO Indicator</title>
 
-    <meta property="og:title" content="AIO Terminal Advanced Features: PH/PL Buttons, Smart BE+, Multi-Account &amp; More" />
-    <meta property="og:description" content="Go beyond the basics — PH/PL stop-loss shortcuts, Last price syncing, fee-aware breakeven (BE+), per-position targeting, dual Binance accounts, and configurable data sync." />
+    <meta property="og:title" content="AIO Terminal Advanced Features: PH/PL in Any Mode, Keyboard Shortcuts, Multi-Account &amp; More" />
+    <meta property="og:description" content="Go beyond the basics — PH/PL pivot shortcuts in Price, Range &amp; % modes, keyboard tab navigation, Last price button, per-position targeting, dual Binance accounts, and configurable data sync." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html" />
     <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
@@ -20,8 +20,8 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@gumbon" />
-    <meta name="twitter:title" content="AIO Terminal Advanced Features: PH/PL Buttons, Smart BE+, Multi-Account &amp; More" />
-    <meta name="twitter:description" content="PH/PL stop shortcuts, Last price button, fee-aware BE+, per-position targeting, dual accounts, and more." />
+    <meta name="twitter:title" content="AIO Terminal Advanced Features: PH/PL in Any Mode, Keyboard Shortcuts, Multi-Account &amp; More" />
+    <meta name="twitter:description" content="PH/PL pivot shortcuts in Price, Range &amp; % modes, keyboard tab navigation, Last price button, per-position targeting, dual accounts, and more." />
     <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
 
     <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
@@ -48,8 +48,8 @@
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
-      "headline": "AIO Terminal Advanced Features: PH/PL Buttons, Smart BE+, Multi-Account & More",
-      "description": "A complete guide to AIO Terminal's advanced features: PH/PL pivot stop-loss buttons, Last price syncing for limit orders, Smart BE+ breakeven with fee offset, per-position selection across tabs, trailing stop activation modes (Price/Range/%), dual Binance accounts, and data sync settings.",
+      "headline": "AIO Terminal Advanced Features: PH/PL in Any Mode, Keyboard Shortcuts, Multi-Account & More",
+      "description": "A complete guide to AIO Terminal's advanced features: PH/PL pivot buttons working in Price, Range, and % input modes, keyboard shortcuts for instant tab navigation, Last price syncing for limit orders, per-position selection, dual Binance accounts, and data sync settings.",
       "url": "https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html",
       "datePublished": "2026-05-31",
       "dateModified": "2026-05-31",
@@ -147,11 +147,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="article-tag" style="background:rgba(243,156,18,0.15);color:#f39c12;border-color:rgba(243,156,18,0.3);">Terminal</div>
-                    <h1 class="article-title">AIO Terminal Advanced Features: PH/PL Buttons, Smart BE+, Multi-Account &amp; More</h1>
+                    <h1 class="article-title">AIO Terminal Advanced Features: PH/PL in Any Mode, Keyboard Shortcuts, Multi-Account &amp; More</h1>
                     <div class="article-meta">
                         <span><i class="bi bi-person"></i> AIO Indicator Team</span>
                         <span><i class="bi bi-calendar3"></i> May 31, 2026</span>
-                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                        <span><i class="bi bi-clock"></i> 10 min read</span>
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                 <div class="col-lg-8">
                     <div class="article-body">
 
-<p class="lead">Most traders discover AIO Terminal through the headline features: 1–2 click entries, Smart TP/SL, Close. But the features that separate experienced AIO Terminal users from beginners are the details — the PH/PL stop shortcuts, the "Last" button, the BE+ distinction, the ability to act on individual positions. This guide covers all of them.</p>
+<p class="lead">Most traders discover AIO Terminal through the headline features: 1–2 click entries, TP/SL, Close. But the features that separate experienced users from beginners are the details — PH/PL pivot shortcuts that work in every input mode, keyboard shortcuts for instant tab navigation, the "Last" button, the ability to act on individual positions. This guide covers all of them.</p>
 
 <h2>1. PH and PL Buttons: Structurally Valid Stop Losses in One Click</h2>
 
@@ -178,8 +178,9 @@
 <p>The classic mistake in stop-loss placement is setting stops at round numbers or at arbitrary fixed distances without reference to market structure. A stop at "1.5% below entry" might be completely irrelevant to where the market actually considers the trade invalidated. A stop just below the most recent swing low is market-structure-aware — it is placed at a level that, if breached, genuinely tells you the trade is wrong.</p>
 <p>Finding that level manually requires: switching to your chart, visually identifying the most recent significant pivot, reading the price level, switching back to AIO Terminal, typing the price. Under time pressure, this process introduces both delay and transcription errors. PH/PL collapses it to a single button press — and you can select which timeframe the pivot is drawn from, so a scalper can use the 5-minute pivot while a swing trader uses the 4-hour pivot.</p>
 
-<h3>Combining PL with Offset</h3>
-<p>After clicking PL to populate the SL field, many traders subtract a small buffer — a few ticks below the pivot rather than exactly at it — to avoid stop-hunting around obvious structural levels. In PRICE mode, you see the populated value and can manually adjust it down slightly. In RANGE mode, you can use a small range offset from the calculated level. The workflow is: PL click → see the pivot low price → adjust slightly → confirm.</p>
+<h3>PH/PL Works in All Three Input Modes</h3>
+<p>PH and PL buttons are not limited to PRICE mode — they work in <strong>Range</strong> and <strong>%</strong> modes too, with automatic conversion. When you are in Range mode and click PL, AIO Terminal computes <code>|pivot_price − entry_price|</code> and fills the Range field with that distance. In % mode, it computes <code>|pivot_price − entry_price| / entry_price × 100</code> and fills the percentage. You never need to do this math yourself.</p>
+<p>This means you can set your risk unit in Range or % terms for position sizing purposes, and still populate the actual level from a real structural pivot in one click. The workflow is: select your input mode → click PH or PL → the terminal fills the correct value for that mode → adjust slightly if needed → confirm.</p>
 
 <h2>2. The "Last" Button: Limit at Market Price Without Manual Price Entry</h2>
 
@@ -204,24 +205,9 @@
 
 <div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Want to try these features?</strong> <span>AIO Terminal is included free with every VIP plan.</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Get Terminal Access</a></div></div>
 
-<h2>3. Smart BE+ vs Plain Breakeven: A Critical Distinction</h2>
+<h2>3. Acting on Specific Positions: Not Just "All or Nothing"</h2>
 
-<p>Smart TP/SL in AIO Terminal includes a breakeven migration feature — when TP1 is hit, the stop loss moves to a "breakeven" level automatically. But AIO Terminal's implementation is BE+ (Break-Even Plus), not plain breakeven, and the distinction matters in real money terms.</p>
-
-<h3>The Problem with Plain Breakeven</h3>
-<p>Plain breakeven means moving your SL to your entry price. On the surface, this sounds like "zero risk remaining" — if price reverses to your entry, you exit at no loss. But this ignores exchange fees. On Binance, you paid fees to enter (0.02% maker, or 0.05% market). When your SL triggers at entry price, Binance charges exit fees again (0.02% for a stop-limit, 0.05% for a stop-market). Net result: a "breakeven" exit results in a real-money loss equal to your entry fee plus your exit fee.</p>
-<p>For a $10,000 position with 0.02% entry and 0.05% exit: entry fee $2 + exit fee $5 = $7 total in fees. A "breakeven" exit at entry price leaves you $7 poorer. On high-frequency traders running dozens of positions per week, this fee drag compounds significantly.</p>
-
-<h3>What BE+ Does</h3>
-<p>BE+ moves your SL not to entry price, but to entry price plus a configurable fee offset. If your fee round-trip is 0.07%, BE+ sets your SL at entry + 0.07% (for a long). When that SL triggers, after fees you exit at genuinely zero net loss rather than a fee-loss disguised as breakeven.</p>
-<p>You configure the fee offset in AIO Terminal's settings to match your actual Binance fee tier. Once set, every Smart TP/SL trade that hits TP1 migrates to BE+ automatically — you never need to calculate or manually adjust for fees on the breakeven migration.</p>
-
-<h3>The Real-World Impact</h3>
-<p>Consider a scalp-to-swing approach where you take 50 Smart TP/SL trades per month. In a volatile market, 20 of those reverse after TP1 and trigger the breakeven stop. With plain breakeven: 20 × $7 fee drag = $140 in losses that look like "zero" in your trade log. With BE+: 20 exits at genuinely zero net cost. Over a year, this is a $1,680 difference — not from a better strategy, but from correctly accounting for fees in your risk management automation.</p>
-
-<h2>4. Acting on Specific Positions: Not Just "All or Nothing"</h2>
-
-<p>One of the most commonly misunderstood aspects of AIO Terminal is that its "Close" and "Cancel" features are not the only options. Every action tab — Close, Cancel, Smart TP/SL, TP/SL, and Trailing Stop — allows you to select a specific position from a list when multiple positions are open.</p>
+<p>One of the most commonly misunderstood aspects of AIO Terminal is that its "Close" and "Cancel" features are not the only options. Every action tab — Close, Cancel, and TP/SL — allows you to select a specific position from a list when multiple positions are open.</p>
 
 <h3>The Position Selector</h3>
 <p>When you have multiple open positions (say, a BTC long and an ETH short running simultaneously), the action tabs display a position picker. You select the position you want to act on before executing. The action — close, cancel orders, set new TP/SL, activate trailing stop — then applies only to that selected position. Your other positions are untouched.</p>
@@ -229,10 +215,9 @@
 <h3>When to Use Position Selection vs "All" Buttons</h3>
 <p><strong>Use position selection when:</strong></p>
 <ul>
-    <li>You want to close or add TP/SL to one position while keeping another running</li>
-    <li>You want to activate a trailing stop on a winning position while leaving a still-developing position alone</li>
+    <li>You want to close or update TP/SL on one position while keeping another running</li>
     <li>You want to cancel a pending TP order on one position (because you changed your target) without affecting the SL on a different position</li>
-    <li>You want to update Smart TP/SL monitoring for a specific position after adjusting your plan</li>
+    <li>You want to re-set TP/SL on a specific position with new levels after market conditions change</li>
 </ul>
 <p><strong>Use "All" buttons when:</strong></p>
 <ul>
@@ -242,34 +227,35 @@
 </ul>
 <p>The ability to target individual positions is what makes AIO Terminal a complete position management tool rather than just a fast order entry interface. It handles both the precise adjustments you make during a running trade and the emergency exits you need when things move fast.</p>
 
-<h2>5. Trailing Stop Activation Modes: Price, Range, and %</h2>
+<h2>4. Keyboard Shortcuts: Instant Tab Navigation</h2>
 
-<p>AIO Terminal's Trailing Stop tab offers three distinct ways to specify the activation trigger — the price level at which the trailing stop begins following the market. Choosing the right mode for your trading approach reduces cognitive overhead and improves precision.</p>
+<p>Every tab in AIO Terminal has a dedicated keyboard shortcut. Instead of clicking a tab button, press the corresponding key and you jump there instantly. This is one of the highest-leverage habits for reducing trade execution time.</p>
 
-<h3>Price Mode</h3>
-<p><strong>What it is:</strong> You enter an absolute price as the activation trigger. The trailing stop activates when the market reaches that exact price.</p>
-<p><strong>When to use it:</strong> When your activation level is defined by market structure — a specific resistance level you want to see broken before locking in profits, a round number target, or a measured-move projection. You read the level from your chart and type it directly. No calculation required.</p>
-<p><strong>Example:</strong> You are long BTC at $65,000 and want your trailing stop to activate only after price clears the $67,500 resistance. Enter $67,500 as the activation price. The trailing stop sits dormant until that level is touched, then begins trailing from $67,500 downward at your specified callback rate.</p>
+<h3>Default Shortcut Mapping</h3>
+<table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">
+    <thead>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+            <th style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-weight:600;">Key</th>
+            <th style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-weight:600;">Tab</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td style="padding:8px 12px;"><strong>1</strong></td><td style="padding:8px 12px;">Long Order</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>2</strong></td><td style="padding:8px 12px;">Short Order</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>4</strong></td><td style="padding:8px 12px;">Close Position</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>6</strong></td><td style="padding:8px 12px;">TP/SL</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>7</strong></td><td style="padding:8px 12px;">Cancel Orders</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>8</strong></td><td style="padding:8px 12px;">Analytics</td></tr>
+    </tbody>
+</table>
 
-<h3>Range Mode</h3>
-<p><strong>What it is:</strong> You enter a dollar distance (or points, depending on the asset). AIO Terminal calculates the activation price as entry price + that distance (for longs) or entry price - that distance (for shorts).</p>
-<p><strong>When to use it:</strong> When you think about activation in terms of "I want the trailing stop to kick in once I'm up X dollars/points from entry." ATR-based activation logic fits naturally here — "activate at 1.5x ATR above entry" translates directly to a RANGE value. The calculation happens automatically regardless of where your entry price lands.</p>
-<p><strong>Example:</strong> Long at $65,000, ATR is 400. You want activation at 1.5x ATR = 600 points above entry. Enter 600 as the Range. AIO Terminal sets activation at $65,600. Same rule applies cleanly to every trade at different entry prices — you never recalculate the activation price manually.</p>
+<h3>Remapping Shortcuts in Settings</h3>
+<p>All shortcuts are remappable in Terminal Settings. If your workflow focuses on TP/SL and Analytics, you might remap those to keys 1 and 2 for faster access. If you primarily manage entries, keep the defaults. The mapping is persistent across sessions — set it once, use it every time.</p>
 
-<h3>% Mode</h3>
-<p><strong>What it is:</strong> You enter a percentage. Activation price = entry price × (1 + percentage/100) for longs, or entry price × (1 - percentage/100) for shorts.</p>
-<p><strong>When to use it:</strong> When you think about activation in percentage terms — "activate the trailing stop once I'm up 2% on this trade." Percentage-based activation is consistent across different assets at different price levels. A 2% activation on BTC and ETH both require the same relative move to trigger, regardless of the different absolute price differences.</p>
-<p><strong>Example:</strong> Long BTC at $65,000, want trailing stop to activate at +2%. Enter 2 as PCT. Activation at $65,000 × 1.02 = $66,300. The same 2% rule applied to ETH at $3,500 would activate at $3,570 — you never calculate either level manually.</p>
+<h3>Building Muscle Memory</h3>
+<p>The value of keyboard shortcuts compounds with familiarity. After a week of using the same key mapping, navigating between tabs becomes reflexive — no cognitive overhead, no looking at the screen to find a tab. Combined with the "Last" button and PH/PL, the full entry workflow from chart signal to live order takes under 3 seconds without any clicking.</p>
 
-<h3>Choosing Your Callback Rate</h3>
-<p>Alongside the activation trigger, you configure the callback (trailing distance) — how far the market can pull back from its peak before the stop triggers. Common configurations:</p>
-<ul>
-    <li><strong>Tight callback (0.3–0.5%):</strong> Captures most of the move but risks being stopped out by normal noise. Suited to low-volatility assets or in strong directional momentum.</li>
-    <li><strong>Medium callback (0.5–1.5%):</strong> Allows more room for normal price oscillation while still trailing aggressively. Most versatile setting.</li>
-    <li><strong>Wide callback (1.5–3%):</strong> For volatile assets or when you want to ride a trend without being shaken out by corrections. Gives up more of the peak but stays in longer trends.</li>
-</ul>
-
-<h2>6. Trading Two Binance Accounts Simultaneously</h2>
+<h2>5. Trading Two Binance Accounts Simultaneously</h2>
 
 <p>AIO Terminal supports up to two Binance accounts connected at the same time. Each account connects via its own API key and operates independently within the terminal.</p>
 
@@ -284,7 +270,7 @@
 <h3>Switching Between Accounts</h3>
 <p>You switch between accounts within the AIO Terminal interface — both accounts' positions and orders are accessible without re-authentication. The account selector shows which account you are currently acting on, and every order tab, TP/SL action, and monitoring function operates in the context of the selected account.</p>
 
-<h2>7. Data Sync: Default 5-Second Intervals and Manual Refresh</h2>
+<h2>6. Data Sync: Default 5-Second Intervals and Manual Refresh</h2>
 
 <p>AIO Terminal polls Binance for updated position and order data at regular intervals. The default sync interval is 5 seconds — meaning your position PnL, margin levels, and order status refresh automatically every 5 seconds without any user action.</p>
 
@@ -300,7 +286,7 @@
 </ul>
 <p>Neither option interrupts your active positions or cancels any orders. They only pull updated data from Binance and refresh the display.</p>
 
-<h2>8. Password Management: First Login and Changes</h2>
+<h2>7. Password Management: First Login and Changes</h2>
 
 <p>AIO Terminal access credentials work differently from your Binance account credentials — and this is by design. Your Binance API key (for placing orders) and your AIO Terminal login password (for accessing the terminal) are completely separate.</p>
 
@@ -326,15 +312,14 @@
 <p>Here is what a session looks like for a trader using all of these features in combination:</p>
 
 <ol>
-    <li><strong>Open AIO Terminal</strong> — data syncs from Binance within 5 seconds, showing current positions and orders.</li>
+    <li><strong>Open AIO Terminal</strong> — press <strong>1</strong> (keyboard shortcut) to jump to Long tab. Data syncs from Binance within 5 seconds.</li>
     <li><strong>Identify a setup on TradingView</strong> — BTC shows a high-probability long at $65,000 with invalidation below the recent swing low.</li>
-    <li><strong>Switch to Long tab in AIO Terminal</strong> — tap <strong>Last</strong> to sync $65,000 into the limit price field. Tap <strong>PL</strong> to fill the SL field with the recent swing low ($64,200). Adjust SL down slightly to $64,150 for a buffer below the pivot.</li>
-    <li><strong>Set TP</strong> using PRICE mode — $67,500 (next resistance level).</li>
-    <li><strong>Tap Long</strong> — limit order submits at $65,000 with TP at $67,500 and SL at $64,150. All three orders fire concurrently.</li>
-    <li><strong>Enable Smart TP/SL</strong> — configure TP1 at $66,000 with BE+ offset at 0.07%. When TP1 is hit, SL auto-moves to $65,046 (entry + fee offset).</li>
-    <li><strong>Enable Trailing Stop on the same position</strong> (optional) — % mode, activate at +3% ($66,950), callback 0.8%. If BTC runs beyond $66,950, the trailing stop follows.</li>
+    <li><strong>In Long tab</strong> — tap <strong>Last</strong> to sync $65,000 into the limit price field. Select Range mode for SL, then tap <strong>PL</strong> — AIO Terminal calculates <code>|pivot_low − entry|</code> and fills the Range field automatically ($800 range in this case). Adjust slightly if needed.</li>
+    <li><strong>Set TP</strong> using PRICE mode — $67,500 (next resistance level). Or tap <strong>PH</strong> to fill TP from the recent swing high.</li>
+    <li><strong>Tap Long</strong> — limit order submits at $65,000 with TP at $67,500 and SL at $64,200 (via $800 Range). All three orders fire concurrently.</li>
+    <li><strong>Press 6</strong> (keyboard shortcut) to jump to TP/SL tab to update targets — re-setting TP/SL automatically cancels and replaces existing orders.</li>
     <li><strong>ETH long fires separately on Account 2</strong> — same workflow, independent position, independent TP/SL.</li>
-    <li><strong>News spike against BTC</strong> — tap Close (select BTC position specifically) to close only BTC. ETH long remains untouched.</li>
+    <li><strong>News spike against BTC</strong> — press <strong>4</strong> (keyboard shortcut for Close), select BTC position specifically, close. ETH long remains untouched.</li>
 </ol>
 
 <p>Every step in this sequence is one to two actions. The total cognitive overhead per trade is drastically lower than the equivalent sequence in Binance native, and the precision — structurally valid stops, fee-aware breakeven, percentage-based trailing activation — is higher.</p>
@@ -342,7 +327,6 @@
 <h2>What Still Requires Manual Action</h2>
 <p>AIO Terminal is a tool, not a full automation system. A few things to be aware of:</p>
 <ul>
-    <li><strong>TP/SL modification:</strong> Once set, TP/SL orders cannot be edited in place. To change a level, cancel the existing order via the Cancel tab, then re-set via the TP/SL tab.</li>
     <li><strong>Strategy and signal generation:</strong> AIO Terminal does not analyze charts or generate entry signals. It executes based on your analysis. The intended workflow is: analyze on TradingView, execute on AIO Terminal.</li>
     <li><strong>Leverage and margin mode:</strong> Initial leverage and cross/isolated margin settings are managed in Binance. AIO Terminal reads and uses your saved leverage but initial setup for a new symbol happens in Binance.</li>
 </ul>
