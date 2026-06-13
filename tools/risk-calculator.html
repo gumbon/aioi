@@ -44,6 +44,324 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="../css/modern-styles.css" />
+    <link rel="stylesheet" href="../css/i18n.css" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <style>
+      .calc-wrap{max-width:960px;margin:0 auto;padding:120px 1rem 4rem}
+      .calc-head{text-align:center;margin-bottom:2.5rem}
+      .calc-head h1{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.75rem}
+      .calc-head p{color:var(--text-secondary);max-width:640px;margin:0 auto}
+      .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+      .calc-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.75rem}
+      .calc-card h2{font-size:1.1rem;font-weight:700;margin-bottom:1.25rem}
+      .calc-field{margin-bottom:1.1rem}
+      .calc-field label{display:block;font-size:.85rem;color:var(--text-secondary);margin-bottom:.4rem;font-weight:500}
+      .calc-field .input-row{display:flex;align-items:center;gap:.5rem;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.1rem .75rem;transition:border-color .2s}
+      .calc-field .input-row:focus-within{border-color:var(--accent-primary)}
+      .calc-field .input-row .pre{color:var(--text-secondary);font-size:.9rem}
+      .calc-field input{flex:1;background:transparent;border:0;color:var(--text-primary);font-size:1rem;padding:.65rem 0;outline:none;width:100%}
+      .calc-toggle{display:flex;gap:.5rem;margin-bottom:1.1rem}
+      .calc-toggle button{flex:1;padding:.55rem;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--text-secondary);font-weight:600;cursor:pointer;transition:all .2s}
+      .calc-toggle button.active{background:var(--accent-primary);border-color:var(--accent-primary);color:#fff}
+      .res-row{display:flex;justify-content:space-between;align-items:baseline;padding:.7rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+      .res-row:last-child{border-bottom:0}
+      .res-row .k{color:var(--text-secondary);font-size:.9rem}
+      .res-row .v{font-weight:700;font-size:1.05rem}
+      .res-row .v.big{font-size:1.35rem;color:var(--accent-secondary)}
+      .res-warn{color:#f87171;font-size:.85rem;margin-top:.75rem;display:none}
+      .tp-list{margin-top:1rem}
+      .tp-list .res-row .v{color:#34d399}
+      .calc-actions{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin-top:2.5rem}
+      .calc-actions .btn{display:inline-flex;align-items:center;gap:.45rem}
+      .calc-cta{margin-top:3rem;text-align:center;background:linear-gradient(135deg,rgba(102,126,234,.12),rgba(0,212,255,.08));border:1px solid rgba(102,126,234,.25);border-radius:18px;padding:2rem 1.5rem}
+      .calc-cta h3{font-weight:800;font-size:1.3rem;margin-bottom:.5rem}
+      .calc-cta p{color:var(--text-secondary);margin-bottom:1.25rem}
+      @media (max-width:768px){.calc-grid{grid-template-columns:1fr}}
+    </style>
+  </head>
+  <body>
+    <!-- Standard Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="../">
+                <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+                <span>AIO Indicator</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../blog/"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="risk-calculator.html"><i class="bi bi-calculator"></i><span data-i18n="nav.tools">Tools</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <span data-i18n="nav.community">Community</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-lg-2 d-flex align-items-center">
+                        <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                            <i class="bi bi-box-arrow-in-right me-1"></i>
+                            <span data-i18n="nav.login_terminal">Login</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Select language">
+                            <i class="bi bi-globe lang-globe-icon"></i>
+                            <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="calc-wrap">
+      <div class="calc-head">
+        <h1 data-i18n="tools.calc.title">Position Size &amp; Risk Calculator</h1>
+        <p data-i18n="tools.calc.subtitle">Never risk more than you planned. Enter your account size, risk per trade, entry and stop — get the exact position size, required leverage, and R-multiple take-profit targets. Works for crypto, forex, and futures.</p>
+      </div>
+
+      <div class="calc-grid">
+        <div class="calc-card">
+          <h2><i class="bi bi-sliders"></i> <span data-i18n="tools.calc.your_trade">Your Trade</span></h2>
+          <div class="calc-toggle" id="sideToggle">
+            <button type="button" data-side="long" class="active" data-i18n="tools.calc.long">Long</button>
+            <button type="button" data-side="short" data-i18n="tools.calc.short">Short</button>
+          </div>
+          <div class="calc-field">
+            <label for="account" data-i18n="tools.calc.account_balance">Account balance</label>
+            <div class="input-row"><span class="pre">$</span><input id="account" type="number" inputmode="decimal" value="10000" min="0" step="any" /></div>
+          </div>
+          <div class="calc-field">
+            <label for="risk" data-i18n="tools.calc.risk_per_trade">Risk per trade</label>
+            <div class="input-row"><input id="risk" type="number" inputmode="decimal" value="1" min="0" step="any" /><span class="pre">%</span></div>
+          </div>
+          <div class="calc-field">
+            <label for="entry" data-i18n="tools.calc.entry_price">Entry price</label>
+            <div class="input-row"><span class="pre">$</span><input id="entry" type="number" inputmode="decimal" value="100" min="0" step="any" /></div>
+          </div>
+          <div class="calc-field">
+            <label for="stop" data-i18n="tools.calc.sl_price">Stop-loss price</label>
+            <div class="input-row"><span class="pre">$</span><input id="stop" type="number" inputmode="decimal" value="97" min="0" step="any" /></div>
+          </div>
+        </div>
+
+        <div class="calc-card">
+          <h2><i class="bi bi-calculator"></i> <span data-i18n="tools.calc.results">Results</span></h2>
+          <div class="res-row"><span class="k" data-i18n="tools.calc.risk_amount">Risk amount</span><span class="v" id="r-risk">—</span></div>
+          <div class="res-row"><span class="k" data-i18n="tools.calc.stop_distance">Stop distance</span><span class="v" id="r-dist">—</span></div>
+          <div class="res-row"><span class="k" data-i18n="tools.calc.position_size">Position size</span><span class="v big" id="r-size">—</span></div>
+          <div class="res-row"><span class="k" data-i18n="tools.calc.position_notional">Position notional</span><span class="v" id="r-notional">—</span></div>
+          <div class="res-row"><span class="k" data-i18n="tools.calc.leverage">Required leverage</span><span class="v" id="r-lev">—</span></div>
+          <div class="tp-list">
+            <div class="res-row"><span class="k" data-i18n="tools.calc.tp1">Take-profit 1R</span><span class="v" id="r-tp1">—</span></div>
+            <div class="res-row"><span class="k" data-i18n="tools.calc.tp2">Take-profit 2R</span><span class="v" id="r-tp2">—</span></div>
+            <div class="res-row"><span class="k" data-i18n="tools.calc.tp3">Take-profit 3R</span><span class="v" id="r-tp3">—</span></div>
+          </div>
+          <div class="res-warn" id="r-warn"><i class="bi bi-exclamation-triangle"></i> Stop-loss must be on the correct side of entry for a <span id="r-warn-side">long</span>.</div>
+        </div>
+      </div>
+
+      <div class="calc-actions">
+        <a class="btn btn-outline-light btn-sm" id="share-x" href="#" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i> <span data-i18n="tools.calc.share_x">Share on X</span></a>
+        <a class="btn btn-outline-light btn-sm" id="share-tg" href="#" target="_blank" rel="noopener"><i class="bi bi-telegram"></i> <span data-i18n="tools.calc.share_tg">Share on Telegram</span></a>
+        <button class="btn btn-outline-light btn-sm" id="copy-link" type="button"><i class="bi bi-link-45deg"></i> <span data-i18n="tools.calc.copy_link">Copy link</span></button>
+      </div>
+
+      <div class="calc-cta">
+        <h3 data-i18n="tools.calc.cta_title">Stop calculating by hand on every trade</h3>
+        <p data-i18n="tools.calc.cta_desc">AIO Indicator marks structural stops, liquidity, and high-probability entries directly on your chart — and AIO Terminal sizes and places the order in one click.</p>
+        <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer"><i class="bi bi-lightning-charge-fill"></i> <span data-i18n="tools.calc.cta_btn">Start 5-Day Free Trial</span></a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-5" style="background: var(--darker-bg); border-top: 1px solid var(--card-border);">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3">AIO Indicator</h5>
+                    <p class="text-secondary" data-i18n="footer.tagline">The ultimate TradingView price action indicator suite for professional traders.</p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3" data-i18n="footer.quick_links">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#features" class="text-secondary text-decoration-none" data-i18n="footer.features">Features</a></li>
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none" data-i18n="footer.indicators">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none" data-i18n="nav.terminal">Terminal</a></li>
+                        <li class="mb-2"><a href="../blog/" class="text-secondary text-decoration-none" data-i18n="footer.blog">Blog</a></li>
+                        <li class="mb-2"><a href="risk-calculator.html" class="text-secondary text-decoration-none" data-i18n="nav.tools">Tools</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none" data-i18n="footer.pricing">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="mb-3" data-i18n="footer.community">Community</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/aiotradehub" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://medium.com/@tranholenguyen" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Medium</a></li>
+                        <li class="mb-2"><a href="https://x.com/gumbon/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Twitter</a></li>
+                        <li class="mb-2"><a href="https://nguyentran.substack.com/" target="_blank" rel="noopener noreferrer" class="text-secondary text-decoration-none">Substack</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4" style="border-color: var(--card-border);">
+            <div class="text-center">
+                <p class="text-secondary small mb-2">
+                    <strong>Disclaimer:</strong> <span data-i18n="footer.disclaimer">Trading involves the possibility of financial loss. Only trade with money that you are prepared to lose. You must recognize that for factors outside your control you may lose all of the money in your trading account. You must make your own financial decisions. AIO Indicator takes no responsibility for loss incurred as a result of your trading.</span>
+                </p>
+                <p class="text-secondary small mb-0" data-i18n="footer.copyright">© 2026 AIO Indicator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky Mobile CTA -->
+    <div class="sticky-cta">
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-sticky-trial">
+            <i class="bi bi-lightning-charge-fill"></i>
+            <span data-i18n="sticky_cta">Start Free Trial</span>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+
+    <script>
+      (function () {
+        var side = 'long';
+        var $ = function (id) { return document.getElementById(id); };
+        var fmt = function (n, d) { return n.toLocaleString('en-US', { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }); };
+        var money = function (n) { return '$' + fmt(n, 2); };
+
+        function calc() {
+          var acc = parseFloat($('account').value) || 0;
+          var riskPct = parseFloat($('risk').value) || 0;
+          var entry = parseFloat($('entry').value) || 0;
+          var stop = parseFloat($('stop').value) || 0;
+          var warn = $('warn-side') ? null : null;
+          var valid = entry > 0 && stop > 0 && (side === 'long' ? stop < entry : stop > entry);
+          $('r-warn').style.display = (entry > 0 && stop > 0 && !valid) ? 'block' : 'none';
+          $('r-warn-side').textContent = side;
+          if (!valid || acc <= 0 || riskPct <= 0) {
+            ['r-risk','r-dist','r-size','r-notional','r-lev','r-tp1','r-tp2','r-tp3'].forEach(function (k) { $(k).textContent = '—'; });
+            return;
+          }
+          var riskAmt = acc * riskPct / 100;
+          var perUnit = Math.abs(entry - stop);
+          var distPct = perUnit / entry * 100;
+          var units = riskAmt / perUnit;
+          var notional = units * entry;
+          var lev = notional / acc;
+          $('r-risk').textContent = money(riskAmt);
+          $('r-dist').textContent = fmt(perUnit, 4) + '  (' + fmt(distPct, 2) + '%)';
+          $('r-size').textContent = fmt(units, units < 1 ? 4 : 4) + ' units';
+          $('r-notional').textContent = money(notional);
+          $('r-lev').textContent = fmt(lev, 2) + '×';
+          var dir = side === 'long' ? 1 : -1;
+          [1,2,3].forEach(function (R) {
+            $('r-tp' + R).textContent = '$' + fmt(entry + dir * perUnit * R, 4) + '  (+' + money(riskAmt * R) + ')';
+          });
+        }
+
+        document.querySelectorAll('#sideToggle button').forEach(function (b) {
+          b.addEventListener('click', function () {
+            document.querySelectorAll('#sideToggle button').forEach(function (x) { x.classList.remove('active'); });
+            b.classList.add('active'); side = b.getAttribute('data-side');
+            // flip default stop to the valid side for convenience
+            var entry = parseFloat($('entry').value) || 0, stop = parseFloat($('stop').value) || 0;
+            if (entry > 0 && stop > 0) {
+              if (side === 'long' && stop > entry) $('stop').value = (entry - (stop - entry)).toString();
+              if (side === 'short' && stop < entry) $('stop').value = (entry + (entry - stop)).toString();
+            }
+            calc();
+          });
+        });
+        ['account','risk','entry','stop'].forEach(function (id) { $(id).addEventListener('input', calc); });
+
+        // share
+        var url = 'https://aioindicator.com/tools/risk-calculator.html';
+        var text = 'Free position size & risk calculator — exact size, leverage & R-multiple targets:';
+        $('share-x').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+        $('share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+        $('copy-link').addEventListener('click', function () {
+          navigator.clipboard && navigator.clipboard.writeText(url).then(function () {
+            var el = $('copy-link'); var old = el.innerHTML; el.innerHTML = '<i class="bi bi-check2"></i> Copied';
+            setTimeout(function () { el.innerHTML = old; }, 1800);
+          });
+        });
+
+        calc();
+      })();
+    </script>
+  </body>
+</html>
+    <meta name="description" content="Free position size & risk calculator for crypto, forex, and futures. Enter account size, risk %, entry, and stop — get exact position size, required leverage, and 1R/2R/3R take-profit levels. No signup." />
+    <meta name="keywords" content="position size calculator, risk management calculator, forex position size, crypto futures position size, R multiple calculator, stop loss calculator, leverage calculator" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Position Size &amp; Risk Calculator — Free Trading Tool | AIO Indicator</title>
+
+    <meta property="og:title" content="Free Position Size &amp; Risk Calculator" />
+    <meta property="og:description" content="Calculate exact position size, required leverage, and R-multiple take-profit levels from your account size, risk %, entry, and stop. Free, no signup." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aioindicator.com/tools/risk-calculator.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Free Position Size &amp; Risk Calculator" />
+    <meta name="twitter:description" content="Exact position size, leverage, and R-multiple targets from your risk per trade. Free, no signup." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <link rel="canonical" href="https://aioindicator.com/tools/risk-calculator.html" />
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Position Size & Risk Calculator",
+      "url": "https://aioindicator.com/tools/risk-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free position size and risk-per-trade calculator with required leverage and R-multiple take-profit levels.",
+      "creator": { "@type": "Organization", "name": "AIO Indicator", "url": "https://aioindicator.com/" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/modern-styles.css" />
