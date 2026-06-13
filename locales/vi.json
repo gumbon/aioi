@@ -9,7 +9,8 @@
     "faq": "FAQ",
     "pricing": "Bảng Giá",
     "community": "Cộng Đồng",
-    "chat": "Nhắn tin với tôi"
+    "chat": "Nhắn tin với tôi",
+    "tools": "Công Cụ Miễn Phí"
   },
   "hero": {
     "title1": "Price Action",
@@ -299,5 +300,12 @@
     "hp_f5d": "Order Book · Smart Tape · Aggression · CVD · Risk Score, live từ Binance WebSocket",
     "hp_cta_learn": "Tìm Hiểu Thêm",
     "hp_cta_note": "Miễn phí với Gói VIP"
+  },
+  "tools_section": {
+    "title": "Công Cụ Giao Dịch Miễn Phí",
+    "subtitle": "Máy tính chuyên nghiệp giúp bạn giao dịch sắc bén hơn — không cần đăng ký",
+    "calc_title": "Máy Tính Vị Thế & Rủi Ro",
+    "calc_desc": "Tính khối lượng vị thế, rủi ro bằng $, đòn bẩy và các mức chốt lời 1R/2R/3R — cho giao dịch Long hoặc Short.",
+    "free_badge": "Miễn phí — không cần đăng ký"
   }
 }

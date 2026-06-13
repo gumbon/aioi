@@ -9,7 +9,8 @@
     "faq": "자주 묻는 질문",
     "pricing": "가격",
     "community": "커뮤니티",
-    "chat": "채팅하기"
+    "chat": "채팅하기",
+    "tools": "무료 도구"
   },
   "hero": {
     "title1": "프라이스 액션",
@@ -227,6 +228,8 @@
     "feat_6_desc": "절대 가격, 엔트리에서의 고정 거리, 또는 퍼센트로 출구를 설정. PH/PL 버튼으로 어떤 모드에서도 TP 또는 SL을 즉시 채우기. TP/SL 재설정 시 이전 주문 자동 취소 — 수동 취소 불필요.",
     "feat_7_title": "드래그 & 드롭 레이아웃 + 자동 저장",
     "feat_7_desc": "원하는 순서로 탭 정렬. 모든 파라미터가 세션을 걸쳐 기억됨. 다시 설정할 필요 없음. 키보드 단축키(1=Long, 2=Short, 4=Close, 6=TP/SL, 7=Cancel, 8=Analytics)는 Settings에서 설정 가능 — 가장 빠른 탭 전환.",
+    "feat_8_title": "활동 로그",
+    "feat_8_desc": "모든 주문 작업에 타임스탬프가 기록됩니다. 패널을 접어 화면을 깔끔하게 유지하고, 펼쳐서 세션 기록을 검토하세요. 시간대는 12개 존에서 설정할 수 있습니다.",
     "tab_long": "롱 주문",
     "tab_short": "숏 주문",
     "tab_close": "포지션 마감",
@@ -297,5 +300,12 @@
     "hp_cta_note": "VIP 플랜에 무료",
     "feat_9_title": "Analytics — 마켓 마이크로스트럭처 패널",
     "feat_9_desc": "하나의 탭에서 완전한 시장 분석 대시보드: 차트 위 Order Book bars + 누적 Depth Chart, Aggression Gauge (매수/매도 압력 0–100), Smart Tape (5단계 크기 필터, 500ms 윈도우 스윕 감지), Spot/Perp CVD 다이버전스, Risk Score (funding/OI/basis 종합), Bookmap식 Time Heatmap — 모두 Binance WebSocket에서 실시간 업데이트."
+  },
+  "tools_section": {
+    "title": "무료 트레이딩 도구",
+    "subtitle": "전문 계산기로 트레이딩 엣지를 키우세요 — 가입 불필요",
+    "calc_title": "포지션 크기 & 리스크 계산기",
+    "calc_desc": "포지션 크기, 리스크($), 레버리지, 1R/2R/3R 목표가를 계산하세요 — 롱/숏 모두 지원.",
+    "free_badge": "무료 — 가입 불필요"
   }
 }

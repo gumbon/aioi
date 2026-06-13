@@ -329,3 +329,13 @@
 .toc-h2 a{font-weight:500;color:var(--text-primary)}
 .toc-h3{padding-left:1.1rem;font-size:.82rem}
 .toc-h3::before{content:"↳ ";color:var(--text-secondary);font-size:.78rem}
+
+/* ── Related articles ── */
+.aio-related{padding:2rem 0 3rem}
+.aio-related-heading{font-size:1.4rem;font-weight:700;margin-bottom:1.25rem;color:var(--text-primary)}
+.aio-related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.aio-related-card{display:flex;flex-direction:column;gap:.5rem;padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:rgba(255,255,255,.02);text-decoration:none;transition:border-color .2s,transform .2s,background .2s}
+.aio-related-card:hover{border-color:var(--accent-primary);transform:translateY(-2px);background:rgba(255,255,255,.04)}
+.aio-related-cat{font-size:.72rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--accent-secondary)}
+.aio-related-title{font-size:.98rem;font-weight:600;line-height:1.35;color:var(--text-primary)}
+@media (max-width:768px){.aio-related-grid{grid-template-columns:1fr}}

@@ -4,13 +4,18 @@
     "version": "5.0.8",
     "scripts": {
         "build": "npm run clean && npm run build:pug && npm run build:scss && npm run build:scripts && npm run build:assets",
-        "build:assets": "node scripts/build-assets.js",
-        "build:pug": "node scripts/build-pug.js",
-        "build:scripts": "node scripts/build-scripts.js",
-        "build:scss": "node scripts/build-scss.js",
-        "clean": "node scripts/clean.js",
-        "start": "npm run build && node scripts/start.js",
-        "start:debug": "npm run build && node scripts/start-debug.js"
+        "build:assets": "node private/scripts/build-assets.js",
+        "build:pug": "node private/scripts/build-pug.js",
+        "build:scripts": "node private/scripts/build-scripts.js",
+        "build:scss": "node private/scripts/build-scss.js",
+        "clean": "node private/scripts/clean.js",
+        "start": "npm run build && node private/scripts/start.js",
+        "start:debug": "npm run build && node private/scripts/start-debug.js",
+        "translate": "node scripts/translate-blog.js",
+        "related": "node scripts/related-posts.js",
+        "rss": "node scripts/gen-rss.js",
+        "sitemap": "node scripts/gen-sitemap.js",
+        "seo": "npm run related && npm run rss && npm run sitemap"
     },
     "description": "A simple business HTML landing page built with Bootstrap",
     "keywords": [

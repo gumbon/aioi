@@ -1,13 +1,13 @@
 /**
  * AIO Indicator — i18n engine
- * Supports: en, vi, ja, ko
+ * Supports: en, vi, ja, ko, zh, hi
  * Uses data-i18n="key" for text, data-i18n-html="key" for HTML content
  * Language stored in localStorage and URL param ?lang=XX
  */
 (function () {
   'use strict';
 
-  var LANGS = ['en', 'vi', 'ja', 'ko'];
+  var LANGS = ['en', 'vi', 'ja', 'ko', 'zh', 'hi'];
   var STORAGE_KEY = 'aio_lang';
   var _current = 'en';
   var _translations = {};
@@ -26,6 +26,10 @@
 
   /* ---- language detection ---- */
   function detectLang() {
+    // A statically-translated page declares its own language and wins, so the
+    // chrome (nav/footer) always matches the translated body.
+    var pageLang = document.documentElement.getAttribute('data-page-lang');
+    if (pageLang && LANGS.indexOf(pageLang) !== -1) return pageLang;
     var param = new URLSearchParams(window.location.search).get('lang');
     if (param && LANGS.indexOf(param) !== -1) return param;
     var stored = localStorage.getItem(STORAGE_KEY);
@@ -33,6 +37,23 @@
     var browser = (navigator.language || navigator.userLanguage || 'en').split('-')[0].toLowerCase();
     if (LANGS.indexOf(browser) !== -1) return browser;
     return 'en';
+  }
+
+  /* ---- localized-page navigation ----
+     If the page advertises a static translation for `lang` via
+     <link rel="alternate" hreflang="lang">, switching navigates there
+     instead of swapping chrome only. Returns true if it navigated. */
+  function navigateToAlternate(lang) {
+    var link = document.querySelector('link[rel="alternate"][hreflang="' + lang + '"]');
+    if (!link) return false;
+    var target = link.getAttribute('href');
+    if (!target) return false;
+    var here = window.location.href.split('?')[0].split('#')[0];
+    var abs = new URL(target, window.location.href).href;
+    if (abs === here) return false;
+    localStorage.setItem(STORAGE_KEY, lang);
+    window.location.href = abs;
+    return true;
   }
 
   /* ---- load locale JSON ---- */
@@ -138,8 +159,8 @@
       else btn.removeAttribute('aria-current');
     });
     // Update current language display
-    var flags = { en: '🇬🇧', vi: '🇻🇳', ja: '🇯🇵', ko: '🇰🇷' };
-    var names = { en: 'EN', vi: 'VI', ja: '日本語', ko: '한국어' };
+    var flags = { en: '🇬🇧', vi: '🇻🇳', ja: '🇯🇵', ko: '🇰🇷', zh: '🇨🇳', hi: '🇮🇳' };
+    var names = { en: 'EN', vi: 'VI', ja: '日本語', ko: '한국어', zh: '中文', hi: 'हिन्दी' };
     document.querySelectorAll('.lang-switcher-current').forEach(function (el) {
       el.textContent = (flags[lang] || '') + '\u00A0' + (names[lang] || lang.toUpperCase());
     });
@@ -148,6 +169,9 @@
   /* ---- blog article language notice ---- */
   function updateBlogNotice(lang) {
     if (!document.querySelector('.article-body')) return;
+    // Statically-translated pages are already in the target language — never
+    // offer a machine-translation banner on them.
+    if (document.documentElement.getAttribute('data-page-lang')) return;
     var existing = document.getElementById('aio-lang-notice');
     if (lang === 'en') {
       if (existing) existing.remove();
@@ -170,14 +194,18 @@
     var msgs = {
       vi: 'Bài viết này được viết bằng tiếng Anh.',
       ja: 'この記事は英語で書かれています。',
-      ko: '이 기사는 영어로 작성되었습니다.'
+      ko: '이 기사는 영어로 작성되었습니다.',
+      zh: '本文以英文撰写。',
+      hi: 'यह लेख अंग्रेज़ी में लिखा गया है।'
     };
     var linkTexts = {
       vi: 'Dịch với Google Translate',
       ja: 'Google翻訳で読む',
-      ko: 'Google 번역으로 읽기'
+      ko: 'Google 번역으로 읽기',
+      zh: '用 Google 翻译阅读',
+      hi: 'Google अनुवाद से पढ़ें'
     };
-    var tl = { vi: 'vi', ja: 'ja', ko: 'ko' };
+    var tl = { vi: 'vi', ja: 'ja', ko: 'ko', zh: 'zh-CN', hi: 'hi' };
     var pageUrl = encodeURIComponent(window.location.href.split('?')[0]);
     existing.innerHTML =
       '<i class="bi bi-translate"></i>' +
@@ -189,6 +217,8 @@
   /* ---- switch language ---- */
   function switchLang(lang) {
     if (LANGS.indexOf(lang) === -1) return;
+    // Prefer a real static translation of this page when one exists.
+    if (navigateToAlternate(lang)) return;
     _current = lang;
     localStorage.setItem(STORAGE_KEY, lang);
     // Update URL without page reload

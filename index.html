@@ -207,6 +207,7 @@
                     <li class="nav-item"><a class="nav-link" href="#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">All Indicators</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="blog/"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="tools/risk-calculator.html"><i class="bi bi-calculator"></i><span data-i18n="nav.tools">Free Tools</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
@@ -237,6 +238,8 @@
                             <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
                             <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
                             <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                            <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -853,7 +856,7 @@
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
-                    <img id="indicatorModalImage" src="" alt="" aria-hidden="true" class="img-fluid rounded mb-3" style="width: 100%;">
+                    <img id="indicatorModalImage" src="" alt="" class="img-fluid rounded mb-3" style="width: 100%;">
                     <p id="indicatorModalDescription" class="text-secondary"></p>
                 </div>
                 <div class="modal-footer" style="border-top: 1px solid var(--card-border);">
@@ -1397,6 +1400,32 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
+    <!-- Free Tools Section -->
+    <section id="tools" class="modern-features" style="padding:60px 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="tools_section.title">Free Trading Tools</h2>
+                <p class="section-subtitle" data-i18n="tools_section.subtitle">Professional calculators to sharpen your edge — no signup required</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <a href="tools/risk-calculator.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-calculator-fill"></i></div>
+                            <h3 class="feature-title" data-i18n="tools_section.calc_title">Position Size &amp; Risk Calculator</h3>
+                            <p class="feature-description" data-i18n="tools_section.calc_desc">Calculate position size, risk in $, leverage, and 1R/2R/3R take-profit levels — for long or short trades.</p>
+                            <span class="feature-description small" data-i18n="tools_section.free_badge">Free — no signup →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
     <!-- FAQ Section -->
     <section id="faq" class="faq-section">
         <div class="container">
@@ -1575,6 +1604,8 @@
                         <li class="mb-2"><a href="#indicators" class="text-secondary text-decoration-none" data-i18n="footer.indicators">All Indicators</a></li>
                         <li class="mb-2"><a href="aio-terminal.html" class="text-secondary text-decoration-none" data-i18n="nav.terminal">Terminal</a></li>
                         <li class="mb-2"><a href="blog/" class="text-secondary text-decoration-none" data-i18n="footer.blog">Blog</a></li>
+                        <li class="mb-2"><a href="tools/risk-calculator.html" class="text-secondary text-decoration-none" data-i18n="nav.tools">Free Tools</a></li>
+                        <li class="mb-2"><a href="blog/feed.xml" class="text-secondary text-decoration-none"><i class="bi bi-rss me-1"></i>RSS Feed</a></li>
                         <li class="mb-2"><a href="#pricing" class="text-secondary text-decoration-none" data-i18n="footer.pricing">Pricing</a></li>
                     </ul>
                 </div>
@@ -1653,7 +1684,8 @@
                 preview.className = 'indicator-card-preview';
                 var img = document.createElement('img');
                 img.src = imgSrc;
-                img.alt = '';
+                var t = card.getAttribute('data-title') || '';
+                img.alt = t ? t + ' — TradingView indicator preview' : 'AIO Indicator preview';
                 img.loading = 'lazy';
                 preview.appendChild(img);
 

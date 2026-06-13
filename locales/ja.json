@@ -9,7 +9,8 @@
     "faq": "FAQ",
     "pricing": "料金",
     "community": "コミュニティ",
-    "chat": "チャット"
+    "chat": "チャット",
+    "tools": "無料ツール"
   },
   "hero": {
     "title1": "プライスアクション",
@@ -227,6 +228,8 @@
     "feat_6_desc": "絶対価格、エントリーからの固定距離、またはパーセンテージで出口を設定。PH/PLボタンで任意のモードでTPまたはSLを即座に入力。TP/SLの再設定で自動的に前の注文をキャンセル — 手動キャンセル不要。",
     "feat_7_title": "ドラッグ&ドロップレイアウト+設定自動保存",
     "feat_7_desc": "タブを好きな順序に並べ替え。全パラメーターがセッションを越えて記憶される。キーボードショートカット（1=Long、2=Short、4=Close、6=TP/SL、7=Cancel、8=Analytics）はSettingsで変更可能 — 最速のタブ切り替えに。",
+    "feat_8_title": "アクティビティログ",
+    "feat_8_desc": "すべての注文操作にタイムスタンプが付き記録されます。パネルを折りたたんで画面をすっきり保ち、展開してセッション履歴を確認できます。タイムゾーンは12ゾーンで設定可能です。",
     "tab_long": "ロング注文",
     "tab_short": "ショート注文",
     "tab_close": "ポジションクローズ",
@@ -297,5 +300,12 @@
     "hp_cta_note": "VIPプランで無料",
     "feat_9_title": "Analytics — マーケットマイクロストラクチャーパネル",
     "feat_9_desc": "1つのタブで完全なマーケット分析ダッシュボード：チャート上のOrder Book bars + 累積Depth Chart、Aggression Gauge（買い/売り圧力0–100）、Smart Tape（5段階のサイズフィルター、500msウィンドウのスイープ検出）、Spot/Perp CVD乖離、Risk Score（funding/OI/basis総合）、Bookmap式のTime Heatmap — すべてBinance WebSocketからリアルタイム更新。"
+  },
+  "tools_section": {
+    "title": "無料トレーディングツール",
+    "subtitle": "プロフェッショナルな計算ツールでエッジを磨く — 登録不要",
+    "calc_title": "ポジションサイズ & リスク計算機",
+    "calc_desc": "ポジションサイズ、リスク($)、レバレッジ、1R/2R/3R利確レベルを計算 — ロング・ショート対応。",
+    "free_badge": "無料 — 登録不要"
   }
 }

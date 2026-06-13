@@ -9,7 +9,8 @@
     "faq": "FAQ",
     "pricing": "Pricing",
     "community": "Community",
-    "chat": "Chat with me"
+    "chat": "Chat with me",
+    "tools": "Free Tools"
   },
   "hero": {
     "title1": "Price Action",
@@ -299,5 +300,12 @@
     "hp_f5d": "Order Book · Smart Tape · Aggression · CVD · Risk Score, live from Binance WebSocket",
     "hp_cta_learn": "Learn More",
     "hp_cta_note": "Free with VIP Plan"
+  },
+  "tools_section": {
+    "title": "Free Trading Tools",
+    "subtitle": "Professional calculators to sharpen your edge — no signup required",
+    "calc_title": "Position Size & Risk Calculator",
+    "calc_desc": "Calculate position size, risk in $, leverage, and 1R/2R/3R take-profit levels — for long or short trades.",
+    "free_badge": "Free — no signup"
   }
 }
