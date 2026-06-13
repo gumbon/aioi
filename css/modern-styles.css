@@ -1333,6 +1333,36 @@ body {
     padding: 0 2px;
 }
 
+/* ── Navbar: prevent wrapping on desktop ── */
+@media (min-width: 992px) {
+    /* Hide nav-link icons to save horizontal space; keep lang globe icon */
+    .modern-navbar .navbar-nav .nav-link > i.bi:not(.lang-globe-icon) {
+        display: none;
+    }
+    /* Restore original font size, add comfortable padding */
+    .modern-navbar .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding-left: 0.55rem;
+        padding-right: 0.55rem;
+    }
+    /* Slightly smaller login button */
+    .btn-terminal-login {
+        padding: 5px 13px;
+        font-size: 0.83rem;
+    }
+}
+/* Extra tightening for medium desktops (992px–1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .modern-navbar .navbar-nav .nav-link {
+        font-size: 0.9rem;
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+    .modern-navbar .navbar-brand span {
+        display: none;
+    }
+}
+
 /* ===== Contrast & Bootstrap overrides (pricing section only, not footer) ===== */
 #pricing .text-secondary {
     color: #a8b3cf !important;

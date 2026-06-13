@@ -2,7 +2,7 @@
   "nav": {
     "home": "Home",
     "features": "Features",
-    "indicators": "All Indicators",
+    "indicators": "Indicators",
     "terminal": "Terminal",
     "blog": "Blog",
     "reviews": "Reviews",
@@ -10,7 +10,8 @@
     "pricing": "Pricing",
     "community": "Community",
     "chat": "Chat with me",
-    "tools": "Free Tools"
+    "tools": "Tools",
+    "login_terminal": "Login"
   },
   "hero": {
     "title1": "Price Action",
@@ -156,7 +157,7 @@
     "quick_links": "Quick Links",
     "community": "Community",
     "features": "Features",
-    "indicators": "All Indicators",
+    "indicators": "Indicators",
     "blog": "Blog",
     "testimonials": "Testimonials",
     "faq": "FAQ",

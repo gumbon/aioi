@@ -2,7 +2,7 @@
   "nav": {
     "home": "Trang Chủ",
     "features": "Tính Năng",
-    "indicators": "Tất Cả Indicators",
+    "indicators": "Indicators",
     "terminal": "Terminal",
     "blog": "Blog",
     "reviews": "Đánh Giá",
@@ -10,7 +10,8 @@
     "pricing": "Bảng Giá",
     "community": "Cộng Đồng",
     "chat": "Nhắn tin với tôi",
-    "tools": "Công Cụ Miễn Phí"
+    "tools": "Công Cụ",
+    "login_terminal": "Đăng nhập"
   },
   "hero": {
     "title1": "Price Action",
