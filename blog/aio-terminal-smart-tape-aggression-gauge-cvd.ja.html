@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja" data-page-lang="ja">
+<!-- aio-tx ca82b2581768c703 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Terminal の Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD ダイバージェンスを使って機関投資家のオーダーフローをリアルタイムで読む実践ガイド。BTC 先物取引の具体的なセットアップも解説。" />
+    <meta name="keywords" content="smart tape トレーディング、アグレッション・ゲージ Binance、スポット無期限 CVD ダイバージェンス、機関投資家オーダーフロー、バイスイープ 暗号資産、累積ボリュームデルタ 先物、Binance 先物 アナリティクス、AIO Terminal フロー分析" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Smart Tape、アグレッション・ゲージ &amp; CVD：機関投資家のオーダーフローをリアルタイムで読む | AIO Indicator</title>
+
+    <meta property="og:title" content="Smart Tape、アグレッション・ゲージ &amp; CVD：機関投資家のオーダーフローをリアルタイムで読む" />
+    <meta property="og:description" content="AIO Terminal の Smart Tape（大口取引＋スイープ）、アグレッション・ゲージ（買い/売り圧力 0〜100）、スポット/無期限 CVD ダイバージェンスを使って価格が動く前に機関投資家の動きを察知する方法。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ja.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Smart Tape、アグレッション・ゲージ &amp; CVD：機関投資家のオーダーフローをリアルタイムで読む" />
+    <meta name="twitter:description" content="大口取引フィルタリング、買い/売り圧力スコア、先物対スポット CVD ダイバージェンスを AIO Terminal で活用して機関投資家の動向を特定する実践ガイド。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ja.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Smart Tape、アグレッション・ゲージ &amp; CVD：機関投資家のオーダーフローをリアルタイムで読む",
+      "description": "AIO Terminal の Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD ダイバージェンスを使って機関投資家のオーダーフローをリアルタイムで読む実践ガイド。BTC 先物取引の具体的なセットアップも解説。",
+      "url": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html",
+      "datePublished": "2026-06-06",
+      "dateModified": "2026-06-06",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html"
+      },
+      "image": "https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif",
+      "keywords": "smart tape, aggression gauge, CVD divergence, order flow, Binance futures, institutional trading"
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top modern-navbar" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="../">
+            <img src="../assets/favicon.ico" height="32" alt="AIO Indicator logo" class="me-2">
+            AIO Indicator
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(240,185,11,0.15);color:#f0b90b;border-color:rgba(240,185,11,0.3);">Order Flow</div>
+                    <h1 class="article-title">Smart Tape、アグレッション・ゲージ &amp; CVD：機関投資家のオーダーフローをリアルタイムで読む</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 6, 2026</span>
+                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><p class="lead">プライスアクションは市場がどこにいたかを教えてくれます。オーダーフローは、誰がそれを動かし、いかに切迫しているかを教えてくれます。AIO Terminal の Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD パネルは、最も強力なリアルタイム・フローシグナルのうち三つを実行インターフェースに統合しています。注文がまだオープンな状態で機関投資家の動きを読むことができます。</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-smart-aggression-cvd-risk.avif" alt="Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD、リスクスコア パネル" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD、リスクスコア — すべてアナリティクスタブに収録</p>
+</div>
+
+<h2>なぜ多くの個人トレーダーは価格を実際に動かしているものが見えないのか</h2>
+<p>標準的な個人トレーダーのツールキット — RSI、MACD、移動平均線、ボリュームバーさえも — は価格の履歴を描写するものです。これらのツールはどれも、BTC に直撃した 5,000 万ドルの成行買いがヘッジファンドのロング開始なのか、過剰レバレッジの個人トレーダーのポジションを取引所が清算したものなのかを教えてくれません。この二つの出来事はローソク足チャート上では同一に見えますが、次に何が起こるかという点では全く異なる意味を持ちます。</p>
+<p>マーケットマイクロストラクチャーはそのギャップを埋めます。AIO Terminal のアナリティクスタブにある三つのフローツールはそれぞれ異なる問いに答えます：</p>
+<ul>
+    <li><strong>Smart Tape：</strong> <em>今取引したのは誰で、どれほどの緊迫感を持っているか？</em></li>
+    <li><strong>アグレッション・ゲージ：</strong> <em>市場全体のバランスは今、買い方と売り方のどちらに傾いているか？</em></li>
+    <li><strong>スポット/無期限 CVD：</strong> <em>先物トレーダーはスポット市場をリードしているのか、それとも後追いしているのか？</em></li>
+</ul>
+<p>この三つのシグナルが合わさることで、価格だけでは得られない方向性のある全体像が形成されます。</p>
+
+<h2>Smart Tape：本当に重要なものをフィルタリングする</h2>
+
+<h3>生の取引フィードの問題点</h3>
+<p>Binance の BTC 先物はアクティブなセッション中、毎分 5,000〜10,000 件の個別取引が発生することがあります。生のテープはノイズです。その取引のほとんどは個人の注文 — $200、$1,000、$5,000 のポジション — であり、板に大きな影響を与えません。市場を動かすトレーダーは $100,000 以上の単位で執行します。Smart Tape は設定したしきい値以下をすべてフィルタリングし、重要なものだけを表示します。</p>
+
+<h3>Smart Tape の仕組み</h3>
+<p>AIO Terminal は Binance のリアルタイム取引ストリームに接続し、名目フィルター（デフォルト：1 取引あたり ≥ 50,000 USDT）を適用します。条件を満たした各取引は Smart Tape に以下の情報とともに表示されます：</p>
+<ul>
+    <li>方向：BUY（アグレッシブな買い手がアスクを叩く）または SELL（アグレッシブな売り手がビッドを叩く）</li>
+    <li>USDT 建ての名目サイズ</li>
+    <li>タイムスタンプ</li>
+</ul>
+<p>しきい値はサイドバーのドロップダウンで 5 つのプリセットから選べます：<strong>$25k / $50k / $100k / $200k / $500k</strong>（デフォルト：$50k）。選択は自動保存されます。BTC の場合、$50k は個人のノイズをほぼ排除できる適切な下限です。流動性の低い無期限先物（SOL、LINK、DOGE）では、その資産規模で意味のあるフローを確認するために $25k に下げてください。機関投資家の大口のみを表示したい場合は $100k〜$200k に引き上げてください。</p>
+
+<h3>スイープ検出：最も確信度の高いシグナル</h3>
+<p>Smart Tape の最も価値ある機能はスイープ検出です。500ms 以内に同方向の大口取引が 3 件以上発生すると、テープはそれをスイープとしてフラグ表示します：</p>
+
+<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:24px 0;">
+    <p style="margin:0 0 10px;font-size:.9rem;color:var(--text-secondary);">スイープ連続例（3 件すべて 500ms 以内）：</p>
+    <p style="margin:0;font-family:monospace;font-size:.85rem;">
+        12:34:01.123 — BUY $210,000<br>
+        12:34:01.342 — BUY $180,000<br>
+        12:34:01.489 — BUY $290,000<br>
+        <span style="color:#F0B90B;font-weight:bold;">⚡ BUY SWEEP 検出</span>
+    </p>
+</div>
+
+<p>スイープは、参加者が指値注文を出して待つのではなく、0.5 秒以内に複数の価格レベルを叩きにいくほど切迫していたことを意味します。これは大口の買い手または売り手が緊迫感を持って動いたサインです。最も一般的な解釈：</p>
+<ul>
+    <li><strong>レンジ抜けでの BUY SWEEP：</strong> ブレイクアウトにはモメンタムが伴っています。買い手は押し目を待っていません。</li>
+    <li><strong>レジスタンスへの BUY SWEEP：</strong> 誰かがその壁が圧力を吸収できるかテストしています。板のバーを確認してください — アスクの壁が縮小しなければ、買い手は止められます。</li>
+    <li><strong>サポートへの SELL SWEEP：</strong> アグレッシブな清算。個人のストップをクリアした後に反転するストップハント型スイープであれば、大口売り手がロングを構築している可能性があります。売りが続くならサポートは崩壊しています。</li>
+    <li><strong>5〜10 分間で同方向に複数のスイープ：</strong> 機関投資家のポジション構築。これはリアルタイムフローで得られるクリーンなシグナルの一つです — 持続的かつアグレッシブな買い手または売り手が時間をかけて大口注文を執行しています。</li>
+</ul>
+
+<h3>Smart Tape が教えてくれないこと</h3>
+<p>Smart Tape はアグレッシブ（成行）注文を表示します。パッシブ（指値）注文は表示しません — それらは板に表示され、テープには表れません。テープに表示された大口取引は誰かが市場価格を支払う意思があったことを意味し、指値板はパッシブな資金がどこで待機しているかを示します。両方を合わせて読むことで全体像が得られます：誰がアグレッシブで、パッシブな資金がどこにあるか。</p>
+
+<h2>アグレッション・ゲージ：圧力比率</h2>
+
+<h3>何を測定するか</h3>
+<p>アグレッション・ゲージは、総アグレッションに対する買い側アグレッションの比率を 0〜100 のスコアとして算出します。リアルタイムフィードの全取引は、買い手主導（アスクを叩く）または売り手主導（ビッドを叩く）に分類されます。ゲージは買い手主導の割合です。計算ウィンドウはサイドバーでユーザーが選択できます：<strong>1m</strong>（最も反応が速く瞬間的なモメンタム）、<strong>5m</strong>（バランスの取れたデフォルト）、または <strong>15m</strong>（平滑化されたトレンド）。スパークラインは選択したウィンドウに関係なく常に 1 分サンプルを使用するため、5m または 15m ゲージを表示していても一貫した 15 分間の参照が提供されます。</p>
+<ul>
+    <li>スコア 50：完全なバランス — 買いと売りのアグレッションが等しい</li>
+    <li>スコア 65 以上：持続的な買い側圧力 — 買い手がより切迫したサイド</li>
+    <li>スコア 35 以下：持続的な売り側圧力</li>
+</ul>
+<p>ゲージは約 1 秒ごとに更新されます。ほとんどのインジケーターと異なり、ローソク足の確定を待たずにリアルタイムで反応します。1 分足ローソクの確定は 12:00:15 のアグレッションが買いだったか売りだったかを教えてくれません。アグレッション・ゲージは現在の状態と軌跡の両方を教えてくれます。</p>
+
+<h3>15 分スパークライン</h3>
+<p>現在のスコアと並んで、ゲージは 15 分スパークライン — 過去 15 分間の読み値の小さな時系列 — を表示します。これは重要なコンテキストです。現在の読み値が 68 であっても、以下によって意味が全く異なります：</p>
+<ul>
+    <li>スパークラインが過去 10 分間で 50 → 68 と着実に上昇している（モメンタム構築中）</li>
+    <li>スパークラインが過去 30 秒で 45 → 68 にスパイクして戻りつつある（一時的な可能性が高く、持続しない可能性がある）</li>
+    <li>スパークラインが 15 分間ずっと 65〜72 の間で振動している（持続的な機関投資家の積み上げ）</li>
+</ul>
+<p>スパークラインを読むことで、より広いコンテキストがノイズであることを示しているときに 1 秒間のスパイクをシグナルとして扱うことを防げます。</p>
+
+<h3>アグレッション・ゲージの実践的なセットアップ</h3>
+
+<h4>ブレイクアウトの検証</h4>
+<p>主要なレジスタンス水準を上抜けた価格ブレイクアウトでアグレッション・ゲージの読み値が 55 未満であれば、弱いブレイクアウトです — 意味のある買い側圧力に裏付けられていません。多くのフォールスブレイクアウトはこうして起きます：価格が低ボリュームまたは指値注文の動きで水準を超え、個人トレーダーが追いかけ、アグレッシブな買いの欠如によってブレイクアウトが持続できなくなります。</p>
+<p>アグレッションが 65〜70 以上でスパークラインが過去 5〜10 分間持続的な圧力を示しているブレイクアウトは、正当なモメンタム・ブレイクアウトです。買い手はコミットしています。</p>
+
+<h4>価格とのダイバージェンス</h4>
+<p>価格が新しい直近高値を付けているのにアグレッション・ゲージが低い高値を形成している場合 — 価格は買い側圧力の低下の中で新高値を作っています。その動きを維持するために必要な買い手が、前の高値の時ほどアグレッシブではありません。これはマイクロレベルのベアリッシュダイバージェンスで、短期の反転や押し目に先行することが多いです。</p>
+
+<h4>エクゾースト・スパイク</h4>
+<p>85〜90 への急激なスパイクの後、すぐに 50〜55 に戻るパターンは売りのエクゾーストを示すことが多いです — アグレッシブな買い手が大きなアスクの壁をクリアするかショートカバーの連鎖を引き起こし、動きの勢いが尽きます。これはモメンタム上昇の高値でよく見られます。スパイクを追いかけるのではなく、ゲージがニュートラルに向けて崩落した後の反転に機会があることが多いです。</p>
+
+<h2>スポット/無期限 CVD ダイバージェンス：誰がリードしているか</h2>
+
+<h3>CVD を理解する</h3>
+<p>累積ボリュームデルタ（CVD）は、基準点を起点としたアグレッシブな買いからアグレッシブな売りを引いた累積和です。CVD が上昇しているとき、買い手は一貫して売り手よりもアグレッシブです。CVD が下落しているとき、売り手が支配的なアグレッシブ勢力です。CVD の絶対水準よりも方向と変化率の方が重要です。</p>
+<p>AIO Terminal は二つの市場で CVD を別々に計算します：Binance USDⓈ-M 無期限先物（パーペチュアル）と Binance スポット。ダイバージェンス値はその差です：<em>無期限 CVD − スポット CVD</em>。</p>
+
+<h3>数値と色の読み方</h3>
+<p>スポット/無期限 CVD パネルは三つのライブ値を純粋な数値として表示します — チャートラインではありません。色は一目で現在の状態を伝えます：</p>
+<ul>
+    <li><strong>無期限 CVD — プラスなら緑、マイナスなら赤：</strong> セッション開始からの無期限先物における買いと売りのデルタの正味累積。緑 = 全体的に買い手がよりアグレッシブ。赤 = 売り手が優勢。</li>
+    <li><strong>スポット CVD — プラスなら緑、マイナスなら赤：</strong> Binance スポット市場での同じ計算。</li>
+</ul>
+<p><strong>ダイバージェンスの色は意図的に逆になっています</strong> — 方向確認ではなくリスク/機会シグナルとして読みます：</p>
+<div style="overflow-x:auto;margin:16px 0 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.875rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">ダイバージェンス（無期限 − スポット）</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">パネルの色</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">シグナルの意味</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#ccc;">大きなプラス（例：+5000）</td>
+            <td style="padding:10px 14px;"><span style="color:#f6465d;font-weight:700;">赤</span></td>
+            <td style="padding:10px 14px;color:#ccc;"><strong>注意：</strong>先物の買いがスポットを大きく上回る — 先物が過剰レバレッジのロングになっている可能性</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#ccc;">大きなマイナス（例：−1800）</td>
+            <td style="padding:10px 14px;"><span style="color:#0ecb81;font-weight:700;">緑</span></td>
+            <td style="padding:10px 14px;color:#ccc;"><strong>機会シグナル：</strong>先物の売りがスポットより大幅に強い — 先物がスポット対比で売られすぎの可能性</td>
+        </tr>
+        <tr>
+            <td style="padding:10px 14px;color:#ccc;">ゼロ付近</td>
+            <td style="padding:10px 14px;"><span style="color:#888;font-weight:700;">グレー</span></td>
+            <td style="padding:10px 14px;color:#ccc;">両市場が同期 — 意味のあるダイバージェンスなし</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p>例：無期限 CVD = +5477、スポット CVD = −290 → ダイバージェンス = +5767 → <span style="color:#f6465d;font-weight:600;">赤</span>。先物がアグレッシブに買われている一方、スポットは実際には売られています — 先物の買い手が間違っているか、スポット主導の調整が来る可能性があります。例：無期限 CVD = −1995、スポット CVD = −137 → ダイバージェンス = −1858 → <span style="color:#0ecb81;font-weight:600;">緑</span>。両市場とも売られているが、先物の売りはスポット対比で極端 — 先物が売られすぎで回復の可能性があります。</p>
+
+<h3>スポット対無期限ダイバージェンスが重要な理由</h3>
+<p>スポットと無期限先物は同じ原資産を取引しているため、情報を持った買いや売りは通常、両市場で同時に現れます。乖離が生じると、対応する価値のあるポジションの不均衡を示します：</p>
+<ul>
+    <li><strong>無期限 CVD 上昇、スポット CVD 横ばいまたは下落（プラスのダイバージェンス）：</strong> 先物トレーダーが積み上げている一方、スポットの買い手は動いていない。スポットのキャッチアップ・ムーブに先行する可能性があります — ただし赤のダイバージェンス色はリスクをフラグ表示します：先物が先行し過ぎた場合、フラッシュに脆弱な過剰レバレッジのロングを意味する可能性があります。</li>
+    <li><strong>スポット CVD が無期限 CVD より速く上昇：</strong> 個人とスポットの買い手がアクティブで、先物のプロは参加していない。機関投資家が分配している個人主導のポンプ時によく見られます。ロングには注意が必要です。</li>
+    <li><strong>無期限 CVD 下落、スポット CVD 維持（大きなマイナスのダイバージェンス）：</strong> 先物がスポット対比で過度に売られている — スポットは「踏ん張っている」。緑のダイバージェンス色は潜在的な回復機会を示します：先物のポジションがショートに傾きすぎています。</li>
+    <li><strong>両方が共に下落：</strong> 両市場にわたる広範な分配。ダイバージェンスではなく、全面的な圧力です。</li>
+</ul>
+
+<h3>セッション・アンカリング</h3>
+<p>AIO Terminal は両方の CVD 値をセッション開始時点にアンカーします。これはサーバー起動時にゼロにリセットされ、そこから累積されることを意味します。絶対値はそのアンカー点からの正味の方向的圧力を反映しており、過去のデータからのドリフトなしにセッション内で一貫した読み値を提供します。</p>
+
+<h3>実例：動きの前の CVD ダイバージェンス</h3>
+<p>BTC セッションでのこのシナリオを考えてみましょう：</p>
+<ol>
+    <li>価格が 3 時間にわたって $65,000〜$65,800 のレンジで推移しています。どちらのサイドもブレイクアウトしていません。</li>
+    <li>過去 45 分間、無期限 CVD は着実に上昇しています — 先物での買い手が段階的にアグレッシブになっています。スポット CVD は横ばいです。</li>
+    <li>ダイバージェンス値が上昇しています — 先物の買いとスポットの買いの間のギャップが拡大しています。</li>
+    <li>Smart Tape はこの間、先物での $150k〜$300k の BUY 取引を数件表示していますが、スポットでは異常なものは見当たりません。</li>
+    <li>アグレッション・ゲージは 58〜62 を維持しています — ニュートラルより上ですが、スパイクはしていません。</li>
+</ol>
+<p>これは典型的な機関投資家の積み上げパターンです：大口の買い手がレンジ中に先物ポジションを構築しており、まだアグレッシブに支払う意思はありません（したがってスイープもアグレッション・スパイクもない）が、時間をかけて一貫してオファーを取り続けています。ダイバージェンスは彼らが上方への動きに向けてポジションを取っていることを示します — レンジが抜けたとき、それは本物の先物フローに裏付けられたものになります。</p>
+<p>ブレイクアウトが来たとき、ローソク足の確定に反応するのではなく事前にコンテキストを持った状態でいられます。それがこれらのツールが提供するエッジです。</p>
+
+<h2>三つを組み合わせる：完全なフロー・リーディング</h2>
+<p>これら三つのツールはそれぞれ異なる問いに答えます。最も確信度の高いトレードセットアップは、三つすべてが一致するときです：</p>
+
+<div style="overflow-x:auto;margin:24px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.875rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:12px 16px;text-align:left;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">シグナル</th>
+            <th style="padding:12px 16px;text-align:left;color:#0ecb81;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">強気の読み</th>
+            <th style="padding:12px 16px;text-align:left;color:#f6465d;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">弱気の読み</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">Smart Tape</td>
+            <td style="padding:12px 16px;color:#0ecb81;">BUY 取引 &amp; BUY SWEEPS</td>
+            <td style="padding:12px 16px;color:#f6465d;">SELL 取引 &amp; SELL SWEEPS</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">アグレッション・ゲージ</td>
+            <td style="padding:12px 16px;color:#0ecb81;">62 以上、スパークライン上昇</td>
+            <td style="padding:12px 16px;color:#f6465d;">38 以下、スパークライン下落</td>
+        </tr>
+        <tr>
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">スポット/無期限 CVD</td>
+            <td style="padding:12px 16px;color:#0ecb81;">無期限 CVD がスポット CVD を上方にリード</td>
+            <td style="padding:12px 16px;color:#f6465d;">無期限 CVD がスポットより速く下落</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<p>強気のコンフルエンス：Smart Tape が BUY SWEEPS を示し、アグレッションが 70 以上で、無期限 CVD がスポット CVD から上方に乖離している。これはこれらのツールが生み出せる中で最も確信度の高いリアルタイムのロングシグナルです。弱気のコンフルエンスはその鏡像です。</p>
+<p>混在するシグナル — 例えばアグレッションは高いが無期限 CVD が横ばいまたは下落している — は不確実性を示します。そのような場合、部分的な確認でトレードを無理に入るのではなく、サイズを減らすかより明確な一致を待つのが適切な対応です。</p>
+
+<div class="mid-article-cta">
+    <h4>AIO Terminal：フル・フロー・アナリティクスを無料で</h4>
+    <p>Smart Tape、アグレッション・ゲージ、スポット/無期限 CVD、リスクスコアはすべてアナリティクスタブの一部であり、すべての VIP プランに無料で含まれています。追加サブスクリプションなし。別途ツールも不要。</p>
+    <a href="../aio-terminal.html#analytics-showcase" class="btn btn-hero-primary btn-sm">アナリティクスタブを見る &rarr;</a>
+</div>
+
+<h2>トレードスタイルに合わせた設定</h2>
+<ul>
+    <li><strong>スキャルパー（1m〜5m）：</strong> Smart Tape のしきい値を低めに設定（ほとんどのペアで 20〜30k）し、自分のタイムフレームで市場を動かす中程度のフローをキャッチする。アグレッション・ゲージで 30 秒のスイングを監視。</li>
+    <li><strong>イントラデイ・トレーダー（15m〜1h）：</strong> デフォルト設定が機能します。30〜60 分間にわたって構築される CVD ダイバージェンスに注目。ブレイクアウトローソク足でのアグレッション確認を探す。</li>
+    <li><strong>スイング・トレーダー（4h〜日足）：</strong> ツールは主にデイリー構造の中でのエントリータイミングに使用。数日間保持するトレードに 1 分足のアグレッション読み値を過度に重視しない。</li>
+</ul>
+
+<h2>始め方</h2>
+<p>三つのツールはすべてアナリティクスタブにあります（キーボードの 8 キー、または AIO Terminal ナビゲーションのアナリティクスタブをクリック）。シンボルを選択すると — Binance WebSocket からすぐにデータがストリームされます。すべてのパネル設定は自動保存されます。AIO Terminal の各タブには専用のキーボードショートカットがあります（1 = ロング、2 = ショート、4 = クローズ、6 = TP/SL、7 = キャンセル、8 = アナリティクス）、いずれもターミナル設定でより速いナビゲーションのために再マップ可能です。</p>
+<p>AIO Terminal が初めての方は、どの VIP プランでも無料でアクセスできます。サブスクリプション後、ターミナルの認証情報を取得するために Telegram（@nguyenthl）でお問い合わせください。</p>
+<p>板ヒートマップ、タイムヒートマップ、リスクスコアを含む全 8 つのアナリティクスパネルの完全な概要については、アナリティクスタブの完全ガイドをご参照ください。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Analytics Guides</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-analytics-tab-market-microstructure-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">Analytics Tab: Complete Guide</h3>
+                            <p class="feature-description">All 7 Analytics panels explained: Order Book, Aggression, Smart Tape, CVD, Risk Score, Time Heatmap, Depth Chart.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Order Book Panel Deep Dive</h3>
+                            <p class="feature-description">Live DOM overlay, depth chart, whale wall detection, and stop placement using order book structure on Binance Futures.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, stacked imbalances, and how to read order flow momentum before price moves.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="aio-terminal-analytics-tab-market-microstructure-guide.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide</span></a>
+      <a class="aio-related-card" href="aio-terminal-order-book-live-dom-binance-futures.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</span></a>
+      <a class="aio-related-card" href="aio-terminal-binance-futures-trading-tool.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal: The Pro Binance Futures Tool You Didn't Know You Needed</span></a>
+      <a class="aio-related-card" href="why-binance-interface-slows-down-traders.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">Why Binance's Native Interface Is Costing You Trades (And Money)</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

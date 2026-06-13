@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx 99622ab7e0929958 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="锚定 VWAP 详解：机构如何将其用作跨周期成本基础参考、三种经过验证的交易策略，以及超延伸检测在实战中的运用。" />
+    <meta name="keywords" content="锚定 VWAP, AVWAP 策略, 锚定 VWAP 交易, 机构 VWAP, VWAP 跨周期, 锚定 VWAP TradingView, AIO Indicator, 成交量加权平均价格" />
+    <meta name="author" content="AIO Indicator" />
+    <title>锚定 VWAP：机构参考价格，众人忽视的基准 | AIO Indicator</title>
+
+    <meta property="og:title" content="锚定 VWAP：机构参考价格，众人忽视的基准" />
+    <meta property="og:description" content="为何锚定 VWAP 能将标准 VWAP 的效力延伸至多个交易周期，如何选择锚点，以及三种针对回调、均值回归和控制权转移的交易策略。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/anchored-vwap-institutional-reference.zh.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.zh.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="锚定 VWAP：机构参考价格，众人忽视的基准" />
+    <meta name="twitter:description" content="锚定 VWAP 策略：回调入场、超延伸检测，以及跨多个交易周期的控制权转移分析。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "锚定 VWAP：机构参考价格，众人忽视的基准",
+      "description": "锚定 VWAP 详解：机构如何将其用作跨周期成本基础参考、三种经过验证的交易策略，以及超延伸检测在实战中的运用。",
+      "url": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html",
+      "datePublished": "2025-12-09",
+      "dateModified": "2025-12-09",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Anchored VWAP: The Institutional Reference Price Everyone Ignores", "item": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Day Trading</div>
+                    <h1 class="article-title">锚定 VWAP：机构参考价格，众人忽视的基准</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> December 9, 2025</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><h2>标准 VWAP 无法解决的局限性</h2>
+<p>滚动 VWAP &mdash; 大多数交易者使用的标准版本 &mdash; 在每个交易周期开始时重置。这使其成为出色的日内参考，但对于跨越多日的分析却存在结构性局限：每个新周期都从零开始，对此前发生的一切毫无记忆。三个周期前某次重要积累事件中形成的机构成本基础，在滚动 VWAP 上完全不可见。对于日内以外的任何背景，你基本上是在没有仪表盘的情况下飞行。</p>
+<p>锚定 VWAP 正是为此而生。它不再在周期开盘时自动重置，而是从交易者选定的特定 K 线开始计算 &mdash; 锚定于某个具有意义的市场事件 &mdash; 并无限向前延伸。其结果是一条成交量加权平均价格线，涵盖从锚点至当前时刻的每一笔成交，代表着所有在该事件时或之后入场参与者的真实平均成本基础。</p>
+
+<h2>如何选择锚点：锁定重要事件</h2>
+<p>锚定 VWAP 的威力与锚点的重要程度成正比。锚点选择不当只会产生噪音；有意义的锚点才能提供可操作的参考水平。</p>
+
+<h3>主要摆动低点与高点</h3>
+<p>锚定至一个清晰界定的重要低点，代表着积累或拉升阶段的起点。买入该低点的每一位参与者，以及此后跟进上涨的每一位买家，其集体平均成本都体现在 AVWAP 上。当价格在上升趋势中回调至该锚定 VWAP 时，即是回调至所有趋势参与者的集体均价 &mdash; 大多数多单持仓接近盈亏平衡的水平。低于这个水平，他们亏损；高于这个水平，他们盈利。机构在该水平的反应往往十分强烈。</p>
+
+<h3>重要看跌事件（暴跌底部、财报跳空）</h3>
+<p>将锚点设于跳空低开或暴跌低点，可为在极端位置入场的买家建立一条参考线。这些参与者的成本基础低于市场中的其他所有人 &mdash; 他们通常是最聪明的资金（在价格最为低迷时买入）。他们的 AVWAP 充当一道底板，其可靠性远超静态支撑位。</p>
+
+<h3>财报事件与宏观数据发布</h3>
+<p>对于个股而言，将 VWAP 锚定至财报发布日，可追踪所有基于该财报入场参与者的平均成本。当价格重回财报后 AVWAP，即代表所有财报后买家的平均盈亏平衡点。该水平往往表现出强烈的锚定效应。</p>
+
+<h2>三种锚定 VWAP 交易策略</h2>
+
+<h3>策略一：AVWAP 回调交易</h3>
+<p>在上升趋势中，将 AVWAP 锚定至最近一个重要低点。随着上升趋势展开，价格周期性地回调至 AVWAP。在最理想的形态中，价格触及 AVWAP 后以反转 K 线（针形线、吞没线）反弹。这便是 AVWAP 回调入场 &mdash; 尽可能在接近趋势参与者集体均价的位置买入。</p>
+<p>止损设置：置于 AVWAP 下方（代表交易失败）或前一摆动低点下方，取结构上更为合理者。目标位：前高或下一阻力位。</p>
+<p>为何有效：持有多单的市场参与者从起始周期开始守护其平均成本。低于 AVWAP 时，其持仓处于亏损状态；在 AVWAP 或以上时，则处于盈利状态。该均价处集中的防守性买盘，使其在趋势回调期间成为可靠的支撑区域。</p>
+
+<h3>策略二：超延伸与均值回归</h3>
+<p>当价格与 AVWAP 出现明显背离 &mdash; 一个实用基准是高于 AVWAP 15&ndash;20% &mdash; 可能正在进入超延伸区域。高于平均成本的每一个点位，对于累积参与者而言都代表未实现利润，从而产生越来越强的派发动机（获利了结）。对大盘股行为的研究表明，高于主要低点 AVWAP 逾 17% 的情况，往往先于整理或回调周期出现。</p>
+<p>这并非做空信号 &mdash; 上升趋势可能在超延伸状态下维持相当长时间，尤其是在动能驱动的加密货币和成长股环境中。这是一个风险管理信号：当价格明显高于 AVWAP 时，减少新建多单规模，提高现金占比，并收紧移动止损。</p>
+
+<h3>策略三：控制权转移分析（多条 AVWAP）</h3>
+<p>最为精妙的锚定 VWAP 应用，是同时绘制锚定于不同重要事件的多条 AVWAP。当短期 AVWAP（锚定于近期高点）位于长期 AVWAP（锚定于更远的重要低点）之上时，近期入场者的平均成本高于长期参与者 &mdash; 若价格低于近期 AVWAP，则在短期层面形成结构性看跌配置。</p>
+<p>当短期 AVWAP 向下穿越长期 AVWAP 时，标志着市场控制权的转移：近期高成本多头已陷入亏损，而较早入场的低成本多头仍维持盈利。这种配置的变化往往先于既有趋势的加速出现。</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>想在实时图表上查看此功能？</strong> <span>AIO Indicator 已将其自动化 &mdash; 无需手动绘制。</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> 免费试用 5 天</a></div></div>
+
+<h2>锚定 VWAP 与回望区间的结合</h2>
+<p>锚定 VWAP 提供一条代表均价的动态价格线。但价格并非与单一点位互动 &mdash; 它与区间互动。将 AVWAP 与溢价/折价分析叠加，为均价框架增添了空间维度。</p>
+<p>框架逻辑：若 AVWAP 代表平均成本，则价格显著高于 AVWAP 属于"溢价"（买家支付高于均值的价格），价格显著低于则属于"折价"（买家支付低于均值的价格）。当更高时间周期的回望区间确认折价区（前期高低点中位线位于当前价格上方），且 AVWAP 同样位于当前价格上方时，构成买入区域的累积证据尤为充分。</p>
+<p><strong>AIO Lookback</strong> 指标基于 H4 和日线回望区间，精确显示这些溢价与折价区间（H4 默认 30/60/90 根 K 线；日线默认 20/40/60 根 K 线）。当上述 AVWAP 回调形态与 AIO Lookback 折价区间（绿色背景，价格低于区间中位线）重合时，这种共振所产生的胜率，远高于任何单一信号单独出现时的水平。</p>
+
+<h2>锚点选择的实战指引</h2>
+<p>不同交易风格适用不同的锚点：</p>
+<ul>
+    <li><strong>日内交易者：</strong>锚定至前一交易周期低点（用于上升趋势背景）或前一交易周期高点（用于下降趋势）。这将 VWAP 延伸至单一周期重置限制之外，为日内波段提供更宽广的背景。</li>
+    <li><strong>波段交易者（多日）：</strong>锚定至最近一个重要摆动低点或当前趋势段的起点。当趋势结构形成新的重要摆动低点并成为新的基础时，更新锚点。</li>
+    <li><strong>持仓交易者：</strong>锚定至重大市场事件：暴跌低点（2020 年 3 月新冠低点、加密市场 FTX 崩盘）、IPO 日期或财报催化剂。这些事件产生机构意义最为重大的参考水平。</li>
+</ul>
+
+<h2>核心要点</h2>
+<ul>
+    <li>锚定 VWAP 通过将计算锚定至特定重要价格事件（而非每日重置），将成交量加权均价分析延伸至多个交易周期</li>
+    <li>AVWAP 代表所有从锚点起入场参与者的平均成本基础 &mdash; 使其成为真正的机构参考，而非零售指标</li>
+    <li>AVWAP 回调交易：在上升趋势中，当价格回调至 AVWAP 并出现拒绝确认时买入；止损置于 AVWAP 下方，目标位为前高</li>
+    <li>超延伸信号：价格高于 AVWAP 逾 15&ndash;20% 时，应减少多头敞口并收紧移动止损，而非必然做空</li>
+    <li>多条 AVWAP 控制权转移：短期 AVWAP 向下穿越长期 AVWAP，标志着市场控制权发生机制性转变</li>
+    <li>最佳锚点：主要摆动、暴跌底部、重要跳空日及财报发布 &mdash; 事件越重要，由此衍生的 AVWAP 参考价值越高</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="vwap-trading-strategy-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
+                            <h3 class="feature-title">VWAP Trading Guide</h3>
+                            <p class="feature-description">Rolling VWAP basics, intraday pullback and breakout setups, and standard deviation band strategies before anchoring.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="premium-discount-lookback-zones.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+                            <h3 class="feature-title">Premium &amp; Discount Lookback Zones</h3>
+                            <p class="feature-description">Lookback range zones combined with AVWAP for high-confluence premium/discount entries in trending markets.</p>
+                            <span class="feature-description small">10 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="volume-spread-analysis-vsa-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">Volume Spread Analysis</h3>
+                            <p class="feature-description">How volume at price levels — including AVWAP zones — reveals whether institutional buyers are absorbing or distributing supply.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="vwap-trading-strategy-guide.html"><span class="aio-related-cat">Day Trading</span><span class="aio-related-title">VWAP Trading Guide: Rolling VWAP, Anchored VWAP &amp; Standard Deviation Bands</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-rsi.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-top-bottom.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO Top/Bottom Confidence: Detecting Market Reversals with Scoring</span></a>
+      <a class="aio-related-card" href="divergence-trading-rsi-hidden-regular.html"><span class="aio-related-cat">Momentum</span><span class="aio-related-title">Divergence Trading: Regular, Hidden, and Cross-Symbol Divergence Explained</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

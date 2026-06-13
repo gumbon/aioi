@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja" data-page-lang="ja">
+<!-- aio-tx 99622ab7e0929958 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Anchored VWAPを解説：機関投資家がマルチセッションのコスト基準参照として活用する方法、3つの実証済みトレード戦略、そして実際の乖離検出の仕組み。" />
+    <meta name="keywords" content="anchored VWAP, AVWAP戦略, anchored VWAPトレード, 機関投資家VWAP, VWAPマルチセッション, anchored VWAP TradingView, AIO Indicator, 出来高加重平均価格" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Anchored VWAP：誰もが無視する機関投資家の参照価格 | AIO Indicator</title>
+
+    <meta property="og:title" content="Anchored VWAP：誰もが無視する機関投資家の参照価格" />
+    <meta property="og:description" content="Anchored VWAPが標準VWAPの力を複数セッションにわたって拡張する理由、アンカーポイントの選び方、そしてプルバック・リバージョン・コントロールシフトの3つのトレード戦略。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ja.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ja.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Anchored VWAP：誰もが無視する機関投資家の参照価格" />
+    <meta name="twitter:description" content="Anchored VWAP戦略：プルバックエントリー、乖離検出、複数トレーディングセッションにわたるコントロールシフト分析。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Anchored VWAP：誰もが無視する機関投資家の参照価格",
+      "description": "Anchored VWAPを解説：機関投資家がマルチセッションのコスト基準参照として活用する方法、3つの実証済みトレード戦略、そして実際の乖離検出の仕組み。",
+      "url": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html",
+      "datePublished": "2025-12-09",
+      "dateModified": "2025-12-09",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Anchored VWAP: The Institutional Reference Price Everyone Ignores", "item": "https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/anchored-vwap-institutional-reference.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Day Trading</div>
+                    <h1 class="article-title">Anchored VWAP：誰もが無視する機関投資家の参照価格</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> December 9, 2025</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><h2>標準VWAPが解決できない限界</h2>
+<p>ローリングVWAP &mdash; ほとんどのトレーダーが使用する標準バージョン &mdash; は各トレーディングセッションの開始時にリセットされます。これにより優れたイントラデイ参照となりますが、複数日にわたる分析では構造的な限界が生じます：新しいセッションはそれまでの情報を一切引き継がずにゼロから始まるのです。3セッション前の重要な買い集め局面で積み上げられた機関投資家のコスト基準は、ローリングVWAP上では見えません。イントラデイの文脈を超える分析においては、実質的に計器なしで飛行しているようなものです。</p>
+<p>Anchored VWAPはまさにこの問題を解決します。セッション開始時に自動リセットする代わりに、Anchored VWAPはトレーダーが選択した特定のバー &mdash; 意味のある市場イベントにアンカーされた地点 &mdash; から計算を開始し、無期限に前方へ延伸します。結果として得られるのは、そのアンカーポイントから現在まで行われたすべての取引を組み込んだ出来高加重平均価格であり、そのイベント時点以降に参入したすべての参加者の真の平均コスト基準を表します。</p>
+
+<h2>アンカーポイントの選択：重要なイベントを選ぶ</h2>
+<p>Anchored VWAPの有効性は、アンカーポイントの重要性に正比例します。不適切なアンカー選択はノイズを生み出し、意味のあるアンカーは実行可能な参照レベルを生み出します。</p>
+
+<h3>主要なスイング安値・高値</h3>
+<p>明確に定義された主要安値にアンカーすることで、買い集めやマークアップフェーズの起点を表します。その安値で買ったすべての参加者と、その後の上昇過程で買ったすべての参加者の集合的な平均コストがAVWAPに反映されます。上昇トレンド中に価格がこのアンカーVWAPに向けてプルバックする際、それはすべてのトレンド参加者の集合的な平均値へのプルバックです &mdash; ほとんどのロングポジションが概ねブレークイーブンとなるレベルです。このレベルを下回れば損失、上回れば利益。このレベルでの機関投資家の反応は強い傾向があります。</p>
+
+<h3>重要な弱気イベント（暴落底値、決算ギャップ）</h3>
+<p>ギャップダウン始値や暴落安値にアンカーすることで、絶対的な極値で参入した買い手の参照レベルが作られます。これらの参加者は市場の他の誰よりも低いコスト基準を持っています &mdash; そして彼らは通常、最もスマートなマネー（価格が最も落ち込んだ時に買う）です。彼らのAVWAPは、静的なサポートレベルよりもはるかに堅固な下値支持として機能します。</p>
+
+<h3>決算イベントとマクロ指標の発表</h3>
+<p>個別株において、VWAPを決算発表日にアンカーすることで、その決算報告を基に参入したすべての参加者の平均コストを追跡できます。価格が決算後のAVWAPを再訪するとき、それは決算後のすべての買い手の平均ブレークイーブンポイントを表します。このレベルはしばしば強いアンカリング行動をもたらします。</p>
+
+<h2>3つのAnchored VWAPトレード戦略</h2>
+
+<h3>戦略1：AVWAPプルバックトレード</h3>
+<p>上昇トレンドにおいて、最も直近の重要な安値にAVWAPをアンカーします。上昇トレンドが進展するにつれ、価格は定期的にAVWAPに向けてプルバックします。最もクリーンなセットアップでは、価格がAVWAPに触れてリジェクションキャンドル（ピンバー、エンガルフィング）とともに反発します。これがAVWAPプルバックエントリーです &mdash; トレンド参加者の集合的な平均コストにできるだけ近い価格で買います。</p>
+<p>ストップ配置：AVWAP の下（トレード失敗を示す）または直近のスイング安値の下、構造的に適切な方を選択します。ターゲット：直近高値または次のレジスタンスレベル。</p>
+<p>機能する理由：起点期間からのオープンロングポジションを持つ市場参加者が、平均コストを守ります。AVWAPを下回るとポジションは含み損になり、AVWAPを上回ると利益になります。その平均値に集中する防衛的な買い関心が、トレンドのプルバック中に信頼できるサポートゾーンを形成します。</p>
+
+<h3>戦略2：乖離とミーンリバージョン</h3>
+<p>価格がAVWAPから大幅に乖離した場合 &mdash; 延伸したトレンドではAVWAPから15&ndash;20%上方が有用なベンチマーク &mdash; 乖離過多の領域に入っている可能性があります。平均コストを上回るすべてのポイントは、累積参加者ベースの未実現利益を表し、分配（利益確定）の誘因を高めます。大型株の行動研究によると、主要安値からのAVWAPを17%超上回ると、調整または修正局面に先行することが多いとされています。</p>
+<p>これはショートセルのシグナルではありません &mdash; 上昇トレンドは長期間乖離した状態を維持することがあり、特にモメンタム主導の暗号通貨や成長株の環境ではその傾向が強いです。これはリスク管理シグナルです：AVWAPを大幅に上回っている場合は新規ロングポジションのサイズを縮小し、キャッシュ配分を増やし、タイトなトレーリングストップを使用します。</p>
+
+<h3>戦略3：コントロールシフト分析（複数のAVWAP）</h3>
+<p>最も高度なAnchored VWAPの活用法は、異なる重要イベントにアンカーされた複数のAVWAPを同時にプロットする方法です。短期AVWAP（直近高値にアンカー）が長期AVWAP（より遠い重要安値にアンカー）の上に位置する場合、直近の参入者は長期参加者よりも高い平均コストを持っています &mdash; 価格が直近AVWAPを下回っている場合、短期レベルでは構造的に弱気のコンフィギュレーションです。</p>
+<p>短期AVWAPが長期AVWAPを下抜けると、市場をコントロールするのが誰かというシフトを示します：直近の高コストロングは含み損になり、古い低コストロングは依然として利益を維持しています。このコンフィギュレーションの変化は、確立されたトレンドの加速に先行することが多いです。</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>ライブチャートで確認したいですか？</strong> <span>AIO Indicatorはこれを自動化します &mdash; 手動での描画は不要です。</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> 5日間無料トライアル</a></div></div>
+
+<h2>Anchored VWAPとルックバックゾーンの組み合わせ</h2>
+<p>Anchored VWAPは平均値を表す単一の動的価格ラインを提供します。しかし価格は単一のポイントではなく、ゾーンと相互作用します。AVWAPにプレミアム・ディスカウント分析を重ねることで、平均価格フレームワークに空間的なコンテキストが加わります。</p>
+<p>フレームワーク：AVWAPが平均コストを表すとすれば、AVWAPを大幅に上回る価格は「プレミアム」（買い手が平均以上を支払う）であり、大幅に下回る価格は「ディスカウント」（買い手が平均以下で支払う）です。より高い時間足のルックバックレンジがディスカウントゾーンを確認し（前回の高値・安値の中間点が現在価格より上にある）、AVWAPも現在価格より上にある場合、買いゾーンの累積的な根拠が特に強くなります。</p>
+<p><strong>AIO Lookback</strong>インジケーターは、H4およびデイリーのルックバックレンジ（デフォルト：4H用30/60/90バー、デイリー用20/40/60バー）に基づいて、これらのプレミアムおよびディスカウントゾーンを正確に表示します。上記のAVWAPプルバックセットアップがAIO Lookbackのディスカウントゾーン（緑の背景、価格がレンジ中間点を下回る）と一致する場合、コンフルエンスはどちらか単独のシグナルよりも高確率のセットアップを生み出します。</p>
+
+<h2>実践的なアンカーポイント選択</h2>
+<p>トレードスタイルによって、最適なアンカーポイントは異なります：</p>
+<ul>
+    <li><strong>デイトレーダー：</strong>前セッション安値（上昇トレンドのコンテキスト用）または前セッション高値（下降トレンド用）にアンカーします。これによりイントラデイのスイングコンテキストで、単一セッションリセットの限界を超えてVWAPを拡張できます。</li>
+    <li><strong>スイングトレーダー（複数日）：</strong>最も直近の重要なスイング安値または現在のトレンドレッグの起点にアンカーします。トレンド構造が新たな重要なスイング安値を形成し、新たなベースとなった時点でアンカーを更新します。</li>
+    <li><strong>ポジショントレーダー：</strong>主要な市場イベントにアンカーします：暴落安値（2020年3月のコロナ安値、暗号通貨のFTX崩壊）、IPO日、または決算触媒。これらが最も機関投資家にとって重要な参照レベルを生み出します。</li>
+</ul>
+
+<h2>重要ポイントのまとめ</h2>
+<ul>
+    <li>Anchored VWAPは、日次リセットではなく特定の重要な価格イベントを起点として計算することで、複数セッションにわたる出来高加重平均価格分析を可能にします</li>
+    <li>AVWAPはアンカーポイント以降に参入したすべての参加者の平均コスト基準を表します &mdash; これにより、小売指標ではなく真の機関投資家参照となります</li>
+    <li>AVWAPプルバックトレード：上昇トレンドでリジェクション確認とともに価格がAVWAPにプルバックした際に買いエントリー；ストップはAVWAPの下、ターゲットは直近高値</li>
+    <li>乖離シグナル：AVWAPから15&ndash;20%超の価格は、必ずしもショートポジションではなく、ロングエクスポージャーの縮小とトレーリングストップの締め直しを促します</li>
+    <li>複数AVWAPのコントロールシフト：短期AVWAPが長期AVWAPを下抜けると、市場をコントロールするのが誰かというレジームチェンジを示します</li>
+    <li>最適なアンカーポイント：主要なスイング、暴落底値、重要なギャップ日、決算発表 &mdash; イベントが重要であるほど、そこから導かれるAVWAPの関連性が高まります</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="vwap-trading-strategy-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up"></i></div>
+                            <h3 class="feature-title">VWAP Trading Guide</h3>
+                            <p class="feature-description">Rolling VWAP basics, intraday pullback and breakout setups, and standard deviation band strategies before anchoring.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="premium-discount-lookback-zones.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+                            <h3 class="feature-title">Premium &amp; Discount Lookback Zones</h3>
+                            <p class="feature-description">Lookback range zones combined with AVWAP for high-confluence premium/discount entries in trending markets.</p>
+                            <span class="feature-description small">10 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="volume-spread-analysis-vsa-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-fill"></i></div>
+                            <h3 class="feature-title">Volume Spread Analysis</h3>
+                            <p class="feature-description">How volume at price levels — including AVWAP zones — reveals whether institutional buyers are absorbing or distributing supply.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="vwap-trading-strategy-guide.html"><span class="aio-related-cat">Day Trading</span><span class="aio-related-title">VWAP Trading Guide: Rolling VWAP, Anchored VWAP &amp; Standard Deviation Bands</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-rsi.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO RSI: Multi-Layer Divergence, Patterns &amp; Dual RSI Analysis</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-top-bottom.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO Top/Bottom Confidence: Detecting Market Reversals with Scoring</span></a>
+      <a class="aio-related-card" href="divergence-trading-rsi-hidden-regular.html"><span class="aio-related-cat">Momentum</span><span class="aio-related-title">Divergence Trading: Regular, Hidden, and Cross-Symbol Divergence Explained</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

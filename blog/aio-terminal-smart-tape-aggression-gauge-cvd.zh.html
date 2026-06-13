@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx ca82b2581768c703 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="使用 AIO Terminal 的 Smart Tape、Aggression Gauge 和现货/合约 CVD 背离实时读取机构订单流的实操指南——含 BTC 期货交易的具体设置方案。" />
+    <meta name="keywords" content="smart tape 交易, aggression gauge Binance, 现货合约 CVD 背离, 机构订单流, 加密货币买入扫盘, 累计成交量差值期货, Binance 合约分析, AIO Terminal 流量分析" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Smart Tape、Aggression Gauge 与 CVD：实时解读机构订单流 | AIO Indicator</title>
+
+    <meta property="og:title" content="Smart Tape、Aggression Gauge 与 CVD：实时解读机构订单流" />
+    <meta property="og:description" content="如何使用 AIO Terminal 的 Smart Tape（大额交易+扫盘）、Aggression Gauge（买卖压力 0–100）和现货/合约 CVD 背离，在价格行动之前识别机构动向。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.zh.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Smart Tape、Aggression Gauge 与 CVD：实时解读机构订单流" />
+    <meta name="twitter:description" content="使用大额交易过滤、买卖压力评分及 AIO Terminal 中期货与现货 CVD 背离识别机构活动的实操指南。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.zh.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Smart Tape、Aggression Gauge 与 CVD：实时解读机构订单流",
+      "description": "使用 AIO Terminal 的 Smart Tape、Aggression Gauge 和现货/合约 CVD 背离实时读取机构订单流的实操指南——含 BTC 期货交易的具体设置方案。",
+      "url": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html",
+      "datePublished": "2026-06-06",
+      "dateModified": "2026-06-06",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html"
+      },
+      "image": "https://aioindicator.com/assets/terminal/aio-smart-aggression-cvd-risk.avif",
+      "keywords": "smart tape, aggression gauge, CVD divergence, order flow, Binance futures, institutional trading"
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/aio-terminal-smart-tape-aggression-gauge-cvd.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top modern-navbar" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="../">
+            <img src="../assets/favicon.ico" height="32" alt="AIO Indicator logo" class="me-2">
+            AIO Indicator
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(240,185,11,0.15);color:#f0b90b;border-color:rgba(240,185,11,0.3);">Order Flow</div>
+                    <h1 class="article-title">Smart Tape、Aggression Gauge &amp; CVD：实时解读机构订单流</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> June 6, 2026</span>
+                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><p class="lead">价格行情告诉你市场走过了哪里，而订单流告诉你是谁在驱动它、驱动的力度有多大。AIO Terminal 的 Smart Tape、Aggression Gauge 和现货/合约 CVD 面板将三种最强大的实时流量信号集成到你的执行界面中——让你在挂单仍然有效时就能读懂机构动向。</p>
+
+<div style="margin:28px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);">
+    <img src="../assets/terminal/aio-smart-aggression-cvd-risk.avif" alt="Smart Tape、Aggression Gauge、现货/合约 CVD 及风险评分面板" style="width:100%;display:block;" loading="lazy" />
+    <p style="text-align:center;font-size:.8rem;color:var(--text-secondary);padding:10px;margin:0;background:rgba(255,255,255,0.02);">Smart Tape、Aggression Gauge、现货/合约 CVD 与风险评分——均位于 Analytics 标签页</p>
+</div>
+
+<h2>为何大多数散户看不清真正推动价格的力量</h2>
+<p>散户的标准工具箱——RSI、MACD、均线，甚至成交量柱——描述的都是历史价格。这些工具无法告诉你，刚刚砸入 BTC 的那笔 5000 万美元市价买单，是对冲基金在建多仓，还是交易所在强平某个过度杠杆散户的仓位。这两种事件在 K 线图上看起来一模一样，但对后续走势的含义截然不同。</p>
+<p>市场微观结构填补了这一空白。AIO Terminal Analytics 标签页中的三种流量工具各自回答一个不同的问题：</p>
+<ul>
+    <li><strong>Smart Tape：</strong> <em>谁刚刚成交，力度有多大？</em></li>
+    <li><strong>Aggression Gauge：</strong> <em>当前整体市场的天平正在向买方还是卖方倾斜？</em></li>
+    <li><strong>现货/合约 CVD：</strong> <em>期货交易者是在领先还是滞后于现货市场？</em></li>
+</ul>
+<p>三种信号合力构建出一幅单靠价格无法呈现的方向性图景。</p>
+
+<h2>Smart Tape：过滤真正重要的交易</h2>
+
+<h3>原始成交流的问题</h3>
+<p>活跃时段 Binance 上的 BTC 期货每分钟可产生 5,000–10,000 笔独立成交。原始成交流就是噪音。其中大多数是散户订单——$200、$1,000、$5,000 的仓位，对订单簿没有实质性影响。真正推动市场的交易者以 $100,000+ 的单笔规模执行。Smart Tape 过滤掉所有低于你设定阈值的成交，只显示真正重要的部分。</p>
+
+<h3>Smart Tape 的工作原理</h3>
+<p>AIO Terminal 接入 Binance 实时成交流，并应用名义金额过滤（默认：每笔 ≥ 50,000 USDT）。每笔符合条件的成交在 Smart Tape 中显示以下信息：</p>
+<ul>
+    <li>方向：BUY（主动买方吃卖盘）或 SELL（主动卖方吃买盘）</li>
+    <li>名义金额（USDT）</li>
+    <li>时间戳</li>
+</ul>
+<p>阈值可在侧边栏下拉菜单中选择，共五个预设：<strong>$25k / $50k / $100k / $200k / $500k</strong>（默认：$50k）。你的选择会自动保存。对于 BTC，$50k 是合理的下限——可过滤掉大部分散户噪音。对于流动性较低的永续合约（SOL、LINK、DOGE），可降至 $25k 以捕捉在这些资产规模下有意义的流量。若要获得仅显示大额机构成交的清晰视图，可提高至 $100k–$200k。</p>
+
+<h3>扫盘检测：最高置信度信号</h3>
+<p>Smart Tape 最有价值的功能是扫盘检测。当三笔或以上的大额同向成交在 500ms 窗口内发生时，系统将其标记为扫盘：</p>
+
+<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:24px 0;">
+    <p style="margin:0 0 10px;font-size:.9rem;color:var(--text-secondary);">扫盘示例（以下 3 笔均在 500ms 内发生）：</p>
+    <p style="margin:0;font-family:monospace;font-size:.85rem;">
+        12:34:01.123 — BUY $210,000<br>
+        12:34:01.342 — BUY $180,000<br>
+        12:34:01.489 — BUY $290,000<br>
+        <span style="color:#F0B90B;font-weight:bold;">⚡ 检测到 BUY SWEEP</span>
+    </p>
+</div>
+
+<p>扫盘意味着某参与者愿意主动付出代价——在半秒内连续打穿多个价格层位，而非挂限价单静候成交。这是大型买家或卖家急迫行动的标志性特征。最常见的解读如下：</p>
+<ul>
+    <li><strong>震荡突破时的 BUY SWEEP：</strong> 突破有动能支撑，买方不等回调。</li>
+    <li><strong>打入阻力位的 BUY SWEEP：</strong> 有人在测试这堵墙能否承受压力。观察订单簿柱状图——如果卖盘墙没有缩小，买方将被阻止。</li>
+    <li><strong>打入支撑位的 SELL SWEEP：</strong> 激进清仓。若这是一次猎杀散户止损后随即反转的扫盘，大型卖家可能在建多仓；若抛售持续，则支撑正在失守。</li>
+    <li><strong>5–10 分钟内同向多次扫盘：</strong> 机构建仓。这是实时流量中较为清晰的信号之一——持续的激进买家或卖家正在分批执行大额订单。</li>
+</ul>
+
+<h3>Smart Tape 无法告诉你的信息</h3>
+<p>Smart Tape 显示的是主动（市价）订单，不显示被动（限价）订单——限价订单显示在订单簿中，而非成交流。成交流中出现大额成交意味着有人愿意以市价成交；限价簿则显示耐心资金的等待位置。两者结合才能获得完整图景：谁在积极出击，以及耐心资金布局在哪里。</p>
+
+<h2>Aggression Gauge：压力比率</h2>
+
+<h3>衡量的是什么</h3>
+<p>Aggression Gauge 计算买方主动性占总主动性的比率，以 0–100 分呈现。实时流中每笔成交被分类为买方发起（吃卖盘）或卖方发起（吃买盘）。该指标即买方发起的占比。计算窗口可在侧边栏中选择：<strong>1m</strong>（最灵敏，即时动能）、<strong>5m</strong>（均衡默认）或 <strong>15m</strong>（平滑趋势）。无论你选择哪个窗口，迷你折线图始终使用 1 分钟采样，因此提供一致的 15 分钟参考。</p>
+<ul>
+    <li>评分 50：完美均衡——买卖主动性相当</li>
+    <li>评分 65+：持续买方压力——买方是更急迫的一方</li>
+    <li>评分 35 或以下：持续卖方压力</li>
+</ul>
+<p>指标每约 1 秒更新一次。与大多数指标不同，它实时响应——而非等待 K 线收盘。1 分钟 K 线的收盘价无法告诉你 12:00:15 的主动性是买还是卖，而 Aggression Gauge 既告诉你当前状态，也告诉你变化趋势。</p>
+
+<h3>15 分钟折线图</h3>
+<p>在当前评分旁边，指标显示一条 15 分钟折线图——过去 15 分钟读数的小型时间序列。这是关键背景。当前读数 68，含义截然不同，取决于：</p>
+<ul>
+    <li>折线图显示过去 10 分钟指标从 50 稳步攀升至 68（动能积累中）</li>
+    <li>折线图显示指标在最近 30 秒从 45 骤升至 68 并开始回落（可能是短暂脉冲，未必持续）</li>
+    <li>折线图显示指标在整个 15 分钟内在 65–72 之间振荡（机构持续吸筹）</li>
+</ul>
+<p>读懂折线图，可以防止你将一秒内的尖刺当作信号，而更广泛的背景实际上显示那只是噪音。</p>
+
+<h3>Aggression Gauge 实操设置</h3>
+
+<h4>突破验证</h4>
+<p>价格突破关键阻力位，而 Aggression Gauge 读数低于 55，则为弱突破——没有有意义的买方压力支撑。许多假突破正是这样发生的：价格在低成交量或限价单推动下越过该位，散户追涨，而缺乏主动买盘意味着突破无法持续。</p>
+<p>突破时 Aggression 超过 65–70，且折线图显示过去 5–10 分钟压力持续，才是真正的动能突破。买方是认真的。</p>
+
+<h4>与价格的背离</h4>
+<p>当价格创出新的局部高点，但 Aggression Gauge 高点却更低——价格在买方压力递减的情况下创新高。维持涨势所需的买家不如前一高点时那般积极。这是微观层面的看跌背离，往往先于短期反转或回调出现。</p>
+
+<h4>衰竭尖刺</h4>
+<p>急剧飙升至 85–90 后立即回落至 50–55，往往标志着卖出衰竭——激进买方刚刚清掉一堵大卖盘墙或触发了空头踏空的连锁反应，行情随即耗尽动力。这在动能行情的高点处很常见。与其追涨尖刺，机会往往在于指标回落至中性后的反转行情。</p>
+
+<h2>现货/合约 CVD 背离：谁在领跑？</h2>
+
+<h3>理解 CVD</h3>
+<p>累计成交量差值（CVD）是主动买入减去主动卖出的累计值，以某一参考点为锚定起点。CVD 上升时，买方持续比卖方更积极；CVD 下降时，卖方是主导的积极力量。CVD 的绝对水平不如其方向和变化速率重要。</p>
+<p>AIO Terminal 分别为两个市场计算 CVD：Binance USDⓈ-M 永续合约（合约）和 Binance 现货。背离值即两者之差：<em>合约 CVD − 现货 CVD</em>。</p>
+
+<h3>解读数值与颜色</h3>
+<p>现货/合约 CVD 面板以纯数字显示三个实时数值——而非图表曲线。颜色一目了然地告诉你当前状态：</p>
+<ul>
+    <li><strong>合约 CVD——正值显绿，负值显红：</strong> 自本 session 开始以来，永续合约中累计的净买入与卖出差值。绿色 = 买方整体更为积极；红色 = 卖方主导。</li>
+    <li><strong>现货 CVD——正值显绿，负值显红：</strong> Binance 现货市场的相同计算。</li>
+</ul>
+<p><strong>背离值的颜色有意反转</strong>——它作为风险/机会信号读取，而非方向确认：</p>
+<div style="overflow-x:auto;margin:16px 0 20px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.875rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">背离（合约 − 现货）</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">面板颜色</th>
+            <th style="padding:10px 14px;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">信号含义</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#ccc;">大幅正值（如 +5000）</td>
+            <td style="padding:10px 14px;"><span style="color:#f6465d;font-weight:700;">红色</span></td>
+            <td style="padding:10px 14px;color:#ccc;"><strong>警示：</strong>合约买入远超现货——期货可能过度杠杆做多</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:10px 14px;color:#ccc;">大幅负值（如 −1800）</td>
+            <td style="padding:10px 14px;"><span style="color:#0ecb81;font-weight:700;">绿色</span></td>
+            <td style="padding:10px 14px;color:#ccc;"><strong>机会信号：</strong>合约卖出远强于现货——期货相对现货可能超卖</td>
+        </tr>
+        <tr>
+            <td style="padding:10px 14px;color:#ccc;">接近零</td>
+            <td style="padding:10px 14px;"><span style="color:#888;font-weight:700;">灰色</span></td>
+            <td style="padding:10px 14px;color:#ccc;">两市场同步——无明显背离</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<p>示例：合约 CVD = +5477，现货 CVD = −290 → 背离 = +5767 → <span style="color:#f6465d;font-weight:600;">红色</span>。合约积极买入而现货实际在卖出——期货买家可能判断有误，或现货主导的回调即将到来。示例：合约 CVD = −1995，现货 CVD = −137 → 背离 = −1858 → <span style="color:#0ecb81;font-weight:600;">绿色</span>。两市场均在卖出，但合约卖出相对现货极为过激——期货可能超卖，有望反弹。</p>
+
+<h3>为何现货与合约背离至关重要</h3>
+<p>现货与永续合约交易的是同一标的资产，因此知情的买入或卖出通常同时出现在两个市场。当两者背离时，意味着仓位失衡，值得关注：</p>
+<ul>
+    <li><strong>合约 CVD 上升，现货 CVD 持平或下降（正向背离）：</strong> 期货交易者在积累仓位而现货买家并未跟进。这可能先于现货补涨——但红色背离标志着风险：如果合约跑得太远，意味着过度杠杆多头容易遭遇踩踏。</li>
+    <li><strong>现货 CVD 上升快于合约 CVD：</strong> 散户和现货买家活跃，期货专业交易者未参与。常见于机构正在派发的散户驱动拉升行情。做多需谨慎。</li>
+    <li><strong>合约 CVD 下降，现货 CVD 持稳（大幅负向背离）：</strong> 期货卖出相对现货过激——现货"守住阵线"。绿色背离信号提示潜在反弹机会：期货仓位空头已过度延伸。</li>
+    <li><strong>两市场同步下跌：</strong> 两市场均在普遍派发，无背离，只是全面承压。</li>
+</ul>
+
+<h3>Session 锚定</h3>
+<p>AIO Terminal 将两个 CVD 值均锚定于 session 开始。这意味着服务器启动时归零，从那时起累计。绝对值反映自该锚定点以来的净方向压力——使读数在 session 内保持一致，不受历史数据漂移影响。</p>
+
+<h3>实操案例：CVD 背离先于行情启动</h3>
+<p>考虑以下 BTC 某 session 中的场景：</p>
+<ol>
+    <li>价格在 $65,000 至 $65,800 之间震荡 3 小时，双方均未突破。</li>
+    <li>过去 45 分钟，合约 CVD 持续上升——期货买方逐步加大主动性。现货 CVD 持平。</li>
+    <li>背离值不断攀升——合约买入与现货买入之间的差距正向扩大。</li>
+    <li>Smart Tape 在此期间显示合约中多笔 $150k–$300k 的 BUY 成交，但现货无异常。</li>
+    <li>Aggression Gauge 维持在 58–62——高于中性，但未尖刺。</li>
+</ol>
+<p>这是经典的机构吸筹形态：大型买家在震荡中分批建立期货仓位，尚不愿意激进追价（因此没有扫盘，也没有 Aggression 尖刺），但持续随时间吃进卖盘。背离信号表明他们正在为上涨布仓——当震荡突破时，将有真实的期货流量支撑。</p>
+<p>当突破最终到来，你已提前掌握背景，而非被动等待 K 线收盘才反应。这正是这些工具提供的优势。</p>
+
+<h2>三者结合：完整的流量解读</h2>
+<p>这三种工具各自回答一个不同的问题。最高置信度的交易设置是三者同时对齐：</p>
+
+<div style="overflow-x:auto;margin:24px 0;border-radius:10px;border:1px solid rgba(255,255,255,0.08);">
+<table style="width:100%;border-collapse:collapse;font-size:.875rem;">
+    <thead>
+        <tr style="background:rgba(255,255,255,0.05);">
+            <th style="padding:12px 16px;text-align:left;color:#e0e0e0;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">信号</th>
+            <th style="padding:12px 16px;text-align:left;color:#0ecb81;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">看涨读数</th>
+            <th style="padding:12px 16px;text-align:left;color:#f6465d;font-weight:600;border-bottom:1px solid rgba(255,255,255,0.1);">看跌读数</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">Smart Tape</td>
+            <td style="padding:12px 16px;color:#0ecb81;">BUY 成交 &amp; BUY SWEEPS</td>
+            <td style="padding:12px 16px;color:#f6465d;">SELL 成交 &amp; SELL SWEEPS</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">Aggression Gauge</td>
+            <td style="padding:12px 16px;color:#0ecb81;">高于 62，折线图上升</td>
+            <td style="padding:12px 16px;color:#f6465d;">低于 38，折线图下降</td>
+        </tr>
+        <tr>
+            <td style="padding:12px 16px;color:#e0e0e0;font-weight:600;">现货/合约 CVD</td>
+            <td style="padding:12px 16px;color:#0ecb81;">合约 CVD 领先现货 CVD 上行</td>
+            <td style="padding:12px 16px;color:#f6465d;">合约 CVD 下跌快于现货</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<p>看涨共振：Smart Tape 显示 BUY SWEEPS，Aggression 达 70+，合约 CVD 相对现货 CVD 向上背离。这是这些工具能产生的最高置信度实时做多信号。看跌共振则是镜像情形。</p>
+<p>信号混杂时——例如 Aggression 偏高但合约 CVD 持平或下降——意味着不确定性。此时正确的应对往往是缩小仓位或等待更清晰的对齐，而非基于局部确认强行入场。</p>
+
+<div class="mid-article-cta">
+    <h4>AIO Terminal：完整流量分析免费包含</h4>
+    <p>Smart Tape、Aggression Gauge、现货/合约 CVD 和风险评分均属于 Analytics 标签页——每个 VIP 计划免费包含，无需额外订阅，无需单独工具。</p>
+    <a href="../aio-terminal.html#analytics-showcase" class="btn btn-hero-primary btn-sm">探索 Analytics 标签页 &rarr;</a>
+</div>
+
+<h2>根据你的交易风格配置</h2>
+<ul>
+    <li><strong>短线交易者（1m–5m）：</strong> 将 Smart Tape 阈值调低（大多数交易对设为 20–30k），以捕捉在你的时间框架内推动市场的中等规模流量。关注 Aggression Gauge 的 30 秒波动。</li>
+    <li><strong>日内交易者（15m–1h）：</strong> 默认设置效果良好。重点关注 30–60 分钟内积累的 CVD 背离。在突破 K 线上寻找 Aggression 确认。</li>
+    <li><strong>波段交易者（4h–日线）：</strong> 主要将这些工具用于日内结构中的入场择时。不要对计划持有数天的交易过度依赖 1 分钟 Aggression 读数。</li>
+</ul>
+
+<h2>快速上手</h2>
+<p>三种工具均位于 Analytics 标签页（键盘按键 8，或点击 AIO Terminal 导航中的 Analytics 标签）。选择你的交易对——数据立即从 Binance WebSocket 流式传输。所有面板设置自动保存。AIO Terminal 中每个标签页都有专属键盘快捷键（1 = 做多，2 = 做空，4 = 平仓，6 = TP/SL，7 = 取消，8 = Analytics），均可在终端设置中重新映射以加快操作。</p>
+<p>如果你是 AIO Terminal 新用户，任何 VIP 计划均免费包含访问权限。订阅后请在 Telegram（@nguyenthl）联系我们以获取终端凭据。</p>
+<p>若需了解全部 8 个 Analytics 面板的完整概览，包括订单簿热力图、时间热力图和风险评分，请参阅完整的 Analytics 标签页指南。</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Analytics Guides</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-analytics-tab-market-microstructure-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                            <h3 class="feature-title">Analytics Tab: Complete Guide</h3>
+                            <p class="feature-description">All 7 Analytics panels explained: Order Book, Aggression, Smart Tape, CVD, Risk Score, Time Heatmap, Depth Chart.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-order-book-live-dom-binance-futures.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bar-chart-steps"></i></div>
+                            <h3 class="feature-title">Order Book Panel Deep Dive</h3>
+                            <p class="feature-description">Live DOM overlay, depth chart, whale wall detection, and stop placement using order book structure on Binance Futures.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="order-flow-trading-dom-depth-of-market.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-activity"></i></div>
+                            <h3 class="feature-title">Order Flow Trading: Using the DOM</h3>
+                            <p class="feature-description">Advanced DOM strategies: absorption, exhaustion, stacked imbalances, and how to read order flow momentum before price moves.</p>
+                            <span class="feature-description small">16 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="aio-terminal-analytics-tab-market-microstructure-guide.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide</span></a>
+      <a class="aio-related-card" href="aio-terminal-order-book-live-dom-binance-futures.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</span></a>
+      <a class="aio-related-card" href="aio-terminal-binance-futures-trading-tool.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal: The Pro Binance Futures Tool You Didn't Know You Needed</span></a>
+      <a class="aio-related-card" href="why-binance-interface-slows-down-traders.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">Why Binance's Native Interface Is Costing You Trades (And Money)</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

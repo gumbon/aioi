@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ja" data-page-lang="ja">
+<!-- aio-tx a9c2a1ef2d3749ba -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="一貫して利益を上げるトレーダーとそれ以外を分ける具体的な習慣：ポジションサイジングのスリープテスト、マルチタイムフレームの規律、トレード計画の構造、バックテストの規律、そしてケリー基準。" />
+    <meta name="keywords" content="トレードの習慣, トレーダーの規律, ポジションサイジング, トレード計画, バックテスト, ケリー基準, トレードマインドセット, アルファトレーダー" />
+    <meta name="author" content="AIO Indicator" />
+    <title>アルファトレーダーの習慣：戦術よりも規律 | AIO Indicator</title>
+
+    <meta property="og:title" content="アルファトレーダーの習慣：戦術よりも規律" />
+    <meta property="og:description" content="一貫して利益を上げるトレーダーを分ける具体的な運用習慣：スリープポジションサイズテスト、トレード計画の構造、ケリー公式、そしてより多くの時間より少ない時間が勝る理由。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ja.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ja.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="アルファトレーダーの習慣：戦術よりも規律" />
+    <meta name="twitter:description" content="一貫して利益を上げるトレーダーとそれ以外を分ける具体的な習慣：ポジションサイジングのスリープテスト、マルチタイムフレームの規律、トレード計画の構造、バックテストの規律、そしてケリー基準。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "アルファトレーダーの習慣：戦術よりも規律",
+      "description": "一貫して利益を上げるトレーダーとそれ以外を分ける具体的な習慣：ポジションサイジングのスリープテスト、マルチタイムフレームの規律、トレード計画の構造、バックテストの規律、そしてケリー基準。",
+      "url": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html",
+      "datePublished": "2026-05-24",
+      "dateModified": "2026-05-24",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Alpha Trader Habits Discipline Guide", "item": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Psychology</div>
+                    <h1 class="article-title">アルファトレーダーの習慣：戦術よりも規律</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 24, 2026</span>
+                        <span><i class="bi bi-clock"></i> 11 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><h2>より良いインジケーターはあなたを救えない</h2>
+<p>トレードには、多くの参加者が長い時間をかけてようやく向き合う不都合な真実がある。トレードパフォーマンスの主な決定要因は、どのインジケーターを使うか、どの戦略に従うか、どのシグナルに従って行動するかではない。重要な瞬間にどう行動するか &mdash; ポジションが不利方向に動いているとき、「完璧なセットアップ」が出現したが1日の損失上限にすでに達しているとき、静かな日の退屈さがルール上スキップすべき中途半端なトレードへと誘惑するとき &mdash; その行動こそが全てを決める。</p>
+<p>世の中のトレードコンテンツの大半は戦術に焦点を当てている：どのタイムフレーム、どのエントリー、どのパターン。戦術は確かに重要だが、それは運用規律のフレームワークの上に構築されなければならない基盤だ。凡庸な戦術と卓越した規律を持つトレーダーは、卓越した戦術と貧弱な規律を持つトレーダーを、どんな意味のある時間軸においても上回る。規律こそが、良いトレードを正しく実行し、悪い時期に資本を守り、数ヶ月の進歩を台無しにする大きな損失を回避できるかを決定するからだ。</p>
+<p>このガイドでは、経験豊富なトレーダーが維持している具体的な運用習慣を取り上げる &mdash; 抽象的な概念ではなく、今すぐ採用できる具体的な行動だ。</p>
+
+<h2>スリープテスト：ポジションサイジングの調整ツール</h2>
+<p>最も実践的に有用なポジションサイジングのヒューリスティックの一つが、スリープテストだ。仕組みはこうだ：ポジションに入った後、そのトレードを実行し、適切なストップとターゲットを設定した後に安眠できるかどうか自分に問いかける。答えがイエスなら、そのポジションサイズはリスク許容範囲内にある。</p>
+<p>答えがノーなら &mdash; オープンポジションが一日中頭から離れず、何度もスマートフォンを確認する強迫的なプレッシャーを生み、画面から離れられない感覚を覚えるなら &mdash; ポジションは大きすぎる。少し大きすぎるのではない。明らかに大きすぎるのだ。感情的・心理的キャパシティこそが実際のリスク管理上の制約であり、紙の上の数学的なパーセンテージではない。</p>
+<p>行動指針：安眠できるまでサイズを下げること。これは弱さではない。判断機能が歪みなく処理できるリスク量の正確な調整だ。ポジションについて不安を感じるトレーダーは、そのポジションに関してより悪い判断を下す &mdash; 早すぎる撤退、損失ポジションへの追加、ストップの放棄。スリープ閾値に合わせたサイズのポジションを持つ同じトレーダーは、同じ市場環境下でプランを正確に実行できる。</p>
+
+<h2>マルチタイムフレームの規律：常にズームアウトせよ</h2>
+<p>経験豊富なイントラデイトレーダーは皆、同じような体験を持っている：15分足で完璧なセットアップを見つけ、確信を持ってエントリーしたが、4時間足ではそのエントリーが主要なレジスタンスゾーンの真っただ中にあり、数分でムーブが潰されるというものだ。15分足の分析はそのタイムフレームとしては技術的に正しかった。4時間足のコンテキストがトレードを構造的に不健全にしていたのだ。</p>
+<p>運用上の習慣：どのトレードに入る前も、エントリータイムフレームより一つ上のタイムフレームを確認すること。5分足チャートのエントリーは15分足で確認する。15分足のエントリーは1時間足で確認する。1時間足のエントリーは4時間足で確認する。この確認には30&ndash;60秒かかり、一つの問いに答える：自分がトレードしようとしている方向は、上位タイムフレームの構造と整合しているのか、それとも逆らっているのか？</p>
+<p>下位タイムフレームと上位タイムフレームが整合したトレードは、上位タイムフレームのレジスタンスに逆らった下位タイムフレームシグナルのトレードとは質的に異なるパフォーマンス特性を示す。追加の60秒のマルチタイムフレーム検証は、トレードにおいて投資時間対リターンが最も高い習慣の一つだ。</p>
+
+<h2>理由なくポジションを変えるな</h2>
+<p>この習慣は、成長途上のトレーダーに最も多く見られるトレード行動の一つに対処するものだ：感情的な撤退。そのパターンはよく知られている。チャートを分析し、有効そうなトレードを特定し、特定のストップとターゲットでエントリーする。そして &mdash; 5分後、トレードがわずかに含み損になると &mdash; ストップに達する前にポジションをクローズする。</p>
+<p>そのポジションはおそらく問題なかった。早期撤退は、新しい市場情報への合理的な反応ではなく、損失ポジションにいることの不快感への感情的な反応だった。その結果：機能したはずのトレードでの損失、そして自分がいないままオリジナルターゲットに達するのを見ることになる。</p>
+<p>運用上のルール：新しく具体的で構造的な情報が変更を正当化する場合にのみポジションを変えること。早期撤退を正当化する条件は具体的だ：ロングポジションでキーサポートレベルがブレイクされた、高出来高を伴う重要なピンバーがポジションに逆らって形成された、上位タイムフレームの構造がトレード根拠を否定する形で変化した。「自分に不利に動いている」は理由ではない。「不快だ」は理由ではない。それらは感情であり、情報ではない。</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>ライブチャートで確認したいですか？</strong> <span>AIO Indicator はこれを自動化します &mdash; 手動作図は不要です。</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> 5日間無料で試す</a></div></div>
+
+<h2>ケリー公式：ポジションサイジングの数値化</h2>
+<p>ケリー基準は、戦略の過去の勝率とリスクリワード比に基づいて最適なベットサイジングを決定するための数学的フレームワークを提供する。この公式は「ケリーパーセンテージ」を算出する &mdash; 数学的最適値が各トレードでリスクにさらすべきアカウントの割合だ。</p>
+<p>必要な要素は二つ：戦略の勝率（ストップより先にターゲットに達したトレードの割合）と勝敗比（平均利益トレード÷平均損失トレード）。例えば、勝率50%で平均勝敗比1.5:1の戦略はプラスのケリーパーセンテージを生み出し、その戦略がトレードする価値があることを示唆する。勝率40%で勝敗比1:1の戦略はネガティブなケリー値を生み出し、その戦略が期待値マイナスであり全くトレードすべきでないことを示す。</p>
+<p>実践的な適用：フルケリーではなく、ハーフケリーまたはクォーターケリーを使用すること。フルケリーは期待成長を最大化するが、心理的に持続困難なドローダウンにトレーダーをさらす。ハーフケリーはドローダウンのごく一部で成長率の約75%を生み出す。これは人間のトレーダー（数学的モデルとは対照的に）にとってより堅牢なアプローチだ。なぜならドローダウンを判断の質を保てる範囲内に抑えるからだ。</p>
+<p>意味のあるケリー計算に必要な最低データ要件：30トレード以上。それより少ないトレード数では、統計的ノイズが高すぎて結果を信頼できない。</p>
+
+<h2>トレードしなくていい</h2>
+<p>これはおそらく最もシンプルで、維持するのが最も難しい習慣だ：トレードする価値のものが何もないときにトレードしないという規律。市場は多くの時間を、特定の戦略に適さない状況で過ごす。こうした状況でのトレードは、積み重なって重大なアカウントダメージとなる小さな損失の連続を生み出し、生産的なP&amp;Lの結果をもたらさない。</p>
+<p>運用上の習慣：戦略が必要とする具体的な条件を定義し、それらの条件が揃っていなければチャートを見るのをやめること。これは簡単に聞こえる。実際には、2時間チャートを見てもセットアップが見つからないと、費やした時間を正当化するために何か &mdash; どんなセットアップでも &mdash; を探そうとする強い心理的プレッシャーが生まれる。リテールトレーダーはこのプレッシャーで一貫してオーバートレードし、ルール上除外すべき中途半端なトレードを実行してしまう。</p>
+<p>有益な視点の転換：低品質な機会をパスして資本を守る日は、その資本を低確率のトレードに投じてその一部を失う平均的なトレーダーに対して、あなたのアカウントが相対的に成長する日だ。トレードしないことは不作為ではない &mdash; それは戦略的な資本保全だ。</p>
+
+<h2>エントリー前にすべてのトレードを計画せよ</h2>
+<p>完全なトレード計画の構造は、ポジションを開く前に六つの具体的な問いに答える：</p>
+<ol>
+<li>エントリー価格と、エントリーを引き起こす具体的な条件は何か？</li>
+<li>ストップロスはどこに置くか、そしてどの具体的な価格レベルまたは構造的条件がトレード根拠を無効にするか？</li>
+<li>ターゲットは何か、そしてリスクリワード比は？</li>
+<li>ストップが執行された場合、アカウント資産の何パーセントがリスクにさらされるか？</li>
+<li>市場が動かずポジションが停滞した場合、どうするか？</li>
+<li>ポジションが利益を出しているとき、何をするか &mdash; トレーリングストップ、一部撤退、ターゲットでの全撤退？</li>
+</ol>
+<p>エントリー前にこの計画を（たとえ簡単にジャーナルに）書き留めることで、分析的な判断を落ち着いたプレトレードの状態で行うことができる。合理的な意思決定が損なわれる感情的に高ぶったポストエントリー状態ではなく。エントリー前に撤退計画を決めたトレーダーはそれを正しく実行できる。決めていないトレーダーはプレッシャーの下でリアルタイムに決めることになり、より悪い結果を生む。</p>
+
+<h2>時間の量より質</h2>
+<p>スクリーンタイムが増えてもトレード結果は向上しない。長時間労働がアウトプットと相関する業界では直感に反するが、トレードは執行への努力が多いほど収益が増える業界ではない。市場は長時間の労働ではなく、良い判断に対して報酬を払う。集中した規律ある4時間の分析と執行は、疲弊した退屈駆動の12時間のチャート監視を一貫して上回る。</p>
+<p>集中力は時間とともに劣化する有限のリソースだ。4〜6時間の継続的な市場への集中の後、ほとんどのトレーダーのリスク評価とパターン認識の質は測定可能なほど低下する。この後に追加のトレードを強行することは、損なわれた機能で判断を下すことを意味する。実践的な対応策：ピーク集中の時間枠に合わせて最大トレードセッション時間を定め、市場がどう動いていようとその時間枠が閉じたらトレードをやめること。</p>
+
+<h2>重要なポイント</h2>
+<ul>
+<li>規律は戦術よりも結果を決定する；平均的な戦略を持つ規律あるトレーダーは、優れた戦略を持つ規律のないトレーダーを上回る</li>
+<li>ポジションサイズをスリープ閾値に調整する &mdash; 眠れないなら眠れるまで下げること</li>
+<li>すべてのエントリー前のマルチタイムフレーム確認（30&ndash;60秒）は、最も回避可能な構造的失敗を排除する</li>
+<li>具体的な構造情報が正当化するときのみポジションを変える。感情的不快感が正当化することは決してない</li>
+<li>ポジションサイジングにはハーフケリーまたはクォーターケリーを使用する；フルケリーは数学的に最適だがドローダウンを通じて心理的に維持するのが困難だ</li>
+<li>条件が揃っていないときにトレードしないことは資本保全の行動であり、失敗ではない &mdash; そう捉えること</li>
+<li>ポジションを開く前に（エントリー、ストップ、ターゲット、ポジションサイズ、管理、撤退の）トレード計画を書く。後ではなく、前に</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="trading-psychology-discipline-mindset.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-trophy"></i></div>
+                            <h3 class="feature-title">Trading Psychology: The Mental Framework That Separates Winners</h3>
+                            <p class="feature-description">Seven rules for handling losses, eliminating revenge trading, and building process-based discipline.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="six-trading-lessons-10-years-experience.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-award"></i></div>
+                            <h3 class="feature-title">6 Lessons I Learned the Hard Way After 10 Years of Trading</h3>
+                            <p class="feature-description">From chasing overbought signals to understanding capital preservation: six truths that took a decade of losses to learn.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="risk-management-probability-kelly-criterion.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                            <h3 class="feature-title">Kelly Criterion, VaR &amp; Crash Probability</h3>
+                            <p class="feature-description">The quantitative side of position sizing: Kelly formula, Value at Risk, Expected Shortfall, and Monte Carlo probability tools.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="trading-psychology-discipline-mindset.html"><span class="aio-related-cat">Psychology</span><span class="aio-related-title">Trading Psychology: The Mental Framework That Separates Winners</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-price-levels.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines</span></a>
+      <a class="aio-related-card" href="six-trading-lessons-10-years-experience.html"><span class="aio-related-cat">Trading Education</span><span class="aio-related-title">6 Lessons I Learned the Hard Way After 10 Years of Trading</span></a>
+      <a class="aio-related-card" href="market-profile-auction-theory-guide.html"><span class="aio-related-cat">Order Flow</span><span class="aio-related-title">Market Profile Trading: Reading Time-Based Structure Through Auction Theory</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

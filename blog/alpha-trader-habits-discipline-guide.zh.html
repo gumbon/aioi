@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx a9c2a1ef2d3749ba -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="将持续盈利的交易者与众不同的具体习惯：持仓规模的睡眠测试、多时间框架纪律、交易计划结构、回测纪律，以及Kelly准则。" />
+    <meta name="keywords" content="交易习惯, 交易者纪律, 仓位管理, 交易计划, 回测, Kelly准则, 交易心态, 阿尔法交易者" />
+    <meta name="author" content="AIO Indicator" />
+    <title>阿尔法交易者的习惯：纪律胜于战术 | AIO Indicator</title>
+
+    <meta property="og:title" content="阿尔法交易者的习惯：纪律胜于战术" />
+    <meta property="og:description" content="将持续盈利的交易者区分开来的具体操作习惯：睡眠持仓规模测试、交易计划结构、Kelly公式，以及为何减少交易时长胜于增加时长。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.zh.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.zh.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="阿尔法交易者的习惯：纪律胜于战术" />
+    <meta name="twitter:description" content="将持续盈利的交易者与众不同的具体习惯：持仓规模的睡眠测试、多时间框架纪律、交易计划结构、回测纪律，以及Kelly准则。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "阿尔法交易者的习惯：纪律胜于战术",
+      "description": "将持续盈利的交易者与众不同的具体习惯：持仓规模的睡眠测试、多时间框架纪律、交易计划结构、回测纪律，以及Kelly准则。",
+      "url": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html",
+      "datePublished": "2026-05-24",
+      "dateModified": "2026-05-24",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Alpha Trader Habits Discipline Guide", "item": "https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/alpha-trader-habits-discipline-guide.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Psychology</div>
+                    <h1 class="article-title">阿尔法交易者的习惯：纪律胜于战术</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 24, 2026</span>
+                        <span><i class="bi bi-clock"></i> 11 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><h2>为什么更好的指标救不了你</h2>
+<p>交易中有一个令人不安的真相，大多数参与者需要很长时间才愿意面对：决定交易表现的主要因素，并非你使用哪些指标、遵循哪种策略，或依据什么信号行动。关键在于你在关键时刻的行为方式——当持仓逆势而行时，当一个"完美形态"出现但当日亏损限额已触及时，当平静的行情中无聊驱使你做出一笔规则本应回避的边缘交易时。</p>
+<p>市面上大多数交易内容聚焦于战术：选哪个时间框架、如何入场、关注哪些形态。战术固然重要——但它必须建立在操作纪律框架之上。一个战术平庸、纪律严明的交易者，在任何有意义的时间跨度内都会胜过战术出色、纪律涣散的交易者。原因在于：纪律决定你是否能正确执行优质交易、在不利时期保护资本，并避免那些让数月努力付之东流的重大亏损。</p>
+<p>本指南涵盖经验丰富的交易者所保持的具体操作习惯——不是抽象概念，而是可以立即付诸实践的具体行为。</p>
+
+<h2>睡眠测试：你的仓位规模校准工具</h2>
+<p>最具实用价值的仓位规模启发法之一是睡眠测试，方法如下：建仓后，问自己是否能在设好止损和目标位后安然入睡。如果答案是肯定的，说明仓位规模在你的风险承受范围之内。</p>
+<p>如果答案是否定的——如果未平仓位让你整日心神不宁、迫切地反复查看手机，或令你无法离开屏幕——那么仓位就太大了。不是稍微大了一点，而是明显过大。你的情绪与心理承受能力才是真正的风险管理约束条件，而非纸面上的数学百分比。</p>
+<p>应对之策：减小仓位直至能够安然入睡。这不是软弱，而是对你的决策机制所能承受的风险量进行准确校准。一个为持仓焦虑的交易者会在该仓位上做出更差的决策——过早离场、加仓亏损头寸、放弃止损。而同一个交易者，若仓位规模控制在其睡眠阈值之内，则能在相同市场条件下正确执行计划。</p>
+
+<h2>多时间框架纪律：始终拉大视野</h2>
+<p>每一位经验丰富的日内交易者都有过类似的经历：在15分钟图上看到完美形态，满怀信心入场，随即眼看着行情失败——因为在4小时图上，入场点正好触及一个强阻力区，几分钟内便扼杀了这波行情。15分钟的分析在该时间框架内技术上完全正确，但4小时的背景使这笔交易在结构上站不住脚。</p>
+<p>操作习惯：在任何交易入场前，检查比入场时间框架高一级的时间框架。5分钟图入场需检查15分钟图，15分钟图入场需检查1小时图，1小时图入场需检查4小时图。这一核查耗时30至60秒，只需回答一个问题：我计划交易的方向，是顺应还是对抗更高时间框架的结构？</p>
+<p>低时间框架与高时间框架方向一致的交易，其表现特征与逆高时间框架阻力做低时间框架信号的交易有着本质区别。额外60秒的多时间框架验证，是交易中单位时间投入回报最高的习惯之一。</p>
+
+<h2>无理由绝不改变持仓</h2>
+<p>这一习惯针对的是成长期交易者最常见的行为之一：情绪化离场。这个过程耳熟能详：分析图表，识别出看似有效的交易机会，以特定的止损和目标位入场，然后——五分钟后，当交易略有亏损时——在止损被触发前就平掉仓位。</p>
+<p>这笔交易很可能是没问题的。提前离场是对亏损持仓所带来的不适感做出的情绪反应，而非对新市场信息做出的理性回应。结果：本会盈利的交易却产生了亏损，随后眼睁睁看着原始目标位被触及，而你已不在场内。</p>
+<p>操作规则：只有当新的、具体的、结构性信息需要改变时，才能改变持仓。合理提前离场的条件是明确的：多头持仓中关键支撑位被破，出现逆势且成交量放大的显著上影线，或更高时间框架结构发生变化导致交易逻辑失效。"行情在对着我走"不是理由，"我感到不舒服"不是理由。这些是情绪，不是信息。</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>想在实时图表上看到这些？</strong> <span>AIO Indicator 自动完成这一切——无需手动绘制。</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> 免费试用5天</a></div></div>
+
+<h2>Kelly公式：量化你的仓位规模</h2>
+<p>Kelly准则提供了一个数学框架，根据策略的历史胜率和风险回报比来确定最优下注规模。该公式给出一个"Kelly百分比"——数学最优解建议每笔交易所冒险的账户资金比例。</p>
+<p>需要两个参数：策略胜率（在止损触发前达到目标位的交易比例）和盈亏比（平均盈利交易/平均亏损交易）。例如，胜率50%、平均盈亏比1.5:1的策略会产生正Kelly百分比，说明该策略值得交易。胜率40%、盈亏比1:1的策略产生负Kelly值，表明该策略具有负期望值，根本不应该交易。</p>
+<p>实际应用：使用半Kelly或四分之一Kelly，而非全Kelly。全Kelly能最大化预期增长，但会让交易者面临心理上难以承受的回撤。半Kelly在大幅降低回撤的同时，产生约75%的增长率。对人类交易者（而非数学模型）而言，这是更稳健的方法，因为它将回撤保持在能够维护决策质量的范围之内。</p>
+<p>进行有意义的Kelly计算所需的最少数据量：30笔或以上的交易记录。交易数量不足时，统计噪声过高，输出结果不可靠。</p>
+
+<h2>你不必非得交易</h2>
+<p>这或许是最简单也最难坚持的习惯：在没有值得交易的机会时，保持不交易的纪律。市场有相当长的时间处于不适合任何特定策略的状态。在这些状态下交易，会产生源源不断的小额亏损，逐渐积累成对账户的严重损伤，同时带不来任何有效的盈亏结果。</p>
+<p>操作习惯：明确定义策略所需的具体条件，若这些条件不具备，就停止盯盘。这听起来容易，实际上，盯盘两个小时却找不到形态，会产生巨大的心理压力，迫使你寻找任何机会——哪怕是任何形态——来证明时间花得值当。散户交易者在这种压力下普遍过度交易，做出那些规则本应排除的边缘交易。</p>
+<p>一个有用的重新定框方式：每一天，当你放弃一个不佳的机会、保住资本时，你的账户就相对于普通交易者增长了一点——后者会将那笔资本投入低概率交易并损失一部分。不交易不是无所作为——而是战略性资本保护。</p>
+
+<h2>入场前规划每一笔交易</h2>
+<p>一份完整的交易计划，在开仓前需回答以下六个具体问题：</p>
+<ol>
+<li>入场价格是多少？触发入场的具体条件是什么？</li>
+<li>止损设在哪里？哪个具体价位或结构条件会使交易逻辑失效？</li>
+<li>目标位是多少？风险回报比是多少？</li>
+<li>若止损被触及，账户权益承担的风险百分比是多少？</li>
+<li>若市场没有启动、持仓陷入僵持，你将如何应对？</li>
+<li>当持仓盈利时，你将如何处理——移动止损、部分平仓，还是在目标位全部平仓？</li>
+</ol>
+<p>在入场前写下这份计划（哪怕只是在交易日志中简短记录），能将分析决策强制置于冷静的入场前状态，而非情绪高涨的入场后状态——后者会损害理性决策能力。入场前就已决定好离场计划的交易者，会正确执行计划。没有提前规划的交易者，则会在压力下临场应对，结果往往更差。</p>
+
+<h2>质量重于数量</h2>
+<p>更多的盯盘时间并不会带来更好的交易结果。这在那些延长工作时间与产出正相关的行业中显得反直觉，但交易并非投入更多执行精力就能获得更多收益的行业。市场奖励的是正确决策，而非花费的时间。四个小时专注、纪律严明的分析与执行，持续胜过十二个小时疲惫、被无聊驱动的盯盘。</p>
+<p>专注力是有限资源，会随时间衰减。对大多数交易者而言，持续关注市场四至六小时后，风险评估和形态识别的质量会明显下降。在此之后强行继续交易，意味着用受损的工具做决策。实际应对方法：根据自身峰值专注窗口定义最长交易时段，窗口关闭后无论市场如何都停止交易。</p>
+
+<h2>核心要点</h2>
+<ul>
+<li>纪律对结果的影响大于战术；一个纪律严明、策略平庸的交易者，胜过策略出色却纪律涣散的交易者</li>
+<li>将仓位规模校准至睡眠阈值——若令你彻夜难眠，则减小至不再如此为止</li>
+<li>每次入场前进行多时间框架核查（30至60秒），可消除最可避免的一类结构性失误</li>
+<li>只有在具体的结构性信息支持时才改变持仓，绝不因情绪不适而改变</li>
+<li>使用半Kelly或四分之一Kelly进行仓位管理；全Kelly在数学上最优，但在回撤中心理上难以坚持</li>
+<li>在条件不具备时不交易是一种资本保护行为，而非失败——应如此对待</li>
+<li>在开仓前而非之后写好交易计划（入场、止损、目标位、仓位规模、管理方式、离场方式）</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="trading-psychology-discipline-mindset.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-trophy"></i></div>
+                            <h3 class="feature-title">Trading Psychology: The Mental Framework That Separates Winners</h3>
+                            <p class="feature-description">Seven rules for handling losses, eliminating revenge trading, and building process-based discipline.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="six-trading-lessons-10-years-experience.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-award"></i></div>
+                            <h3 class="feature-title">6 Lessons I Learned the Hard Way After 10 Years of Trading</h3>
+                            <p class="feature-description">From chasing overbought signals to understanding capital preservation: six truths that took a decade of losses to learn.</p>
+                            <span class="feature-description small">11 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="risk-management-probability-kelly-criterion.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                            <h3 class="feature-title">Kelly Criterion, VaR &amp; Crash Probability</h3>
+                            <p class="feature-description">The quantitative side of position sizing: Kelly formula, Value at Risk, Expected Shortfall, and Monte Carlo probability tools.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="trading-psychology-discipline-mindset.html"><span class="aio-related-cat">Psychology</span><span class="aio-related-title">Trading Psychology: The Mental Framework That Separates Winners</span></a>
+      <a class="aio-related-card" href="how-to-use-aio-price-levels.html"><span class="aio-related-cat">How To Use</span><span class="aio-related-title">How to Use AIO Price Levels: Previous Highs, Lows, Closes &amp; ADR Lines</span></a>
+      <a class="aio-related-card" href="six-trading-lessons-10-years-experience.html"><span class="aio-related-cat">Trading Education</span><span class="aio-related-title">6 Lessons I Learned the Hard Way After 10 Years of Trading</span></a>
+      <a class="aio-related-card" href="market-profile-auction-theory-guide.html"><span class="aio-related-cat">Order Flow</span><span class="aio-related-title">Market Profile Trading: Reading Time-Based Structure Through Auction Theory</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

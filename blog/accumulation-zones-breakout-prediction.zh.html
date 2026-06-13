@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx 4ae46c5f4208b373 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="掌握积累区域检测、带胜率追踪的统计突破预测以及集成仓位管理。涵盖 AIO Accumulation Zone、Breakout Prediction 和 Statistic Panel。" />
+    <meta name="keywords" content="积累区域, Wyckoff, 突破预测, 胜率, 仓位管理, 资金管理, 多时间框架趋势, TradingView 指标" />
+    <meta name="author" content="AIO Indicator" />
+    <title>积累区域与突破预测：数据驱动的入场时机 | AIO Indicator</title>
+
+    <meta property="og:title" content="积累区域与突破预测：数据驱动的入场时机" />
+    <meta property="og:description" content="检测 Wyckoff 积累/分发区域，通过历史胜率统计验证突破，并精准管理仓位——全程自动化。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.zh.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.zh.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="积累区域与突破预测：数据驱动的入场时机" />
+    <meta name="twitter:description" content="掌握积累区域检测、带胜率追踪的统计突破预测以及集成仓位管理。涵盖 AIO Accumulation Zone、Breakout Prediction 和 Statistic Panel。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "积累区域与突破预测：数据驱动的入场时机",
+      "description": "掌握积累区域检测、带胜率追踪的统计突破预测以及集成仓位管理。涵盖 AIO Accumulation Zone、Breakout Prediction 和 Statistic Panel。",
+      "url": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html",
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Accumulation Zones & Breakout Prediction: Data-Driven Entry Timing", "item": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Data-Driven</div>
+        <h1 class="article-title">积累区域与突破预测：数据驱动的入场时机</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 4, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body"><h2>三款数据驱动的入场时机工具</h2>
+<p>大多数交易决策依赖主观判断："我认为价格会在这里突破。"本文介绍的三款 AIO 指标以<strong>数据</strong>取代主观判断：通过高时间框架K线结构检测积累区域，通过历史胜率进行统计突破验证，以及通过风险计算实现精准仓位管理。</p>
+
+<hr>
+
+<div class="mid-article-cta">
+    <div class="mid-cta-content">
+        <div class="mid-cta-text">
+            <strong>想在实时图表上查看效果？</strong>
+            <span>AIO Indicator 将本文涵盖的所有内容自动化处理 &mdash; 无需手动绘制，无需凭感觉猜测。</span>
+        </div>
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm">
+            <i class="bi bi-lightning-charge-fill"></i> 免费试用 5 天
+        </a>
+    </div>
+</div>
+
+
+<h2>第一部分：积累区域检测（AIO Accumulation Zone）</h2>
+
+<h3>核心概念</h3>
+<p>在 Wyckoff 方法论中，<strong>积累</strong>是机构买家在拉升阶段前悄然建仓的阶段。<strong>分发</strong>则相反 &mdash; 机构在下跌前出货。这些阶段在高时间框架上最为清晰，K线实体揭示了"合力"的方向。</p>
+
+<h3>AIO Accumulation Zone 的工作原理</h3>
+<p>该指标将 HTF（高时间框架）K线实体区域以彩色方框的形式显示在低时间框架图表上：</p>
+
+<ul>
+    <li><strong>HTF 看涨K线（O &lt; C）：</strong>区域从开盘价向下延伸至最低价（绿色方框）&mdash; 这是看涨收盘前积累发生的区域</li>
+    <li><strong>HTF 看跌K线（O &gt; C）：</strong>区域从最高价向下延伸至开盘价（红色方框）&mdash; 看跌收盘前分发发生在开盘价上方</li>
+</ul>
+
+<h3>自动时间框架选择</h3>
+<p>指标根据您的图表时间框架自动选择合适的 HTF：</p>
+<ul>
+    <li>日内（&le;60m）&rarr; 日线区域</li>
+    <li>日内（&le;240m）&rarr; 周线区域</li>
+    <li>日线 &rarr; 3个月区域</li>
+    <li>周线 &rarr; 6个月区域</li>
+    <li>月线及以上 &rarr; 12个月区域</li>
+</ul>
+
+<p><strong>当前和前一周期区域</strong>均会显示，为您呈现最近两根 HTF K线的积累/分发活动背景。</p>
+
+<h3>交易应用</h3>
+<p>当价格在绿色（积累）区域内运行时，表明该区域在高时间框架上曾有买家活跃。回调至此区域的概率更高，更容易获得支撑。反之，反弹至红色（分发）区域则面临机构卖压。</p>
+
+<hr>
+
+<h2>第二部分：突破预测（AIO Breakout Prediction）</h2>
+
+<h3>内置统计回测引擎</h3>
+<p>该指标不依赖经验法则，而是<strong>统计图表历史上的每一次突破</strong>并告知您胜率：</p>
+
+<h4>突破形态</h4>
+<ol>
+    <li>形态识别：<code>close[2] &gt; high[3]</code>（两根K线前的收盘价高于三根K线前的最高价）</li>
+    <li>获胜条件：<code>high[1] &gt; high[2]</code>（前一根K线创出比两根K线前更高的高点）&mdash; 确认跟随突破</li>
+    <li>失败：跟随突破未出现</li>
+</ol>
+
+<p>指标显示累计<strong>胜率 %</strong>、总<strong>获胜次数</strong>和<strong>失败次数</strong>。这些并非理论回测 &mdash; 而是从图表上的实际价格K线计算得出。</p>
+
+<h4>偏向系统</h4>
+<p>第二套更精细的系统检测<strong>内包K线突破形态</strong> &mdash; 价格突破前一根K线的波动范围，且下一根K线以匹配方向确认（看涨突破后出现绿色K线，看跌突破后出现红色K线）。该系统拥有独立的胜率统计。</p>
+
+<h4>多时间框架突破点</h4>
+<p>指标还显示 1H、4H、日线和周线时间框架的彩色圆点，指示前一收盘价是否突破了前前周期的高点/低点，形成快速浏览的<strong>多时间框架突破矩阵</strong>。</p>
+
+<h3>使用方法</h3>
+<ul>
+    <li>若胜率 &gt;60%，该品种/时间框架组合的跟随突破形态具有可靠性</li>
+    <li>仅在偏向系统同时显示确认色点时交易突破</li>
+    <li>若胜率 &lt;45%，考虑<em>反向操作</em>突破，而非顺势跟随</li>
+</ul>
+
+<hr>
+
+<h2>第三部分：仓位管理与实时追踪（AIO Statistic Panel）</h2>
+
+<h3>突破信息表格</h3>
+<p>AIO Statistic Panel 实时回答"今日价格是否突破了昨日关键位？"：</p>
+<ul>
+    <li><strong>PDH：</strong>今日最高价是否突破前日高点？（已突破/尚未）</li>
+    <li><strong>PDL：</strong>今日最低价是否突破前日低点？</li>
+    <li><strong>PWH：</strong>本周最高价是否突破前周高点？</li>
+    <li><strong>PWL：</strong>本周最低价是否突破前周低点？</li>
+</ul>
+
+<h3>多时间框架趋势矩阵</h3>
+<p>使用 SMA 比较显示 5m、15m、1H、4H、日线和周线时间框架的趋势方向。另含可配置的 MA 趋势面板（4 条均线：SMA/EMA/RMA/WMA/VWMA，周期 20/50/100/200）。</p>
+
+<h3>集成资金管理计算器</h3>
+<p>最实用的功能 &mdash; 自动仓位计算：</p>
+
+<h4>输入项</h4>
+<ul>
+    <li><strong>账户余额：</strong>您的账户资金（如 $3,000）</li>
+    <li><strong>风险比例：</strong>每笔交易的风险金额（如 2%）</li>
+    <li><strong>止损：</strong>以手数（外汇）或单位数（加密货币/股票）表示</li>
+</ul>
+
+<h4>输出项</h4>
+<ul>
+    <li><strong>风险金额：</strong>$3,000 &times; 2% = $60</li>
+    <li><strong>外汇：</strong>手数 = 风险金额 / (SL 点数 &times; 10)。自动识别日元货币对。</li>
+    <li><strong>加密货币/股票：</strong>单位数 = 风险金额 / (当前价格 &times; SL%)</li>
+</ul>
+
+<p>无需手动计算或使用独立的仓位管理工具 &mdash; 数字直接显示在您的图表上。</p>
+
+<hr>
+
+<h2>综合应用：数据驱动的入场</h2>
+<ol>
+    <li><strong>AIO Accumulation Zone：</strong>价格是否处于积累（绿色）或分发（红色）区域？</li>
+    <li><strong>AIO Breakout Prediction：</strong>该品种/时间框架的突破胜率是否 &gt;55%？偏向系统是否确认？</li>
+    <li><strong>AIO Statistic Panel：</strong>PDH/PDL 是否已被突破？多时间框架趋势是否一致？</li>
+    <li><strong>若全部吻合：</strong>使用资金管理计算器确定仓位大小，执行交易</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>用数据交易，而非靠猜测</h3>
+    <p>积累区域检测、统计突破验证与集成仓位管理。</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-lightning-charge-fill"></i> 开始 5 天免费试用
+    </a>
+</div></div></div></div></div></section>
+
+        <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="dow-theory-trading-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-up-right-square"></i></div>
+                            <h3 class="feature-title">Dow Theory Trading: How to Implement in Modern Markets</h3>
+                            <p class="feature-description">Charles Dow's 130-year-old principles still form the foundation of technical analysis. How to apply them in modern markets.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="risk-management-probability-kelly-criterion.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                            <h3 class="feature-title">Risk Management with Probability: Kelly Criterion, VaR &amp; Crash Detection</h3>
+                            <p class="feature-description">Turn complex quantitative risk management into actionable BUY/SHORT/WAIT/AVOID decisions.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="liquidity-sweeps-stop-hunts-guide.html"><span class="aio-related-cat">Smart Money</span><span class="aio-related-title">Liquidity Sweeps &amp; Stop Hunts: Why Your Stops Keep Getting Targeted</span></a>
+      <a class="aio-related-card" href="smt-divergence-cross-symbol-analysis.html"><span class="aio-related-cat">ICT Concepts</span><span class="aio-related-title">SMT Divergence: How Institutions Leave Footprints Between Correlated Assets</span></a>
+      <a class="aio-related-card" href="multi-timeframe-analysis-guide.html"><span class="aio-related-cat">Trading Strategy</span><span class="aio-related-title">Multi-Timeframe Analysis: The Top-Down Framework Every Pro Trader Uses</span></a>
+      <a class="aio-related-card" href="ict-trading-setup-sessions-price-levels.html"><span class="aio-related-cat">ICT Concepts</span><span class="aio-related-title">ICT Trading Setup: Sessions, Price Levels &amp; Standard Deviation Projections</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

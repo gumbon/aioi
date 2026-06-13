@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx d17aaf1a5c14bd06 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="3-EMA 1分钟剥头皮策略：利用50/100/150 EMA排列识别趋势、回调至第一或第二条EMA入场、交易管理规则，以及被套交易者的心理分析。" />
+    <meta name="keywords" content="1分钟剥头皮策略, 3 EMA剥头皮, EMA回调剥头皮, 外汇剥头皮, 日内交易策略, 移动均线剥头皮, TradingView" />
+    <meta name="author" content="AIO Indicator" />
+    <title>3-EMA 剥头皮策略：在既定趋势中的回调入场 | AIO Indicator</title>
+
+    <meta property="og:title" content="3-EMA 剥头皮策略：在既定趋势中的回调入场" />
+    <meta property="og:description" content="如何利用三条EMA（50/100/150）识别趋势行情、把握回调入场时机，并在1分钟图表上运用保本机制管理剥头皮交易。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.zh.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.zh.html" />
+
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="3-EMA 剥头皮策略：在既定趋势中的回调入场" />
+    <meta name="twitter:description" content="3-EMA 1分钟剥头皮策略：利用50/100/150 EMA排列识别趋势、回调至第一或第二条EMA入场、交易管理规则，以及被套交易者的心理分析。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "3-EMA 剥头皮策略：在既定趋势中的回调入场",
+      "description": "3-EMA 1分钟剥头皮策略：利用50/100/150 EMA排列识别趋势、回调至第一或第二条EMA入场、交易管理规则，以及被套交易者的心理分析。",
+      "url": "https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.html",
+      "datePublished": "2026-05-14",
+      "dateModified": "2026-05-14",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "3-EMA Scalping Strategy", "item": "https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/3-ema-scalping-strategy-pullback.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag">Scalping</div>
+                    <h1 class="article-title">3-EMA 剥头皮策略：在既定趋势中的回调入场</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 14, 2026</span>
+                        <span><i class="bi bi-clock"></i> 12 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><h2>为何大多数剥头皮系统都会失败</h2>
+<p>剥头皮有着当之无愧的声誉——它是最难稳定盈利的交易风格。失败率居高不下，并非因为策略本身存在缺陷，而是因为执行要求毫无容错余地。点差侵蚀利润空间，情绪化决策在数秒内发生，风险管理在交易一旦反向时便被抛诸脑后。而最致命的是：剥头皮者往往在根本不适合其入场类型的市场环境中强行交易。</p>
+<p>3-EMA 回调策略直指大多数剥头皮失败的根本原因——缺乏结构性背景。该系统不追逐每一个跳动，也不在无方向的盘整中寻找突破，而是要求在开仓前满足三个特定条件。核心理念：顺趋势、在回调处、在趋势重新确认后入场剥头皮。这从根本上消除了剥头皮亏损中最大的一类——逆明确既定方向性行情而动所导致的损失。</p>
+
+<h2>系统设置：三条EMA，三个时间维度</h2>
+<p>该系统在1分钟图表上使用三条指数移动均线：</p>
+<ul>
+<li><strong>EMA 50</strong> &mdash; 短期趋势代理指标。1分钟图上价格在此线上方反弹，代表短期强势。</li>
+<li><strong>EMA 100</strong> &mdash; 中期趋势。EMA 50与EMA 100之间的区域是主要的回调入场区。</li>
+<li><strong>EMA 150</strong> &mdash; 长期结构。看涨形态有效期间，价格须保持在此线上方；看跌形态则须在此线下方。</li>
+</ul>
+<p>在入场前，你所寻找的视觉形态是：三条EMA同向运行，以大约45度角倾斜，彼此间距分开，呈层叠排列。这一形态确认了动量在短、中、长期维度上同时存在，市场处于真正的趋势状态而非震荡。</p>
+<p>当三条EMA走平、收敛或相互纠缠时——停止操作，此处无交易机会。切换至其他品种或等待。在EMA缺乏排列时强行入场，是该系统中最常见的单一错误。</p>
+
+<h2>入场：以折扣价买入（或卖出）</h2>
+<p>3-EMA 回调策略的目标是：上升趋势中在折扣价入场做多，下降趋势中在溢价区入场做空。实际操作中，做多交易的入场流程如下：</p>
+<ol>
+<li><strong>确认趋势：</strong>三条EMA（50、100、150）均呈角度向上运行。价格持续稳定地运行在EMA 50上方。</li>
+<li><strong>等待回调：</strong>价格逆趋势方向回调，测试EMA 50或EMA 100。回调至EMA 50为浅度入场，回调至EMA 100则更深。通常不希望价格收盘跌破EMA 100，因为这意味着回调可能演变为不止是常规调整。价格接近EMA 150则是趋势强度明显减弱的预警信号。</li>
+<li><strong>等待确认：</strong>仅当一根K线在回归行情中<em>收盘于</em>EMA 50上方时才触发入场。你在等待回调结束、趋势恢复——以价格重新收回第一条EMA作为确认。</li>
+<li><strong>在确认收盘时入场。止损设于测试EMA的回调K线最低点下方。</strong></li>
+</ol>
+<p>做空交易逻辑完全相反：三条EMA均向下运行，价格从下方回调测试EMA 50或EMA 100，一根K线重新收盘跌破EMA 50，做空入场，止损设于回调高点上方。</p>
+
+<h2>入场背后的心理逻辑</h2>
+<p>这一入场方式之所以可靠，源于特定的市场心理动态。在既定上升趋势中，当价格回调跌破EMA 50时，相当一部分参与者将其解读为趋势反转信号并做空。他们对大趋势的判断是错误的，但他们的入场却从另一个方向产生了买盘压力：当价格重返EMA 50上方、这些空单被止损出场时，其止损买入订单为本已重振的上升趋势增添了额外买量。这种被套交易者动态，实际上为多头入场提供了被挤出空头的止损瀑布所带来的助推力。重新站上EMA 50不仅代表多头回归——也代表错误方向卖家的被迫买入。</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>想在实时图表上看到这些？</strong> <span>AIO Indicator 将其自动化——无需手动绘制。</span></div><a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm"><i class="bi bi-lightning-charge-fill"></i> 免费试用5天</a></div></div>
+
+<h2>交易管理：先保本，后盈利</h2>
+<p>剥头皮的交易管理要求极为苛刻。容错空间极小，因为每笔交易的目标点数有限。3-EMA 系统采用特定的优先级层次：</p>
+<p><strong>优先级1：尽快将止损移至保本位。</strong>当交易盈利约5&ndash;6个点（外汇交易对）或等值金额时，将止损设至保本位。接受这样做会导致许多交易以零利润收场的结果。连续五次保本出场，远比连续五次亏损要好得多。短周期市场本就无法准确预测，即使大方向正确，任何价格波动都可能触及止损。积极保护本金——哪怕以大量零利润交易为代价——才是正确的优先选择。</p>
+<p><strong>优先级2（保本设定后）：追求更多利润。</strong>在受保护的入场基础上，你可以使用追踪止损、以下一个结构性阻力或支撑位为目标，或设定固定的1:1.5风险收益比。如果未能先设定保本位，这些出场方式都无法稳定奏效，因为一系列常规亏损在数量上会淹没后续的盈利。</p>
+<p>每笔交易风险：每次剥头皮绝不超过账户净值的0.5%。$5,000账户中，单笔最大风险为$25。这一纪律不可妥协。以超大仓位进行剥头皮会在数小时内而非数周内摧毁账户。</p>
+
+<h2>策略失效的情形</h2>
+<p>3-EMA 回调系统有两个主要失效条件，一旦出现应立即停止入场：</p>
+<p><strong>1. 三条EMA全部走平或收敛。</strong>缺乏清晰EMA层叠排列的品种，其回调形态将持续失效。EMA区域会变成一个价格反复穿越六次而非仅反弹一次的震荡区域。没有斜率，回调就没有在第一条EMA止跌而非穿越全部三条的结构性理由。</p>
+<p><strong>2. 趋势过度延伸或正接近明显的结构性阻力。</strong>即使在有效的3-EMA形态中，若回调入场方向正对着前期主要高点、整数关口或更高时间框架阻力区，其成功概率将大幅降低。1分钟图上的趋势可能有效，但在15分钟或小时图上可能同时处于派发区域。入场前务必快速进行多时间框架核查：1分钟趋势方向是否与15分钟结构一致？</p>
+<p>在更高时间框架（15分钟或1小时）上使用<strong>AIO Advanced Market Structure</strong>指标，可快速判断1分钟趋势方向是否获得更高层级的BOS确认，或者价格是否正在对抗更高时间框架阻力。这项对齐核查仅需30秒，却能过滤掉许多低概率的回调入场机会。</p>
+
+<h2>降低交易成本</h2>
+<p>高频交易意味着点差是持续拖累绩效的因素。在每日执行20笔交易的策略中，每笔0.5点的点差差异，意味着每日纯交易成本高达10点——这往往就是盈利策略与亏损策略之间的差距。对于剥头皮者而言，经纪商的选择至关重要。切勿轻率对待：在将资金投入特定平台前，务必在完全相同的条件下，跨多个平台比较你所交易品种的实际点差。</p>
+
+<h2>核心要点</h2>
+<ul>
+<li>在考虑任何入场之前，三条EMA必须排列整齐（层叠，以约45度角倾斜）——走平或纠缠的EMA意味着无交易机会</li>
+<li>回调至EMA 50是主要入场区；回调至EMA 100更深但可接受；回调至EMA 150则是趋势强度减弱的预警信号</li>
+<li>仅在K线顺趋势方向重新收回EMA 50时入场——绝不在回调中途入场</li>
+<li>盈利5&ndash;6点后立即将止损移至保本位；接受零利润出场，这是剥头皮存活的必要代价</li>
+<li>无论信心水平如何，每次剥头皮风险最大为账户的0.5%</li>
+<li>入场前核查1分钟趋势方向与15分钟结构是否一致——即使EMA排列有效，在更高时间框架阻力区逆势剥头皮也是低概率交易</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="scalping-strategies-range-bars.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-lightning"></i></div>
+                            <h3 class="feature-title">Scalping Strategies: Range Bars &amp; Precision Market Structure</h3>
+                            <p class="feature-description">Why range bars outperform time charts for scalping, confluence entry method, and ATR stop placement.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="multi-timeframe-analysis-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-layers"></i></div>
+                            <h3 class="feature-title">Multi-Timeframe Analysis: The Top-Down Framework</h3>
+                            <p class="feature-description">How professionals use Weekly/Daily/Intraday charts hierarchically to align trend bias and find high-quality entries.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="pullback-retest-mastery.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-return-left"></i></div>
+                            <h3 class="feature-title">Pullback &amp; Retest Mastery: When to Trust a Retest</h3>
+                            <p class="feature-description">Four pullback types, why failed retests happen, volume filters, and market structure CHoCH confirmation.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="scalping-strategies-range-bars.html"><span class="aio-related-cat">Scalping</span><span class="aio-related-title">Scalping Strategies: Range Bars, Zero-Lag EMAs &amp; Precision Market Structure</span></a>
+      <a class="aio-related-card" href="price-action-momentum-reading-guide.html"><span class="aio-related-cat">Price Action</span><span class="aio-related-title">Price Action Momentum: Reading Trend vs Range in Real-Time</span></a>
+      <a class="aio-related-card" href="money-flow-index-mfi-trading-strategies.html"><span class="aio-related-cat">Volume Analysis</span><span class="aio-related-title">Money Flow Index (MFI): The Volume-Weighted RSI Explained</span></a>
+      <a class="aio-related-card" href="euler-fibonacci-zone-advanced-trading.html"><span class="aio-related-cat">Advanced Analysis</span><span class="aio-related-title">The Euler-Fibonacci Zone: Mathematical Convergence as Support &amp; Resistance</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

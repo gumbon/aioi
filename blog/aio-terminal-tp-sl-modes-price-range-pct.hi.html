@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="hi" data-page-lang="hi">
+<!-- aio-tx cc89476d0d2a3753 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Terminal तीन TP/SL इनपुट मोड प्रदान करता है — Price (पूर्ण स्तर), Range (एंट्री से निश्चित दूरी), और PCT (एंट्री से प्रतिशत)। यह गाइड बताती है कि प्रत्येक का उपयोग कब करें और गणनाएँ कैसे काम करती हैं।" />
+    <meta name="keywords" content="AIO Terminal TP/SL मोड, price range pct TP/SL, Binance futures स्टॉप लॉस मोड, take profit इनपुट मोड, percentage stop loss futures, range stop loss crypto" />
+    <meta name="author" content="AIO Indicator" />
+    <title>TP/SL महारत: AIO Terminal में Price, Range &amp; PCT मोड | AIO Indicator</title>
+
+    <meta property="og:title" content="TP/SL महारत: AIO Terminal में Price, Range &amp; PCT मोड" />
+    <meta property="og:description" content="तीन TP/SL इनपुट मोड समझाए गए: पूर्ण मूल्य, निश्चित दूरी range, और संदर्भ से प्रतिशत। अपने Binance futures वर्कफ़्लो में प्रत्येक का उपयोग कब करें।" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.hi.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="TP/SL महारत: AIO Terminal में Price, Range &amp; PCT मोड" />
+    <meta name="twitter:description" content="तीन TP/SL इनपुट मोड समझाए गए: पूर्ण मूल्य, निश्चित दूरी range, और संदर्भ से प्रतिशत।" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.hi.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "TP/SL महारत: AIO Terminal में Price, Range &amp; PCT मोड",
+      "description": "AIO Terminal तीन TP/SL इनपुट मोड प्रदान करता है — Price (पूर्ण स्तर), Range (एंट्री से निश्चित दूरी), और PCT (एंट्री से प्रतिशत)। यह गाइड बताती है कि प्रत्येक का उपयोग कब करें और गणनाएँ कैसे काम करती हैं।",
+      "url": "https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.html",
+      "datePublished": "2026-05-30",
+      "dateModified": "2026-05-30",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT14M",
+      "image": "https://aioindicator.com/assets/terminal/aio-terminal-hp.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "TP/SL Modes Guide", "item": "https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/aio-terminal-tp-sl-modes-price-range-pct.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(243,156,18,0.15);color:#f39c12;border-color:rgba(243,156,18,0.3);">Terminal</div>
+                    <h1 class="article-title">TP/SL महारत: AIO Terminal में Price, Range &amp; PCT मोड</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 30, 2026</span>
+                        <span><i class="bi bi-clock"></i> 14 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><p class="lead">हर सक्रिय ट्रेडर के मन में एक मानसिक मॉडल होता है कि वह कहाँ से बाहर निकलना चाहता है। सवाल यह है कि क्या आपका ट्रेडिंग टूल उस मॉडल को व्यक्त करना आसान बनाता है या कठिन। AIO Terminal के तीन TP/SL इनपुट मोड — Price, Range, और PCT — इस तरह डिज़ाइन किए गए हैं कि वे अलग-अलग ट्रेडर्स की एग्जिट सोच से मेल खाएँ, न कि सभी को एक ही इनपुट पैराडाइम में ढकेलें।</p>
+
+<h2>एकल TP/SL इनपुट मोड की समस्या</h2>
+<p>Binance का नेटिव इंटरफ़ेस स्टॉप और टेक-प्रॉफिट स्तरों को पूर्ण कीमतों के रूप में स्वीकार करता है। यदि आप ETH ट्रेड में एंट्री से $2 नीचे स्टॉप लगाना चाहते हैं, तो पहले एंट्री प्राइस जाननी होगी, $2 घटाना होगा, और परिणाम टाइप करना होगा। यदि आप 1.5% का स्टॉप चाहते हैं, तो मौजूदा कीमत का 1.5% निकालना होगा और एंट्री से घटाना होगा। हर बार एंट्री प्राइस बदलने पर आपकी गणना बदल जाती है।</p>
+<p>यह आपकी जोखिम सोच (दूरी या प्रतिशत के रूप में) और इंटरफ़ेस की इनपुट स्वीकृति (पूर्ण मूल्य के रूप में) के बीच एक मानसिक अनुवाद परत थोपता है। दबाव में यह अनुवाद परत इनपुट त्रुटियाँ पैदा करती है। आप गलत नंबर टाइप करते हैं, ऑर्डर गलत स्टॉप के साथ जाता है, और आप जितना सोचा था उससे अधिक जोखिम में पड़ जाते हैं।</p>
+<p>AIO Terminal तीनों एक्सप्रेशन फॉर्मेट एक साथ प्रदान करके इस अनुवाद परत को हटा देता है। आप जोखिम उसी तरह तय करते हैं जैसा सोचते हैं — टर्मिनल गणित करता है।</p>
+
+<h2>मोड 1: Price (पूर्ण स्तर)</h2>
+
+<h3>यह क्या है</h3>
+<p>PRICE मोड आपके TP या SL इनपुट के रूप में एक विशिष्ट पूर्ण मूल्य लेता है। आप TP के रूप में "65000" टाइप करते हैं, और ऑर्डर $65,000 पर टेक-प्रॉफिट ट्रिगर के साथ सबमिट होता है। कोई गणना आवश्यक नहीं — जो कीमत आप टाइप करते हैं वही ऑर्डर में जाती है।</p>
+
+<h3>इसका उपयोग कब करें</h3>
+<p>PRICE मोड तब आदर्श है जब आपके एग्जिट स्तर सीधे चार्ट विश्लेषण से आते हैं। यदि आपका चार्ट $65,000 पर महत्वपूर्ण रेज़िस्टेंस दिखाता है और आप उस स्तर से ठीक नीचे $64,950 पर TP चाहते हैं, तो आप चार्ट से स्तर पढ़ते हैं और टाइप कर देते हैं। कोई बीच का चरण नहीं है। चार्ट विश्लेषण और ऑर्डर इनपुट के बीच का संबंध सीधा है।</p>
+<p>इसी तरह, यदि $62,000 पर एक निर्धारित सपोर्ट स्तर है और आप उसके नीचे $61,800 पर SL चाहते हैं, तो PRICE मोड इसे स्वाभाविक रूप से संभालता है। आप अपने एग्जिट को मार्केट स्ट्रक्चर से एंकर कर रहे हैं, न कि अपनी एंट्री प्राइस से।</p>
+
+<h3>रेफरेंस प्राइस व्यवहार</h3>
+<p>PRICE मोड में, रेफरेंस प्राइस गणना में उपयोग नहीं होती — आप सीधे अंतिम कीमत प्रदान कर रहे हैं। Long और Short टैब्स (नई एंट्रीज़) के लिए, PRICE मोड सरल है। TP/SL टैब (मौजूदा पोज़िशन प्रबंधन) के लिए, रेफरेंस प्राइस आपकी मौजूदा एंट्री प्राइस है, लेकिन PRICE मोड में यह केवल संदर्भ के लिए दिखती है, गणना में उपयोग नहीं होती।</p>
+
+<h3>विशिष्ट उपयोगकर्ता</h3>
+<p>PRICE मोड उन ट्रेडर्स के लिए उपयुक्त है जो स्ट्रक्चर-आधारित TP/SL प्लेसमेंट उपयोग करते हैं: डिमांड ज़ोन पर एंट्री के साथ सप्लाई ज़ोन पर TP, ब्रेकआउट पॉइंट पर एंट्री के साथ अगले मेज़र्ड मूव टारगेट पर TP। चार्ट आपको सटीक स्तर बताता है; PRICE मोड आपको बिना गणित के उसे एंटर करने देता है।</p>
+
+<h2>मोड 2: Range (निश्चित दूरी)</h2>
+
+<h3>यह क्या है</h3>
+<p>RANGE मोड एक दूरी मान को इनपुट के रूप में लेता है — प्राइस पॉइंट्स (या पिप्स, या संपत्ति के अनुसार डॉलर) की संख्या जो आप अपने रेफरेंस प्राइस से TP या SL के लिए चाहते हैं। आप स्टॉप के लिए "150" टाइप करते हैं, और AIO Terminal अंतिम स्टॉप प्राइस की गणना एंट्री प्राइस माइनस 150 (long के लिए) या एंट्री प्राइस प्लस 150 (short के लिए) के रूप में करता है।</p>
+<p>दिशा स्वचालित रूप से संभाली जाती है। LONG पोज़िशन के लिए, AIO Terminal जानता है कि स्टॉप एंट्री से नीचे है (entry - distance) और TP एंट्री से ऊपर है (entry + distance)। SHORT पोज़िशन के लिए, तर्क उलट जाता है। आपको कभी यह सोचने की जरूरत नहीं कि दूरी किस दिशा में लागू होती है — सिस्टम इसे संभालता है।</p>
+
+<h3>इसका उपयोग कब करें</h3>
+<p>RANGE मोड तब आदर्श है जब आपका जोखिम मॉडल स्टॉप और टारगेट को डॉलर दूरी या पॉइंट दूरी के रूप में व्यक्त करता है न कि पूर्ण मूल्य के रूप में। ATR (Average True Range) आधारित स्टॉप इसके लिए स्वाभाविक रूप से उपयुक्त हैं: "मैं अपना स्टॉप एंट्री से 1.5x ATR नीचे चाहता हूँ।" यदि आपके सिंबल का वर्तमान ATR 200 पॉइंट है, तो आप RANGE स्टॉप 300 पर सेट करते हैं। हर ट्रेड को स्वचालित रूप से सही दूरी पर स्टॉप मिलता है, चाहे एंट्री प्राइस कहीं भी हो।</p>
+<p>स्कैल्पर्स के लिए जो कई ट्रेड्स में फिक्स्ड-डिस्टेंस स्टॉप उपयोग करते हैं — "मेरा स्टॉप हमेशा एंट्री से 150 टिक्स, मेरा टारगेट हमेशा 300 टिक्स" — RANGE मोड का अर्थ है कि आप ये मान एक बार कॉन्फ़िगर करते हैं और वे हर ट्रेड पर बिना किसी ट्रेड-टाइम गणना के लागू होते हैं। फिक्स्ड R-मल्टीपल की संगतता स्वचालित रूप से प्राप्त होती है।</p>
+
+<h3>अंतिम मूल्य की गणना</h3>
+<p>$65,000 पर LONG एंट्री के साथ RANGE स्टॉप 500 के लिए:</p>
+<ul>
+    <li>SL सबमिट होता है: $65,000 - $500 = $64,500</li>
+    <li>यदि RANGE TP 1000 पर सेट है: TP सबमिट होता है $65,000 + $1,000 = $66,000</li>
+</ul>
+<p>$65,000 पर SHORT एंट्री के साथ RANGE स्टॉप 500 के लिए:</p>
+<ul>
+    <li>SL सबमिट होता है: $65,000 + $500 = $65,500</li>
+    <li>यदि RANGE TP 1000 पर सेट है: TP सबमिट होता है $65,000 - $1,000 = $64,000</li>
+</ul>
+<p>मार्केट एंट्रीज़ (Long और Short टैब्स) के लिए, रेफरेंस प्राइस सबमिशन के समय की मार्क प्राइस है। लिमिट एंट्रीज़ के लिए, यह आपकी निर्दिष्ट लिमिट प्राइस है। TP/SL टैब (मौजूदा पोज़िशन) के लिए, रेफरेंस प्राइस ओपन पोज़िशन पर आपकी वर्तमान एंट्री प्राइस है।</p>
+
+<h3>विशिष्ट उपयोगकर्ता</h3>
+<p>RANGE मोड ATR-आधारित जोखिम ट्रेडर्स, फिक्स्ड-R सिस्टम ट्रेडर्स, और स्कैल्पर्स के लिए उपयुक्त है जो सुसंगत टिक-डिस्टेंस स्टॉप उपयोग करते हैं। जो भी व्यक्ति एग्जिट को "किसी विशिष्ट स्तर पर" के बजाय "एंट्री से X पॉइंट" के रूप में वर्णित करता है, वह पाएगा कि RANGE मोड पूरे ट्रेडिंग दिन में महत्वपूर्ण गणना समय बचाता है।</p>
+
+<h2>मोड 3: PCT (प्रतिशत)</h2>
+
+<h3>यह क्या है</h3>
+<p>PCT मोड एक प्रतिशत मान को इनपुट के रूप में लेता है। आप TP के लिए "1.5" टाइप करते हैं, और AIO Terminal TP प्राइस की गणना करता है: long के लिए entry price × (1 + 0.015), या short के लिए entry price × (1 - 0.015)। प्रतिशत रेफरेंस प्राइस पर लागू होता है, और परिणामी पूर्ण मूल्य ऑर्डर के रूप में सबमिट होता है।</p>
+
+<h3>इसका उपयोग कब करें</h3>
+<p>PCT मोड तब आदर्श है जब आप जोखिम को प्रतिशत मूव के रूप में सोचते हैं — जो अधिकांश ट्रेडर्स स्वाभाविक भाषा में पोज़िशन जोखिम व्यक्त करने का तरीका है ("मैं प्रति ट्रेड 1% जोखिम लेता हूँ," "मैं 2% मूव्स टारगेट करता हूँ")। उस प्रतिशत को मैन्युअल रूप से पूर्ण मूल्य में अनुवाद करने के बजाय, PCT मोड रूपांतरण स्वचालित रूप से करता है।</p>
+<p>PCT मोड विभिन्न संपत्तियों में जोखिम की तुलना करते समय भी उपयोगी है। $65,000 पर BTC पर 1.5% स्टॉप $3,500 पर ETH पर 1.5% स्टॉप से एक अलग पूर्ण दूरी है। यदि आप ट्रेड्स में सुसंगत प्रतिशत जोखिम चाहते हैं, तो PCT मोड संपत्ति की कीमत की परवाह किए बिना इसे सुसंगत रूप से लागू करता है।</p>
+
+<h3>अंतिम मूल्य की गणना</h3>
+<p>PCT स्टॉप 1.5% के साथ $65,000 पर LONG एंट्री के लिए:</p>
+<ul>
+    <li>SL सबमिट होता है: $65,000 × (1 - 0.015) = $64,025</li>
+    <li>यदि PCT TP 2% पर सेट है: TP सबमिट होता है $65,000 × (1 + 0.02) = $66,300</li>
+</ul>
+<p>PCT स्टॉप 1.5% के साथ $65,000 पर SHORT एंट्री के लिए:</p>
+<ul>
+    <li>SL सबमिट होता है: $65,000 × (1 + 0.015) = $65,975</li>
+    <li>यदि PCT TP 2% पर सेट है: TP सबमिट होता है $65,000 × (1 - 0.02) = $63,700</li>
+</ul>
+<p>रेफरेंस प्राइस तर्क RANGE मोड को प्रतिबिंबित करता है: मार्केट एंट्रीज़ के लिए मार्क प्राइस, लिमिट एंट्रीज़ के लिए लिमिट प्राइस, TP/SL टैब के लिए वर्तमान एंट्री प्राइस।</p>
+
+<h3>विशिष्ट उपयोगकर्ता</h3>
+<p>PCT मोड प्रतिशत-आधारित जोखिम ट्रेडर्स, उन ट्रेडर्स के लिए उपयुक्त है जो प्रति ट्रेड एक निश्चित प्रतिशत जोखिम के आधार पर पोज़िशन साइज़ करते हैं, और किसी भी ऐसे व्यक्ति के लिए जो विभिन्न संपत्तियों और मूल्य स्तरों में जोखिम को सामान्यीकृत रूप में सोचना चाहता है। यह उन ट्रेडर्स के लिए भी सबसे सहज मोड है जो प्रदर्शन को प्रतिशत में बेंचमार्क करते हैं।</p>
+
+<h2>मोड मिश्रण: TP और SL का मेल ज़रूरी नहीं</h2>
+<p>एक महत्वपूर्ण और अक्सर अनदेखी की जाने वाली विशेषता: आपके TP और SL एक ही ट्रेड में अलग-अलग मोड उपयोग कर सकते हैं। आप SL को RANGE मोड में सेट कर सकते हैं (क्योंकि आपका स्टॉप ATR पर आधारित है) और TP को PRICE मोड में (क्योंकि आपका टारगेट एक विशिष्ट रेज़िस्टेंस स्तर है)। या SL PCT में (1.5% जोखिम) और TP PRICE में ($66,500 सप्लाई ज़ोन टारगेट करें)।</p>
+<p>यह लचीलापन उस तरह मेल खाता है जिस तरह परिष्कृत ट्रेडर्स वास्तव में ट्रेड बनाते हैं। स्टॉप प्लेसमेंट तर्क अक्सर टारगेट प्लेसमेंट तर्क से अलग होता है। स्टॉप मैकेनिकल हो सकता है (एंट्री से 2x ATR नीचे) जबकि टारगेट विवेकाधीन हो सकता है (चार्ट पर अगला महत्वपूर्ण सप्लाई ज़ोन)। AIO Terminal इन दो अलग-अलग विश्लेषणात्मक दृष्टिकोणों को एक ही इनपुट मोड में बाध्य नहीं करता।</p>
+
+<h2>TP/SL टैब: ओपन पोज़िशन प्रबंधन</h2>
+<p>Long और Short ऑर्डर एंट्री टैब्स से परे, AIO Terminal में पहले से खुली पोज़िशन के एग्जिट संशोधन के लिए एक समर्पित TP/SL टैब शामिल है। यह टैब तीनों मोड के लिए आपकी वास्तविक एंट्री प्राइस को रेफरेंस पॉइंट के रूप में उपयोग करता है।</p>
+<p>व्यावहारिक उपयोग: आपने $65,000 पर long एंट्री की, ट्रेड $65,800 तक चला गया है और आप अपना स्टॉप ब्रेकइवन +50 पॉइंट तक कसना चाहते हैं। पहले Cancel टैब के माध्यम से मौजूदा SL रद्द करें, फिर TP/SL टैब पर जाएँ, RANGE मोड चुनें, नई SL दूरी के रूप में "50" दर्ज करें। AIO Terminal $65,000 + $50 = $65,050 की गणना करता है और Binance पर नया स्टॉप सबमिट करता है। आपको पूर्ण स्टॉप प्राइस टाइप करने की ज़रूरत नहीं पड़ी — आपने इसे "एंट्री से 50 ऊपर" के रूप में व्यक्त किया और सिस्टम ने गणित किया।</p>
+<p>TP/SL अपडेट करना सरल है: बस किसी भी समय TP/SL टैब से उन्हें पुनः सेट करें। AIO Terminal नए ऑर्डर देने से पहले उस पोज़िशन के सभी मौजूदा TP/SL ऑर्डर स्वचालित रूप से रद्द कर देता है — कोई मैन्युअल रद्द चरण आवश्यक नहीं।</p>
+
+<h2>PH/PL क्विक-फिल तीनों मोड में काम करता है</h2>
+<p>Long, Short, और TP/SL टैब्स में PH (Pivot High) और PL (Pivot Low) क्विक-फिल बटन शामिल हैं। उनका व्यवहार आपके चयनित इनपुट मोड के अनुसार अनुकूलित होता है:</p>
+<ul>
+    <li><strong>Price मोड:</strong> PL टैप करने पर SL फ़ील्ड पूर्ण pivot low प्राइस से भर जाती है। PH टैप करने पर TP पूर्ण pivot high प्राइस से भर जाता है। सीधा प्रत्यक्ष भरण।</li>
+    <li><strong>Range मोड:</strong> PL टैप करने पर <code>|pivot_low − entry|</code> की गणना होती है और Range फ़ील्ड उस दूरी से भर जाती है। आपको यह गणना नहीं करनी पड़ती कि pivot आपकी एंट्री से कितना दूर है — टर्मिनल यह करता है।</li>
+    <li><strong>PCT मोड:</strong> PL टैप करने पर <code>|pivot_low − entry| / entry × 100</code> की गणना होती है और प्रतिशत फ़ील्ड भर जाती है। उपयोगी तब जब आप प्रतिशत जोखिम में सोचते हैं लेकिन SL को वास्तविक मार्केट स्ट्रक्चर से एंकर करना चाहते हैं।</li>
+</ul>
+<p>इसका अर्थ है कि आप pivot-आधारित स्टॉप और टारगेट का उपयोग अपने जोखिम प्रबंधन सिस्टम की किसी भी इकाई में कर सकते हैं — पूर्ण मूल्य, पॉइंट दूरी, या प्रतिशत — उनके बीच मैन्युअल रूपांतरण किए बिना। pivot मूल्य से Range या PCT में रूपांतरण उसी क्षण स्वचालित रूप से होता है जब आप PH या PL टैप करते हैं।</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>जोखिम उसी तरह तय करें जैसा आप सोचते हैं।</strong> <span>AIO Terminal हर VIP प्लान के साथ निःशुल्क है।</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Terminal Access पाएँ</a></div></div>
+
+<h2>अपना डिफ़ॉल्ट मोड चुनना</h2>
+<p>अधिकांश ट्रेडर्स के लिए, एक मोड उनके वर्कफ़्लो पर हावी होगा और उनका डिफ़ॉल्ट बन जाएगा। यहाँ एक सरल निर्णय ढाँचा है:</p>
+<ul>
+    <li><strong>PRICE उपयोग करें</strong> यदि: आपके सेटअप मुख्यतः चार्ट स्ट्रक्चर (सप्लाई/डिमांड ज़ोन, S/R स्तर, मेज़र्ड मूव्स) से आते हैं</li>
+    <li><strong>RANGE उपयोग करें</strong> यदि: आपका जोखिम मॉडल ट्रेड्स में ATR-आधारित स्टॉप या फिक्स्ड टिक-डिस्टेंस नियमों का लगातार उपयोग करता है</li>
+    <li><strong>PCT उपयोग करें</strong> यदि: आप प्रति ट्रेड एक निश्चित प्रतिशत जोखिम के आधार पर पोज़िशन साइज़ करते हैं, या विभिन्न संपत्तियों में सुसंगत प्रतिशत जोखिम चाहते हैं</li>
+</ul>
+<p>आपके TP और SL अलग-अलग डिफ़ॉल्ट उपयोग कर सकते हैं जिस पर निर्भर करते हुए आप प्रत्येक को कैसे निर्धारित करते हैं। अधिकांश स्ट्रक्चर-आधारित ट्रेडर TP के लिए PRICE (किसी विशिष्ट ज़ोन को टारगेट करना) और SL के लिए RANGE या PCT (फिक्स्ड मैकेनिकल जोखिम) उपयोग करते हैं। दोनों समान रूप से मान्य हैं। यह लचीलापन ठीक इसलिए मौजूद है क्योंकि जोखिम व्यक्त करने का कोई एकल "सही" तरीका नहीं है — केवल वह तरीका है जो आपके विश्लेषण से मेल खाता हो और दबाव में इनपुट त्रुटियों से बचाए।</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-binance-futures-trading-tool.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-terminal-fill"></i></div>
+                            <h3 class="feature-title">AIO Terminal: Complete Overview</h3>
+                            <p class="feature-description">PH/PL in any mode, keyboard shortcuts, multi-account, data sync, and security model explained.</p>
+                            <span class="feature-description small">15 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="one-click-order-execution-futures-trading.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                            <h3 class="feature-title">One-Click Execution</h3>
+                            <p class="feature-description">How limit-at-last-price achieves near-100% fill rates with maker fees — the mechanics explained.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-vs-exchange-interface-comparison.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-left-right"></i></div>
+                            <h3 class="feature-title">AIO Terminal vs Binance Native</h3>
+                            <p class="feature-description">Side-by-side comparison of every key workflow including TP/SL mode flexibility vs Binance's price-only input.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="aio-terminal-analytics-tab-market-microstructure-guide.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide</span></a>
+      <a class="aio-related-card" href="aio-terminal-smart-tape-aggression-gauge-cvd.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time</span></a>
+      <a class="aio-related-card" href="aio-terminal-order-book-live-dom-binance-futures.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</span></a>
+      <a class="aio-related-card" href="aio-terminal-binance-futures-trading-tool.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal: The Pro Binance Futures Tool You Didn't Know You Needed</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

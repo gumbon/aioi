@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="vi" data-page-lang="vi">
+<!-- aio-tx 977fbba1b2d6d9b4 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Hướng dẫn từng bước tạo API key Binance cho AIO Terminal: thiết lập API Management, bật giao dịch Futures, giới hạn IP để bảo mật và kết nối với AIO Terminal." />
+    <meta name="keywords" content="cài đặt Binance API, API key Binance AIO Terminal, bật Binance Futures API, giới hạn IP Binance API, quản lý Binance API, hướng dẫn cài đặt AIO Terminal, công cụ giao dịch Binance futures" />
+    <meta name="author" content="AIO Indicator" />
+    <title>Hướng Dẫn Tạo API Key Binance cho AIO Terminal | AIO Indicator</title>
+
+    <meta property="og:title" content="Hướng Dẫn Tạo API Key Binance cho AIO Terminal" />
+    <meta property="og:description" content="Hướng dẫn đầy đủ: tạo API key Binance, bật Futures, giới hạn IP tin cậy và kết nối với AIO Terminal trong vài phút." />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/binance-api-setup-aio-terminal.vi.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="Hướng Dẫn Tạo API Key Binance cho AIO Terminal" />
+    <meta name="twitter:description" content="Tạo API key Binance, bật Futures, thiết lập IP tin cậy và kết nối với AIO Terminal từng bước một." />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.vi.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Hướng Dẫn Tạo API Key Binance cho AIO Terminal",
+      "description": "Hướng dẫn từng bước tạo API key Binance cho AIO Terminal: thiết lập API Management, bật giao dịch Futures, giới hạn IP để bảo mật và kết nối với AIO Terminal.",
+      "url": "https://aioindicator.com/blog/binance-api-setup-aio-terminal.html",
+      "datePublished": "2026-05-31",
+      "dateModified": "2026-05-31",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/binance-api-setup-aio-terminal.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT8M",
+      "image": "https://aioindicator.com/assets/terminal/aio-terminal-hp.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Binance API Setup for AIO Terminal", "item": "https://aioindicator.com/blog/binance-api-setup-aio-terminal.html" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Set Up Your Binance API Key for AIO Terminal",
+      "description": "Create a Binance API key with Futures permissions and IP restriction, then connect it to AIO Terminal.",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Open API Management", "text": "Log in to Binance, click your profile icon, then click API Management." },
+        { "@type": "HowToStep", "position": 2, "name": "Create API key", "text": "Click 'Create API', choose 'System generated', enter a label, and complete identity verification." },
+        { "@type": "HowToStep", "position": 3, "name": "Save your API key and Secret key", "text": "Copy and store both keys immediately. The Secret key is shown only once and cannot be retrieved later." },
+        { "@type": "HowToStep", "position": 4, "name": "Enable Futures", "text": "In the API key permissions, enable 'Enable Futures'. Do not enable withdrawals." },
+        { "@type": "HowToStep", "position": 5, "name": "Restrict to trusted IPs", "text": "Enable 'Restrict access to trusted IPs only' and enter the IP addresses provided by the AIO Indicator team." },
+        { "@type": "HowToStep", "position": 6, "name": "Connect to AIO Terminal", "text": "Log in to terminal.aioindicator.com with the credentials provided by AIO Indicator team, then enter your API key and Secret key in the settings." }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/binance-api-setup-aio-terminal.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(243,156,18,0.15);color:#f39c12;border-color:rgba(243,156,18,0.3);">Terminal</div>
+                    <h1 class="article-title">Hướng Dẫn Tạo API Key Binance cho AIO Terminal</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 31, 2026</span>
+                        <span><i class="bi bi-clock"></i> 8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><p class="lead">Trước khi AIO Terminal có thể thực hiện lệnh giao dịch thay bạn, bạn cần kết nối nó với tài khoản Binance thông qua API key. Hướng dẫn này đi qua toàn bộ quá trình thiết lập: tạo API key, bật các quyền cần thiết, bảo mật bằng giới hạn IP và đăng nhập vào AIO Terminal lần đầu tiên.</p>
+
+<div style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);border-radius:12px;padding:20px 24px;margin-bottom:2rem;">
+    <strong style="color:var(--accent-primary)"><i class="bi bi-info-circle me-2"></i>Trước khi bắt đầu</strong>
+    <p class="mb-0 mt-2 text-secondary">AIO Terminal dành cho tất cả <strong style="color:var(--text-primary)">thành viên gói VIP</strong>. Sau khi đăng ký, hãy liên hệ chúng tôi qua Telegram (<a href="https://t.me/nguyenthl" class="text-decoration-none" style="color:var(--accent-primary)">@nguyenthl</a>) để nhận thông tin đăng nhập AIO Terminal và các địa chỉ IP tin cậy cần dùng ở bước 5 bên dưới.</p>
+</div>
+
+<h2>Bước 1: Mở API Management trên Binance</h2>
+
+<p>Đăng nhập vào tài khoản Binance tại <strong>binance.com</strong>. Nhấp vào <strong>biểu tượng hồ sơ</strong> ở góc trên bên phải để mở menu tài khoản. Trong menu thả xuống, nhấp vào <strong>API Management</strong>.</p>
+
+<p>Bạn sẽ đến trang API Management, nơi liệt kê tất cả các API key hiện có trên tài khoản. Nếu đây là lần đầu tiên, danh sách sẽ trống.</p>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:1.5rem 0;">
+    <strong style="color:var(--text-primary)"><i class="bi bi-lightbulb me-2" style="color:#f39c12"></i>Mẹo</strong>
+    <p class="mb-0 mt-1 text-secondary">Đặt nhãn rõ ràng cho API key, ví dụ <em>"AIO Terminal"</em>, để dễ nhận biết sau này. Nếu bạn cần thu hồi hoặc kiểm tra, nhãn mô tả sẽ giúp tiết kiệm thời gian.</p>
+</div>
+
+<h2>Bước 2: Tạo API Key Mới</h2>
+
+<p>Nhấp vào nút <strong>Create API</strong>. Binance sẽ yêu cầu bạn chọn loại key:</p>
+
+<ul>
+    <li><strong>System generated</strong> — Binance tự tạo key và secret cho bạn. Đây là lựa chọn đúng cho AIO Terminal.</li>
+    <li>Self-generated (Ed25519) — dành cho các trường hợp nâng cao yêu cầu tạo key tùy chỉnh. Không cần dùng ở đây.</li>
+</ul>
+
+<p>Chọn <strong>System generated</strong>, sau đó nhập nhãn (ví dụ: <em>"AIO Terminal"</em>) và nhấp <strong>Next</strong>. Binance sẽ yêu cầu bạn hoàn tất bước xác minh danh tính — thường bao gồm xác nhận email, SMS OTP hoặc Google Authenticator tùy theo cài đặt 2FA của tài khoản. Hoàn tất xác minh để tiếp tục.</p>
+
+<h2>Bước 3: Lưu API Key và Secret Key — Làm Ngay Bây Giờ</h2>
+
+<p>Sau khi xác minh, Binance hiển thị <strong>API Key</strong> và <strong>Secret Key</strong> mới của bạn. Đây là <em>lần duy nhất</em> Secret Key được hiển thị. Khi bạn đóng trang này, Secret Key sẽ biến mất vĩnh viễn khỏi giao diện Binance — không có nút "hiển thị secret" nào sau đó.</p>
+
+<div style="background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);border-radius:10px;padding:16px 20px;margin:1.5rem 0;">
+    <strong style="color:#e74c3c"><i class="bi bi-exclamation-triangle me-2"></i>Quan trọng</strong>
+    <p class="mb-0 mt-1 text-secondary">Sao chép cả <strong style="color:var(--text-primary)">API Key</strong> và <strong style="color:var(--text-primary)">Secret Key</strong> rồi lưu ở nơi an toàn (trình quản lý mật khẩu là lý tưởng nhất) trước khi rời trang. Nếu mất Secret Key, bạn phải xóa API key này và tạo lại từ đầu.</p>
+</div>
+
+<p>Hai giá trị này là thứ bạn sẽ nhập vào cài đặt của AIO Terminal để kết nối tài khoản Binance:</p>
+<ul>
+    <li><strong>API Key</strong> — một chuỗi ký tự và số dài, trông giống UUID. Có thể chia sẻ an toàn với AIO Terminal.</li>
+    <li><strong>Secret Key</strong> — dài tương đương, ngẫu nhiên tương đương. Hãy xem nó như mật khẩu. AIO Terminal mã hóa và lưu trữ nó phía máy chủ; không bao giờ hiển thị dưới dạng văn bản thuần.</li>
+</ul>
+
+<h2>Bước 4: Bật Quyền Futures</h2>
+
+<p>Sau khi API key được tạo, bạn sẽ đến trang cài đặt của nó (hoặc quay lại API Management và nhấp vào key). Bạn sẽ thấy danh sách các hộp kiểm quyền. Mặc định, chỉ có <strong>Read Info</strong> được bật.</p>
+
+<p>Để cho phép AIO Terminal đặt và quản lý lệnh, bạn phải bật:</p>
+
+<ul>
+    <li><strong>Enable Futures</strong> — bắt buộc để AIO Terminal gửi lệnh Long/Short, đặt TP/SL, đặt trailing stop và đóng vị thế trên tài khoản Binance USDⓈ-M Futures của bạn.</li>
+</ul>
+
+<div style="background:rgba(231,76,60,0.1);border:1px solid rgba(231,76,60,0.3);border-radius:10px;padding:16px 20px;margin:1.5rem 0;">
+    <strong style="color:#e74c3c"><i class="bi bi-shield-x me-2"></i>KHÔNG bật quyền rút tiền</strong>
+    <p class="mb-0 mt-1 text-secondary">Tuyệt đối không bật "Enable Withdrawals" trên API key dùng với bất kỳ công cụ bên thứ ba nào. AIO Terminal không yêu cầu quyền rút tiền và sẽ không bao giờ đề nghị điều đó. Giữ quyền rút tiền bị tắt có nghĩa là AIO Terminal — và bất kỳ ai có thể xâm phạm API key — không thể chuyển tiền ra khỏi tài khoản của bạn. Đây là ranh giới bảo mật quan trọng.</p>
+</div>
+
+<p>Sau khi chọn <strong>Enable Futures</strong>, lưu các quyền. Binance có thể yêu cầu xác nhận 2FA thêm một lần nữa.</p>
+
+<h2>Bước 5: Giới Hạn Truy Cập Chỉ Từ IP Tin Cậy</h2>
+
+<p>Đây là cài đặt bảo mật quan trọng nhất. Trên cùng trang cài đặt API key, tìm tùy chọn có nhãn <strong>"Restrict access to trusted IPs only"</strong> và bật nó lên.</p>
+
+<p>Khi bật tùy chọn này, API key của bạn chỉ có thể được sử dụng từ các địa chỉ IP cụ thể mà bạn liệt kê. Ngay cả khi API Key và Secret Key bị đánh cắp, chúng sẽ vô dụng với kẻ tấn công gọi từ bất kỳ IP nào khác — máy chủ Binance từ chối mọi yêu cầu không xuất phát từ IP được phép của bạn.</p>
+
+<h3>Nhập Địa Chỉ IP Nào</h3>
+
+<p>Đội ngũ AIO Indicator sẽ cung cấp cho bạn các địa chỉ IP tin cậy cần thêm vào whitelist khi bạn nhận thông tin đăng nhập AIO Terminal. Đây là các địa chỉ IP của máy chủ AIO Terminal — máy duy nhất thực hiện các lệnh gọi API thay bạn.</p>
+
+<div style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.25);border-radius:10px;padding:16px 20px;margin:1.5rem 0;">
+    <strong style="color:var(--accent-primary)"><i class="bi bi-info-circle me-2"></i>Nhận địa chỉ IP của bạn</strong>
+    <p class="mb-0 mt-1 text-secondary">Khi bạn đăng ký gói VIP và liên hệ chúng tôi qua Telegram, chúng tôi sẽ gửi cho bạn:<br>
+    • <strong style="color:var(--text-primary)">Thông tin đăng nhập AIO Terminal</strong> (tên đăng nhập + mật khẩu ban đầu)<br>
+    • Các <strong style="color:var(--text-primary)">địa chỉ IP tin cậy</strong> cần thêm vào whitelist trong cài đặt Binance API<br><br>
+    Nhập các IP này vào trường "Restrict access to trusted IPs only" trên Binance, phân cách bằng dấu phẩy hoặc nhập từng dòng tùy theo giao diện hiện tại của Binance.</p>
+</div>
+
+<p>Sau khi nhập IP và lưu, API key của bạn đã được cấu hình hoàn chỉnh. Sự kết hợp "Futures bật, rút tiền tắt, giới hạn IP" là tư thế bảo mật chuẩn vàng cho API key của công cụ giao dịch.</p>
+
+<h2>Bước 6: Đăng Nhập vào AIO Terminal</h2>
+
+<p>Mở <strong>terminal.aioindicator.com</strong> trên bất kỳ trình duyệt hiện đại nào. Bạn không cần cài đặt gì — AIO Terminal hoàn toàn dựa trên web và hoạt động trên máy tính để bàn, máy tính bảng và điện thoại di động.</p>
+
+<p>Đăng nhập bằng <strong>tên đăng nhập và mật khẩu ban đầu</strong> được cung cấp bởi đội ngũ AIO Indicator. Lần đăng nhập đầu tiên, bạn sẽ được yêu cầu đặt mật khẩu mới. Chọn mật khẩu mạnh, độc đáo và lưu vào trình quản lý mật khẩu.</p>
+
+<h3>Kết Nối Tài Khoản Binance</h3>
+
+<p>Sau khi đăng nhập, điều hướng đến <strong>Settings</strong> trong AIO Terminal. Nhập:</p>
+<ul>
+    <li><strong>API Key</strong> — chuỗi key từ Bước 3</li>
+    <li><strong>Secret Key</strong> — chuỗi secret từ Bước 3</li>
+</ul>
+
+<p>AIO Terminal sẽ xác thực kết nối bằng cách thực hiện một lệnh gọi đọc thử đến tài khoản Binance của bạn. Nếu kết nối thành công, các vị thế và lệnh đang mở của bạn sẽ xuất hiện trong bảng điều khiển trong chu kỳ đồng bộ dữ liệu tiếp theo (mặc định: 5 giây).</p>
+
+<div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 20px;margin:1.5rem 0;">
+    <strong style="color:var(--text-primary)"><i class="bi bi-shield-check me-2" style="color:#2ecc71"></i>Cách AIO Terminal lưu trữ thông tin xác thực của bạn</strong>
+    <p class="mb-0 mt-1 text-secondary">API Key và Secret Key của bạn được mã hóa trên máy chủ AIO Terminal. Chúng không bao giờ được lưu dưới dạng văn bản thuần, không bao giờ được truyền không mã hóa và không bao giờ hiển thị cho đội ngũ AIO Indicator. AIO Terminal chỉ sử dụng <em>API key</em> Binance của bạn — không bao giờ dùng mật khẩu tài khoản Binance.</p>
+</div>
+
+<h2>Thêm Tài Khoản Binance Thứ Hai (Tùy Chọn)</h2>
+
+<p>AIO Terminal hỗ trợ tối đa <strong>2 tài khoản Binance cùng lúc</strong>. Để thêm tài khoản thứ hai, lặp lại quy trình tạo API key ở trên trên tài khoản Binance thứ hai của bạn, sau đó nhập thông tin xác thực đó vào Settings của AIO Terminal ở ô tài khoản thứ hai.</p>
+
+<p>Bạn có thể chuyển đổi giữa các tài khoản trong giao diện Terminal. Điều này hữu ích cho các trader vận hành các tài khoản riêng biệt theo các chiến lược khác nhau — ví dụ: một tài khoản cho vị thế futures theo xu hướng và tài khoản kia cho scalping ngắn hạn.</p>
+
+<h2>Thử Nghiệm Trên Binance Testnet Trước</h2>
+
+<p>Nếu bạn mới bắt đầu giao dịch futures hoặc mới dùng AIO Terminal, chúng tôi khuyến khích mạnh mẽ việc kết nối với <strong>Binance Testnet</strong> trước khi vào thực chiến. Testnet cung cấp môi trường futures mô phỏng với tiền ảo — tất cả tính năng AIO Terminal đều hoạt động giống hệt: Long, Short, TP/SL, Trailing Stop, Close — nhưng không có tiền thật nào bị rủi ro.</p>
+
+<p>Để sử dụng Testnet:</p>
+<ol>
+    <li>Tạo tài khoản tại <strong>testnet.binancefuture.com</strong> (tách biệt với tài khoản Binance chính của bạn)</li>
+    <li>Tạo API key trên trang testnet theo cùng quy trình mô tả ở trên</li>
+    <li>Trong Settings của AIO Terminal, chuyển sang <strong>chế độ Testnet</strong> và nhập thông tin xác thực API testnet của bạn</li>
+    <li>Luyện tập cho đến khi thành thạo, sau đó chuyển lại mainnet với thông tin xác thực thực của bạn</li>
+</ol>
+
+<h2>Xử Lý Sự Cố Thường Gặp Khi Cài Đặt</h2>
+
+<h3>Kết nối thất bại: "Invalid API key"</h3>
+<p>Kiểm tra lại xem bạn đã sao chép đúng toàn bộ chuỗi API Key chưa, không có khoảng trắng thừa. API key phân biệt chữ hoa/thường và thường dài 64 ký tự. Nếu bạn sao chép đúng từ Binance nhưng vẫn thất bại, nguyên nhân phổ biến nhất là quyền Futures chưa được lưu — quay lại Binance API Management và xác nhận "Enable Futures" đã được chọn và lưu.</p>
+
+<h3>Lệnh gửi nhưng bị từ chối: "IP address not whitelisted"</h3>
+<p>Lỗi này từ Binance nghĩa là bạn đã bật giới hạn IP nhưng IP của máy chủ AIO Terminal không nằm trong whitelist, hoặc bạn đã nhập IP sai. Liên hệ chúng tôi qua Telegram và chúng tôi sẽ xác nhận lại các địa chỉ IP hiện tại. Lưu ý rằng IP máy chủ AIO Terminal không thay đổi thường xuyên, nhưng nếu đội ngũ cập nhật cơ sở hạ tầng, bạn sẽ được thông báo và yêu cầu cập nhật whitelist.</p>
+
+<h3>Không thể bật Futures: "Complete futures account setup first"</h3>
+<p>Binance Futures yêu cầu kích hoạt tài khoản futures trước khi có thể cấp quyền futures ở cấp API. Đăng nhập vào Binance, điều hướng đến mục Futures và hoàn tất quá trình onboarding futures (thường bao gồm đọc bản công bố rủi ro và xác nhận kinh nghiệm giao dịch của bạn). Sau khi tài khoản futures được kích hoạt, quay lại API Management và bật quyền Futures trên key của bạn.</p>
+
+<h3>Mất Secret Key sau khi đóng trang</h3>
+<p>Secret Key không thể lấy lại sau khi màn hình tạo bị đóng. Bạn phải xóa API key bị mất/xâm phạm khỏi Binance API Management và tạo lại từ đầu. Key cũ cần được xóa ngay lập tức để tránh rủi ro bảo mật từ một key chưa được ghi lại còn tồn tại ở phía Binance.</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>Sẵn sàng bắt đầu giao dịch?</strong> <span>AIO Terminal được tích hợp miễn phí trong mọi gói VIP. Không tốn thêm chi phí.</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Tìm Hiểu Về AIO Terminal</a></div></div>
+
+<h2>Danh Sách Kiểm Tra Nhanh</h2>
+
+<p>Dùng danh sách kiểm tra này để xác nhận quá trình cài đặt của bạn đã hoàn chỉnh và bảo mật:</p>
+
+<ul style="list-style:none;padding:0;">
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> API key Binance đã được tạo với nhãn dễ nhận biết (ví dụ: "AIO Terminal")</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> API Key và Secret Key đã được lưu trong trình quản lý mật khẩu</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> Quyền <strong>Enable Futures</strong> đã được chọn và lưu</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#e74c3c;margin-right:10px;">&#9744;</span> <strong>Enable Withdrawals</strong> — CHƯA chọn (nên để tắt)</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> "Restrict access to trusted IPs only" đã bật với các IP AIO Terminal đã nhập</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> Đã đăng nhập vào terminal.aioindicator.com bằng thông tin xác thực được cung cấp</li>
+    <li style="padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> Mật khẩu ban đầu đã được đổi thành mật khẩu mạnh, độc đáo</li>
+    <li style="padding:10px 0;"><span style="color:#2ecc71;margin-right:10px;">&#9744;</span> Thông tin xác thực API đã nhập trong Settings của AIO Terminal — kết nối đã xác nhận</li>
+</ul>
+
+<p>Khi tất cả các mục đã được kiểm tra, AIO Terminal của bạn đã hoạt động đầy đủ. Mở vị thế đầu tiên bằng tab Long hoặc Short và trải nghiệm sự khác biệt về tốc độ so với giao diện gốc của Binance.</p>
+
+<p>Nếu bạn có bất kỳ câu hỏi nào trong quá trình cài đặt, hãy liên hệ chúng tôi qua Telegram tại <a href="https://t.me/nguyenthl" style="color:var(--accent-primary)">@nguyenthl</a> — chúng tôi sẽ hướng dẫn bạn từng bước.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5" style="background: var(--card-bg); border-top: 1px solid var(--card-border);">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-binance-futures-trading-tool.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-terminal-fill"></i></div>
+                            <h3 class="feature-title">AIO Terminal: Complete Overview</h3>
+                            <p class="feature-description">All seven tabs, Smart TP/SL, trailing stop, one-click execution, and security model explained.</p>
+                            <span class="feature-description small">15 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-advanced-features-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-stars"></i></div>
+                            <h3 class="feature-title">Advanced Features Guide</h3>
+                            <p class="feature-description">PH/PL stop shortcuts, Last price button, Smart BE+ breakeven, position selection, dual accounts and more.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-tp-sl-modes-price-range-pct.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-sliders"></i></div>
+                            <h3 class="feature-title">TP/SL Mastery: Price, Range &amp; PCT Modes</h3>
+                            <p class="feature-description">How to use all three TP/SL input modes and when each one gives you better precision for your trading style.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="aio-terminal-analytics-tab-market-microstructure-guide.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide</span></a>
+      <a class="aio-related-card" href="aio-terminal-smart-tape-aggression-gauge-cvd.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time</span></a>
+      <a class="aio-related-card" href="aio-terminal-order-book-live-dom-binance-futures.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</span></a>
+      <a class="aio-related-card" href="aio-terminal-binance-futures-trading-tool.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal: The Pro Binance Futures Tool You Didn't Know You Needed</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

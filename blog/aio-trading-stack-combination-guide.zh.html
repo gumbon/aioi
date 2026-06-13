@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-page-lang="zh">
+<!-- aio-tx 14f80e0b6ad1dae6 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="5种预构建的多指标交易策略，结合AIO指标：道氏理论组合、聪明钱共振、动量+结构、反转猎手和加密期货组合。" />
+    <meta name="keywords" content="交易策略, 多指标, AIO indicator组合, 道氏理论, 聪明钱, 反转交易, 加密期货, TradingView" />
+    <meta name="author" content="AIO Indicator" />
+    <title>完整的 AIO 交易组合：如何组合所有指标 | AIO Indicator</title>
+
+    <meta property="og:title" content="完整的 AIO 交易组合：如何组合所有指标" />
+    <meta property="og:description" content="5套机构级交易系统，通过组合AIO指标并设定具体的入场、出场和确认规则构建而成。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-trading-stack-combination-guide.zh.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.zh.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="完整的 AIO 交易组合：如何组合所有指标" />
+    <meta name="twitter:description" content="5种预构建的多指标交易策略，结合AIO指标：道氏理论组合、聪明钱共振、动量+结构、反转猎手和加密期货组合。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "完整的 AIO 交易组合：如何组合所有指标",
+      "description": "5种预构建的多指标交易策略，结合AIO指标：道氏理论组合、聪明钱共振、动量+结构、反转猎手和加密期货组合。",
+      "url": "https://aioindicator.com/blog/aio-trading-stack-combination-guide.html",
+      "datePublished": "2026-05-04",
+      "dateModified": "2026-05-04",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-trading-stack-combination-guide.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT12M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "The Full AIO Trading Stack: How to Combine All Indicators", "item": "https://aioindicator.com/blog/aio-trading-stack-combination-guide.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/aio-trading-stack-combination-guide.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Trading Strategy</div>
+        <h1 class="article-title">完整的 AIO 交易组合：如何组合所有指标</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> April 24, 2026</span>
+            <span><i class="bi bi-clock"></i> 15 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body"><h2>为什么要组合指标？</h2>
+<p>单一指标只能提供市场分析的一个维度。但最高概率的交易机会往往出现在<strong>多个独立信号共振</strong>的位置。AIO 套件在设计之初便共享了相同的算法基础（Magic Bands、摆动检测、市场结构），正是为了让各指标能够相互交叉验证。</p>
+
+<p>以下是5套完整的交易系统，每套均包含具体的入场规则、确认条件、止损布局和目标逻辑。</p>
+
+<hr>
+
+<div class="mid-article-cta">
+    <div class="mid-cta-content">
+        <div class="mid-cta-text">
+            <strong>想在实盘图表上查看效果？</strong>
+            <span>AIO Indicator 自动化本文所有内容 &mdash; 无需手动画线，无需猜测。</span>
+        </div>
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm">
+            <i class="bi bi-lightning-charge-fill"></i> 免费试用 5 天
+        </a>
+    </div>
+</div>
+
+
+<h2>组合 1：道氏理论完整组合</h2>
+<p><strong>指标：</strong> AIO Dow Theory + AIO Magic Bands + AIO Key Volume + AIO Advanced Market Structure</p>
+<p><strong>适合：</strong> 波段交易（4H-日线），趋势跟踪</p>
+
+<h3>设置规则</h3>
+<ol>
+    <li><strong>AIO Dow Theory：</strong>在日线级别确认参与阶段，置信度 &ge;60%</li>
+    <li><strong>AIO Advanced Market Structure：</strong>等待趋势方向上出现 ★★+ BOS（确认结构对齐）</li>
+    <li><strong>AIO Magic Bands：</strong>价格回调至 61.8% 斐波那契波段时入场</li>
+    <li><strong>AIO Key Volume：</strong>POC 应位于价格下方（做多时），确认价值区域提供支撑</li>
+</ol>
+
+<h3>入场与管理</h3>
+<ul>
+    <li><strong>入场：</strong>触及 Magic Band 61.8% 区域的K线收盘，且 Dow Theory 置信度仍 &ge;50%</li>
+    <li><strong>止损：</strong>Magic Bands 追踪止损线（100% 水平）下方</li>
+    <li><strong>目标 1：</strong>前高 / Key Volume 更高级别 POC</li>
+    <li><strong>目标 2：</strong>Magic Band 子波段延伸（-16.8% 至 -38.2%）</li>
+</ul>
+
+<h3>为什么有效</h3>
+<p>Dow Theory 确认宏观趋势处于参与阶段（趋势的&ldquo;主体&rdquo;段）。Advanced MS 确认结构正朝着你的方向发展。Magic Bands 提供精准的入场时机。Key Volume 验证机构资金量支撑该价位。</p>
+
+<hr>
+
+<h2>组合 2：聪明钱共振</h2>
+<p><strong>指标：</strong> AIO Advanced Market Structure + AIO Trendlines with Liquidity + AIO Perps Flow + AIO Session STD</p>
+<p><strong>适合：</strong> 日内至波段交易，聪明钱概念（SMC）</p>
+
+<h3>设置规则</h3>
+<ol>
+    <li><strong>AIO Session STD：</strong>标记早盘 DR（定义区间），记录 STD 投影目标。</li>
+    <li><strong>AIO Trendlines：</strong>识别靠近 STD 水平的 ★★+ TPO 流动性线</li>
+    <li><strong>AIO Advanced MS：</strong>等待在上述共振位出现 CHoCH（趋势反转信号）</li>
+    <li><strong>AIO Perps Flow：</strong>在同一价位确认 OI 异常值或清仓信号</li>
+</ol>
+
+<h3>入场与管理</h3>
+<ul>
+    <li><strong>入场：</strong>CHoCH 确认K线，且 Perps Flow 显示支撑信号（做多时为买入设置或空头清仓）</li>
+    <li><strong>止损：</strong>流动性扫除点之外（触发 CHoCH 的低点/高点）</li>
+    <li><strong>目标：</strong>对侧 STD 投影水平（例如：在 -1 STD 做多，目标 +1 STD）</li>
+</ul>
+
+<h3>为什么有效</h3>
+<p>Session STD 提供统计框架。TPO 流动性识别价格磁性吸引区域。CHoCH 确认转变。Perps Flow 证明机构订单（OI + 清仓）正在该价位成交。这是最接近直接观察聪明钱活动的方法。</p>
+
+<hr>
+
+<h2>组合 3：动量 + 结构</h2>
+<p><strong>指标：</strong> AIO Banker Momentum + AIO Dow Theory + AIO Magic Bands</p>
+<p><strong>适合：</strong> 持仓交易，趋势识别</p>
+
+<h3>设置规则</h3>
+<ol>
+    <li><strong>AIO Dow Theory：</strong>确认趋势阶段不处于分发阶段</li>
+    <li><strong>AIO Banker Momentum：</strong>等待 Banker 绿柱出现（机构参与已确认）</li>
+    <li><strong>AIO Banker Momentum：</strong>Chaikin 波动率上穿零轴（扩张开始）</li>
+    <li><strong>AIO Magic Bands：</strong>价格处于绿色波段区域（上涨趋势已确认）</li>
+</ol>
+
+<h3>入场与管理</h3>
+<ul>
+    <li><strong>入场：</strong>波动率上穿K线，且 Banker 为绿色且 Magic Bands 为绿色</li>
+    <li><strong>止损：</strong>Magic Bands 88.6% 水平下方</li>
+    <li><strong>出场信号：</strong>Banker 柱变红，且 Dow Theory 信号阶段转变为分发阶段</li>
+</ul>
+
+<h3>为什么有效</h3>
+<p>Banker Momentum 捕捉机构参与。Dow Theory 确认宏观阶段支撑交易。Magic Bands 提供趋势框架。当机构活跃、趋势健康、波动率扩张时入场 &mdash; 这是最优组合。</p>
+
+<hr>
+
+<h2>组合 4：反转猎手</h2>
+<p><strong>指标：</strong> AIO Top/Bottom Confidence + AIO Prediction Market Simulator + AIO Banker Momentum（CVD 模式）+ AIO SMT Divergence</p>
+<p><strong>适合：</strong> 波段反转交易，主要转折点的逆势入场</p>
+
+<h3>设置规则</h3>
+<ol>
+    <li><strong>AIO Top/Bottom：</strong>高置信度信号（&ge;60%），且至少激活 MSS + Arc + Volume 因素</li>
+    <li><strong>AIO Prediction Market：</strong>决策状态转为 BUY（底部）或 SHORT（顶部），概率 &gt;60%</li>
+    <li><strong>AIO Banker CVD：</strong>CVD 背离可见（价格创新极值但 CVD 未确认）</li>
+    <li><strong>AIO SMT Divergence：</strong>相关资产间检测到背离（如 BTC vs ETH，ES vs NQ）</li>
+</ol>
+
+<h3>入场与管理</h3>
+<ul>
+    <li><strong>入场：</strong>Top/Bottom 信号K线，且3个确认信号中至少2个出现</li>
+    <li><strong>止损：</strong>摆动极值之外（通常 1-2% 风险）</li>
+    <li><strong>目标：</strong>Prediction Market 的执行价位，或下一个主要结构突破点</li>
+</ul>
+
+<h3>为什么有效</h3>
+<p>这是套件中<strong>最高置信度的反转系统</strong>。Top/Bottom 提供多因素依据。Prediction Market 通过蒙特卡洛模拟量化概率。CVD 背离确认机构仓位与价格方向相悖。SMT 背离证明反转跨越多市场，而非某一资产特有。四套独立确认系统使假信号极为罕见。</p>
+
+<hr>
+
+<h2>组合 5：加密期货组合</h2>
+<p><strong>指标：</strong> AIO Perps Flow Positioning + AIO Advanced Market Structure + AIO Magic Bands + AIO Price Levels</p>
+<p><strong>适合：</strong> 加密永续合约，杠杆交易</p>
+
+<h3>设置规则</h3>
+<ol>
+    <li><strong>AIO Price Levels：</strong>标记 PDH/PDL（前日高点/低点）为关键价位</li>
+    <li><strong>AIO Perps Flow：</strong>等待 OI 累积（OI 上升 = 新仓位开立）</li>
+    <li><strong>AIO Advanced MS：</strong>在 PDH/PDL 触发 BOS 或 CHoCH，质量 ★★+</li>
+    <li><strong>AIO Magic Bands：</strong>波段方向确认（做多为绿色，做空为红色）</li>
+    <li><strong>AIO Perps Flow：</strong>检测到清仓瀑布（OI 急剧下降 + 方向性K线）</li>
+</ol>
+
+<h3>入场与管理</h3>
+<ul>
+    <li><strong>入场：</strong>清仓瀑布 + 结构突破后，在回调至突破位时首次入场</li>
+    <li><strong>止损：</strong>清仓扫除低点/高点之外</li>
+    <li><strong>目标：</strong>下一个 PDH/PDL 水平或最低 1:2 风险回报比</li>
+    <li><strong>仓位大小：</strong>使用 AIO Statistic Panel 的资金管理计算器确定手数</li>
+</ul>
+
+<h3>为什么有效</h3>
+<p>加密期货市场由杠杆和清仓驱动。当过度杠杆仓位被清仓（OI 下降），价格往往剧烈运动后反转。此组合识别清仓事件（Perps Flow），确认结构转变（Advanced MS），并提供入场管理的趋势框架（Magic Bands）和关键价位（Price Levels）。</p>
+
+<hr>
+
+<h2>多指标交易的通用原则</h2>
+<ol>
+    <li><strong>不要要求所有指标完全一致</strong> &mdash; 4个中有2-3个同意即可。等待100%共振意味着错过交易机会。</li>
+    <li><strong>使用不同类型的指标</strong> &mdash; 组合趋势（Dow Theory）、动量（Banker）、结构（Advanced MS）和资金流（Perps Flow）。不要堆叠同类指标。</li>
+    <li><strong>尊重时间框架层级</strong> &mdash; 高级别时间框架定方向，低级别时间框架提供入场时机。</li>
+    <li><strong>仓位大小基于止损距离，而非置信度</strong> &mdash; 即使完美的设置也可能失败。使用 Statistic Panel 的资金管理计算器。</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>获取所有 AIO 指标</h3>
+    <p>访问完整套件，构建以上任何交易组合。</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-lightning-charge-fill"></i> 开始 5 天免费试用
+    </a>
+</div></div></div></div></div></section>
+
+        <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="smart-money-trading-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-bounding-box2"></i></div>
+                            <h3 class="feature-title">What is Smart Money Trading? Complete Guide 2026</h3>
+                            <p class="feature-description">Learn how institutional traders move markets and how to align your trades with smart money order flow.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="bos-choch-quality-scoring-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-check2-all"></i></div>
+                            <h3 class="feature-title">BOS/CHoCH Quality: From Basic to 7-Factor Scoring</h3>
+                            <p class="feature-description">Not all BOS are equal. Learn the 7 factors that separate genuine structure breaks from fakeouts.</p>
+                            <span class="feature-description small">13 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="ict-trading-setup-sessions-price-levels.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-clock-history"></i></div>
+                            <h3 class="feature-title">ICT Trading Setup: Sessions, Price Levels &amp; Standard Deviation Projections</h3>
+                            <p class="feature-description">How to use AIO Session STD, Price Levels, Time Separators, and Lookback indicators to build a complete ICT-based framework.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="multi-timeframe-analysis-guide.html"><span class="aio-related-cat">Trading Strategy</span><span class="aio-related-title">Multi-Timeframe Analysis: The Top-Down Framework Every Pro Trader Uses</span></a>
+      <a class="aio-related-card" href="bos-choch-quality-scoring-guide.html"><span class="aio-related-cat">Market Structure</span><span class="aio-related-title">BOS/CHoCH Quality: From Basic to 7-Factor Scoring</span></a>
+      <a class="aio-related-card" href="volume-profile-poc-key-levels.html"><span class="aio-related-cat">Volume Analysis</span><span class="aio-related-title">Volume Profile POC: Touch-Weighted Key Levels</span></a>
+      <a class="aio-related-card" href="risk-management-probability-kelly-criterion.html"><span class="aio-related-cat">Risk Management</span><span class="aio-related-title">Risk Management with Probability: Kelly Criterion, VaR &amp; Crash Detection</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

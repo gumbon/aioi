@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="hi" data-page-lang="hi">
+<!-- aio-tx ccb066dbee8d0303 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="AIO Terminal उन्नत सुविधाएँ: Price, Range और % मोड में PH/PL पिवट बटन, लिमिट ऑर्डर के लिए Last price बटन, टैब नेविगेशन के लिए कीबोर्ड शॉर्टकट, प्रति-पोजीशन चयन, दोहरा-अकाउंट सपोर्ट, डेटा सिंक सेटिंग, और पासवर्ड प्रबंधन।" />
+    <meta name="keywords" content="AIO Terminal उन्नत सुविधाएँ, pivot high pivot low stop loss, PH PL range percent mode, AIO Terminal कीबोर्ड शॉर्टकट, AIO Terminal मल्टी-अकाउंट, Binance futures tool tips, limit at last price button" />
+    <meta name="author" content="AIO Indicator" />
+    <title>AIO Terminal उन्नत सुविधाएँ: किसी भी मोड में PH/PL, कीबोर्ड शॉर्टकट, मल्टी-अकाउंट &amp; और भी | AIO Indicator</title>
+
+    <meta property="og:title" content="AIO Terminal उन्नत सुविधाएँ: किसी भी मोड में PH/PL, कीबोर्ड शॉर्टकट, मल्टी-अकाउंट &amp; और भी" />
+    <meta property="og:description" content="मूल बातों से आगे बढ़ें — Price, Range &amp; % मोड में PH/PL पिवट शॉर्टकट, कीबोर्ड टैब नेविगेशन, Last price बटन, प्रति-पोजीशन टार्गेटिंग, दोहरे Binance अकाउंट, और कॉन्फ़िगरेबल डेटा सिंक।" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.hi.html" />
+    <meta property="og:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="AIO Terminal उन्नत सुविधाएँ: किसी भी मोड में PH/PL, कीबोर्ड शॉर्टकट, मल्टी-अकाउंट &amp; और भी" />
+    <meta name="twitter:description" content="Price, Range &amp; % मोड में PH/PL पिवट शॉर्टकट, कीबोर्ड टैब नेविगेशन, Last price बटन, प्रति-पोजीशन टार्गेटिंग, दोहरे अकाउंट, और भी बहुत कुछ।" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/terminal/aio-terminal-hp.avif" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <link rel="canonical" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.hi.html" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "AIO Terminal उन्नत सुविधाएँ: किसी भी मोड में PH/PL, कीबोर्ड शॉर्टकट, मल्टी-अकाउंट &amp; और भी",
+      "description": "AIO Terminal उन्नत सुविधाएँ: Price, Range और % मोड में PH/PL पिवट बटन, लिमिट ऑर्डर के लिए Last price बटन, टैब नेविगेशन के लिए कीबोर्ड शॉर्टकट, प्रति-पोजीशन चयन, दोहरा-अकाउंट सपोर्ट, डेटा सिंक सेटिंग, और पासवर्ड प्रबंधन।",
+      "url": "https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html",
+      "datePublished": "2026-05-31",
+      "dateModified": "2026-05-31",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT14M",
+      "image": "https://aioindicator.com/assets/terminal/aio-terminal-hp.avif"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "AIO Terminal Advanced Features", "item": "https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/aio-terminal-advanced-features-guide.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-tag" style="background:rgba(243,156,18,0.15);color:#f39c12;border-color:rgba(243,156,18,0.3);">Terminal</div>
+                    <h1 class="article-title">AIO Terminal उन्नत सुविधाएँ: किसी भी मोड में PH/PL, कीबोर्ड शॉर्टकट, मल्टी-अकाउंट &amp; और भी</h1>
+                    <div class="article-meta">
+                        <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+                        <span><i class="bi bi-calendar3"></i> May 31, 2026</span>
+                        <span><i class="bi bi-clock"></i> 10 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="article-body"><p class="lead">अधिकांश ट्रेडर AIO Terminal को इसकी प्रमुख सुविधाओं से जानते हैं: 1–2 क्लिक एंट्री, TP/SL, Close। लेकिन जो सुविधाएँ अनुभवी उपयोगकर्ताओं को शुरुआती लोगों से अलग करती हैं, वे हैं बारीक विवरण — PH/PL पिवट शॉर्टकट जो हर इनपुट मोड में काम करते हैं, तत्काल टैब नेविगेशन के लिए कीबोर्ड शॉर्टकट, "Last" बटन, और व्यक्तिगत पोजीशन पर कार्य करने की क्षमता। यह गाइड इन सभी को कवर करती है।</p>
+
+<h2>1. PH और PL बटन: एक क्लिक में संरचनात्मक रूप से मान्य स्टॉप लॉस</h2>
+
+<p>AIO Terminal में SL इनपुट फ़ील्ड के बगल में दो छोटे बटन होते हैं: <strong>PH</strong> (Pivot High) और <strong>PL</strong> (Pivot Low)। ये वन-क्लिक शॉर्टकट हैं जो आपके चुने गए सिंबल और टाइमफ्रेम के लिए सबसे हालिया महत्वपूर्ण स्विंग हाई या स्विंग लो से आपके SL फ़ील्ड को भर देते हैं।</p>
+
+<h3>ये क्या करते हैं</h3>
+<p>जब आप PH पर क्लिक करते हैं, AIO Terminal सबसे हालिया पिवट हाई — वह स्विंग हाई जो मौजूदा कीमत से पहले बना — को फ़ेच करता है। जब आप PL पर क्लिक करते हैं, तो यह सबसे हालिया पिवट लो को फ़ेच करता है। परिणामी मूल्य सीधे आपके SL फ़ील्ड में डाल दिया जाता है।</p>
+<p>लॉन्ग ट्रेड के लिए: आप आमतौर पर PL पर क्लिक करके सबसे हालिया स्विंग लो के नीचे अपना स्टॉप सेट करेंगे। उस स्तर से नीचे कीमत का वापस आना लॉन्ग सेटअप को अमान्य करता है — और यही वह जगह है जहाँ संरचनात्मक रूप से मान्य स्टॉप होना चाहिए। शॉर्ट ट्रेड के लिए: PH आपको सबसे हालिया स्विंग हाई देता है, जो शॉर्ट के लिए संरचनात्मक अमान्यता स्तर है।</p>
+
+<h3>यह क्यों मायने रखता है</h3>
+<p>स्टॉप-लॉस प्लेसमेंट में क्लासिक गलती राउंड नंबरों पर या बाजार संरचना के संदर्भ के बिना मनमानी निश्चित दूरी पर स्टॉप लगाना है। "एंट्री से 1.5% नीचे" का स्टॉप इस बात से पूरी तरह असंगत हो सकता है कि बाजार वास्तव में ट्रेड को कहाँ अमान्य मानता है। सबसे हालिया स्विंग लो के ठीक नीचे का स्टॉप बाजार-संरचना-जागरूक होता है — यह एक ऐसे स्तर पर रखा जाता है जो, यदि टूट जाए, तो वास्तव में आपको बताता है कि ट्रेड गलत है।</p>
+<p>उस स्तर को मैन्युअल रूप से खोजने के लिए: चार्ट पर स्विच करना, सबसे हालिया महत्वपूर्ण पिवट को दृष्टिगत रूप से पहचानना, मूल्य स्तर पढ़ना, AIO Terminal पर वापस स्विच करना, मूल्य टाइप करना। समय के दबाव में यह प्रक्रिया देरी और टाइपिंग की गलतियाँ दोनों उत्पन्न करती है। PH/PL इसे एक बटन प्रेस तक सीमित कर देता है — और आप चुन सकते हैं कि पिवट किस टाइमफ्रेम से लिया जाए, इसलिए एक स्कैल्पर 5-मिनट का पिवट उपयोग कर सकता है जबकि स्विंग ट्रेडर 4-घंटे का पिवट।</p>
+
+<h3>PH/PL तीनों इनपुट मोड में काम करता है</h3>
+<p>PH और PL बटन केवल PRICE मोड तक सीमित नहीं हैं — ये <strong>Range</strong> और <strong>%</strong> मोड में भी काम करते हैं, स्वचालित रूपांतरण के साथ। जब आप Range मोड में हों और PL पर क्लिक करें, AIO Terminal <code>|pivot_price − entry_price|</code> की गणना करता है और Range फ़ील्ड को उस दूरी से भर देता है। % मोड में, यह <code>|pivot_price − entry_price| / entry_price × 100</code> की गणना करके प्रतिशत भरता है। आपको यह गणित कभी खुद नहीं करनी होती।</p>
+<p>इसका मतलब है कि आप पोजीशन साइजिंग के लिए Range या % में अपनी रिस्क यूनिट सेट कर सकते हैं, और फिर भी एक क्लिक में वास्तविक संरचनात्मक पिवट से वास्तविक स्तर भर सकते हैं। वर्कफ़्लो है: अपना इनपुट मोड चुनें → PH या PL क्लिक करें → टर्मिनल उस मोड के लिए सही मान भरता है → यदि आवश्यक हो तो थोड़ा एडजस्ट करें → कन्फर्म करें।</p>
+
+<h2>2. "Last" बटन: मैन्युअल मूल्य एंट्री के बिना मार्केट प्राइस पर लिमिट</h2>
+
+<p>Long और Short ऑर्डर टैब में Limit Price फ़ील्ड के बगल में <strong>Last</strong> लेबल वाला एक बटन होता है। इसे टैप करने से आपके चुने गए सिंबल का मौजूदा लास्ट-ट्रेडेड प्राइस लिमिट प्राइस फ़ील्ड में भर जाता है — जो लगभग-शून्य लेटेंसी के साथ लाइव WebSocket फ़ीड से लिया जाता है।</p>
+
+<h3>यह जो वर्कफ़्लो सक्षम करता है</h3>
+<p>Last बटन का सबसे आम उपयोग मौजूदा मार्केट प्राइस पर लिमिट ऑर्डर एंट्री के लिए है, जो आपको लगभग-100% फिल रेट के साथ मेकर-फी एग्जीक्यूशन देता है। क्रम:</p>
+<ol>
+    <li>चार्ट पर अपना एंट्री सिग्नल देखें</li>
+    <li>AIO Terminal पर स्विच करें (Long या Short टैब पहले से आपका सिंबल दिखा रहा हो)</li>
+    <li><strong>Last</strong> टैप करें — मौजूदा मार्केट प्राइस लिमिट फ़ील्ड में भर जाता है</li>
+    <li><strong>Long</strong> या <strong>Short</strong> टैप करें — लिमिट ऑर्डर उस कीमत पर आपके प्री-कॉन्फ़िगर्ड TP और SL के साथ सबमिट होता है</li>
+</ol>
+<p>चार्ट सिग्नल से ऑर्डर सबमिशन तक कुल समय: 2–4 सेकंड। ऑर्डर मार्केट प्राइस पर लिमिट ऑर्डर के रूप में लैंड होता है — न कि मार्केट ऑर्डर जो स्प्रेड को क्रॉस करे। सक्रिय पेयर पर, यह टेकर फी (0.05%) के बजाय मेकर फी (0.02%) पर मिलीसेकंड के भीतर भर जाता है।</p>
+
+<h3>मार्केट ऑर्डर क्यों नहीं</h3>
+<p>फी का गणित सरल है लेकिन कम आंकना आसान है। $10,000 की पोजीशन पर: $4 मार्केट फी बनाम $2 लिमिट फी। दस ट्रेड प्रतिदिन: $40 बनाम $20। बीस ट्रेडिंग दिन: $800 बनाम $400। सालाना: $9,600 बनाम $4,800 — आपकी रणनीति का एक भी पहलू बदले बिना $4,800 का अंतर। Last बटन इस बचत को हर उस एंट्री पर स्वचालित बना देता है जहाँ आप इसका उपयोग करते हैं।</p>
+<p>लिमिट ऑर्डर के साथ फिल रेट की चिंता — "अगर यह भरा नहीं तो?" — लास्ट प्राइस पर लागू नहीं होती। लास्ट प्राइस वह है जहाँ बाजार अभी-अभी ट्रेड हुआ। उस कीमत पर लिमिट बाय लगाने का मतलब है उस स्तर पर कतार में शामिल होना जहाँ खरीदार और विक्रेता मिलीसेकंड पहले सक्रिय थे। तरल बाजारों में, यह तुरंत भर जाता है। Last बटन आपको मार्केट-ऑर्डर की गति और लिमिट-ऑर्डर की फी देता है।</p>
+
+<h3>लिमिट बनाम मार्केट: दोनों एक टैप</h3>
+<p>AIO Terminal आपको किसी भी एक ऑर्डर प्रकार के लिए बाध्य नहीं करता। मार्केट ऑर्डर भी समान रूप से सुलभ हैं — Limit बटन के बजाय Market बटन पर एक टैप। उन एंट्री के लिए जहाँ सेटअप को फिल की पूर्ण निश्चितता की आवश्यकता है (एक ब्रेकआउट जहाँ खराब कीमत पर आंशिक फिल स्वीकार्य है), मार्केट ऑर्डर सही विकल्प हैं। अधिकांश एंट्री के लिए जहाँ सिग्नल आधे सेकंड की प्रतीक्षा की अनुमति देता है, Last + Limit सर्वोत्तम एग्जीक्यूशन पथ है।</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>इन सुविधाओं को आज़माना चाहते हैं?</strong> <span>AIO Terminal हर VIP प्लान के साथ मुफ़्त शामिल है।</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Terminal एक्सेस पाएँ</a></div></div>
+
+<h2>3. विशिष्ट पोजीशन पर कार्य करना: केवल "सब या कुछ नहीं" नहीं</h2>
+
+<p>AIO Terminal के बारे में सबसे आम गलतफहमी यह है कि इसकी "Close" और "Cancel" सुविधाएँ ही एकमात्र विकल्प हैं। हर एक्शन टैब — Close, Cancel, और TP/SL — आपको कई पोजीशन खुली होने पर सूची से एक विशिष्ट पोजीशन चुनने की अनुमति देता है।</p>
+
+<h3>पोजीशन सेलेक्टर</h3>
+<p>जब आपके पास कई खुली पोजीशन हों (मान लीजिए, एक साथ चल रहे BTC लॉन्ग और ETH शॉर्ट), तो एक्शन टैब एक पोजीशन पिकर दिखाते हैं। आप एग्जीक्यूट करने से पहले वह पोजीशन चुनते हैं जिस पर कार्य करना है। कार्य — close, ऑर्डर cancel, नया TP/SL सेट करें, ट्रेलिंग स्टॉप सक्रिय करें — फिर केवल उस चुनी हुई पोजीशन पर लागू होता है। आपकी अन्य पोजीशन अछूती रहती हैं।</p>
+
+<h3>पोजीशन सिलेक्शन बनाम "All" बटन का उपयोग कब करें</h3>
+<p><strong>पोजीशन सिलेक्शन का उपयोग करें जब:</strong></p>
+<ul>
+    <li>आप किसी एक पोजीशन को क्लोज या TP/SL अपडेट करना चाहते हैं जबकि दूसरी चलती रहे</li>
+    <li>आप एक पोजीशन पर पेंडिंग TP ऑर्डर कैंसल करना चाहते हैं (क्योंकि आपने अपना टार्गेट बदला) बिना किसी अलग पोजीशन के SL को प्रभावित किए</li>
+    <li>आप बाजार की स्थिति बदलने के बाद नए स्तरों के साथ किसी विशिष्ट पोजीशन का TP/SL फिर से सेट करना चाहते हैं</li>
+</ul>
+<p><strong>"All" बटन का उपयोग करें जब:</strong></p>
+<ul>
+    <li>खबर आती है और आपको तुरंत सब कुछ फ्लैट करना है (Close)</li>
+    <li>आप एक कार्य में चुने गए सिंबल के सभी खुले ऑर्डर कैंसल करना चाहते हैं (Cancel)</li>
+    <li>आपने एक सेशन समाप्त किया और अपनी स्लेट साफ करना चाहते हैं (क्रम में Cancel + Close)</li>
+</ul>
+<p>व्यक्तिगत पोजीशन को टार्गेट करने की क्षमता ही AIO Terminal को केवल एक तेज ऑर्डर एंट्री इंटरफेस के बजाय एक पूर्ण पोजीशन प्रबंधन टूल बनाती है। यह चलते ट्रेड के दौरान किए जाने वाले सटीक एडजस्टमेंट और तेज गति से चीजें होने पर आवश्यक आपातकालीन निकास दोनों को संभालता है।</p>
+
+<h2>4. कीबोर्ड शॉर्टकट: तत्काल टैब नेविगेशन</h2>
+
+<p>AIO Terminal के हर टैब में एक समर्पित कीबोर्ड शॉर्टकट है। टैब बटन क्लिक करने के बजाय, संबंधित की दबाएँ और आप तुरंत वहाँ पहुँच जाते हैं। यह ट्रेड एग्जीक्यूशन समय को कम करने के लिए उच्चतम-लाभ की आदतों में से एक है।</p>
+
+<h3>डिफ़ॉल्ट शॉर्टकट मैपिंग</h3>
+<table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">
+    <thead>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.1);">
+            <th style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-weight:600;">की</th>
+            <th style="padding:8px 12px;text-align:left;color:var(--text-secondary);font-weight:600;">टैब</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td style="padding:8px 12px;"><strong>1</strong></td><td style="padding:8px 12px;">Long Order</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>2</strong></td><td style="padding:8px 12px;">Short Order</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>4</strong></td><td style="padding:8px 12px;">Close Position</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>6</strong></td><td style="padding:8px 12px;">TP/SL</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>7</strong></td><td style="padding:8px 12px;">Cancel Orders</td></tr>
+        <tr><td style="padding:8px 12px;"><strong>8</strong></td><td style="padding:8px 12px;">Analytics</td></tr>
+    </tbody>
+</table>
+
+<h3>सेटिंग में शॉर्टकट रीमैप करना</h3>
+<p>सभी शॉर्टकट Terminal Settings में रीमैप किए जा सकते हैं। यदि आपका वर्कफ़्लो TP/SL और Analytics पर केंद्रित है, तो आप तेज़ एक्सेस के लिए उन्हें की 1 और 2 पर रीमैप कर सकते हैं। यदि आप मुख्य रूप से एंट्री प्रबंधित करते हैं, तो डिफ़ॉल्ट रखें। मैपिंग सेशन के दौरान बनी रहती है — एक बार सेट करें, हर बार उपयोग करें।</p>
+
+<h3>मसल मेमोरी बनाना</h3>
+<p>कीबोर्ड शॉर्टकट का मूल्य परिचितता के साथ बढ़ता है। एक ही की मैपिंग के एक सप्ताह उपयोग के बाद, टैब के बीच नेविगेट करना सहज हो जाता है — कोई संज्ञानात्मक भार नहीं, टैब खोजने के लिए स्क्रीन पर देखना नहीं। "Last" बटन और PH/PL के साथ मिलकर, चार्ट सिग्नल से लाइव ऑर्डर तक पूरा एंट्री वर्कफ़्लो बिना किसी क्लिक के 3 सेकंड से कम में होता है।</p>
+
+<h2>5. एक साथ दो Binance अकाउंट से ट्रेडिंग</h2>
+
+<p>AIO Terminal एक साथ दो Binance अकाउंट को जोड़ने का समर्थन करता है। प्रत्येक अकाउंट अपनी API key से कनेक्ट होता है और टर्मिनल के भीतर स्वतंत्र रूप से संचालित होता है।</p>
+
+<h3>दोहरे अकाउंट के उपयोग के मामले</h3>
+<p>ट्रेडर कई अलग-अलग उद्देश्यों के लिए दोहरे-अकाउंट सपोर्ट का उपयोग करते हैं:</p>
+<ul>
+    <li><strong>रणनीति पृथक्करण:</strong> स्कैल्पिंग के लिए एक अकाउंट (छोटा साइज, बार-बार ट्रेड), स्विंग पोजीशन के लिए एक अकाउंट (बड़ा साइज, दिनों या हफ्तों तक रखा)। रणनीतियों को अलग अकाउंट में रखने से P&amp;L एट्रिब्यूशन स्पष्ट होता है और शॉर्ट-टर्म एंट्री लंबी-अवधि की पोजीशन प्रबंधन में हस्तक्षेप नहीं करतीं।</li>
+    <li><strong>जोखिम पृथक्करण:</strong> एक अकाउंट रूढ़िवादी लीवरेज कैप (3–5x) के साथ, एक अकाउंट उच्च-विश्वास आक्रामक सेटअप (10–20x) के लिए। यदि आक्रामक अकाउंट का बुरा दिन हो, तो रूढ़िवादी अकाउंट की इक्विटी अप्रभावित रहती है।</li>
+    <li><strong>परीक्षण बनाम लाइव:</strong> लाइव ट्रेडिंग के लिए एक अकाउंट, Binance testnet पर एक अकाउंट नए सेटअप आज़माने या वास्तविक पूंजी लगाने से पहले नए ट्रेड प्रकार से सहज होने के लिए।</li>
+</ul>
+
+<h3>अकाउंट के बीच स्विच करना</h3>
+<p>आप AIO Terminal इंटरफेस के भीतर अकाउंट के बीच स्विच करते हैं — दोनों अकाउंट की पोजीशन और ऑर्डर बिना पुनः-प्रमाणीकरण के उपलब्ध हैं। अकाउंट सेलेक्टर दिखाता है कि आप वर्तमान में किस अकाउंट पर कार्य कर रहे हैं, और हर ऑर्डर टैब, TP/SL एक्शन, और मॉनिटरिंग फ़ंक्शन चुने गए अकाउंट के संदर्भ में संचालित होता है।</p>
+
+<h2>6. डेटा सिंक: डिफ़ॉल्ट 5-सेकंड अंतराल और मैन्युअल रिफ्रेश</h2>
+
+<p>AIO Terminal नियमित अंतराल पर अपडेटेड पोजीशन और ऑर्डर डेटा के लिए Binance को पोल करता है। डिफ़ॉल्ट सिंक अंतराल 5 सेकंड है — अर्थात आपकी पोजीशन PnL, मार्जिन स्तर, और ऑर्डर स्टेटस किसी उपयोगकर्ता कार्रवाई के बिना स्वचालित रूप से हर 5 सेकंड में रिफ्रेश होते हैं।</p>
+
+<h3>सिंक अंतराल एडजस्ट करना</h3>
+<p>सिंक अंतराल AIO Terminal की सेटिंग में कॉन्फ़िगर किया जा सकता है। कम अंतराल (1–2 सेकंड) अधिक API अनुरोधों की कीमत पर तेज़ डेटा देते हैं। उच्च अंतराल (10–30 सेकंड) API कॉल फ्रीक्वेंसी को कम करते हैं, जो उपयोगी है यदि आप मीटर्ड कनेक्शन पर हों या ऑर्डर एक्शन के लिए अपना Binance API रेट लिमिट बजट संरक्षित करना चाहते हों।</p>
+<p>अधिकांश सक्रिय ट्रेडिंग परिदृश्यों के लिए, डिफ़ॉल्ट 5-सेकंड अंतराल एक अच्छा संतुलन प्रदान करता है: बाजार चालों के कुछ सेकंड के भीतर पोजीशन अपडेट देखने के लिए पर्याप्त तेज़, बिना API को अनावश्यक रूप से हिट किए।</p>
+
+<h3>मैन्युअल सिंक विकल्प</h3>
+<p>जब आपको अंतिम 5-सेकंड पोल से अधिक वर्तमान डेटा की आवश्यकता हो, आपके पास दो विकल्प हैं:</p>
+<ul>
+    <li><strong>सिंक बटन क्लिक करें</strong> AIO Terminal इंटरफेस में तत्काल डेटा रिफ्रेश ट्रिगर करने के लिए।</li>
+    <li><strong>ब्राउज़र टैब रिफ्रेश करें</strong> — यह Binance से पूरी सेशन स्टेट को रीलोड करता है, उपलब्ध सबसे ताज़ा डेटा खींचता है। तेज़-गति वाले ट्रेडों की एक श्रृंखला के बाद उपयोगी जब आप यह पुष्टि करना चाहते हों कि सब कुछ सही स्थिति में है।</li>
+</ul>
+<p>दोनों में से कोई भी विकल्प आपकी सक्रिय पोजीशन को बाधित नहीं करता या कोई ऑर्डर रद्द नहीं करता। वे केवल Binance से अपडेटेड डेटा लाते हैं और डिस्प्ले रिफ्रेश करते हैं।</p>
+
+<h2>7. पासवर्ड प्रबंधन: पहला लॉगिन और बदलाव</h2>
+
+<p>AIO Terminal एक्सेस क्रेडेंशियल आपके Binance अकाउंट क्रेडेंशियल से अलग तरीके से काम करते हैं — और यह डिज़ाइन द्वारा है। आपकी Binance API key (ऑर्डर लगाने के लिए) और आपका AIO Terminal लॉगिन पासवर्ड (टर्मिनल एक्सेस करने के लिए) पूरी तरह अलग हैं।</p>
+
+<h3>पहला लॉगिन</h3>
+<p>जब आप पहली बार AIO Terminal का एक्सेस प्राप्त करते हैं — आमतौर पर Telegram के माध्यम से अपनी VIP सदस्यता सेट करने के बाद — आपको एक प्रारंभिक लॉगिन पासवर्ड मिलता है। यह अस्थायी पासवर्ड अकाउंट निर्माण के दौरान जेनरेट होता है और पहले लॉगिन के तुरंत बाद बदला जाना चाहिए। AIO Terminal आपको पहले साइन-इन पर नया पासवर्ड सेट करने के लिए प्रेरित करता है।</p>
+
+<h3>पासवर्ड बदलना</h3>
+<p>पासवर्ड परिवर्तन AIO Terminal के भीतर अकाउंट सेटिंग से किसी भी समय उपलब्ध हैं। प्रक्रिया मानक है: अपना वर्तमान पासवर्ड दर्ज करें, नया पासवर्ड दर्ज करें, पुष्टि करें। कोई Telegram संपर्क या मैन्युअल हस्तक्षेप आवश्यक नहीं।</p>
+<p>सर्वोत्तम अभ्यास: AIO Terminal के लिए एक अनूठा पासवर्ड उपयोग करें (Binance, ईमेल, या अन्य ट्रेडिंग अकाउंट से दोबारा इस्तेमाल न करें)। AIO Terminal क्रेडेंशियल आपकी Binance API key तक एक्सेस प्रदान करते हैं — उन्हें किसी समझौता किए गए पासवर्ड के कारण खोना एक महत्वपूर्ण सुरक्षा घटना है, भले ही Binance के अपने प्रमाणीकरण के बिना सीधी फंड निकासी संभव नहीं है।</p>
+
+<h3>स्तरित सुरक्षा मॉडल</h3>
+<p>AIO Terminal दो अलग प्रमाणीकरण परतों का उपयोग करता है:</p>
+<ol>
+    <li><strong>AIO Terminal लॉगिन</strong> (आपका ईमेल + पासवर्ड): डैशबोर्ड तक एक्सेस।</li>
+    <li><strong>Binance API key</strong>: आपके Binance अकाउंट पर ऑर्डर लगाने और प्रबंधित करने के लिए टर्मिनल को प्राधिकरण।</li>
+</ol>
+<p>दोनों में से कोई भी परत Binance निकासी तक एक्सेस नहीं देती — AIO Terminal की API key आवश्यकता स्पष्ट रूप से निकासी अनुमतियों को बाहर रखती है। दोनों क्रेडेंशियल तक पूर्ण एक्सेस के साथ भी, एक हमलावर केवल आपकी Binance futures पोजीशन के साथ इंटरैक्ट कर सकता है, एक्सचेंज से फंड नहीं हिला सकता। Binance API key प्रतिबंध जोड़ना (AIO Terminal सर्वर के IP पर IP whitelist) इस सतह क्षेत्र को और कम करता है।</p>
+
+<div class="mid-article-cta"><div class="mid-cta-content"><div class="mid-cta-text"><strong>इन सुविधाओं का उपयोग करने के लिए तैयार हैं?</strong> <span>AIO Terminal हर VIP प्लान के साथ मुफ़्त शामिल है।</span></div><a href="../aio-terminal.html" class="btn btn-hero-primary btn-sm"><i class="bi bi-terminal-fill"></i> Terminal एक्सेस पाएँ</a></div></div>
+
+<h2>इसे एक साथ रखना: एक विशिष्ट उन्नत सेशन</h2>
+
+<p>यहाँ बताया गया है कि एक ट्रेडर के लिए सेशन कैसा दिखता है जो इन सभी सुविधाओं का संयोजन में उपयोग करता है:</p>
+
+<ol>
+    <li><strong>AIO Terminal खोलें</strong> — Long टैब पर जाने के लिए <strong>1</strong> (कीबोर्ड शॉर्टकट) दबाएँ। डेटा 5 सेकंड के भीतर Binance से सिंक होता है।</li>
+    <li><strong>TradingView पर एक सेटअप पहचानें</strong> — BTC $65,000 पर उच्च-संभावना लॉन्ग दिखाता है जिसका अमान्यीकरण हालिया स्विंग लो के नीचे है।</li>
+    <li><strong>Long टैब में</strong> — लिमिट प्राइस फ़ील्ड में $65,000 सिंक करने के लिए <strong>Last</strong> टैप करें। SL के लिए Range मोड चुनें, फिर <strong>PL</strong> टैप करें — AIO Terminal <code>|pivot_low − entry|</code> की गणना करता है और Range फ़ील्ड स्वचालित रूप से भर देता है (इस मामले में $800 range)। यदि आवश्यक हो तो थोड़ा एडजस्ट करें।</li>
+    <li><strong>TP सेट करें</strong> PRICE मोड का उपयोग करके — $67,500 (अगला प्रतिरोध स्तर)। या हालिया स्विंग हाई से TP भरने के लिए <strong>PH</strong> टैप करें।</li>
+    <li><strong>Long टैप करें</strong> — लिमिट ऑर्डर $65,000 पर TP $67,500 और SL $64,200 ($800 Range के माध्यम से) के साथ सबमिट होता है। तीनों ऑर्डर एक साथ फायर होते हैं।</li>
+    <li><strong>6 दबाएँ</strong> (TP/SL टैब के लिए कीबोर्ड शॉर्टकट) टार्गेट अपडेट करने के लिए — TP/SL को फिर से सेट करना स्वचालित रूप से मौजूदा ऑर्डर रद्द करके बदल देता है।</li>
+    <li><strong>ETH लॉन्ग Account 2 पर अलग से फायर होता है</strong> — समान वर्कफ़्लो, स्वतंत्र पोजीशन, स्वतंत्र TP/SL।</li>
+    <li><strong>BTC के खिलाफ न्यूज़ स्पाइक</strong> — <strong>4</strong> (Close के लिए कीबोर्ड शॉर्टकट) दबाएँ, विशेष रूप से BTC पोजीशन चुनें, close करें। ETH लॉन्ग अछूता रहता है।</li>
+</ol>
+
+<p>इस क्रम का हर चरण एक से दो कार्रवाइयाँ हैं। प्रति ट्रेड कुल संज्ञानात्मक भार Binance native में समकक्ष क्रम की तुलना में काफी कम है, और सटीकता — संरचनात्मक रूप से मान्य स्टॉप, फी-जागरूक ब्रेकईवन, प्रतिशत-आधारित ट्रेलिंग सक्रियण — अधिक है।</p>
+
+<h2>क्या अभी भी मैन्युअल कार्रवाई की आवश्यकता है</h2>
+<p>AIO Terminal एक टूल है, पूर्ण स्वचालन प्रणाली नहीं। कुछ बातें ध्यान रखें:</p>
+<ul>
+    <li><strong>रणनीति और सिग्नल जेनरेशन:</strong> AIO Terminal चार्ट का विश्लेषण नहीं करता या एंट्री सिग्नल उत्पन्न नहीं करता। यह आपके विश्लेषण के आधार पर एग्जीक्यूट करता है। अभीष्ट वर्कफ़्लो है: TradingView पर विश्लेषण करें, AIO Terminal पर एग्जीक्यूट करें।</li>
+    <li><strong>लीवरेज और मार्जिन मोड:</strong> प्रारंभिक लीवरेज और cross/isolated मार्जिन सेटिंग Binance में प्रबंधित होती हैं। AIO Terminal आपके सहेजे गए लीवरेज को पढ़ता और उपयोग करता है लेकिन किसी नए सिंबल के लिए प्रारंभिक सेटअप Binance में होता है।</li>
+</ul></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-binance-futures-trading-tool.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-terminal-fill"></i></div>
+                            <h3 class="feature-title">AIO Terminal: Complete Overview</h3>
+                            <p class="feature-description">All seven tabs, Smart TP/SL, trailing stop, one-click execution, and security model explained.</p>
+                            <span class="feature-description small">15 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="aio-terminal-tp-sl-modes-price-range-pct.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-sliders"></i></div>
+                            <h3 class="feature-title">TP/SL Mastery: Price, Range &amp; PCT Modes</h3>
+                            <p class="feature-description">How to use all three TP/SL input modes and when each one gives you better precision for your trading style.</p>
+                            <span class="feature-description small">14 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <a href="one-click-order-execution-futures-trading.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                            <h3 class="feature-title">One-Click Execution Deep Dive</h3>
+                            <p class="feature-description">The limit-at-last-price method — why it achieves near-100% fill rates at maker fees and how the order chain works.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="aio-terminal-analytics-tab-market-microstructure-guide.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Analytics Tab: Complete Market Microstructure Dashboard Guide</span></a>
+      <a class="aio-related-card" href="aio-terminal-smart-tape-aggression-gauge-cvd.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">Smart Tape, Aggression Gauge &amp; CVD: Read Institutional Order Flow in Real Time</span></a>
+      <a class="aio-related-card" href="aio-terminal-order-book-live-dom-binance-futures.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal Order Book: Real-Time DOM Analysis for Binance Futures</span></a>
+      <a class="aio-related-card" href="aio-terminal-binance-futures-trading-tool.html"><span class="aio-related-cat">AIO Terminal</span><span class="aio-related-title">AIO Terminal: The Pro Binance Futures Tool You Didn't Know You Needed</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators and trading tools for smart money and institutional price action.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>

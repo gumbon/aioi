@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja" data-page-lang="ja">
+<!-- aio-tx 4ae46c5f4208b373 -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#0a0e27" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="蓄積ゾーン検出、勝率追跡による統計的ブレイクアウト予測、そして統合されたポジションサイジングをマスターする。AIO Accumulation Zone、Breakout Prediction、Statistic Panelを解説。" />
+    <meta name="keywords" content="蓄積ゾーン, Wyckoff, ブレイクアウト予測, 勝率, ポジションサイジング, 資金管理, マルチタイムフレームトレンド, TradingView インジケーター" />
+    <meta name="author" content="AIO Indicator" />
+    <title>蓄積ゾーン &amp; ブレイクアウト予測：データドリブンなエントリータイミング | AIO Indicator</title>
+
+    <meta property="og:title" content="蓄積ゾーン & ブレイクアウト予測：データドリブンなエントリータイミング" />
+    <meta property="og:description" content="Wyckoffの蓄積・分配ゾーンを検出し、過去の勝率統計でブレイクアウトを検証、そして正確なポジションサイジングを自動で実行。" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ja.html" />
+
+    <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+    @font-face{font-family:"bootstrap-icons";src:local("bootstrap-icons"),url("../bootstrap-icons.woff2")format("woff2");font-display:swap}
+    </style>
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"></noscript>
+    <link href="../css/modern-styles.css" rel="stylesheet" />
+    <link href="../css/blog-styles.css" rel="stylesheet" />
+    <link href="../css/i18n.css" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2LFT6ZC32N"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-2LFT6ZC32N');</script>
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ja.html" />
+
+    <!-- Open Graph (image + twitter card) -->
+    <meta property="og:image" content="https://aioindicator.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="AIO Indicator" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@gumbon" />
+    <meta name="twitter:title" content="蓄積ゾーン & ブレイクアウト予測：データドリブンなエントリータイミング" />
+    <meta name="twitter:description" content="蓄積ゾーン検出、勝率追跡による統計的ブレイクアウト予測、そして統合されたポジションサイジングをマスターする。AIO Accumulation Zone、Breakout Prediction、Statistic Panelを解説。" />
+    <meta name="twitter:image" content="https://aioindicator.com/assets/og-image.png" />
+
+    <!-- Schema.org BlogPosting -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "蓄積ゾーン & ブレイクアウト予測：データドリブンなエントリータイミング",
+      "description": "蓄積ゾーン検出、勝率追跡による統計的ブレイクアウト予測、そして統合されたポジションサイジングをマスターする。AIO Accumulation Zone、Breakout Prediction、Statistic Panelを解説。",
+      "url": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html",
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "author": {
+        "@type": "Person",
+        "name": "AIO Indicator Team",
+        "url": "https://aioindicator.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "AIO Indicator",
+        "url": "https://aioindicator.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aioindicator.com/assets/favicon.ico"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html"
+      },
+      "inLanguage": "en",
+      "timeRequired": "PT11M"
+    }
+    </script>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://aioindicator.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://aioindicator.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "Accumulation Zones & Breakout Prediction: Data-Driven Entry Timing", "item": "https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" }
+      ]
+    }
+    </script>
+<!-- aio-hreflang-start -->
+    <link rel="alternate" hreflang="en" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" />
+    <link rel="alternate" hreflang="vi" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.vi.html" />
+    <link rel="alternate" hreflang="ja" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ja.html" />
+    <link rel="alternate" hreflang="ko" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.ko.html" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.zh.html" />
+    <link rel="alternate" hreflang="hi" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.hi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://aioindicator.com/blog/accumulation-zones-breakout-prediction.html" />
+    <!-- aio-hreflang-end -->
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark modern-navbar fixed-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="../">
+            <img src="../assets/favicon.ico" height="40" alt="AIO Indicator Logo" class="me-2">
+            <span>AIO Indicator</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="../"><i class="bi bi-house-door"></i><span data-i18n="nav.home">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#features"><i class="bi bi-stars"></i><span data-i18n="nav.features">Features</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#indicators"><i class="bi bi-grid"></i><span data-i18n="nav.indicators">Indicators</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../aio-terminal.html"><i class="bi bi-terminal-fill"></i><span data-i18n="nav.terminal">Terminal</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="./"><i class="bi bi-journal-text"></i><span data-i18n="nav.blog">Blog</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="../#pricing"><i class="bi bi-tags"></i><span data-i18n="nav.pricing">Pricing</span></a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <span data-i18n="nav.community">Community</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/aiotradehub">Telegram</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://medium.com/@tranholenguyen">Medium</a></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://twitter.com/gumbon/">Twitter</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" target="_blank" rel="noopener noreferrer" href="https://t.me/nguyenthl"><span data-i18n="nav.chat">Chat with me</span></a></li>
+                    </ul>
+                </li>
+                <li class="nav-item ms-lg-2 d-flex align-items-center">
+                    <a href="https://terminal.aioindicator.com" target="_blank" rel="noopener noreferrer" class="btn-terminal-login">
+                        <i class="bi bi-box-arrow-in-right me-1"></i>
+                        <span data-i18n="nav.login_terminal">Login</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle lang-switcher-btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-globe lang-globe-icon"></i>
+                        <span class="lang-switcher-current">🇬🇧&nbsp;EN</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                        <li><a class="dropdown-item" href="#" data-lang-btn="en">🇬🇧&nbsp;English</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="vi">🇻🇳&nbsp;Tiếng Việt</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ja">🇯🇵&nbsp;日本語</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="ko">🇰🇷&nbsp;한국어</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="zh">🇨🇳&nbsp;中文</a></li>
+                        <li><a class="dropdown-item" href="#" data-lang-btn="hi">🇮🇳&nbsp;हिन्दी</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="article-hero"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+        <div class="article-tag">Data-Driven</div>
+        <h1 class="article-title">蓄積ゾーン &amp; ブレイクアウト予測：データドリブンなエントリータイミング</h1>
+        <div class="article-meta">
+            <span><i class="bi bi-person"></i> AIO Indicator Team</span>
+            <span><i class="bi bi-calendar3"></i> May 4, 2026</span>
+            <span><i class="bi bi-clock"></i> 12 min read</span>
+        </div>
+    </div></div></div></section>
+
+    <section class="article-content-section"><div class="container"><div class="row justify-content-center"><div class="col-lg-8"><div class="article-body"><h2>エントリータイミングのための3つのデータドリブンツール</h2>
+<p>ほとんどのトレード判断は主観的な判断に基づいている：「ここでブレイクアウトするだろう」。本記事で紹介する3つのAIO インジケーターは、主観的判断を<strong>データ</strong>に置き換える：上位足のローソク足構造から蓄積ゾーンを検出し、過去の勝率で統計的にブレイクアウトを検証し、リスク計算から正確なポジションサイズを算出する。</p>
+
+<hr>
+
+<div class="mid-article-cta">
+    <div class="mid-cta-content">
+        <div class="mid-cta-text">
+            <strong>ライブチャートで確認したいですか？</strong>
+            <span>AIO Indicator は本記事で紹介したすべてを自動化します &mdash; 手動での描画も、当て推量も不要。</span>
+        </div>
+        <a href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer" class="btn btn-hero-primary btn-sm">
+            <i class="bi bi-lightning-charge-fill"></i> 5日間無料で試す
+        </a>
+    </div>
+</div>
+
+
+<h2>Part 1: 蓄積ゾーン検出（AIO Accumulation Zone）</h2>
+
+<h3>コンセプト</h3>
+<p>Wyckoff手法において、<strong>蓄積（Accumulation）</strong>とは、機関投資家が上昇フェーズ前に静かにポジションを積み上げるフェーズのことだ。<strong>分配（Distribution）</strong>はその逆 &mdash; 下落フェーズ前に機関投資家が売却する段階。これらのフェーズは上位足で最も明確に視認でき、ローソク足の実体が「構成」する力の方向を示している。</p>
+
+<h3>AIO Accumulation Zone の仕組み</h3>
+<p>このインジケーターは、HTF（上位タイムフレーム）のローソク足実体ゾーンを色付きのボックスとして下位タイムフレームのチャート上に表示する：</p>
+
+<ul>
+    <li><strong>強気のHTFローソク足（O &lt; C）：</strong>ゾーンはOpenから下にLowまで（緑のボックス）&mdash; これは強気の終値をつける前に蓄積が行われたエリア</li>
+    <li><strong>弱気のHTFローソク足（O &gt; C）：</strong>ゾーンはHighから下にOpenまで（赤のボックス）&mdash; 弱気の終値をつける前にOpenより上で分配が行われた</li>
+</ul>
+
+<h3>タイムフレームの自動選択</h3>
+<p>インジケーターはチャートのタイムフレームに応じて、適切なHTFを自動的に選択する：</p>
+<ul>
+    <li>イントラデイ（&le;60m）&rarr; 日足ゾーン</li>
+    <li>イントラデイ（&le;240m）&rarr; 週足ゾーン</li>
+    <li>日足 &rarr; 3ヶ月ゾーン</li>
+    <li>週足 &rarr; 6ヶ月ゾーン</li>
+    <li>月足以上 &rarr; 12ヶ月ゾーン</li>
+</ul>
+
+<p><strong>現在と直前の期間のゾーン</strong>が両方表示されるため、直近2本のHTFローソク足の蓄積・分配の動きをコンテキストとして把握できる。</p>
+
+<h3>トレードへの応用</h3>
+<p>価格が緑（蓄積）ゾーン内で推移しているとき、それは上位タイムフレームで買い手が積極的だったエリアにいることを意味する。このゾーンへの押し目は、サポートを見つける確率が高い。逆に、赤（分配）ゾーンへの上昇は機関投資家の売り圧力に直面する。</p>
+
+<hr>
+
+<h2>Part 2: ブレイクアウト予測（AIO Breakout Prediction）</h2>
+
+<h3>組み込みの統計バックテストエンジン</h3>
+<p>ヒューリスティクスに頼るのではなく、このインジケーターは<strong>チャート履歴全体のすべてのブレイクアウトをカウント</strong>し、勝率を表示する：</p>
+
+<h4>ブレイクアウトパターン</h4>
+<ol>
+    <li>パターン検出：<code>close[2] &gt; high[3]</code>（2本前のローソク足が3本前の高値を上抜けて終値をつけた）</li>
+    <li>勝利条件：<code>high[1] &gt; high[2]</code>（1本前のローソク足が2本前より高い高値をつけた）&mdash; フォロースルー確認</li>
+    <li>負け：フォロースルーが発生しなかった</li>
+</ol>
+
+<p>インジケーターは累積の<strong>勝率%</strong>、合計<strong>勝利回数</strong>、<strong>敗北回数</strong>を表示する。これらは理論的なバックテストではなく、チャート上の実際の価格バーから算出される。</p>
+
+<h4>バイアスシステム</h4>
+<p>2つ目のより精緻なシステムは、<strong>インサイドバーのブレイクアウトパターン</strong>を検出する &mdash; 価格が前のバーのレンジをブレイクし、かつ次のローソク足が同方向で確認した場合（強気ブレイクアウト後に緑のローソク足、弱気後に赤）。このシステムは独自の独立した勝率を持つ。</p>
+
+<h4>マルチタイムフレーム ブレイクアウトドット</h4>
+<p>インジケーターは1H、4H、日足、週足の各タイムフレームに対して色付きドットを表示し、直前の終値が2つ前の期間の高値・安値を上抜け・下抜けしたかどうかを示す。これにより、一目でわかる<strong>マルチTFブレイクアウトマトリクス</strong>を構成する。</p>
+
+<h3>使い方</h3>
+<ul>
+    <li>勝率が&gt;60%であれば、このシンボル・TFの組み合わせでフォロースルーを伴うブレイクアウトパターンは信頼性が高い</li>
+    <li>バイアスシステムが確認のカラードットを示しているときのみブレイクアウトをトレードする</li>
+    <li>勝率が&lt;45%であれば、ブレイクアウトをトレードする代わりに<em>フェード</em>することを検討する</li>
+</ul>
+
+<hr>
+
+<h2>Part 3: ポジションサイジング &amp; リアルタイム追跡（AIO Statistic Panel）</h2>
+
+<h3>ブレイクアウト情報テーブル</h3>
+<p>AIO Statistic Panel は「今日の価格は昨日のキーレベルをブレイクしたか？」という問いにリアルタイムで答える：</p>
+<ul>
+    <li><strong>PDH：</strong>今日の高値は前日高値（Previous Day High）をブレイクしたか？（はい/まだ）</li>
+    <li><strong>PDL：</strong>今日の安値は前日安値（Previous Day Low）をブレイクしたか？</li>
+    <li><strong>PWH：</strong>今週の高値は前週高値（Previous Week High）をブレイクしたか？</li>
+    <li><strong>PWL：</strong>今週の安値は前週安値（Previous Week Low）をブレイクしたか？</li>
+</ul>
+
+<h3>マルチタイムフレーム トレンドマトリクス</h3>
+<p>SMAの比較を使って5m、15m、1H、4H、日足、週足のトレンド方向を表示する。さらに設定可能なMAトレンドパネル（SMA/EMA/RMA/WMA/VWMAの4本：期間20/50/100/200）も搭載。</p>
+
+<h3>統合された資金管理計算機</h3>
+<p>最も実用的な機能 &mdash; 自動ポジションサイジング：</p>
+
+<h4>入力値</h4>
+<ul>
+    <li><strong>残高：</strong>口座サイズ（例：$3,000）</li>
+    <li><strong>リスク%：</strong>1トレードあたりのリスク許容量（例：2%）</li>
+    <li><strong>ストップロス：</strong>ロット単位（FX）またはユニット単位（仮想通貨・株式）</li>
+</ul>
+
+<h4>出力値</h4>
+<ul>
+    <li><strong>リスク金額：</strong>$3,000 &times; 2% = $60</li>
+    <li><strong>FXの場合：</strong>ロットサイズ = リスク金額 / (SL pips &times; 10)。JPYペアを自動検出。</li>
+    <li><strong>仮想通貨・株式の場合：</strong>ユニット数 = リスク金額 / (現在価格 &times; SL%)</li>
+</ul>
+
+<p>手動計算や別途のポジションサイジングツールは不要 &mdash; 数値はチャート上に直接表示される。</p>
+
+<hr>
+
+<h2>統合して使う：データドリブンなエントリー</h2>
+<ol>
+    <li><strong>AIO Accumulation Zone：</strong>価格は蓄積（緑）ゾーンにいるか、分配（赤）ゾーンにいるか？</li>
+    <li><strong>AIO Breakout Prediction：</strong>このシンボル・TFのブレイクアウト勝率は&gt;55%か？バイアスシステムは確認しているか？</li>
+    <li><strong>AIO Statistic Panel：</strong>PDH/PDLはブレイクされたか？マルチTFトレンドの整合性はどうか？</li>
+    <li><strong>すべてが揃った場合：</strong>資金管理計算機でポジションサイズを決定し、トレードに入る</li>
+</ol>
+
+<div class="indicator-cta-box">
+    <h3>推測ではなく、データでトレードする</h3>
+    <p>蓄積検出、統計的ブレイクアウト検証、そして統合されたポジションサイジング。</p>
+    <a class="btn btn-hero-primary" href="https://t.me/nguyenthl" target="_blank" rel="noopener noreferrer">
+        <i class="bi bi-lightning-charge-fill"></i> 5日間無料トライアルを開始する
+    </a>
+</div></div></div></div></div></section>
+
+        <!-- Related Posts -->
+    <section class="modern-features" style="padding-top:40px;padding-bottom:100px;">
+        <div class="container">
+            <h3 class="section-title" style="font-size:1.5rem;margin-bottom:1.5rem;">Related Articles</h3>
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-6">
+                    <a href="dow-theory-trading-guide.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-arrow-up-right-square"></i></div>
+                            <h3 class="feature-title">Dow Theory Trading: How to Implement in Modern Markets</h3>
+                            <p class="feature-description">Charles Dow's 130-year-old principles still form the foundation of technical analysis. How to apply them in modern markets.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <a href="risk-management-probability-kelly-criterion.html" class="text-decoration-none" style="color:inherit;">
+                        <div class="feature-card h-100">
+                            <div class="feature-icon"><i class="bi bi-shield-fill-check"></i></div>
+                            <h3 class="feature-title">Risk Management with Probability: Kelly Criterion, VaR &amp; Crash Detection</h3>
+                            <p class="feature-description">Turn complex quantitative risk management into actionable BUY/SHORT/WAIT/AVOID decisions.</p>
+                            <span class="feature-description small">12 min read &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- aio-related-start -->
+<section class="aio-related"><div class="container"><div class="row justify-content-center"><div class="col-lg-8">
+    <h2 class="aio-related-heading">Related Articles</h2>
+    <div class="aio-related-grid">
+      <a class="aio-related-card" href="liquidity-sweeps-stop-hunts-guide.html"><span class="aio-related-cat">Smart Money</span><span class="aio-related-title">Liquidity Sweeps &amp; Stop Hunts: Why Your Stops Keep Getting Targeted</span></a>
+      <a class="aio-related-card" href="smt-divergence-cross-symbol-analysis.html"><span class="aio-related-cat">ICT Concepts</span><span class="aio-related-title">SMT Divergence: How Institutions Leave Footprints Between Correlated Assets</span></a>
+      <a class="aio-related-card" href="multi-timeframe-analysis-guide.html"><span class="aio-related-cat">Trading Strategy</span><span class="aio-related-title">Multi-Timeframe Analysis: The Top-Down Framework Every Pro Trader Uses</span></a>
+      <a class="aio-related-card" href="ict-trading-setup-sessions-price-levels.html"><span class="aio-related-cat">ICT Concepts</span><span class="aio-related-title">ICT Trading Setup: Sessions, Price Levels &amp; Standard Deviation Projections</span></a>
+    </div>
+</div></div></div></section>
+<!-- aio-related-end -->
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">
+                        <img src="../assets/favicon.ico" height="40" alt="AIO Indicator" class="me-2">
+                        <span>AIO Indicator</span>
+                    </div>
+                    <p class="text-secondary mt-3">Professional TradingView indicators for smart money and institutional price action trading.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Product</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="../#indicators" class="text-secondary text-decoration-none">Indicators</a></li>
+                        <li class="mb-2"><a href="../aio-terminal.html" class="text-secondary text-decoration-none">AIO Terminal</a></li>
+                        <li class="mb-2"><a href="../#pricing" class="text-secondary text-decoration-none">Pricing</a></li>
+                        <li class="mb-2"><a href="../#faq" class="text-secondary text-decoration-none">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Learn</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="./" class="text-secondary text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="smart-money-trading-guide.html" class="text-secondary text-decoration-none">Smart Money Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h5 class="text-white mb-3">Connect</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://t.me/nguyenthl" class="text-secondary text-decoration-none">Telegram</a></li>
+                        <li class="mb-2"><a href="https://www.tradingview.com/u/tranholenguyen/" class="text-secondary text-decoration-none">TradingView</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary" />
+            <div class="text-center text-secondary py-3">
+                <p class="mb-0">&copy; 2026 AIO Indicator. All rights reserved. Trading involves significant risk.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/toc.js" defer></script>
+</body>
+</html>
