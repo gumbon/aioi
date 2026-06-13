@@ -40,6 +40,9 @@
         "type": "git",
         "url": "https://github.com/StartBootstrap/startbootstrap-business-frontpage.git"
     },
+    "overrides": {
+        "axios": ">=0.32.0"
+    },
     "dependencies": {
         "bootstrap": "5.1.3"
     },
